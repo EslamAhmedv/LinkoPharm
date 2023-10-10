@@ -3,13 +3,13 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="homepage.css">
+    <link rel="stylesheet" href="../public/css/homepage.css">
     
 </head>
 <body>
  <div class="hero">
     <nav>
-        <img src="images/logo.png" class="logo">
+        <img src="../public/images/logo.png" class="logo">
         <ul>
             <li><a href="#">Wishlist</a></li>
             <li><a href="#">Cart</a></li>
@@ -28,7 +28,7 @@
         </p>
         <a href="#" class="btn">Join Now</a>
     </div>
-    <img src="images/doct.png.png" class="feature-img">
+    <img src="../public/images/doct.png.png" class="feature-img">
  </div>
 </body>
 </html>
