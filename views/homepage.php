@@ -19,7 +19,13 @@
             <li><a href="#">Profile</a></li>
         </ul>
         
-    <div class="profile-dropdown">
+    
+        <div>
+            <a href="#" class="login-btn">Log in</a>
+            <a href="#" class="btn">Download app</a>
+        </div>
+   
+        <div class="profile-dropdown">
         <div onclick="toggle()" class="profile-dropdown-btn">
           <div class="profile-img">
             <i class="fa-solid fa-circle"></i>
@@ -76,12 +82,6 @@
           </li>
         </ul>
       </div>
-        <div>
-            <a href="#" class="login-btn">Log in</a>
-            <a href="#" class="btn">Download app</a>
-        </div>
-   
-
 
       </nav>
 
