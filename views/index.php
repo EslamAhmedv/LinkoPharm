@@ -11,6 +11,8 @@
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="../public/css/homepage.css">
     <link rel="stylesheet" href="../public/css/chat.css">
+    <link rel="stylesheet" href="../public/css/categories.css">
+    <link rel="stylesheet" href="../public/css/footer.css">
 </head>
 
 
@@ -42,9 +44,42 @@
           </span>
         </div>
 
-        <ul class="profile-dropdown-list">
+        
+        <div class="slideshow-container">
+
+<div class="mySlides fade">
+  
+  <img src="../public/images/slide6.png" style="width:600px">
+  
+</div>
+
+<div class="mySlides fade">
+  
+  <img src="../public/images/slide5.png.jpg" style="width:600px">
+  
+</div>
+
+<div class="mySlides fade">
+  
+  <img src="../public/images/slide7.jpg" style="width:600px">
+
+</div>
+
+<div class="mySlides fade">
+  
+  <img src="../public/images/slide1.png.jpg" style="width:600px">
+
+</div>
+
+<a class="prev" onclick="plusSlides(-1)">❮</a>
+<a class="next" onclick="plusSlides(1)">❯</a>
+
+</div>
+<br>
+
+<ul class="profile-dropdown-list">
           <li class="profile-dropdown-list-item">
-            <a href="dashborad.php">
+            <a href="userprofle.php">
               <i class="fa-regular fa-user"></i>
               Edit Profile
             </a>
@@ -86,14 +121,43 @@
             </a>
           </li>
         </ul>
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span> 
+  <span class="dot" onclick="currentSlide(2)"></span> 
+  <span class="dot" onclick="currentSlide(3)"></span> 
+</div>
+
+<script>
+let slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
+</script>
       </div>
 
       </nav>
-
-
-
-
-
 
     <div class="content">
         <h1>Stay Home <br> & Order Online</h1>
@@ -105,8 +169,6 @@
     </div>
     <!-- <img src="../public/images/doct.png.png" class="feature-img"> -->
  </div>
-
-
 
 
 
@@ -161,6 +223,117 @@ window.addEventListener("click", function (e) {
   if (!btn.contains(e.target)) classList.remove("active");
 });
 </script>
+
+<section class="section__container sale__container">
+    <h2 class="section__title">OUR CATEGORIES </h2>
+    <div class="sale__grid">
+        <div class="sale__card">
+        <img src="../public/images/medications.png.jpg" alt="sale" />
+        <div class="sale__content">
+            <p class="sale__subtitle">Medications </p>
+            <h4 class="sale__title">sale <span>40% </span>off </h4>
+            <p class="sale__subtitle">Dont miss</p>
+            <button class="btnn sale__btnn">shop now </button>
+            
+    </div>
+    </div>
+    <div class="sale__card">
+        <img src="../public/images/vitamines.png.jpg" alt="sale" />
+        <div class="sale__content">
+            <p class="sale__subtitle">Vitamines </p>
+            <h4 class="sale__title">sale <span>40% </span>off </h4>
+            <p class="sale__subtitle">Dont miss</p>
+            <button class="btnn sale__btnn">shop now </button>
+            
+    </div>
+    </div>
+
+    <div class="sale__card">
+        <img src="../public/images/haircare.png.jpg" alt="sale" />
+        <div class="sale__content">
+            <p class="sale__subtitle">Hair Care </p>
+            <h4 class="sale__title">sale <span>40% </span>off </h4>
+            <p class="sale__subtitle">Dont miss</p>
+            <button class="btnn sale__btnn">shop now </button>
+            
+    </div>
+    </div>
+    <div class="sale__card">
+        <img src="../public/images/skincare.png.jpg" alt="sale" />
+        <div class="sale__content">
+            <p class="sale__subtitle">Skin Care </p>
+            <h4 class="sale__title">sale <span>40% </span>off </h4>
+            <p class="sale__subtitle">Dont miss</p>
+            <button class="btnn sale__btnn">shop now </button>
+            
+    </div>
+    </div>
+    <div class="sale__card">
+        <img src="../public/images/medical.png.jpg" alt="sale" />
+        <div class="sale__content">
+            <p class="sale__subtitle">Medical Supplies </p>
+            <h4 class="sale__title">sale <span>40% </span>off </h4>
+            <p class="sale__subtitle">Dont miss</p>
+            <button class="btnn sale__btnn">shop now </button>
+            
+    </div>
+    </div>
+    <div class="sale__card">
+        <img src="../public/images/babyycare.png.webp" alt="sale" />
+        <div class="sale__content">
+            <p class="sale__subtitle">Baby Care </p>
+            <h4 class="sale__title">sale <span>40% </span>off </h4>
+            <p class="sale__subtitle">Dont miss</p>
+            <button class="btnn sale__btnn">shop now </button>
+            
+    </div>
+    </div>
+    </div>   
+ </section>
+
+ <footer class="footer">
+  	 <div class="container">
+  	 	<div class="row">
+  	 		<div class="footer-col">
+  	 			<h4>company</h4>
+  	 			<ul>
+  	 				<li><a href="#">about us</a></li>
+  	 				<li><a href="#">our services</a></li>
+  	 				<li><a href="#">privacy policy</a></li>
+  	 				<li><a href="#">affiliate program</a></li>
+  	 			</ul>
+  	 		</div>
+  	 		<div class="footer-col">
+  	 			<h4>get help</h4>
+  	 			<ul>
+  	 				<li><a href="#">FAQ</a></li>
+  	 				<li><a href="#">shipping</a></li>
+  	 				<li><a href="#">returns</a></li>
+  	 				<li><a href="#">order status</a></li>
+  	 				<li><a href="#">payment options</a></li>
+  	 			</ul>
+  	 		</div>
+  	 		<div class="footer-col">
+  	 			<h4>online shop</h4>
+  	 			<ul>
+  	 				<li><a href="#">Hair Care</a></li>
+  	 				<li><a href="#">Skin Care</a></li>
+  	 				<li><a href="#">Medical Supplies</a></li>
+  	 				<li><a href="#">Vitamines</a></li>
+  	 			</ul>
+  	 		</div>
+  	 		<div class="footer-col">
+  	 			<h4>follow us</h4>
+  	 			<div class="social-links">
+  	 				<a href="#"><img src="../public/images/facebook.png"></i></a>
+  	 				<a href="#"><img src="../public/images/twitter.png"></a>
+  	 				<a href="#"><img src="../public/images/linkedd.png"></i></a>
+  	 				<a href="#"><img src="../public/images/instagram.webp"></i></a>
+  	 			</div>
+  	 		</div>
+  	 	</div>
+  	 </div>
+  </footer>
 
 </body>
 </html>

@@ -92,8 +92,11 @@ function autoReply() {
 	const today = new Date()
 	let message = `
 		<div class="chatbox-message-item received">
+        <span class="chatbox-message-item-text">
+				Thank you for contacting us
+			</span>
 			<span class="chatbox-message-item-text">
-				Thank you for your awesome support!
+				Linkopharm Egypt 
 			</span>
 			<span class="chatbox-message-item-time">${addZero(today.getHours())}:${addZero(today.getMinutes())}</span>
 		</div>
