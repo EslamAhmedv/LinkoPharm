@@ -80,6 +80,12 @@ body {
     font-weight: bold;
     color: white;
     background-color: #49d8b9;
+    transition: all 0.4s;
+}
+  
+.buttonCheckout:hover {
+    background-color: #37a18a;
+    color: white;
 }
   
 .returnCart h1 {
