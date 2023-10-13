@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="../public/css/homepage.css">
     <link rel="stylesheet" href="../public/css/chat.css">
     <link rel="stylesheet" href="../public/css/categories.css">
+    <link rel="stylesheet" href="../public/css/footer.css">
 </head>
 
 
@@ -332,6 +333,6 @@ window.addEventListener("click", function (e) {
   	 	</div>
   	 </div>
   </footer>
-  
+
 </body>
 </html>
