@@ -44,7 +44,40 @@
           </span>
         </div>
 
-        <ul class="profile-dropdown-list">
+        
+        <div class="slideshow-container">
+
+<div class="mySlides fade">
+  
+  <img src="../public/images/slide6.png" style="width:600px">
+  
+</div>
+
+<div class="mySlides fade">
+  
+  <img src="../public/images/slide5.png.jpg" style="width:600px">
+  
+</div>
+
+<div class="mySlides fade">
+  
+  <img src="../public/images/slide7.jpg" style="width:600px">
+
+</div>
+
+<div class="mySlides fade">
+  
+  <img src="../public/images/slide1.png.jpg" style="width:600px">
+
+</div>
+
+<a class="prev" onclick="plusSlides(-1)">❮</a>
+<a class="next" onclick="plusSlides(1)">❯</a>
+
+</div>
+<br>
+
+<ul class="profile-dropdown-list">
           <li class="profile-dropdown-list-item">
             <a href="userprofle.php">
               <i class="fa-regular fa-user"></i>
@@ -88,38 +121,6 @@
             </a>
           </li>
         </ul>
-        <div class="slideshow-container">
-
-<div class="mySlides fade">
-  
-  <img src="../public/images/slide6.png" style="width:600px">
-  
-</div>
-
-<div class="mySlides fade">
-  
-  <img src="../public/images/slide5.png.jpg" style="width:600px">
-  
-</div>
-
-<div class="mySlides fade">
-  
-  <img src="../public/images/slide7.jpg" style="width:600px">
-
-</div>
-
-<div class="mySlides fade">
-  
-  <img src="../public/images/slide1.png.jpg" style="width:600px">
-
-</div>
-
-<a class="prev" onclick="plusSlides(-1)">❮</a>
-<a class="next" onclick="plusSlides(1)">❯</a>
-
-</div>
-<br>
-
 <div style="text-align:center">
   <span class="dot" onclick="currentSlide(1)"></span> 
   <span class="dot" onclick="currentSlide(2)"></span> 
