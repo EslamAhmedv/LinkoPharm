@@ -130,7 +130,7 @@
   }
   .chatbox-message-item.sent {
     align-self: flex-end;
-    background-color: #217aa9;
+    background-color: #213ca9;
     color:black;
     border-radius: .75rem 0 .75rem .75rem;
   }
