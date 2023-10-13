@@ -324,10 +324,10 @@ window.addEventListener("click", function (e) {
   	 		<div class="footer-col">
   	 			<h4>follow us</h4>
   	 			<div class="social-links">
-  	 				<a href="#"><img src="images/facebook.png"></i></a>
-  	 				<a href="#"><img src="images/twitter.png"></a>
-  	 				<a href="#"><img src="images/linkedd.png"></i></a>
-  	 				<a href="#"><img src="images/instagram.webp"></i></a>
+  	 				<a href="#"><img src="../public/images/facebook.png"></i></a>
+  	 				<a href="#"><img src="../public/images/twitter.png"></a>
+  	 				<a href="#"><img src="../public/images/linkedd.png"></i></a>
+  	 				<a href="#"><img src="../public/images/instagram.webp"></i></a>
   	 			</div>
   	 		</div>
   	 	</div>
