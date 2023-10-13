@@ -22,10 +22,10 @@
                 </div>
             </div>
             <div class="sidebar">
-                <a href="dashborad.php" class="active"><span class="material-symbols-sharp">dashboard</span>
+                <a href="dashboard.php" class="active"><span class="material-symbols-sharp">dashboard</span>
                     <h3>Dashboard</h3>
                 </a>
-                <a href=""><span class="material-symbols-sharp">person</span>
+                <a href="customers.php"><span class="material-symbols-sharp">person</span>
                     <h3>Customers</h3>
                 </a>
                 <a href=""><span class="material-symbols-sharp">receipt_long</span>
