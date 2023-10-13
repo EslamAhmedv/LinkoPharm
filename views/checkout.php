@@ -129,7 +129,7 @@
                         </div>
                         <div class="group">
                             <label for="">Phone Number</label>
-                            <input type="text" name="" id="" placeholder="Your Phone Number">
+                            <input type="tel" name="" id="" placeholder="Your Phone Number">
                         </div>
                         <div class="group">
                             <label for="">Address</label>
