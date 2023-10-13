@@ -92,7 +92,7 @@
         <div class="container">
             <div class="checkoutLayout">
                 <div class="returnCart">
-                    <a class="keepShopping" href="../views/homepage.php">Keep shopping</a>
+                    <a class="keepShopping" href="../views/index.php">Keep shopping</a>
                     <h1>List Products In Cart</h1>
                     <div class="list">
                         <div class="item">
@@ -117,6 +117,7 @@
                 </div>
                 <div class="right">
                     <h1>CHECKOUT</h1>
+                    <h1 class="sInfo">Shipping information</h1>
                     <div class="form">
                         <div class="group">
                             <label for="">First Name</label>
@@ -141,6 +142,8 @@
                                 <option value="Cairo">Cairo</option>
                             </select>
                         </div>
+                        <h1 class="details">Payment details</h1>
+                        <div></div>
                         <div class="group">
                             <label for="">Name on card</label>
                             <input type="text" name="" id="" placeholder="Your name and surname">
