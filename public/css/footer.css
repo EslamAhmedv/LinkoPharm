@@ -20,7 +20,7 @@ ul{
 	list-style: none;
 }
 .footer{
-	background-color: #24262b;
+	background-color: #000b26f1;
     padding: 70px 0;
 }
 .footer-col{
@@ -40,7 +40,7 @@ ul{
 	position: absolute;
 	left:0;
 	bottom: -10px;
-	background-color: #e91e63;
+	background-color: #b50303;
 	height: 2px;
 	box-sizing: border-box;
 	width: 50px;
@@ -66,7 +66,7 @@ ul{
 	display: inline-block;
 	height: 40px;
 	width: 40px;
-	background-color: rgba(255,255,255,0.2);
+	background-color: rgba(37, 3, 105, 0.2);
 	margin:0 10px 10px 0;
 	text-align: center;
 	line-height: 40px;
