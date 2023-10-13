@@ -11,6 +11,7 @@
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="../public/css/homepage.css">
     <link rel="stylesheet" href="../public/css/chat.css">
+    <link rel="stylesheet" href="../public/css/categories.css">
 </head>
 
 
@@ -156,11 +157,6 @@ function showSlides(n) {
 
       </nav>
 
-
-
-
-
-
     <div class="content">
         <h1>Stay Home <br> & Order Online</h1>
         <p>
@@ -171,8 +167,6 @@ function showSlides(n) {
     </div>
     <!-- <img src="../public/images/doct.png.png" class="feature-img"> -->
  </div>
-
-
 
 
 
@@ -227,6 +221,73 @@ window.addEventListener("click", function (e) {
   if (!btn.contains(e.target)) classList.remove("active");
 });
 </script>
+
+<section class="section__container sale__container">
+    <h2 class="section__title">OUR CATEGORIES </h2>
+    <div class="sale__grid">
+        <div class="sale__card">
+        <img src="images/medications.png.jpg" alt="sale" />
+        <div class="sale__content">
+            <p class="sale__subtitle">Medications </p>
+            <h4 class="sale__title">sale <span>40% </span>off </h4>
+            <p class="sale__subtitle">Dont miss</p>
+            <button class="btnn sale__btnn">shop now </button>
+            
+    </div>
+    </div>
+    <div class="sale__card">
+        <img src="images/vitamines.png.jpg" alt="sale" />
+        <div class="sale__content">
+            <p class="sale__subtitle">Vitamines </p>
+            <h4 class="sale__title">sale <span>40% </span>off </h4>
+            <p class="sale__subtitle">Dont miss</p>
+            <button class="btnn sale__btnn">shop now </button>
+            
+    </div>
+    </div>
+
+    <div class="sale__card">
+        <img src="images/haircare.png.jpg" alt="sale" />
+        <div class="sale__content">
+            <p class="sale__subtitle">Hair Care </p>
+            <h4 class="sale__title">sale <span>40% </span>off </h4>
+            <p class="sale__subtitle">Dont miss</p>
+            <button class="btnn sale__btnn">shop now </button>
+            
+    </div>
+    </div>
+    <div class="sale__card">
+        <img src="images/skincare.png.jpg" alt="sale" />
+        <div class="sale__content">
+            <p class="sale__subtitle">Skin Care </p>
+            <h4 class="sale__title">sale <span>40% </span>off </h4>
+            <p class="sale__subtitle">Dont miss</p>
+            <button class="btnn sale__btnn">shop now </button>
+            
+    </div>
+    </div>
+    <div class="sale__card">
+        <img src="images/medical.png.jpg" alt="sale" />
+        <div class="sale__content">
+            <p class="sale__subtitle">Medical Supplies </p>
+            <h4 class="sale__title">sale <span>40% </span>off </h4>
+            <p class="sale__subtitle">Dont miss</p>
+            <button class="btnn sale__btnn">shop now </button>
+            
+    </div>
+    </div>
+    <div class="sale__card">
+        <img src="images/babyycare.png.webp" alt="sale" />
+        <div class="sale__content">
+            <p class="sale__subtitle">Baby Care </p>
+            <h4 class="sale__title">sale <span>40% </span>off </h4>
+            <p class="sale__subtitle">Dont miss</p>
+            <button class="btnn sale__btnn">shop now </button>
+            
+    </div>
+    </div>
+    </div>   
+ </section>
 
 </body>
 </html>
