@@ -44,7 +44,7 @@
 
         <ul class="profile-dropdown-list">
           <li class="profile-dropdown-list-item">
-            <a href="dashborad.php">
+            <a href="userprofle.php">
               <i class="fa-regular fa-user"></i>
               Edit Profile
             </a>
@@ -172,7 +172,7 @@
                         </div>
                     </div>
                     <button class="buttonCheckout">
-                        CHECKOUT
+                        PLACE ORDER
                     </button>
                 </div>
             </div>
