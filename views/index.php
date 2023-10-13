@@ -122,7 +122,7 @@
 						<h4 class="chatbox-message-name">user1</h4>
 						<p class="chatbox-message-status">online</p>
 					</div>
-				</div>\
+				</div>
 				<div class="chatbox-message-dropdown">
 					<i class='bx bx-dots-vertical-rounded chatbox-message-dropdown-toggle'></i>
 					<ul class="chatbox-message-dropdown-menu">
