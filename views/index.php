@@ -226,7 +226,7 @@ window.addEventListener("click", function (e) {
     <h2 class="section__title">OUR CATEGORIES </h2>
     <div class="sale__grid">
         <div class="sale__card">
-        <img src="images/medications.png.jpg" alt="sale" />
+        <img src="../public/images/medications.png.jpg" alt="sale" />
         <div class="sale__content">
             <p class="sale__subtitle">Medications </p>
             <h4 class="sale__title">sale <span>40% </span>off </h4>
@@ -236,7 +236,7 @@ window.addEventListener("click", function (e) {
     </div>
     </div>
     <div class="sale__card">
-        <img src="images/vitamines.png.jpg" alt="sale" />
+        <img src="../public/images/vitamines.png.jpg" alt="sale" />
         <div class="sale__content">
             <p class="sale__subtitle">Vitamines </p>
             <h4 class="sale__title">sale <span>40% </span>off </h4>
@@ -247,7 +247,7 @@ window.addEventListener("click", function (e) {
     </div>
 
     <div class="sale__card">
-        <img src="images/haircare.png.jpg" alt="sale" />
+        <img src="../public/images/haircare.png.jpg" alt="sale" />
         <div class="sale__content">
             <p class="sale__subtitle">Hair Care </p>
             <h4 class="sale__title">sale <span>40% </span>off </h4>
@@ -257,7 +257,7 @@ window.addEventListener("click", function (e) {
     </div>
     </div>
     <div class="sale__card">
-        <img src="images/skincare.png.jpg" alt="sale" />
+        <img src="../public/images/skincare.png.jpg" alt="sale" />
         <div class="sale__content">
             <p class="sale__subtitle">Skin Care </p>
             <h4 class="sale__title">sale <span>40% </span>off </h4>
@@ -267,7 +267,7 @@ window.addEventListener("click", function (e) {
     </div>
     </div>
     <div class="sale__card">
-        <img src="images/medical.png.jpg" alt="sale" />
+        <img src="../public/images/medical.png.jpg" alt="sale" />
         <div class="sale__content">
             <p class="sale__subtitle">Medical Supplies </p>
             <h4 class="sale__title">sale <span>40% </span>off </h4>
@@ -277,7 +277,7 @@ window.addEventListener("click", function (e) {
     </div>
     </div>
     <div class="sale__card">
-        <img src="images/babyycare.png.webp" alt="sale" />
+        <img src="../public/images/babyycare.png.webp" alt="sale" />
         <div class="sale__content">
             <p class="sale__subtitle">Baby Care </p>
             <h4 class="sale__title">sale <span>40% </span>off </h4>
