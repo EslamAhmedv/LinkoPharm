@@ -133,27 +133,40 @@
 let searchForm=document.querySelector('.search-form');
  document.querySelector('#search-btn').onclick=()=>{
     searchForm.classList.toggle('active');
+    shoppingCart.classList.remove('active');
+    Navbar.classList.remove('active');
  }
-
-
-</script>
-
-
-
-
-
-
-
-<script>
-
-let shoppingCart=document.querySelector('.shopping-cart');
+ let shoppingCart=document.querySelector('.shopping-cart');
  document.querySelector('#cart-btn').onclick=()=>{
     shoppingCart.classList.toggle('active');
+    searchForm.classList.remove('active');
+    Navbar.classList.remove('active');
  }
 
+ let Navbar=document.querySelector('.navbar');
+ document.querySelector('#menu-btn').onclick=()=>{
+    Navbar.classList.toggle('active');
+    searchForm.classList.remove('active');
+    shoppingCart.classList.remove('active');
+   
+ }
+
+ window.onscroll=()=>{
+    searchForm.classList.remove('active');
+    shoppingCart.classList.remove('active');
+    Navbar.classList.remove('active');
+
+ }
 
 </script>
 
+
+
+
+
+
+
+<
 
 
   <script>let profileDropdownList = document.querySelector(".profile-dropdown-list");
