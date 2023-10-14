@@ -2,12 +2,12 @@
 require '../includes/db.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $firstname = $_POST["firstname"];
-    $lastname = $_POST["lastname"];
-    $username = $_POST["username"];
-    $email = $_POST["email"];
-    $password = $_POST["password"];
-    $confirmpassword = $_POST["password_confirm"];
+    $firstname = htmlspecialchars($_POST["firstname"]);
+    $lastname = htmlspecialchars($_POST["lastname"]);
+    $username = htmlspecialchars($_POST["username"]);
+    $email = htmlspecialchars($_POST["email"]);
+    $password = htmlspecialchars($_POST["password"]);
+    $confirmpassword = htmlspecialchars($_POST["password_confirm"]);
 
     $errors = [];
 
