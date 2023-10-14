@@ -4,7 +4,7 @@
         <link rel="stylesheet" href="css/slide.css">
         <title>login and sign up</title>
          <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"> 
+         <link rel="stylesheet" href="../public/css/login.css">
 </head>
         <body>
         <br>
