@@ -172,44 +172,6 @@ function showSlides(n) {
 
 
 
-<div class="chatbox-wrapper">
-		<div class="chatbox-toggle">
-			<i class='bx bx-message-dots'></i>
-		</div>
-		<div class="chatbox-message-wrapper">
-			<div class="chatbox-message-header">
-				<div class="chatbox-message-profile">
-					<img src="../public/images/profile-pic.jpg" alt="" class="chatbox-message-image">
-					<div>
-						<h4 class="chatbox-message-name">user1</h4>
-						<p class="chatbox-message-status">online</p>
-					</div>
-				</div>
-				<div class="chatbox-message-dropdown">
-					<i class='bx bx-dots-vertical-rounded chatbox-message-dropdown-toggle'></i>
-					<ul class="chatbox-message-dropdown-menu">
-						<li>
-							<a href="#">Search</a>
-						</li>
-						<li>
-							<a href="#">Report</a>
-						</li>
-					</ul>
-				</div>
-			</div>
-			<div class="chatbox-message-content">
-				<h4 class="chatbox-message-no-message">You don't have message yet!</h4>
-
-			</div>
-			<div class="chatbox-message-bottom">
-				<form action="#" class="chatbox-message-form">
-					<textarea rows="1" placeholder="Type message..." class="chatbox-message-input"></textarea>
-					<button type="submit" class="chatbox-message-submit"><i class='bx bx-send' ></i></button>
-				</form>
-			</div>
-		</div>
-	</div>
-	<script src="../public/js/chat.js"></script>
 
 
   <script>let profileDropdownList = document.querySelector(".profile-dropdown-list");
@@ -335,5 +297,43 @@ window.addEventListener("click", function (e) {
   	 </div>
   </footer>
 
+  <div class="chatbox-wrapper">
+		<div class="chatbox-toggle">
+			<i class='bx bx-message-dots'></i>
+		</div>
+		<div class="chatbox-message-wrapper">
+			<div class="chatbox-message-header">
+				<div class="chatbox-message-profile">
+					<img src="../public/images/profile-pic.jpg" alt="" class="chatbox-message-image">
+					<div>
+						<h4 class="chatbox-message-name">user1</h4>
+						<p class="chatbox-message-status">online</p>
+					</div>
+				</div>
+				<div class="chatbox-message-dropdown">
+					<i class='bx bx-dots-vertical-rounded chatbox-message-dropdown-toggle'></i>
+					<ul class="chatbox-message-dropdown-menu">
+						<li>
+							<a href="#">Search</a>
+						</li>
+						<li>
+							<a href="#">Report</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="chatbox-message-content">
+				<h4 class="chatbox-message-no-message">You don't have message yet!</h4>
+
+			</div>
+			<div class="chatbox-message-bottom">
+				<form action="#" class="chatbox-message-form">
+					<textarea rows="1" placeholder="Type message..." class="chatbox-message-input"></textarea>
+					<button type="submit" class="chatbox-message-submit"><i class='bx bx-send' ></i></button>
+				</form>
+			</div>
+		</div>
+	</div>
+	<script src="../public/js/chat.js"></script>
 </body>
 </html>
