@@ -1,7 +1,7 @@
 <html>
     <head>
         <title> Wishlist</title>
-        <link rel="stylesheet" href="css/wishlistt.css">
+        <link rel="stylesheet" href="../public/css/wishlist.css">
         <link rel="stylesheet"
             href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
             <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"> 
