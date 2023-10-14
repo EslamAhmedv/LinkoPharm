@@ -311,8 +311,8 @@ box-shadow: var(--box-shadow);
     align-items: center;
     justify-content: space-between;
     padding-right: 1rem;
-    font-size: 0.9rem;
-    font-weight: 500;
+    font-size: 17px;
+    font-weight: 600;
     width: 150px;
     border-radius: 50px;
     color:#050505;
@@ -331,7 +331,7 @@ box-shadow: var(--box-shadow);
   }
   
   .profile-img {
-    position: relative;
+    position:relative;
     width: 3rem;
     height: 3rem;
     border-radius: 50%;
@@ -364,6 +364,7 @@ box-shadow: var(--box-shadow);
     overflow: hidden;
     box-shadow: var(--shadow);
     transition: max-height 0.5s;
+    
   }
   
   .profile-dropdown-list hr {
@@ -378,6 +379,7 @@ box-shadow: var(--box-shadow);
   .profile-dropdown-list-item {
     padding: 0.5rem 0rem 0.5rem 1rem;
     transition: background-color 0.2s ease-in, padding-left 0.2s;
+    
   }
 
   
@@ -385,9 +387,10 @@ box-shadow: var(--box-shadow);
     display: flex;
     align-items: center;
     text-decoration: none;
-    font-size: 0.9rem;
+    font-size: 15px;
     font-weight: 500;
     color:#222;
+    padding-top: 25px;
   }
   
   .profile-dropdown-list-item a i {
