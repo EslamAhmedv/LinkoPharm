@@ -33,7 +33,7 @@
                               <button>Delete</button></td>
                            </a>
                </td>
-                        <td><img src="1.jpeg"  width="100"height="100"></td>
+                        <td><img src="../public/images/wish1.webp"  width="100"height="100"></td>
                         <td>Panadol</td>
                         <td>In Stock</td>
                         <td>$200</td>
@@ -50,7 +50,7 @@
                               <button>Delete</button></td>
                            </a>
                </td>
-                        <td><img src="1.jpeg"  width="100"height="100"></td>
+                        <td><img src="../public/images/wish2.webp"  width="100"height="100"></td>
                         <td>Panadol</td>
                         <td>Out Of Stock</td>
                         <td>$80</td> 
