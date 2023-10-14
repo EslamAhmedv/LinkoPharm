@@ -7,82 +7,137 @@
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fontawesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="../public/css/products.css">
+    <script src="https://kit.fontawesome.com/f4bd0b4361.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <section class="dishes" id="dishes">
-        <h3 class="sub-heading">
-            Our Products </h3>
-        <h1 class="heading">Most Viewed</h1>
-        <div class="box-container">
-            <div class="box">
-                <a href="#" class="fas fa-heart"></a>
-                <a href="#" class="fas fa-eye"></a>
-                <img src="../public/images/doct.png.png" alt="">
-                <h3>Tasty Food</h3>
-                <div class="stars">
-                    <i class="fas fa-stars"></i>
-                    <i class="fas fa-stars"></i>
-                    <i class="fas fa-stars"></i>
-                    <i class="fas fa-stars"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                </div>
-                <span>$15.99</span>
-                <a href="#" class="btn">Add to cart</a>
-            </div>
 
+<div id="menu_selections">
+    <h1 id ="headaftersafety">Our Products</h1>
+    <h2 id ="headaftersafety">Choose What You Want </h2>
+    <hr>
 
-            <div class="box">
-                <a href="#" class="fas fa-heart"></a>
-                <a href="#" class="fas fa-eye"></a>
-                <img src="../public/images/doct.png.png" alt="">
-                <h3>Tasty Food</h3>
-                <div class="stars">
-                    <i class="fas fa-stars"></i>
-                    <i class="fas fa-stars"></i>
-                    <i class="fas fa-stars"></i>
-                    <i class="fas fa-stars"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                </div>
-                <span>$15.99</span>
-                <a href="#" class="btn">Add to cart</a>
-            </div>
+   
+</div>
+<hr>
+<div id ="menubody" onclick="favorites(event.target)">
 
+    <div class="menu_items" ><img src="../public/images/haircare.png.jpg" alt="" width="100%" height="100%" class="menu_img">
+        <div class="descr_and_add">
+            <img src="../public/images/favourite.png" class="favrs" alt=""title="remove from favourite">
+            <img src="../public/images/love.png" class="favs" alt=""title="add to favourite">
+            <img src="../public/images/add.png" alt="" 
+             class="icons">
+        <div class="description"> 
+            <span class="names"> Hair Oil</span>
+            <br>
+            <p class="ingred">150 gm of oil with mxafa dq2 </p>
+            <span class="prices">Price : 20$</span>
+        </div></div>
+    
+    </div>
+    
+    <div class="menu_items" ><img src="../public/images/haircare.png.jpg" alt="" width="100%" height="100%" class="menu_img">
+        <div class="descr_and_add">
+            <img src="../public/images/favourite.png" class="favrs" alt=""title="remove from favourite">
+            <img src="../public/images/love.png" class="favs" alt=""title="add to favourite">
+            <img src="../public/images/add.png" alt="" 
+             class="icons">
+        <div class="description"> 
+            <span class="names"> Hair Oil</span>
+            <br>
+            <p class="ingred">150 gm of oil with mxafa dq2 </p>
+            <span class="prices">Price : 20$</span>
+        </div></div>
+    
+    </div>
+    
+    <div class="menu_items" ><img src="../public/images/haircare.png.jpg" alt="" width="100%" height="100%" class="menu_img">
+        <div class="descr_and_add">
+            <img src="../public/images/favourite.png" class="favrs" alt=""title="remove from favourite">
+            <img src="../public/images/love.png" class="favs" alt=""title="add to favourite">
+            <img src="../public/images/add.png" alt="" 
+             class="icons">
+        <div class="description"> 
+            <span class="names"> Hair Oil</span>
+            <br>
+            <p class="ingred">150 gm of oil with mxafa dq2 </p>
+            <span class="prices">Price : 20$</span>
+        </div></div>
+    
+    </div>
+    <div class="menu_items" ><img src="../public/images/haircare.png.jpg" alt="" width="100%" height="100%" class="menu_img">
+        <div class="descr_and_add">
+            <img src="../public/images/favourite.png" class="favrs" alt=""title="remove from favourite">
+            <img src="../public/images/love.png" class="favs" alt=""title="add to favourite">
+            <img src="../public/images/add.png" alt="" 
+             class="icons">
+        <div class="description"> 
+            <span class="names"> Hair Oil</span>
+            <br>
+            <p class="ingred">150 gm of oil with mxafa dq2 </p>
+            <span class="prices">Price : 20$</span>
+        </div></div>
+    
+    </div>
+    <div class="menu_items" ><img src="../public/images/haircare.png.jpg" alt="" width="100%" height="100%" class="menu_img">
+        <div class="descr_and_add">
+            <img src="../public/images/favourite.png" class="favrs" alt=""title="remove from favourite">
+            <img src="../public/images/love.png" class="favs" alt=""title="add to favourite">
+            <img src="../public/images/add.png" alt="" 
+             class="icons">
+        <div class="description"> 
+            <span class="names"> Hair Oil</span>
+            <br>
+            <p class="ingred">150 gm of oil with mxafa dq2 </p>
+            <span class="prices">Price : 20$</span>
+        </div></div>
+    
+    </div>
+    <div class="menu_items" ><img src="../public/images/haircare.png.jpg" alt="" width="100%" height="100%" class="menu_img">
+        <div class="descr_and_add">
+            <img src="../public/images/favourite.png" class="favrs" alt=""title="remove from favourite">
+            <img src="../public/images/love.png" class="favs" alt=""title="add to favourite">
+            <img src="../public/images/add.png" alt="" 
+             class="icons">
+        <div class="description"> 
+            <span class="names"> Hair Oil</span>
+            <br>
+            <p class="ingred">150 gm of oil with mxafa dq2 </p>
+            <span class="prices">Price : 20$</span>
+        </div></div>
+    
+    </div>
+    <div class="menu_items" ><img src="../public/images/haircare.png.jpg" alt="" width="100%" height="100%" class="menu_img">
+        <div class="descr_and_add">
+            <img src="../public/images/favourite.png" class="favrs" alt=""title="remove from favourite">
+            <img src="../public/images/love.png" class="favs" alt=""title="add to favourite">
+            <img src="../public/images/add.png" alt="" 
+             class="icons">
+        <div class="description"> 
+            <span class="names"> Hair Oil</span>
+            <br>
+            <p class="ingred">150 gm of oil with mxafa dq2 </p>
+            <span class="prices">Price : 20$</span>
+        </div></div>
+    
+    </div>
+    <div class="menu_items" ><img src="../public/images/haircare.png.jpg" alt="" width="100%" height="100%" class="menu_img">
+        <div class="descr_and_add">
+            <img src="../public/images/favourite.png" class="favrs" alt=""title="remove from favourite">
+            <img src="../public/images/love.png" class="favs" alt=""title="add to favourite">
+            <img src="../public/images/add.png" alt="" 
+             class="icons">
+        <div class="description"> 
+            <span class="names"> Hair Oil</span>
+            <br>
+            <p class="ingred">150 gm of oil with mxafa dq2 </p>
+            <span class="prices">Price : 20$</span>
+        </div></div>
+    
+    </div>
+       
+    </div>
 
-
-            <div class="box">
-                <a href="#" class="fas fa-heart"></a>
-                <a href="#" class="fas fa-eye"></a>
-                <img src="../public/images/doct.png.png" alt="">
-                <h3>Tasty Food</h3>
-                <div class="stars">
-                    <i class="fas fa-stars"></i>
-                    <i class="fas fa-stars"></i>
-                    <i class="fas fa-stars"></i>
-                    <i class="fas fa-stars"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                </div>
-                <span>$15.99</span>
-                <a href="#" class="btn">Add to cart</a>
-            </div>
-
-
-
-            <div class="box">
-                <a href="#" class="fas fa-heart"></a>
-                <a href="#" class="fas fa-eye"></a>
-                <img src="../public/images/doct.png.png" alt="">
-                <h3>Tasty Food</h3>
-                <div class="stars">
-                    <i class="fas fa-stars"></i>
-                    <i class="fas fa-stars"></i>
-                    <i class="fas fa-stars"></i>
-                    <i class="fas fa-stars"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                </div>
-                <span>$15.99</span>
-                <a href="#" class="btn">Add to cart</a>
-            </div>
-        </div>
-    </section>
+   
 </body>
 </html>
