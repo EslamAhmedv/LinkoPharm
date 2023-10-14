@@ -128,6 +128,31 @@
             <a href="" class="btn">checkout</a>
         </div>
     </header>
+   <script>
+
+let searchForm=document.querySelector('.search-form');
+ document.querySelector('#search-btn').onclick=()=>{
+    searchForm.classList.toggle('active');
+ }
+
+
+</script>
+
+
+
+
+
+
+
+<script>
+
+let shoppingCart=document.querySelector('.shopping-cart');
+ document.querySelector('#cart-btn').onclick=()=>{
+    shoppingCart.classList.toggle('active');
+ }
+
+
+</script>
 
 
 
