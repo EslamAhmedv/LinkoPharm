@@ -13,18 +13,14 @@
         <nav class="navbar">
        
             <a href="#home">home</a>
-            <a href="#features">features</a>
+            <!-- <a href="#features">features</a> -->
             <a href="#products">products</a>
             <a href="#categories">categories</a>
             <a href="#review">review</a>
+            
+            
 
         </nav>
-
-        <div class="icons">
-            <div class="fas fa-bars" id="menu-btn"></div>
-            <div class="fas fa-search" id="search-btn"></div>
-            <div class="fas fa-shopping-cart" id="cart-btn"></div>
-        </div>
         <div class="profile-dropdown">
         <div onclick="toggle()" class="profile-dropdown-btn">
           <div class="profile-img">
@@ -84,13 +80,57 @@
             </a>
           </li>
         </ul>
-        <!-- <form action="" class="search-form">
+    </div>
+        
+
+        <div class="icons">
+            <div class="fas fa-bars" id="menu-btn"></div>
+            <div class="fas fa-search" id="search-btn" ></div>
+            <div class="fas fa-shopping-cart" id="cart-btn"></div>
+        </div>
+        
+      
+        
+        <form action="" class="search-form">
             <input type="search" id="search-box" placeholder="search here..." >
             <label for="search-box" class="fas fa-search"></label>
-        </form> -->
+        </form>
         
+        <div class="shopping-cart">
+            <div class="box">
+                <i class="fas fa-trash"></i>
+                <img src="../public/images/haircare.png.jpg" alt="">
+                <div class="content">
+                    <h3>hair care</h3>
+                    <span class="price">$4.99</span>
+                    <span class="Quantity">qty:4</span>
+                </div>
+            </div>
+            <div class="box">
+                <i class="fas fa-trash"></i>
+                <img src="../public/images/haircare.png.jpg" alt="">
+                <div class="content">
+                    <h3>hair care</h3>
+                    <span class="price">$4.99</span>
+                    <span class="Quantity">qty:4</span>
+                </div>
+            </div>
+            <div class="box">
+                <i class="fas fa-trash"></i>
+                <img src="../public/images/haircare.png.jpg" alt="">
+                <div class="content">
+                    <h3>hair care</h3>
+                    <span class="price">$4.99/-</span>
+                    <span class="Quantity">qty:4</span>
+                </div>
+            </div>
+            <div class="total">total : $19.69/-</div>
+            <a href="" class="btn">checkout</a>
+        </div>
     </header>
-    
+
+
+
   <script>let profileDropdownList = document.querySelector(".profile-dropdown-list");
 let btn = document.querySelector(".profile-dropdown-btn");
 
@@ -102,5 +142,6 @@ window.addEventListener("click", function (e) {
   if (!btn.contains(e.target)) classList.remove("active");
 });
 </script>
+
 </body>
 </html>

@@ -115,3 +115,4 @@ function isValid(value) {
 
 	return text.length > 0
 }
+
