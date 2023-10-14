@@ -1,0 +1,83 @@
+body{
+    width:100%;
+}
+
+#wish{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    letter-spacing: 5px;
+    padding:12px;
+   
+}
+#wish h1{
+    justify-content: center;
+    text-align: center;
+    font-size:30;
+   
+}
+
+#wish .wishTable table{
+    border-collapse: collapse;
+    font-size:20px;
+    box-shadow: 0 0 20px rgba(198, 13, 13, 0.25); 
+    border-radius: 25px;
+   
+    
+}
+ .wishTable tr{
+    text-align: center;
+}
+.wishTable th{
+    text-align:center;
+    padding-top:18px;
+    padding-bottom: 28px;
+    font-size: 18;
+    padding:20px 20px;
+    border-bottom: 1px solid;
+     
+}
+.wishTable tr,td{
+    padding:4px 40px;
+}
+.wishTable td{
+    font-size:16;
+}
+.wishTable button{
+    padding-top:10px;
+    padding-bottom: 10px;
+    padding-left:15px;
+    padding-right: 15px;
+    border:none;
+    border-radius: 10px;
+    background-color: rgb(49, 126, 180);
+    color:white;
+    cursor: pointer;
+    font-size:14;
+
+}
+.wishTable button:hover{
+    color:black;
+    background-color: white;
+    transition: 0.25s ease;
+}
+.wishTable img{
+    cursor: pointer;
+}
+.delbutton{
+    cursor:pointer;
+    padding-top:20;
+    padding-bottom: 20;
+    padding-left: 70;
+    padding-right: 70;
+    margin-top: 40px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size:18;
+    background-color:rgb(154, 24, 6);
+    border: none;
+    color:white;
+    border-radius: 30px;
+}
+.delbutton:hover{
+    background-color: white;
+    color:black;
+    transition: 0.25s ease;
+}
