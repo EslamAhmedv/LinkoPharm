@@ -45,38 +45,6 @@
         </div>
 
         
-        <div class="slideshow-container">
-
-<div class="mySlides fade">
-  
-  <img src="../public/images/slide6.png" style="width:600px">
-  
-</div>
-
-<div class="mySlides fade">
-  
-  <img src="../public/images/slide5.png.jpg" style="width:600px">
-  
-</div>
-
-<div class="mySlides fade">
-  
-  <img src="../public/images/slide7.jpg" style="width:600px">
-
-</div>
-
-<div class="mySlides fade">
-  
-  <img src="../public/images/slide1.png.jpg" style="width:600px">
-
-</div>
-
-<a class="prev" onclick="plusSlides(-1)">❮</a>
-<a class="next" onclick="plusSlides(1)">❯</a>
-
-</div>
-<br>
-
 <ul class="profile-dropdown-list">
           <li class="profile-dropdown-list-item">
             <a href="userprofle.php">
@@ -132,14 +100,7 @@
 
       </nav>
 
-    <div class="content">
-        <h1>Stay Home <br> & Order Online</h1>
-        <p>
-            Now you can shop online, select all what you need from the pharmacy through
-             our online store on web or on mobile app., and we will deliver it to you directly from our diffuse branches.
-        </p>
-        <a href="#" class="btn">Join Now</a>
-    </div>
+
     <!-- <img src="../public/images/doct.png.png" class="feature-img"> -->
  </div>
 
@@ -147,6 +108,38 @@
 
 
 
+
+ <div class="slideshow-container">
+
+<div class="mySlides fade">
+  
+  <img src="../public/images/slide1.png.jpg" width="100%" height="600">
+  
+</div>
+
+<div class="mySlides fade">
+  
+  <img src="../public/images/slide5.png.jpg" width="100%" height="600">
+  
+</div>
+
+<div class="mySlides fade">
+  
+  <img src="../public/images/slide7.jpg" width="100%" height="600">
+
+</div>
+
+<div class="mySlides fade">
+  
+  <img src="../public/images/slide6.png" width="100%" height="600">
+
+</div>
+
+<a class="prev" onclick="plusSlides(-1)">❮</a>
+<a class="next" onclick="plusSlides(1)">❯</a>
+
+</div>
+<br>
 
 <section class="section__container sale__container">
     <h2 class="section__title">OUR CATEGORIES </h2>

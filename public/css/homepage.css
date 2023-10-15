@@ -6,14 +6,10 @@
     font-family: 'Poppins', sans-serif;
 }
 .hero{
-    width: 100%;
-    min-height:100vh;
-    background-image: url(images/bacgrond.jpg);
-    background-position: center;
-    background-size: cover;
+
     padding: 10px 10%;
     overflow: hidden ;
-    position: relative;
+   
 }
 nav{
     padding: 10px;
@@ -52,22 +48,7 @@ nav ul li a{
     border-top-right-radius: 0;
     transition: 0.5s;
 }
-.content{
-    margin-top: 10%;
-    max-width: 600px;
-}
-.content h1{
-font-size: 70px;
-color: #222;
-}
-.content p{
-    margin: 10px 0 30px;
-    color:#333;
-}
-.content .btn{
-    padding: 15px 80px;
-    font-size: 16px;;
-}
+
 
 .btn:hover{
     border-top-right-radius:30px ;
@@ -81,13 +62,10 @@ img {vertical-align: middle;}
 
 /* Slideshow container */
 .slideshow-container {
-  max-width: 600px;
-  max-height: 600px;
-  width: 600px;
-  position: absolute;
-  right: 10%;
-  top: 300%;
-  
+  max-width: 100%;
+  min-height: 600px;
+  position: relative;
+  margin: auto;
 
 }
 
