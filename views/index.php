@@ -208,6 +208,87 @@
     </div>   
  </section>
 
+
+
+ 
+ <section class="news">
+      <div class="section__container news__container">
+        <h2 class="section__title">Latest News</h2>
+        <div class="news__grid">
+          <div class="news__card">
+            <img src="../public/images/wish1.webp" />
+            <div class="news__details">
+
+              <h4>LAROCHE-POSAY</h4>
+              <hr />
+              <p>
+                Effacalar Cleanser
+              </p>
+              <a href="#"><i class="ri-arrow-right-line"></i></a>
+            </div>
+          </div>
+          <div class="news__card">
+            <img src="../public/images/shop1.jpg" />
+            <div class="news__details">
+              <h4>LAROCHE-POSAY</h4>
+              <hr />
+              <p>
+                Effaclar Cleanser
+              </p>
+              <a href="#"><i class="ri-arrow-right-line"></i></a>
+            </div>
+          </div>
+          <div class="news__card">
+            <img src="../public/images/shop2.jpg" alt="news" />
+            <div class="news__details">
+              <h4>LAROCHE-POSAY</h4>
+              <hr />
+              <p>
+               Lipikar Baume
+              </p>
+              <a href="#"><i class="ri-arrow-right-line"></i></a>
+            </div>
+          </div>
+          <div class="news__card">
+            <img src="../public/images/shop3.webp" />
+            <div class="news__details">
+              <h4>LAROCHE-POSAY</h4>
+              <hr />
+              <p>
+                Effaclar Cleanser
+              </p>
+              <a href="#"><i class="ri-arrow-right-line"></i></a>
+            </div>
+          </div>
+          <div class="news__card">
+            <img src="../public/images/shop5.jpg" />
+            <div class="news__details">
+              <h4>LAROCHE-POSAY</h4>
+              <hr />
+              <p>
+                Effaclar Cleanser
+              </p>
+              <a href="#"><i class="ri-arrow-right-line"></i></a>
+            </div>
+          </div>
+          <div class="news__card">
+            <img src="../public/images/shop4.webp" />
+            <div class="news__details">
+              <h4>LAROCHE-POSAY</h4>
+              <hr />
+              <p>
+                Effaclar Cleanser
+              </p>
+              <a href="#"><i class="ri-arrow-right-line"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+
  <footer class="footer">
   	 <div class="container">
   	 	<div class="row">

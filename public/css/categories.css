@@ -64,6 +64,16 @@ body {
   font-family: "Montserrat", sans-serif;
 }
 
+.collection__content .btn {
+  border: 1px solid var(--text-dark);
+  color: var(--text-dark);
+  background-color: var(--white);
+}
+
+.collection__content .btn:hover {
+  background-color: var(--text-dark);
+  color: var(--white);
+}
 
 
 .sale__grid {
@@ -125,6 +135,7 @@ body {
   color: var(--text-dark);
   background-color: var(--white);
 }
+
 
 
 
