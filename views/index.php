@@ -113,25 +113,25 @@
 
 <div class="mySlides fade">
   
-  <img src="../public/images/slide1.png.jpg" width="100%" height="600">
+  <img src="../public/images/slide9.webp" width="100%" height="550px">
   
 </div>
 
 <div class="mySlides fade">
   
-  <img src="../public/images/slide5.png.jpg" width="100%" height="600">
+  <img src="../public/images/slide5.png.jpg" width="100%" height="550px">
   
 </div>
 
 <div class="mySlides fade">
   
-  <img src="../public/images/slide7.jpg" width="100%" height="600">
+  <img src="../public/images/slide7.jpg" width="100%" height="550px">
 
 </div>
 
 <div class="mySlides fade">
   
-  <img src="../public/images/slide6.png" width="100%" height="600">
+  <img src="../public/images/slide6.png" width="100%" height="550">
 
 </div>
 
