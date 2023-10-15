@@ -1,0 +1,59 @@
+
+body {
+    font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+    background: #ffffff;
+}
+.txtpass{
+   font-size: xx-large;
+   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+
+}
+
+.cont {
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    width: 600px;
+    height: 400px;
+    margin: 0 auto 100px;
+    background: #fff;
+    box-shadow: -10px -10px 15px rgba(255, 255, 255, 0.3), 10px 10px 15px rgba(70, 70, 70, 0.15), inset -10px -10px 15px rgba(255, 255, 255, 0.3), inset 10px 10px 15px rgba(70, 70, 70, 0.15);
+}
+
+input{
+    margin:10px
+
+    
+}
+
+input,
+button {
+   border-top: black;
+   border-left: black;
+   border-right: black;
+    background:none;
+    font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+    margin-top: 30px;
+}
+
+.form {
+    justify-content: center;
+    position: relative;
+    width: 640px;
+    height: 100%;
+    padding: 60px 190px 0;
+}
+
+button {
+    display: block;
+    margin: 20px;
+    width: 150px;
+    height: 30px;
+    background-image: linear-gradient(45deg, #230585, #c51126);
+    border-radius: 20px;
+    border-color: none;
+    color: #fff;
+    font-size: 15px;
+    cursor: pointer;
+}
