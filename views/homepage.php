@@ -282,6 +282,28 @@
               <a href="#"><i class="ri-arrow-right-line"></i></a>
             </div>
           </div>
+          <div class="news__card">
+            <img src="../public/images/shop6.jpg" />
+            <div class="news__details">
+              <h4>LAROCHE-POSAY</h4>
+              <hr />
+              <p>
+                serum 
+              </p>
+              <a href="#"><i class="ri-arrow-right-line"></i></a>
+            </div>
+          </div>
+          <div class="news__card">
+            <img src="../public/images/shop7.webp" />
+            <div class="news__details">
+              <h4>LAROCHE-POSAY</h4>
+              <hr />
+              <p>
+                Moisturizer
+              </p>
+              <a href="#"><i class="ri-arrow-right-line"></i></a>
+            </div>
+          </div>
         </div>
       </div>
     </section>

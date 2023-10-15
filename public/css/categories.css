@@ -274,7 +274,7 @@ body {
 
 .news__grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
 }
 
@@ -357,40 +357,4 @@ body {
   }
 }
 
-@media (width <600px) {
-  .nav__links {
-    display: none;
-  }
 
-  header {
-    margin-top: 0;
-  }
-
-  .header__container {
-    grid-template-columns: repeat(1, 1fr);
-  }
-
-  .header__image {
-    display: none;
-  }
-
-  .sale__grid {
-    grid-template-columns: repeat(1, 1fr);
-  }
-
-  .musthave__grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .news__grid {
-    grid-template-columns: repeat(1, 1fr);
-  }
-
-  .brands__container {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .footer__container {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
