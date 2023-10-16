@@ -1,3 +1,42 @@
+<?php
+@include '../includes/db.php';
+if(isset($_POST['submit'])){
+    $username= mysqli_real_escape_string($conn,$_POST['name']);
+    $email= mysqli_real_escape_string($conn,$_POST['email']);
+    $password= md5($_POST['password']);
+    $cpassword= md5($_POST['password2']);
+
+    $select = " SELECT * FROM users WHERE email = '$email' && password = '$password' ";
+    $result = mysqli_query($conn,$select);
+    if(mysqli_num_rows($result)>0){
+        $error[]='user already exist';
+    }else{
+        if($password != $cpassword){
+            $error[]='password doesn\'t match  exist';
+
+        }else{
+            $insert="INSERT INTO users(username,email,password) VALUES('$username','$email','$password')";
+            mysqli_query($conn,$insert);
+            header('location:index.php');
+        }
+    }
+
+};
+
+
+
+
+?>
+
+
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -41,7 +80,14 @@
             </div>
             <div class="form sign-up">
                 <h2>Create your Account</h2>
-                <form action="">
+                <form action="" method="post">
+                    <?php 
+                    if(isset($error)){
+                        foreach($error as $error){
+                            echo '<span class="error-msg">'.$error.'</span>';
+                        };
+                    };
+                    ?>
                 <label>
                     <span>Name</span>
                     <input type="text" Name="username" />
