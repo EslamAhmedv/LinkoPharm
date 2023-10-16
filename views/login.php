@@ -1,7 +1,7 @@
 <?php
 @include '../includes/db.php';
 if(isset($_POST['submit'])){
-    $username= mysqli_real_escape_string($conn,$_POST['name']);
+    $username= mysqli_real_escape_string($conn,$_POST['username']);
     $email= mysqli_real_escape_string($conn,$_POST['email']);
     $password= md5($_POST['password']);
     $cpassword= md5($_POST['password2']);
@@ -49,7 +49,7 @@ if(isset($_POST['submit'])){
         <br>
 <br>
     <div class="cont">
-        <div class="form Log-in">
+        <!-- <div class="form Log-in">
             <h2>Welcome</h2>
             <label>
                 <span>Email</span>
@@ -62,7 +62,7 @@ if(isset($_POST['submit'])){
             <p class="forgot-pass">Forgot password?</p>
             <button type="button" class="submit">Sign In</button>
          
-        </div>
+        </div> -->
         <div class="sub-cont">
             <div class="img">
                 <div class="img__text m--up">
@@ -102,10 +102,10 @@ if(isset($_POST['submit'])){
                 </label>
 
                 <label>
-                    <span>Password</span>
+                    <span>confirm Password</span>
                     <input type="text" Name="password2" />
                 </label>
-                <button type="button" class="submit">Sign Up</button>
+                <button type="submit" name="submit" class="submit">Sign Up</button>
                 </form>
             </div>
         </div>

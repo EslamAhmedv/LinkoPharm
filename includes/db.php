@@ -5,6 +5,7 @@ $password = "";
 $DB = "linkopharm";
 
 // Create connection
+session_start();
 $conn = mysqli_connect($servername, $username, $password, $DB);
 
 // Check connection

@@ -300,7 +300,7 @@ input {
 
 
 
-form .error-msg{
+.signup .error-msg{
     margin: 10px 0;
     display: block;
     background: crimson;
