@@ -15,13 +15,19 @@ $result = $conn->query($sql);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp" />
     <link rel="stylesheet" href="../public/css/displayproducts.css">
+    <link rel="stylesheet" href="../public/css/dashboard.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Products</title>
 </head>
 
 <body>
+   
     <div class="container">
-
+    <aside>
+    <?php  
+    include '../partials/dashboardsidebar.php';
+    ?>
+    </aside>
 
         <main class="table">
             <section class="theader">
@@ -99,6 +105,7 @@ $result = $conn->query($sql);
 </section>
 </main>
 </div>
+
 
 </body>
 
