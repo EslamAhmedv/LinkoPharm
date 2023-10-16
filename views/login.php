@@ -41,20 +41,26 @@
             </div>
             <div class="form sign-up">
                 <h2>Create your Account</h2>
+                <form action="">
                 <label>
                     <span>Name</span>
-                    <input type="text" />
+                    <input type="text" Name="username" />
                 </label>
                 <label>
                     <span>Email</span>
-                    <input type="email" />
+                    <input type="text" Name="email" />
                 </label>
                 <label>
                     <span>Password</span>
-                    <input type="password" />
+                    <input type="text" Name="password" />
+                </label>
+
+                <label>
+                    <span>Password</span>
+                    <input type="text" Name="password2" />
                 </label>
                 <button type="button" class="submit">Sign Up</button>
-                
+                </form>
             </div>
         </div>
     </div>
