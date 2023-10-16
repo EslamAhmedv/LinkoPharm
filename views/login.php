@@ -1,3 +1,42 @@
+<?php
+@include '../includes/db.php';
+if(isset($_POST['submit'])){
+    $username= mysqli_real_escape_string($conn,$_POST['username']);
+    $email= mysqli_real_escape_string($conn,$_POST['email']);
+    $password= md5($_POST['password']);
+    $cpassword= md5($_POST['password2']);
+
+    $select = " SELECT * FROM users WHERE email = '$email' && password = '$password' ";
+    $result = mysqli_query($conn,$select);
+    if(mysqli_num_rows($result)>0){
+        $error[]='user already exist';
+    }else{
+        if($password != $cpassword){
+            $error[]='password doesn\'t match  exist';
+
+        }else{
+            $insert="INSERT INTO users(username,email,password) VALUES('$username','$email','$password')";
+            mysqli_query($conn,$insert);
+            header('location:index.php');
+        }
+    }
+
+};
+
+
+
+
+?>
+
+
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -10,7 +49,7 @@
         <br>
 <br>
     <div class="cont">
-        <div class="form Log-in">
+        <!-- <div class="form Log-in">
             <h2>Welcome</h2>
             <label>
                 <span>Email</span>
@@ -23,7 +62,7 @@
             <p class="forgot-pass">Forgot password?</p>
             <button type="button" class="submit">Sign In</button>
          
-        </div>
+        </div> -->
         <div class="sub-cont">
             <div class="img">
                 <div class="img__text m--up">
@@ -41,7 +80,14 @@
             </div>
             <div class="form sign-up">
                 <h2>Create your Account</h2>
-                <form action="">
+                <form action="" method="post">
+                    <?php 
+                    if(isset($error)){
+                        foreach($error as $error){
+                            echo '<span class="error-msg">'.$error.'</span>';
+                        };
+                    };
+                    ?>
                 <label>
                     <span>Name</span>
                     <input type="text" Name="username" />
@@ -56,10 +102,10 @@
                 </label>
 
                 <label>
-                    <span>Password</span>
+                    <span>confirm Password</span>
                     <input type="text" Name="password2" />
                 </label>
-                <button type="button" class="submit">Sign Up</button>
+                <button type="submit" name="submit" class="submit">Sign Up</button>
                 </form>
             </div>
         </div>
