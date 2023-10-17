@@ -42,12 +42,6 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 }
 
 
-
-?>
-
-
-<?php
-
 $errors2 = array();
 
 if($_SERVER['REQUEST_METHOD'] == "POST")
@@ -61,6 +55,12 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 		die;
 	}
 }
+
+?>
+
+
+<?php
+
 
 ?>
 
