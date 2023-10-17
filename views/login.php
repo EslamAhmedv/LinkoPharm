@@ -132,10 +132,26 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 					<?= $error?> <br>	
 				<?php endforeach;?>
 			<?php endif;?>
-                <label>
-                    <span>Name</span>
-                    <input type="text" Name="username" />
-                </label>
+            <label>
+                <span>First Name</span>
+                <input type="fname" />
+            </label>
+            <label>
+                <span>Last Name</span>
+                <input type="lname" />
+            </label>
+            <label>
+                <span>Phone</span>
+                <input type="phone" />
+            </label>
+            <label>
+                <span>Address</span>
+                <input type="address" />
+            </label>
+            <label>
+                <span>Age</span>
+                <input type="age" />
+            </label>
                 <label>
                     <span>Email</span>
                     <input type="text" Name="email" />
@@ -145,10 +161,8 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
                     <input type="text" Name="password" />
                 </label>
 
-                <label>
-                    <span>confirm Password</span>
-                    <input type="text" Name="password2" />
-                </label>
+                
+                
                 <button type="submit" name="submit" class="submit">Sign Up</button>
                 </form>
             </div>
