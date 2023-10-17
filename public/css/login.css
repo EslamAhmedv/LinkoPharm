@@ -294,3 +294,18 @@ input {
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
 }
+
+
+
+
+
+
+.signup .error-msg{
+    margin: 10px 0;
+    display: block;
+    background: crimson;
+    color: #ffffff;
+    border-radius: 5px;
+    font-size: 20px;
+
+}
