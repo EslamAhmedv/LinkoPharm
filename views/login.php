@@ -1,37 +1,68 @@
 <?php
-@include '../includes/db.php';
-if(isset($_POST['submit'])){
-    $username= mysqli_real_escape_string($conn,$_POST['username']);
-    $email= mysqli_real_escape_string($conn,$_POST['email']);
-    $password= md5($_POST['password']);
-    $cpassword= md5($_POST['password2']);
+// @include '../includes/db.php';
+// if(isset($_POST['submit'])){
+//     $username= mysqli_real_escape_string($conn,$_POST['username']);
+//     $email= mysqli_real_escape_string($conn,$_POST['email']);
+//     $password= md5($_POST['password']);
+//     $cpassword= md5($_POST['password2']);
 
-    $select = " SELECT * FROM users WHERE email = '$email' && password = '$password' ";
-    $result = mysqli_query($conn,$select);
-    if(mysqli_num_rows($result)>0){
-        $error[]='user already exist';
-    }else{
-        if($password != $cpassword){
-            $error[]='password doesn\'t match  exist';
+//     $select = " SELECT * FROM users WHERE email = '$email' && password = '$password' ";
+//     $result = mysqli_query($conn,$select);
+//     if(mysqli_num_rows($result)>0){
+//         $error[]='user already exist';
+//     }else{
+//         if($password != $cpassword){
+//             $error[]='password doesn\'t match  exist';
 
-        }else{
-            $insert="INSERT INTO users(username,email,password) VALUES('$username','$email','$password')";
-            mysqli_query($conn,$insert);
-            header('location:index.php');
-        }
-    }
+//         }else{
+//             $insert="INSERT INTO users(username,email,password) VALUES('$username','$email','$password')";
+//             mysqli_query($conn,$insert);
+//             header('location:index.php');
+//         }
+//     }
 
-};
+// };
 
+
+
+require "functions.php";
+
+$errors = array();
+
+if($_SERVER['REQUEST_METHOD'] == "POST")
+{
+
+	$errors = signup($_POST);
+
+	if(count($errors) == 0)
+	{
+		header("Location: index.php");
+		die;
+	}
+}
 
 
 
 ?>
 
 
+<?php
 
+$errors2 = array();
 
+if($_SERVER['REQUEST_METHOD'] == "POST")
+{
 
+	$errors2 = login($_POST);
+
+	if(count($errors2) == 0)
+	{
+		header("Location: dashboard.php");
+		die;
+	}
+}
+
+?>
 
 
 
@@ -49,20 +80,27 @@ if(isset($_POST['submit'])){
         <br>
 <br>
     <div class="cont">
-        <!-- <div class="form Log-in">
+        <div class="form Log-in">
             <h2>Welcome</h2>
+            <form action="" method="post">
+            <?php if(count($errors2) > 0):?>
+				<?php foreach ($errors2 as $error2):?>
+					<?= $error2?> <br>	
+				<?php endforeach;?>
+			<?php endif;?>
             <label>
                 <span>Email</span>
-                <input type="email" />
+                <input type="email" name="email" />
             </label>
             <label>
                 <span>Password</span>
-                <input type="password" />
+                <input type="password" name="password"/>
             </label>
             <p class="forgot-pass">Forgot password?</p>
-            <button type="button" class="submit">Sign In</button>
+            <button type="submit" class="submit">Sign In</button>
+             </form>
          
-        </div> -->
+        </div>
         <div class="sub-cont">
             <div class="img">
                 <div class="img__text m--up">
@@ -82,12 +120,18 @@ if(isset($_POST['submit'])){
                 <h2>Create your Account</h2>
                 <form action="" method="post">
                     <?php 
-                    if(isset($error)){
-                        foreach($error as $error){
-                            echo '<span class="error-msg">'.$error.'</span>';
-                        };
-                    };
+                    // if(isset($error)){
+                    //     foreach($error as $error){
+                    //         echo '<span class="error-msg">'.$error.'</span>';
+                    //     };
+                    // };
                     ?>
+
+<?php if(count($errors) > 0):?>
+				<?php foreach ($errors as $error):?>
+					<?= $error?> <br>	
+				<?php endforeach;?>
+			<?php endif;?>
                 <label>
                     <span>Name</span>
                     <input type="text" Name="username" />
