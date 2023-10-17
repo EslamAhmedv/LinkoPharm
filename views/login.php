@@ -97,6 +97,15 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
                 <input type="password" name="password"/>
             </label>
             <p class="forgot-pass">Forgot password?</p>
+            <label class="container">Admin:
+          <input type="checkbox" checked="checked">
+          <span class="checkmark"></span>
+          </label>
+
+          <label class="container">User:
+          <input type="checkbox">
+          <span class="checkmark"></span>
+          </label>
             <button type="submit" class="submit">Sign In</button>
              </form>
          
@@ -162,7 +171,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
                 </label>
 
                 
-                
+
                 <button type="submit" name="submit" class="submit">Sign Up</button>
                 </form>
             </div>
