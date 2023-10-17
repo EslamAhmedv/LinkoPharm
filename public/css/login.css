@@ -44,7 +44,7 @@ button {
     transition: -webkit-transform 1.2s ease-in-out;
     transition: transform 1.2s ease-in-out;
     transition: transform 1.2s ease-in-out, -webkit-transform 1.2s ease-in-out;
-    padding: 50px 30px 0;
+    padding: 20px 30px 0;
 }
 
 .sub-cont {
@@ -69,9 +69,9 @@ button {
 
 button {
     display: block;
-    margin: 0 auto;
-    width: 260px;
-    height: 36px;
+    margin:  205px ;
+    width: 160px;
+    height: 46px;
     border-radius: 30px;
     color: #fff;
     font-size: 15px;
@@ -227,7 +227,7 @@ h2 {
 label {
     display: block;
     width: 260px;
-    margin: 25px auto 0;
+    margin: 10px auto 0;
     text-align: center;
 }
 
@@ -251,7 +251,7 @@ input {
     margin-top: 15px;
     text-align: center;
     font-size: 12px;
-    color: #cfcfcf;
+    color: #712e2e;
 }
 
 .submit {
