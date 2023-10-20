@@ -13,9 +13,8 @@
     <title>Checkout</title>
 </style>
 </head>
-    <body>
-
-    <div class="hero">
+<body>
+  <div class="hero">
     <nav>
         <a href="../views/index.php"><img src="../public/images/logo.png" class="logo"></a>
         <ul>
@@ -87,8 +86,7 @@
           </li>
         </ul>
       </div>
-      </nav>
-
+    </nav>
         <div class="container">
             <div class="checkoutLayout">
                 <div class="returnCart">
@@ -178,6 +176,7 @@
             </div>
         </div>
     </div>
+    
     <script>
     let profileDropdownList = document.querySelector(".profile-dropdown-list");
     let btn = document.querySelector(".profile-dropdown-btn"); 
