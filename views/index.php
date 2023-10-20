@@ -313,12 +313,13 @@
     <?php
 
 include('../partials/footer.php');
+include ('../partials/chat.php');
 ?>
  
 
 
 
-  <?php include 'chat.php';?>
+  
 
 
   <script>
