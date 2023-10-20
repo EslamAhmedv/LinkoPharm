@@ -9,28 +9,28 @@
                 </div>
             </div>
             <div class="sidebar">
-                <a href="dashboard.php" class="active"><span class="material-symbols-sharp">dashboard</span>
+                <a href="dashboard.php" class="<?php echo ($currentPage === 'dashboard') ? 'active' : ''; ?>"><span class="material-symbols-sharp">dashboard</span>
                     <h3>Dashboard</h3>
                 </a>
-                <a href="customers.php"><span class="material-symbols-sharp">person</span>
+                <a href="customers.php" class="<?php echo ($currentPage === 'editcustdash') ? 'active' : ''; ?>"><span class="material-symbols-sharp">person</span>
                     <h3>Customers</h3>
                 </a>
-                <a href=""><span class="material-symbols-sharp">receipt_long</span>
+                <a href="" class="<?php echo ($currentPage === 'ordersdash') ? 'active' : ''; ?>"><span class="material-symbols-sharp">receipt_long</span>
                     <h3>Orders</h3>
                 </a>
-                <a href=""><span class="material-symbols-sharp">insights</span>
-                    <h3>Analytics</h3>
+                <a href="" class="<?php echo ($currentPage === 'employersdash') ? 'active' : ''; ?>"><span class="material-symbols-sharp">business</span>
+                    <h3>Employers</h3>
                 </a>
                 <a href=""><span class="material-symbols-sharp">chat</span>
                     <h3>Chat</h3><span class="message-count">3</span>
                 </a>
-                <a href=""><span class="material-symbols-sharp">inventory</span>
+                <a href="displayproducts.php" class="<?php echo ($currentPage === 'displayproducts') ? 'active' : ''; ?>"><span class="material-symbols-sharp">inventory</span>
                     <h3>Products</h3>
                 </a>
-                <a href=""><span class="material-symbols-sharp">report</span>
+                <a href="" class="<?php echo ($currentPage === 'reports') ? 'active' : ''; ?>"><span class="material-symbols-sharp">report</span>
                     <h3>Reports</h3>
                 </a>
-                <a href=""><span class="material-symbols-sharp">Settings</span>
+                <a href="" class="<?php echo ($currentPage === 'settings') ? 'active' : ''; ?>"><span class="material-symbols-sharp">Settings</span>
                     <h3>Settings</h3>
                 </a>
                

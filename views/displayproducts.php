@@ -24,9 +24,10 @@ $result = $conn->query($sql);
    
     <div class="container">
     <aside>
-    <?php  
-    include '../partials/dashboardsidebar.php';
-    ?>
+    <?php
+$currentPage = 'displayproducts'; 
+include('../partials/dashboardsidebar.php');
+?>
     </aside>
 
         <main class="table">

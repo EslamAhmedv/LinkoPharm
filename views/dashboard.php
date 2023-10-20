@@ -11,9 +11,10 @@
    
 <div class="container">
 <aside>
-    <?php  
-    include '../partials/dashboardsidebar.php';
-    ?>
+<?php
+$currentPage = 'dashboard'; 
+include('../partials/dashboardsidebar.php');
+?>
     </aside>
 
         <main>
