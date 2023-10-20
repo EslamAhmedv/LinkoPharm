@@ -115,16 +115,8 @@
                     <span class="Quantity">qty:4</span>
                 </div>
             </div>
-            <div class="box">
-                <i class="fas fa-trash"></i>
-                <img src="../public/images/haircare.png.jpg" alt="">
-                <div class="content">
-                    <h3>hair care</h3>
-                    <span class="price">$4.99/-</span>
-                    <span class="Quantity">qty:4</span>
-                </div>
-            </div>
-            <div class="total">total : $19.69/-</div>
+        
+            <div class="total">total : $19.69</div>
             <a href="" class="btn">checkout</a>
         </div>
     </header>
