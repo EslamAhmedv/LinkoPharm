@@ -7,6 +7,10 @@
   <link rel="stylesheet" href="../public/css/homepage.css">
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Mr+De+Haviland" />
   <link rel="stylesheet" href="../public/css/categories.css">
+    <!-- All CSS -->
+    <link href="../public/css/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+   
 </head>
 
 
@@ -18,11 +22,94 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   <div class="start">
     <h6>The leading</h6>
     <h1 class="start-title">LINKO PHARM PHARMACEUTICALS</h1>
     <p>Your Beauty and Well-being, Our Commitment.</p>
   </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="../public/images/vitamines.png.jpg" class="d-block w-100" alt="...">
+            <div class="carousel-caption">
+              <h5>Your company</h5>
+                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime, nulla, tempore. Deserunt excepturi quas vero.</p>
+                              <p><a href="#"   class="btn btn-warning mt-3">Learn More</a></p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="../public/images/medications.png.jpg" class="d-block w-100" alt="...">
+            <div class="carousel-caption">
+              <h5>Always Dedicated</h5>
+                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime, nulla, tempore. Deserunt excepturi quas vero.</p>
+                              <p><a href="#" class="btn btn-warning mt-3">Learn More</a></p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="../public/images/skincare.png.jpg" class="d-block w-100" alt="...">
+            <div class="carousel-caption">
+              <h5>True safety</h5>
+                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime, nulla, tempore. Deserunt excepturi quas vero.</p>
+                              <p><a href="#" class="btn btn-warning mt-3">Learn More</a></p>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+
+
+
+
+
 
   <section class="section__container sale__container">
     <h2 class="section__title">OUR CATEGORIES </h2>
@@ -92,7 +179,8 @@
   </section>
 
 
-
+  <script src="../public/js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
 
   <section class="news">
     <div class="section__container news__container">
