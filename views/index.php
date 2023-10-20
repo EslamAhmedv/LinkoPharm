@@ -4,19 +4,20 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Linko Pharm</title>
-
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
-  <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
   <link rel="stylesheet" href="../public/css/homepage.css">
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Mr+De+Haviland" />
   <link rel="stylesheet" href="../public/css/categories.css">
-  <link rel="stylesheet" href="../public/css/footer.css">
 </head>
 
 
 <body>
 
 
+<?php 
+  
+  
+ 
+  include ('navbar.php'); ?>
   <div class="start">
     <h6>The leading</h6>
     <h1 class="start-title">LINKO PHARM PHARMACEUTICALS</h1>
