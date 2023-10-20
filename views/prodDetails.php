@@ -1,0 +1,158 @@
+<hb>
+<?php
+// Assuming you have a product object with details
+$product = [
+    'name' => 'Bioderma Photoderm Max Tinted Aquafluid Light Color SPF 50+ - 40ml',
+    'price' => 950.00,
+    'description' => 'Sun protection products',
+    'code' => 376089,
+    'image' => '../public/images/bioderma-photoderm-max-tinted-aquafluid-light-color-spf-50-40ml-782493.webp'
+];
+?>
+<!DOCTYPE html>
+<html lang="en">
+<html>
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../public/css/prodDetails.css">
+    <link rel="stylesheet" href="../public/css/homepage.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"/>
+    <title>Product details - <?php echo $product['name']; ?></title>
+</style>
+</head>
+<body>
+    <div class="hero">
+    <nav>
+        <img src="../public/images/logo.png" class="logo">
+        <ul>
+            <li><a href="#">Wishlist</a></li>
+            <li><a href="#">Cart</a></li>
+            <li><a href="#">Profile</a></li>
+        </ul>
+        
+    
+        <div>
+            <a href="#" class="login-btn">Log in</a>
+            <a href="#" class="btn">Download app</a>
+        </div>
+   
+        <div class="profile-dropdown">
+        <div onclick="toggle()" class="profile-dropdown-btn">
+          <div class="profile-img">
+            <i class="fa-solid fa-circle"></i>
+          </div>
+
+          <span>
+         user1
+            <i class="fa-solid fa-angle-down"></i>
+          </span>
+        </div>
+
+        <ul class="profile-dropdown-list">
+          <li class="profile-dropdown-list-item">
+            <a href="userprofle.php">
+              <i class="fa-regular fa-user"></i>
+              Edit Profile
+            </a>
+          </li>
+
+          <li class="profile-dropdown-list-item">
+            <a href="#">
+              <i class="fa-regular fa-envelope"></i>
+              Inbox
+            </a>
+          </li>
+
+          <li class="profile-dropdown-list-item">
+            <a href="#">
+              <i class="fa-solid fa-chart-line"></i>
+              Analytics
+            </a>
+          </li>
+
+          <li class="profile-dropdown-list-item">
+            <a href="#">
+              <i class="fa-solid fa-sliders"></i>
+              Settings
+            </a>
+          </li>
+
+          <li class="profile-dropdown-list-item">
+            <a href="#">
+              <i class="fa-regular fa-circle-question"></i>
+              Help & Support
+            </a>
+          </li>
+          <hr />
+
+          <li class="profile-dropdown-list-item">
+            <a href="#">
+              <i class="fa-solid fa-arrow-right-from-bracket"></i>
+              Log out
+            </a>
+          </li>
+        </ul>
+      </div>
+      </nav>
+
+        <div class="mainContainer">
+            <div class="container">
+                <div class="left">
+                    <a class="back" href="../views/index.php">Back</a>
+                    <div class="productInfo">
+                        <h1 class="product-name"><?php echo $product['name']; ?> &reg;</h1>
+                        <p class="product-price">Price: <?php echo $product['price']; ?> EGP</p>
+                        <div class="availability">
+                        <div class="product-availability"></div>
+                        <p>In Stock</p>
+                        </div>
+                        <p class="product-code">Product code: <?php echo $product['code']; ?></p>
+                        <p class="product-description">Category: <?php echo $product['description']; ?></p>
+                        <button type="button" class="button">
+                            <span class="button__text">ADD TO CART</span>
+                            <span class="button__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" height="24" fill="none" class="svg"><line y2="19" y1="5" x2="12" x1="12"></line><line y2="12" y1="12" x2="19" x1="5"></line></svg></span>
+                        </button>
+                    </div>
+                </div>
+                <div class="right">
+                    <img id="myImg" class="product-image" src="<?php echo $product['image']; ?>" alt="<?php echo $product['name']; ?>">
+                </div>
+            </div>
+        </div>
+        <div id="myModal" class="modal">
+            <span class="close">&times;</span>
+            <img class="modal-content" id="img01">
+            <div id="caption"></div>
+        </div>
+    </div>
+
+    <script>
+
+        var modal = document.getElementById("myModal");
+        var img = document.getElementById("myImg");
+        var modalImg = document.getElementById("img01");
+        var captionText = document.getElementById("caption");
+        img.onclick = function(){
+            modal.style.display = "block";
+            modalImg.src = this.src;
+            captionText.innerHTML = this.alt;
+        }
+        var span = document.getElementsByClassName("close")[0];
+        span.onclick = function() { 
+            modal.style.display = "none";
+        }
+        
+        let profileDropdownList = document.querySelector(".profile-dropdown-list");
+        let btn = document.querySelector(".profile-dropdown-btn"); 
+        let classList = profileDropdownList.classList;
+        const toggle = () => classList.toggle("active");
+        window.addEventListener("click", function (e) {
+            if (!btn.contains(e.target)) classList.remove("active");
+        });
+
+    </script>
+</body>
+</html>
