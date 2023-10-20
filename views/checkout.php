@@ -17,7 +17,7 @@
 
     <div class="hero">
     <nav>
-        <img src="../public/images/logo.png" class="logo">
+        <a href="../views/index.php"><img src="../public/images/logo.png" class="logo"></a>
         <ul>
             <li><a href="#">Wishlist</a></li>
             <li><a href="#">Cart</a></li>
@@ -44,7 +44,7 @@
 
         <ul class="profile-dropdown-list">
           <li class="profile-dropdown-list-item">
-            <a href="userprofle.php">
+            <a href="profile-edit.php">
               <i class="fa-regular fa-user"></i>
               Edit Profile
             </a>
