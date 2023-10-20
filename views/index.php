@@ -17,7 +17,7 @@
 
 
 <body>
- <div class="hero">
+ <!-- <div class="hero">
     <nav>
         <img src="../public/images/logo.png" class="logo">
         <ul>
@@ -101,14 +101,14 @@
       </nav>
 
 
-    <!-- <img src="../public/images/doct.png.png" class="feature-img"> -->
+ 
  </div>
+   -->
 
 
 
 
-
-
+<!-- 
  <div class="slideshow-container">
 
 <div class="mySlides fade">
@@ -139,7 +139,7 @@
 <a class="next" onclick="plusSlides(1)">❯</a>
 
 </div>
-<br>
+<br>  -->
 
 <section class="section__container sale__container">
     <h2 class="section__title">OUR CATEGORIES </h2>
