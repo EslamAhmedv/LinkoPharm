@@ -13,11 +13,11 @@
 <body>
 
 
-<?php 
-  
-  
- 
-  include ('navbar.php'); ?>
+<?php  
+  include ('../partials/navbar.php'); ?>
+
+
+
   <div class="start">
     <h6>The leading</h6>
     <h1 class="start-title">LINKO PHARM PHARMACEUTICALS</h1>
@@ -196,75 +196,9 @@
  
 
 
-  <?php 
-  
-  
+  <?php   
   include ('../partials/footer.php'); 
   include ('../partials/chat.php'); ?>
-
-
-  <script>
-    let slideIndex = 1;
-    showSlides(slideIndex);
-
-    function plusSlides(n) {
-      showSlides(slideIndex += n);
-    }
-
-    function currentSlide(n) {
-      showSlides(slideIndex = n);
-    }
-
-    function showSlides(n) {
-      let i;
-      let slides = document.getElementsByClassName("mySlides");
-      let dots = document.getElementsByClassName("dot");
-      if (n > slides.length) {
-        slideIndex = 1
-      }
-      if (n < 1) {
-        slideIndex = slides.length
-      }
-      for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-      }
-      for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", "");
-      }
-      slides[slideIndex - 1].style.display = "block";
-      dots[slideIndex - 1].className += " active";
-    }
-  </script>
-
-
-
-
-
-
-  <script>
-    let profileDropdownList = document.querySelector(".profile-dropdown-list");
-    let btn = document.querySelector(".profile-dropdown-btn");
-
-    let classList = profileDropdownList.classList;
-
-    const toggle = () => classList.toggle("active");
-
-    window.addEventListener("click", function(e) {
-      if (!btn.contains(e.target)) classList.remove("active");
-    });
-  </script>
-
-
-
-
-
-
-
-
-
-
-
-
 
 </body>
 
