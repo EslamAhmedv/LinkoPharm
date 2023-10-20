@@ -57,7 +57,7 @@
                             </svg>
 
                             <div class="number">
-                                <p>40%</p>
+                                <p>60%</p>
                             </div>
                         </div>
                     </div>
@@ -78,7 +78,7 @@
                             </svg>
 
                             <div class="number">
-                                <p>60%</p>
+                                <p>40%</p>
                             </div>
                         </div>
                     </div>
@@ -120,9 +120,9 @@
 
         <div class="right">
             <div class="top">
-                <button id="menu-btn">
+                <!-- <button id="menu-btn">
                     <span class="material-symbols-sharp">menu</span>
-                </button>
+                </button> -->
                 <div class="theme-toggler">
                     <span class="material-symbols-sharp active">light_mode</span>
                     <span class="material-symbols-sharp">dark_mode</span>
@@ -133,8 +133,10 @@
                         <small class="text-muted">Admin</small>
                     </div>
                     <div class="profile-photo">
-                        <!-- <img src="Team Members Info/team members pics/eslam.JPEG" alt=""> -->
-                    </div>
+
+<!-- 3lshan ahot profile pic ba3den -->
+
+                </div>
                 </div>
             </div>
             <!-- end of top -->
@@ -165,6 +167,8 @@
             </div>
 
             <!-- end of recent updates -->
+
+
             <div class="sales-analytics">
                 <h2>Sales Analytics</h2>
                 <div class="item online">
@@ -175,10 +179,11 @@
                             <small class="text-muted">Last 24 Hours</small>
                         </div>
                         <h5 class="success">+40%</h5>
-                        <h3>3600</h3>
+                        <h3>215</h3>
                     </div>
                 </div>
-                <div class="item offline">
+
+                <!-- <div class="item offline">
                     <div class="icon"><span class="material-symbols-sharp">local_mall</span></div>
                     <div class="right">
                         <div class="info">
@@ -188,7 +193,8 @@
                         <h5 class="danger">-17%</h5>
                         <h3>1100</h3>
                     </div>
-                </div>
+                </div> -->
+
                 <div class="item customers">
                     <div class="icon"><span class="material-symbols-sharp">person</span></div>
                     <div class="right">
@@ -197,7 +203,7 @@
                             <small class="text-muted">Last 24 Hours</small>
                         </div>
                         <h5 class="success">+25%</h5>
-                        <h3>845</h3>
+                        <h3>345</h3>
                     </div>
                 </div>
 
@@ -212,6 +218,15 @@
 
         </div>
     </div>
-    
+    <script>
+        const themeToggler = document.querySelector(".theme-toggler");
+
+//shaghal l darkmode
+themeToggler.addEventListener('click', () =>{
+    document.body.classList.toggle('dark-theme-variables');
+    themeToggler.querySelector('span:nth-child(1)').classList.toggle('active');
+    themeToggler.querySelector('span:nth-child(2)').classList.toggle('active');
+})
+    </script>
 </body>
 </html>
