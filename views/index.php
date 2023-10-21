@@ -32,11 +32,6 @@
 
 
 
-
-
-
-
-
   <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators">
       <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -49,25 +44,27 @@
           <source src="../public/images/slideshow1.mp4" type="video/mp4">
         </video>
         <div class="carousel-caption text-center">
-        <img src="../public/images/Linko logo transperant.png" alt="" style="max-width: 200px; height: auto;" class="mx-auto">
+          <img src="../public/images/Linko logo transperant.png" alt="" style="max-width: 200px; height: auto;" class="mx-auto">
           <p>THE SCIENCE FOR HEALTHIER LIVING</p>
-          <p><a href="#" class="btn btn-warning mt-3">Learn More</a></p>
+          <p><a href="#" class="btn btn-warning mt-3">ABOUT US</a></p>
         </div>
       </div>
       <div class="carousel-item">
-        <img src="../public/images/medications.png.jpg" class="d-block w-100" alt="...">
+        <video controls autoplay muted style="width: 100%; height: auto;">
+          <source src="../public/images/slideshow2.mp4" type="video/mp4">
+        </video>
         <div class="carousel-caption">
-          <h5>Always Dedicated</h5>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime, nulla, tempore. Deserunt excepturi quas vero.</p>
-          <p><a href="#" class="btn btn-warning mt-3">Learn More</a></p>
+          <h5>SCIENCE, TECHNOLOGY AND INNOVATION</h5>
+
+          <p><a href="#" class="btn btn-warning mt-3">OUR RESEARCH AND DEVELOPMENT</a></p>
         </div>
       </div>
       <div class="carousel-item">
-        <img src="../public/images/skincare.png.jpg" class="d-block w-100" alt="...">
-        <div class="carousel-caption">
-          <h5>True safety</h5>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime, nulla, tempore. Deserunt excepturi quas vero.</p>
-          <p><a href="#" class="btn btn-warning mt-3">Learn More</a></p>
+      <video controls autoplay muted style="width: 100%; height: auto;">
+          <source src="../public/images/slideshow3.mp4" type="video/mp4">
+        </video>        <div class="carousel-caption">
+          <h5>HIGH QUALITY PRODUCTS FOR EACH NEED</h5>
+          <p><a href="#" class="btn btn-warning mt-3">DISCOVER PRODUCTS</a></p>
         </div>
       </div>
     </div>
