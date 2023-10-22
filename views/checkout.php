@@ -15,78 +15,9 @@
 </head>
 <body>
   <div class="hero">
-    <nav>
-        <a href="../views/index.php"><img src="../public/images/logo.png" class="logo"></a>
-        <ul>
-            <li><a href="#">Wishlist</a></li>
-            <li><a href="#">Cart</a></li>
-            <li><a href="#">Profile</a></li>
-        </ul>
-        
-    
-        <div>
-            <a href="#" class="login-btn">Log in</a>
-            <a href="#" class="btn">Download app</a>
-        </div>
-   
-        <div class="profile-dropdown">
-        <div onclick="toggle()" class="profile-dropdown-btn">
-          <div class="profile-img">
-            <i class="fa-solid fa-circle"></i>
-          </div>
-
-          <span>
-         user1
-            <i class="fa-solid fa-angle-down"></i>
-          </span>
-        </div>
-
-        <ul class="profile-dropdown-list">
-          <li class="profile-dropdown-list-item">
-            <a href="profile-edit.php">
-              <i class="fa-regular fa-user"></i>
-              Edit Profile
-            </a>
-          </li>
-
-          <li class="profile-dropdown-list-item">
-            <a href="#">
-              <i class="fa-regular fa-envelope"></i>
-              Inbox
-            </a>
-          </li>
-
-          <li class="profile-dropdown-list-item">
-            <a href="#">
-              <i class="fa-solid fa-chart-line"></i>
-              Analytics
-            </a>
-          </li>
-
-          <li class="profile-dropdown-list-item">
-            <a href="#">
-              <i class="fa-solid fa-sliders"></i>
-              Settings
-            </a>
-          </li>
-
-          <li class="profile-dropdown-list-item">
-            <a href="#">
-              <i class="fa-regular fa-circle-question"></i>
-              Help & Support
-            </a>
-          </li>
-          <hr />
-
-          <li class="profile-dropdown-list-item">
-            <a href="#">
-              <i class="fa-solid fa-arrow-right-from-bracket"></i>
-              Log out
-            </a>
-          </li>
-        </ul>
-      </div>
-    </nav>
+    <?php
+    include('../partials/navbar.php');
+    ?>
         <div class="container">
             <div class="checkoutLayout">
                 <div class="returnCart">
@@ -118,23 +49,23 @@
                     <h1 class="sInfo">Shipping information</h1>
                     <div class="form">
                         <div class="group">
-                            <label for="">First Name</label>
+                            <label for="" class="text">First Name</label>
                             <input type="text" name="" id="" placeholder="Your First Name">
                         </div>
                         <div class="group">
-                            <label for="">Last Name</label>
+                            <label for="" class="text">Last Name</label>
                             <input type="text" name="" id="" placeholder="Your Last Name">
                         </div>
                         <div class="group">
-                            <label for="">Phone Number</label>
+                            <label for="" class="text">Phone Number</label>
                             <input type="tel" name="" id="" placeholder="Your Phone Number">
                         </div>
                         <div class="group">
-                            <label for="">Address</label>
+                            <label for="" class="text">Address</label>
                             <input type="text" name="" id="" placeholder="Your Address">
                         </div>
                         <div class="group">
-                            <label for="">City</label>
+                            <label for="" class="text">City</label>
                             <select name="" id="">
                                 <option value="">Choose..</option>
                                 <option value="Cairo">Cairo</option>
@@ -143,29 +74,29 @@
                         <h1 class="details">Payment details</h1>
                         <div></div>
                         <div class="group">
-                            <label for="">Name on card</label>
+                            <label for="" class="text">Name on card</label>
                             <input type="text" name="" id="" placeholder="Your name and surname">
                         </div>
                         <div class="group">
-                            <label for="">Card number</label>
+                            <label for="" class="text">Card number</label>
                             <input type="text" name="" id="" placeholder="1111-2222-3333-4444">
                         </div>
                         <div class="group">
-                            <label for="">Expiring Date</label>
+                            <label for="" class="text">Expiring Date</label>
                             <input type="text" name="" id="" placeholder="09-21">
                         </div>
                         <div class="group">
-                            <label for="">CVC</label>
+                            <label for="" class="text">CVC</label>
                             <input type="text" name="" id="" placeholder="***">
                         </div>
                     </div>
                     <div class="return">
                         <div class="row">
-                            <div>Total Quantity</div>
+                            <div class="text">Total Quantity</div>
                             <div class="totalQuantity">3</div>
                         </div>
                         <div class="row">
-                            <div>Total Price</div>
+                            <div class="text">Total Price</div>
                             <div class="totalPrice">180 EGP</div>
                         </div>
                     </div>
