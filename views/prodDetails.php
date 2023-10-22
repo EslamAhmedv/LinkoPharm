@@ -25,79 +25,9 @@ $product = [
 </head>
 <body>
     <div class="hero">
-    <nav>
-        <img src="../public/images/logo.png" class="logo">
-        <ul>
-            <li><a href="#">Wishlist</a></li>
-            <li><a href="#">Cart</a></li>
-            <li><a href="#">Profile</a></li>
-        </ul>
-        
-    
-        <div>
-            <a href="#" class="login-btn">Log in</a>
-            <a href="#" class="btn">Download app</a>
-        </div>
-   
-        <div class="profile-dropdown">
-        <div onclick="toggle()" class="profile-dropdown-btn">
-          <div class="profile-img">
-            <i class="fa-solid fa-circle"></i>
-          </div>
-
-          <span>
-         user1
-            <i class="fa-solid fa-angle-down"></i>
-          </span>
-        </div>
-
-        <ul class="profile-dropdown-list">
-          <li class="profile-dropdown-list-item">
-            <a href="userprofle.php">
-              <i class="fa-regular fa-user"></i>
-              Edit Profile
-            </a>
-          </li>
-
-          <li class="profile-dropdown-list-item">
-            <a href="#">
-              <i class="fa-regular fa-envelope"></i>
-              Inbox
-            </a>
-          </li>
-
-          <li class="profile-dropdown-list-item">
-            <a href="#">
-              <i class="fa-solid fa-chart-line"></i>
-              Analytics
-            </a>
-          </li>
-
-          <li class="profile-dropdown-list-item">
-            <a href="#">
-              <i class="fa-solid fa-sliders"></i>
-              Settings
-            </a>
-          </li>
-
-          <li class="profile-dropdown-list-item">
-            <a href="#">
-              <i class="fa-regular fa-circle-question"></i>
-              Help & Support
-            </a>
-          </li>
-          <hr />
-
-          <li class="profile-dropdown-list-item">
-            <a href="#">
-              <i class="fa-solid fa-arrow-right-from-bracket"></i>
-              Log out
-            </a>
-          </li>
-        </ul>
-      </div>
-      </nav>
-
+    <?php
+    include('../partials/navbar.php');
+    ?>
         <div class="mainContainer">
             <div class="container">
                 <div class="left">
@@ -107,7 +37,7 @@ $product = [
                         <p class="product-price">Price: <?php echo $product['price']; ?> EGP</p>
                         <div class="availability">
                         <div class="product-availability"></div>
-                        <p>In Stock</p>
+                        <p class="stock">In Stock</p>
                         </div>
                         <p class="product-code">Product code: <?php echo $product['code']; ?></p>
                         <p class="product-description">Category: <?php echo $product['description']; ?></p>
@@ -131,7 +61,6 @@ $product = [
     </div>
 
     <script>
-
         var modal = document.getElementById("myModal");
         var img = document.getElementById("myImg");
         var modalImg = document.getElementById("img01");
@@ -145,15 +74,6 @@ $product = [
         span.onclick = function() { 
             modal.style.display = "none";
         }
-        
-        let profileDropdownList = document.querySelector(".profile-dropdown-list");
-        let btn = document.querySelector(".profile-dropdown-btn"); 
-        let classList = profileDropdownList.classList;
-        const toggle = () => classList.toggle("active");
-        window.addEventListener("click", function (e) {
-            if (!btn.contains(e.target)) classList.remove("active");
-        });
-
     </script>
 </body>
 </html>
