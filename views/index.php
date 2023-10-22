@@ -46,7 +46,7 @@
         <div class="carousel-caption text-center">
           <img src="../public/images/Linko logo transperant.png" alt="" style="max-width: 200px; height: auto;" class="mx-auto">
           <p>THE SCIENCE FOR HEALTHIER LIVING</p>
-          <p><a href="#" class="btn btn-warning mt-3">ABOUT US</a></p>
+          <p><a href="#" class="btnnn">ABOUT US</a></p>
         </div>
       </div>
       <div class="carousel-item">
@@ -56,7 +56,7 @@
         <div class="carousel-caption">
           <h5>SCIENCE, TECHNOLOGY AND INNOVATION</h5>
 
-          <p><a href="#" class="btn btn-warning mt-3">OUR RESEARCH AND DEVELOPMENT</a></p>
+          <p><a href="#" class="btnnn">OUR RESEARCH</a></p>
         </div>
       </div>
       <div class="carousel-item">
@@ -64,7 +64,7 @@
           <source src="../public/images/slideshow3.mp4" type="video/mp4">
         </video>        <div class="carousel-caption">
           <h5>HIGH QUALITY PRODUCTS FOR EACH NEED</h5>
-          <p><a href="#" class="btn btn-warning mt-3">DISCOVER PRODUCTS</a></p>
+          <p><a href="#" class="btnnn">DISCOVER PRODUCTS</a></p>
         </div>
       </div>
     </div>
