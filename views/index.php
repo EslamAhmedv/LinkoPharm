@@ -24,14 +24,8 @@
 
 
   <?php
+
   include('../partials/navbar.php'); ?>
-
-
-
-
-
-
-
 
   <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators">
@@ -351,10 +345,12 @@
   
 
 </body>
+   
+
 <script src="../public/js/swiper-bundle.min.js"></script>
-    <script src="../public/js/swiper.js"></script>
-    
-  <script src="../public/js/bootstrap.bundle.min.js"></script>
-  <script src="js/script.js"></script>
+<script src="../public/js/swiper.js"></script>
+<script src="../public/js/bootstrap.bundle.min.js"></script>
+<script src="../public/js/chat.js"></script>
+ 
 
 </html>
