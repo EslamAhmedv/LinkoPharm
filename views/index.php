@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="../public/css/categories.css">
   <!-- All CSS -->
   <link href="../public/css/bootstrap/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../public/css/swiper-bundle.min.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
@@ -156,11 +157,83 @@
     </div>
   </section>
 
+  <div class="section__container news__container">
+      <h2 class="section__title">Latest News</h2>
 
-  <script src="../public/js/bootstrap.bundle.min.js"></script>
-  <script src="js/script.js"></script>
+  <div class="container swiper">
+      <div class="slide-container">
+        <div class="card-wrapper swiper-wrapper">
+          <div class="card swiper-slide">
+            <div class="image-box">
+              <img src="../public/images/babyycare.png.webp" alt="" />
+            </div>
+            <div class="profile-details">
+              <img src="../public/images/babyycare.png.webp" alt="" />
+              <div class="name-job">
+                <h3 class="name">David Cardlos</h3>
+                <h4 class="job">Full Stack Developer</h4>
+              </div>
+            </div>
+          </div>
+          <div class="card swiper-slide">
+            <div class="image-box">
+              <img src="../public/images/babyycare.png.webp" alt="" />
+            </div>
+            <div class="profile-details">
+              <img src="images/profile/profile2.jpg" alt="" />
+              <div class="name-job">
+                <h3 class="name">Siliana Ramis</h3>
+                <h4 class="job">Photographer</h4>
+              </div>
+            </div>
+          </div>
+          <div class="card swiper-slide">
+            <div class="image-box">
+              <img src="../public/images/babyycare.png.webp" alt="" />
+            </div>
+            <div class="profile-details">
+              <img src="images/profile/profile3.jpg" alt="" />
+              <div class="name-job">
+                <h3 class="name">Richard Bond</h3>
+                <h4 class="job">Data Analyst</h4>
+              </div>
+            </div>
+          </div>
+          <div class="card swiper-slide">
+            <div class="image-box">
+              <img src="../public/images/babyycare.png.webp" alt="" />
+            </div>
+            <div class="profile-details">
+              <img src="images/profile/profile4.jpg" alt="" />
+              <div class="name-job">
+                <h3 class="name">Priase</h3>
+                <h4 class="job">App Developer</h4>
+              </div>
+            </div>
+          </div>
+          <div class="card swiper-slide">
+            <div class="image-box">
+              <img src="../public/images/babyycare.png.webp" alt="" />
+            </div>
+            <div class="profile-details">
+              <img src="../public/images/babyycare.png.webp" alt="" />
+              <div class="name-job">
+                <h3 class="name">James Laze</h3>
+                <h4 class="job">Blogger</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-button-next swiper-navBtn"></div>
+      <div class="swiper-button-prev swiper-navBtn"></div>
+      <div class="swiper-pagination"></div>
+    </div>
+</div>
 
-  <section class="news">
+
+
+  <!-- <section class="news">
     <div class="section__container news__container">
       <h2 class="section__title">Latest News</h2>
       <div class="news__grid">
@@ -255,7 +328,7 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
 
 
 
@@ -265,11 +338,23 @@
 
 
 
+
+
+
+
+
+    
 
   <?php
   include('../partials/footer.php');
   include('../partials/chat.php'); ?>
+  
 
 </body>
+<script src="../public/js/swiper-bundle.min.js"></script>
+    <script src="../public/js/swiper.js"></script>
+    
+  <script src="../public/js/bootstrap.bundle.min.js"></script>
+  <script src="js/script.js"></script>
 
 </html>
