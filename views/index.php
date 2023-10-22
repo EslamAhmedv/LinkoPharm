@@ -341,7 +341,7 @@
 
   <?php
   include('../partials/footer.php');
-  include('../partials/chat.php'); ?>
+  // include('../partials/chat.php'); ?>
   
 
 </body>
