@@ -168,10 +168,10 @@
               <img src="../public/images/babyycare.png.webp" alt="" />
             </div>
             <div class="profile-details">
-              <img src="../public/images/babyycare.png.webp" alt="" />
+             
               <div class="name-job">
-                <h3 class="name">David Cardlos</h3>
-                <h4 class="job">Full Stack Developer</h4>
+                <h3 class="name">LAROCHE-POSAY</h3>
+                <h4 class="job"> Effacalar Cleanser</h4>
               </div>
             </div>
           </div>
@@ -180,10 +180,10 @@
               <img src="../public/images/babyycare.png.webp" alt="" />
             </div>
             <div class="profile-details">
-              <img src="images/profile/profile2.jpg" alt="" />
+             
               <div class="name-job">
-                <h3 class="name">Siliana Ramis</h3>
-                <h4 class="job">Photographer</h4>
+              <h3 class="name">LAROCHE-POSAY</h3>
+                <h4 class="job"> Effacalar Cleanser</h4>
               </div>
             </div>
           </div>
@@ -192,10 +192,10 @@
               <img src="../public/images/babyycare.png.webp" alt="" />
             </div>
             <div class="profile-details">
-              <img src="images/profile/profile3.jpg" alt="" />
+            
               <div class="name-job">
-                <h3 class="name">Richard Bond</h3>
-                <h4 class="job">Data Analyst</h4>
+              <h3 class="name">LAROCHE-POSAY</h3>
+                <h4 class="job"> Effacalar Cleanser</h4>
               </div>
             </div>
           </div>
@@ -204,10 +204,10 @@
               <img src="../public/images/babyycare.png.webp" alt="" />
             </div>
             <div class="profile-details">
-              <img src="images/profile/profile4.jpg" alt="" />
+             
               <div class="name-job">
-                <h3 class="name">Priase</h3>
-                <h4 class="job">App Developer</h4>
+              <h3 class="name">LAROCHE-POSAY</h3>
+                <h4 class="job"> Effacalar Cleanser</h4>
               </div>
             </div>
           </div>
@@ -216,10 +216,10 @@
               <img src="../public/images/babyycare.png.webp" alt="" />
             </div>
             <div class="profile-details">
-              <img src="../public/images/babyycare.png.webp" alt="" />
+             
               <div class="name-job">
-                <h3 class="name">James Laze</h3>
-                <h4 class="job">Blogger</h4>
+              <h3 class="name">LAROCHE-POSAY</h3>
+                <h4 class="job"> Effacalar Cleanser</h4>
               </div>
             </div>
           </div>
