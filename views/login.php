@@ -1,40 +1,3 @@
-<?php 
-session_start();
-
-	include("../includes/db.php");
-	// include("functions.php");
-
-
-	if($_SERVER['REQUEST_METHOD'] == "POST")
-	{
-		//something was posted
-		$firstname = $_POST['firstname'];
-		$lastname = $_POST['lastname'];
-		$username = $_POST['username'];
-		$email = $_POST['email'];
-		$gender = $_POST['gender'];
-		$password = $_POST['password'];
-
-		if(!empty($username) && !empty($password) && !empty($firstname)   && !empty($lastname)  && !empty($email) && !is_numeric($username)&& !is_numeric($lastname)&& !is_numeric($firstname)&& !is_numeric($email))
-		{
-
-			//save to database
-			
-			$query = "insert into users (firstname,lastname,username,email,gender,password) values ('$firstname','$lastname','$username','$email','$gender','$password')";
-
-			$result=mysqli_query($conn, $query);
-			if($result)	{
-
-			header("Location: index.php");
-			}
-		}
-	}
-?>
-
-
-
-
-
 
 
 
@@ -96,36 +59,19 @@ include('../partials/navbar.php'); ?>
 					<img src="../public/images/doct.png.png" alt="">
 				</div>
 				<form method="post">
-					<h3>Sign up Form</h3>
-					<div class="form-group">
-						<input type="text" placeholder="First Name" name="firstname" class="form-control">
-						<input type="text" placeholder="Last Name"  name="lastname" class="form-control">
-					</div>
-					<div class="form-wrapper">
-						<input type="text" placeholder="Username"  name="username" class="form-control">
-						<i class="zmdi zmdi-account"></i>
-					</div>
+					<h3>login Form</h3>
+					
+					
 					<div class="form-wrapper">
 						<input type="text" placeholder="Email Address"  name="email" class="form-control">
 						<i class="zmdi zmdi-email"></i>
 					</div>
-					<div class="form-wrapper">
-						<select name="gender" id="" class="form-control">
-							<option value="" disabled selected>Gender</option>
-							<option value="male">Male</option>
-							<option value="femal">Female</option>
-							<option value="other">Other</option>
-						</select>
-						<i class="zmdi zmdi-caret-down" style="font-size: 17px"></i>
-					</div>
+					
 					<div class="form-wrapper">
 						<input type="password" placeholder="Password"  name="password" class="form-control">
 						<i class="zmdi zmdi-lock"></i>
 					</div>
-					<div class="form-wrapper">
-						<input type="password" placeholder="Confirm Password" class="form-control">
-						<i class="zmdi zmdi-lock"></i>
-					</div>
+					
 					<button type="submit">Register</button>
 				</form>
 			</div>
