@@ -20,13 +20,19 @@ body {
     padding-left: 30;
 }
 
+.left {
+    margin-top: -60px;
+    border-radius: 5px;
+    padding: 25px;
+}
+
 .right{
+    margin-top: -60px;
     border-radius: 5px;
     padding: 25px;
 }
 
 .product-info {
-    position: relative;
     margin-left: 50px;
     margin-right: 50px;
     margin-top: 20px;
