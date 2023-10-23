@@ -5,48 +5,55 @@
     <title>contact form</title>
     <link rel="stylesheet" href="../public/css/contactus.css">
 </head>
-
 <body>
+    <div class="contactus">
+        <div class="title">
+            <h2>Get in touch</h2>
+        </div>
+        <div class="box">
+            <div class="contact form">
+            <h3>Send a Message </h3>
+            <form>
+                <div class="formbox">
+                    <div class="row50">
+                        <div class="inputbox">
+                            <span>First Name</span>
+                            <input type="text" placeholder="name">
+                        </div>
+                        <div class="inputbox">
+                            <span>Last Name</span>
+                            <input type="text" placeholder="name">
+                        </div>
+                    </div>
 
-<link href="contact-form.css" rel="stylesheet">
-
-<div class="fcf-body">
-
-    <div id="fcf-form">
-    <h3 class="fcf-h3">Contact us</h3>
-
-    <form id="fcf-form-id" class="fcf-form-class" method="post" action="contact-form-process.php">
-        
-        <div class="fcf-form-group">
-            <label for="Name" class="fcf-label">Your name</label>
-            <div class="fcf-input-group">
-                <input type="text" id="Name" name="Name" class="fcf-form-control" required>
+                    <div class="row50">
+                        <div class="inputbox">
+                            <span>Email</span>
+                            <input type="text" placeholder="namee@gmail.com">
+                        </div>
+                        <div class="inputbox">
+                            <span>Mobile</span>
+                            <input type="text" placeholder="+20-3-xxx-xxxx">
+                        </div>
+                    </div>
+                    <div class="row100">
+                        <div class="inputbox">
+                            <span>Message</span>
+                           <textarea placeholder="Write your message here.."></textarea>
+                        </div>
+                </div>
+                <div class="row100">
+                        <div class="inputbox">
+                            <input type="submit" value="send">
+                        </div>
+                </div>
+                </div>
+            </form>
             </div>
+
+            <div class="contact info"></div>
+            <div class="contact map"></div>
         </div>
-
-        <div class="fcf-form-group">
-            <label for="Email" class="fcf-label">Your email address</label>
-            <div class="fcf-input-group">
-                <input type="email" id="Email" name="Email" class="fcf-form-control" required>
-            </div>
-        </div>
-
-        <div class="fcf-form-group">
-            <label for="Message" class="fcf-label">Your message</label>
-            <div class="fcf-input-group">
-                <textarea id="Message" name="Message" class="fcf-form-control" rows="6" maxlength="3000" required></textarea>
-            </div>
-        </div>
-
-        <div class="fcf-form-group">
-            <button type="submit" id="fcf-button" class="fcf-btn fcf-btn-primary fcf-btn-lg fcf-btn-block">Send Message</button>
-        </div>
-
-
-    </form>
     </div>
-
-</div>
-
 </body>
 </html>
