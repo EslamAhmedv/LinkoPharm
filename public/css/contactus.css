@@ -204,12 +204,16 @@ margin-bottom: 10px;
     {
         background-color: #18b7ff;
     }
+    .contactus
+    {
+        padding: 20px;
+    }
     .box
     {
         grid-template-columns: 1fr;
         grid-template-rows: auto;
         grid-template-areas: 
-        "from"
+        "form"
         "info"
         "map";
     }
