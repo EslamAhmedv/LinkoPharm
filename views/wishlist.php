@@ -33,14 +33,15 @@
                               <button>Delete</button></td>
                            </a>
                </td>
-                        <td><img src="../public/images/wish1.webp"  width="100"height="100"></td>
-                        <td>Makeup remover</td>
+                        <td><img src="../public/images/prod5-removebg-preview.png"  width="100"height="100"></td>
+                        <td>Gel</td>
                         <td>In Stock</td>
                         <td>$500</td>
                         <td><a href="">
                               <button class ="add">Add to cart</button></td>
                            </a>
                     </tr>
+
                     <td>
                         
                </td>
