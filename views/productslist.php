@@ -1,62 +1,61 @@
-<!DOCTYPE html>
-<html lang="en">
+
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Linkopharm Products</title>
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fontawesome/5.15.3/css/all.min.css">
-    
-    <script src="https://kit.fontawesome.com/f4bd0b4361.js" crossorigin="anonymous"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Linko Pharm</title>
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Mr+De+Haviland" />
+  <link rel="stylesheet" href="../public/css/categories.css">
+
+  <link rel="stylesheet" href="../public/css/products.css" />
 </head>
 <body>
-
 <section class="section__container sale__container">
-    <h2 class="section__title">Our Products </h2>
+    <h2 class="section__title">OUR PRODUCTS </h2>
     <div class="sale__grid">
       <div class="sale__card">
         <img src="../public/images/skin care.jpg" alt="sale" />
         <div class="sale__content">
-          <p class="sale__subtitle">SKIN CARE</p>
-          <h4 class="sale__title">sale <span> </span>off </h4>
-          <p class="sale__subtitle">Dont miss</p>
-          <button class="btnn sale__btnn">shop now </button>
+          <p class="sale__subtitle">1</p>
+          <h4 class="sale__title">SKIN CARE </h4>
+          <p class="sale__subtitle">Products</p>
+          <button class="btnn sale__btnn">Add to cart </button>
 
         </div>
       </div>
 
 
       <div class="sale__card">
-        <img src="../public/images/haircare.jpg" alt="sale" />
+        <img src="" alt="sale" />
         <div class="sale__content">
           <p class="sale__subtitle">
-            HAIR CARE</p>
-          <h4 class="sale__title">sale <span>40% </span>off </h4>
-          <p class="sale__subtitle">Dont miss</p>
-          <button class="btnn sale__btnn">shop now </button>
+           2 </p>
+          <h4 class="sale__title">vitamin</h4>
+          <p class="sale__subtitle">Product</p>
+          <button class="btnn sale__btnn">Add to cart </button>
 
         </div>
       </div>
 
 
       <div class="sale__card">
-      <img src="../public/images/oral.jpg" alt="sale" />
+      <img src="" alt="sale" />
       <div class="sale__content">
         <p class="sale__subtitle">ORAL CARE</p>
         <h4 class="sale__title">sale <span>40% </span>off </h4>
         <p class="sale__subtitle">Dont miss</p>
-        <button class="btnn sale__btnn">shop now </button>
+        <button class="btnn sale__btnn">Add to cart </button>
 
       </div>
     </div>
 
       <div class="sale__card">
-        <img src="../public/images/nutrients.jpg" alt="sale" />
+        <img src="" alt="sale" />
         <div class="sale__content">
           <p class="sale__subtitle">Nurients </p>
           <h4 class="sale__title">sale <span>40% </span>off </h4>
           <p class="sale__subtitle">Dont miss</p>
-          <button class="btnn sale__btnn">shop now </button>
+          <button class="btnn sale__btnn">Add to cart </button>
 
         </div>
       </div>
@@ -65,24 +64,24 @@
 
 
       <div class="sale__card">
-        <img src="../public/images/TOPICAL MUSCLE RELAXANTS.jpeg" alt="sale" />
+        <img src="" alt="sale" />
         <div class="sale__content">
           <p class="sale__subtitle">TOPICAL MUSCLE RELAXANTS</p>
           <h4 class="sale__title">sale <span>40% </span>off </h4>
           <p class="sale__subtitle">Dont miss</p>
-          <button class="btnn sale__btnn">shop now </button>
+          <button class="btnn sale__btnn">Add to cart </button>
 
         </div>
       </div>
 
 
       <div class="sale__card">
-        <img src="../public/images/ff.jpg" alt="sale" />
+        <img src="" alt="sale" />
         <div class="sale__content">
           <p class="sale__subtitle">TOPICAL MUSCLE RELAXANTS</p>
           <h4 class="sale__title">sale <span>40% </span>off </h4>
           <p class="sale__subtitle">Dont miss</p>
-          <button class="btnn sale__btnn">shop now </button>
+          <button class="btnn sale__btnn">Add to cart</button>
 
         </div>
       </div>
@@ -91,4 +90,5 @@
 
     </div>
   </section>
-
+</body>
+ 
