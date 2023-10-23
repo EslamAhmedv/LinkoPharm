@@ -11,28 +11,21 @@ body {
     background-color: whitesmoke ;
     box-shadow: 4px 8px 19px 0px rgba(0,0,0,0.27);
 }
-
 .container{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 50px;
-    padding: 20px;
+    padding: 30px;
     padding-left: 30;
 }
 
-.left {
-    margin-top: -60px;
-    border-radius: 5px;
-    padding: 25px;
-}
-
 .right{
-    margin-top: -60px;
     border-radius: 5px;
     padding: 25px;
 }
 
 .product-info {
+    position: relative;
     margin-left: 50px;
     margin-right: 50px;
     margin-top: 20px;
@@ -43,13 +36,12 @@ body {
     background-color: whitesmoke ;
     box-shadow: 4px 8px 19px 0px rgba(0,0,0,0.27);
 }
-  
+
 .back{
     color: black;
     text-decoration: none;
     font-size: medium;  
 }
-
 .product-image {
     margin-top: 10px;
     margin-left: 50px;
@@ -60,11 +52,9 @@ body {
     transition: transform 0.5s ease;
     box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
 }
-
 .product-image:hover {
     transform: scale(1.02);
   }
-
 .product-name {
     margin-bottom: 270px;
     margin-top: 15px;
@@ -72,18 +62,15 @@ body {
     padding: 20px 0;
     font-size: x-large;
 }
-
 .product-price {
     font-size: 25px;
     padding-bottom: 15px;
     border-bottom: 1px solid #ccc;
 }
-
 .availability{
     display: flex;
     margin-top: 10px;
 }
-
 .product-availability {
     font-size: medium;
     height:10px;
@@ -93,16 +80,13 @@ body {
     margin-top: 4px;
     margin-right: 5px;
 }
-
 .stock{
     font-size: 14px;
 }
-
 .product-code {
     margin-top: 5px;
     font-size: 14px;
 }
-
 .product-description {
     font-size: 14px;
     margin-bottom: 15px;
@@ -177,7 +161,6 @@ body {
 .button:active {
     border: 1px solid #2e8644;
 }
-
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
