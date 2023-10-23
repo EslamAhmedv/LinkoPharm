@@ -2,14 +2,12 @@
 require '../includes/db.php';
 
 if (isset($_POST['editproduct'])) {
-   
-updateuser();
+    updateProduct();
 }
 
+function updateProduct() {
+    global $conn;
 
-    function updateuser(){
-        global $conn ;
-   
     $id = $_POST['id'];
     $name = $_POST['name'];
     $price = $_POST['price'];
@@ -17,24 +15,47 @@ updateuser();
     $category = $_POST['category'];
     $availability = $_POST['availability'];
 
-    $image = $_FILES['image']['name'];
-    $path = "../public/uploads";
-    $image_ext = pathinfo($image, PATHINFO_EXTENSION);
-    $filename = time() . '.' . $image_ext;
+    // Sanitize user input and handle potential SQL injection
+    $id = mysqli_real_escape_string($conn, $id);
+    $name = mysqli_real_escape_string($conn, $name);
+    $price = mysqli_real_escape_string($conn, $price);
+    $description = mysqli_real_escape_string($conn, $description);
+    $category = mysqli_real_escape_string($conn, $category);
+    $availability = mysqli_real_escape_string($conn, $availability);
 
-    $product_query = ("UPDATE products set image = '$image' , name = '$name', availability = '$availability', price = '$price',
-     description='$description', category = '$category' where id = '$id'");
-    $product_query_run = mysqli_query($conn, $product_query);
-    if ($product_query_run) {
-        move_uploaded_file($_FILES["image"]["tmp_name"], "$path. '/' .$filename");
-        header("Location: editproduct.php?message=Product updated successfully");
-        exit;
+    // Check if the product with the provided ID exists
+
+    $product_query = "SELECT * FROM products WHERE id = $id";
+    $product_result = mysqli_query($conn, $product_query);
+
+    if ($product_result && mysqli_num_rows($product_result) > 0) {
+        // Product exists, update it
+        $image = $_FILES['image']['name'];
+        $path = "../public/uploads";
+        $image_ext = pathinfo($image, PATHINFO_EXTENSION);
+        $filename = time() . '.' . $image_ext;
+
+        $product_query = "UPDATE products SET image = '$image', name = '$name', availability = '$availability', price = '$price', description = '$description', category = '$category' WHERE id = $id";
+        $product_query_run = mysqli_query($conn, $product_query);
+
+        if ($product_query_run) {
+            move_uploaded_file($_FILES["image"]["tmp_name"], "$path/$filename");
+            header("Location: editproduct.php?id=$id&message=Product updated successfully");
+            exit;
+        } else {
+            echo "Error: " . $conn->error;
+        }
     } else {
-        echo "Error: " . $conn->error;
+        echo "Product not found";
     }
 }
 
-
+// Retrieve the product ID from the URL
+if (isset($_GET['id'])) {
+    $productID = $_GET['id'];
+} else {
+    echo "no product with this id";
+}
 ?>
 
 <!DOCTYPE html>
@@ -48,11 +69,10 @@ updateuser();
     <link rel="stylesheet" href="../public/css/dashboard.css">
     <link rel="stylesheet" href="../public/css/editdash.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>edit Product</title>
+    <title>Edit Product</title>
 </head>
 
 <body>
-
     <div class="container">
         <aside>
             <?php
@@ -62,34 +82,22 @@ updateuser();
         </aside>
 
         <main>
-
-            <h1>Products</h1>
-
+            <h1>Edit Product</h1>
             <div class="addprod">
                 <form class="form" method="POST" enctype="multipart/form-data">
-                    <h2 class="title">update a Product</h2>
+                    <h2 class="title">Update a Product</h2>
                     <div class="product-container" style="display: block;">
-                        <div class="input">
-                            <label for="id">Product ID</label>
-                            <div> <input type="text" id="id" placeholder="Product id" name="id" required>
-                            </div>
-                            <span class="errormsg"></span>
-
-                        </div>
-                       
+                        <input type="hidden" name="id" value="<?php echo $productID; ?>">
                         <div class="input">
                             <label for="name">Product Name</label>
                             <div><input type="text" id="name" placeholder="Product name" name="name" required></div>
                             <span class="errormsg"></span>
-
                         </div>
 
                         <div class="input">
-                            <label for="" class="add-photo-btn">Upload Image
-                            </label>
+                            <label for="" class="add-photo-btn">Upload Image</label>
                             <input type="file" name="image" multiple required>
                             <span class="errormsg"></span>
-
                         </div>
 
                         <div class="input">
@@ -115,18 +123,13 @@ updateuser();
                             <span class="errormsg"></span>
                         </div>
 
-                        <input type="submit" name="editproduct" id="add" value="update"></input><span>
-                            <button id="cancel" href="addproducts">Cancel</button></span>
-
-
-
+                        <input type="submit" name="editproduct" id="add" value="Update"></input>
+                        <span>
+                            <a href="displayproducts.php">Cancel</a>
+                        </span>
                     </div>
-
-
-
                 </form>
             </div>
-
         </main>
     </div>
 </body>
