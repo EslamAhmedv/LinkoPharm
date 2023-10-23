@@ -1,6 +1,10 @@
 <?php
 require '../includes/db.php';
 
+//to hold product details
+$productID = $productName = $productPrice = $productDescription = $productCategory = $productAvailability = '';
+
+
 if (isset($_POST['editproduct'])) {
     updateProduct();
 }
@@ -53,6 +57,20 @@ function updateProduct() {
 // Retrieve the product ID from the URL
 if (isset($_GET['id'])) {
     $productID = $_GET['id'];
+    // Fetch the product details from the database based on the product ID
+    $product_query = "SELECT * FROM products WHERE id = $productID";
+    $product_result = mysqli_query($conn, $product_query);
+
+    if ($product_result && mysqli_num_rows($product_result) > 0) {
+        $product = mysqli_fetch_assoc($product_result);
+
+        // Populate the variables with the product details
+        $productName = $product['name'];
+        $productPrice = $product['price'];
+        $productDescription = $product['description'];
+        $productCategory = $product['category'];
+        $productAvailability = $product['availability'];
+    }
 } else {
     echo "no product with this id";
 }
@@ -90,7 +108,7 @@ if (isset($_GET['id'])) {
                         <input type="hidden" name="id" value="<?php echo $productID; ?>">
                         <div class="input">
                             <label for="name">Product Name</label>
-                            <div><input type="text" id="name" placeholder="Product name" name="name" required></div>
+                            <div><input type="text" id="name" placeholder="Product name" name="name" required value="<?php echo $productName; ?>"></div>
                             <span class="errormsg"></span>
                         </div>
 
@@ -102,25 +120,25 @@ if (isset($_GET['id'])) {
 
                         <div class="input">
                             <label for="price">Product Price</label>
-                            <div><input type="text" id="price" placeholder="Product Price" name="price" required></div>
-                            <span class="errormsg"></span>
+                            <div><input type="text" id="price" placeholder="Product Price" name="price" required value="<?php echo $productPrice; ?>"></div>
+                            <span class ="errormsg"></span>
                         </div>
                         <div class="input">
                             <label for="availability">Availability</label>
-                            <div><input type="text" id="availability" placeholder="Product Availability" name="availability" required></div>
-                            <span class="errormsg"></span>
+                            <div><input type="text" id="availability" placeholder="Product Availability" name="availability" required value="<?php echo $productAvailability; ?>"></div>
+                            <span class ="errormsg"></span>
                         </div>
 
                         <div class="input">
                             <label for="description">Product Description</label>
-                            <textarea id="desc" name="description" rows="4" cols="50" required></textarea>
-                            <span class="errormsg"></span>
+                            <textarea id="desc" name="description" rows="4" cols="50" required><?php echo $productDescription; ?></textarea>
+                            <span class ="errormsg"></span>
                         </div>
 
                         <div class="input">
                             <label for="category">Category</label>
-                            <div><input type="text" id="category" placeholder="Product Category" name="category" required></div>
-                            <span class="errormsg"></span>
+                            <div><input type="text" id="category" placeholder="Product Category" name="category" required value="<?php echo $productCategory; ?>"></div>
+                            <span class ="errormsg"></span>
                         </div>
 
                         <input type="submit" name="editproduct" id="add" value="Update"></input>
