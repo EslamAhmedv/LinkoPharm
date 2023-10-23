@@ -1,3 +1,33 @@
+<?php
+require '../includes/db.php';
+
+if (isset($_POST['submit'])) {
+    $name = $_POST['name'];
+    $price = $_POST['price'];
+    $description = $_POST['description'];
+    $category = $_POST['category'];
+    $availability = $_POST['availability'];
+
+    $image = $_FILES['image']['name'];
+    $path = "../public/uploads";
+    $image_ext = pathinfo($image, PATHINFO_EXTENSION);
+    $filename = time() . '.' . $image_ext;
+
+    $product_query = ("INSERT INTO products (image, name, availability, price, description, category) 
+    VALUES ('$image', '$name', '$availability', '$price', '$description', '$category')");
+    $product_query_run = mysqli_query($conn, $product_query);
+    if ($product_query_run) {
+        move_uploaded_file($_FILES["image"]["tmp_name"], "$path. '/' .$filename");
+        header("Location: addproducts.php?message=Product added successfully");
+        exit;
+    } else {
+        echo "Error: " . $conn->error;
+    }
+}
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,20 +57,20 @@
             <h1>Products</h1>
 
             <div class="addprod">
-                <form action="/addproducts" class="form" method="POST">
+                <form action="addproducts.php" class="form" method="POST" enctype="multipart/form-data">
                     <h2 class="title">Add a Product</h2>
                     <div class="product-container" style="display: block;">
-                        <div class="input">
+                        <!-- <div class="input">
                             <label for="id">Product ID</label>
-                            <div> <input type="text" id="product_id" placeholder="Product id" name="product_id" required>
+                            <div> <input type="text" id="id" placeholder="Product id" name="id" required>
                             </div>
                             <span class="errormsg"></span>
 
-                        </div>
+                        </div> -->
 
                         <div class="input">
                             <label for="name">Product Name</label>
-                            <div><input type="text" id="product_name" placeholder="Product name" name="product_name" required></div>
+                            <div><input type="text" id="name" placeholder="Product name" name="name" required></div>
                             <span class="errormsg"></span>
 
                         </div>
@@ -48,7 +78,7 @@
                         <div class="input">
                             <label for="" class="add-photo-btn">Upload Image
                             </label>
-                            <input type="file" name="img" multiple required>
+                            <input type="file" name="image" multiple required>
                             <span class="errormsg"></span>
 
                         </div>
@@ -58,9 +88,14 @@
                             <div><input type="text" id="price" placeholder="Product Price" name="price" required></div>
                             <span class="errormsg"></span>
                         </div>
+                        <div class="input">
+                            <label for="availability">Availability</label>
+                            <div><input type="text" id="availability" placeholder="Product Availability" name="availability" required></div>
+                            <span class="errormsg"></span>
+                        </div>
 
                         <div class="input">
-                            <label for="description">Product Description</label> 
+                            <label for="description">Product Description</label>
                             <textarea id="desc" name="description" rows="4" cols="50" required></textarea>
                             <span class="errormsg"></span>
                         </div>
@@ -71,8 +106,8 @@
                             <span class="errormsg"></span>
                         </div>
 
-                        <button type="add" id="add" href="/view">Add</button><span>
-                            <button id="cancel" href="/addproducts">Cancel</button></span>
+                        <button type="submit" name="submit" id="add">Add</button><span>
+                            <button id="cancel" href="addproducts">Cancel</button></span>
 
 
 
