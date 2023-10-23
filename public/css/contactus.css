@@ -213,8 +213,24 @@ margin-bottom: 10px;
         "info"
         "map";
     }
+
+    .formbox .row50
+    {
+        display: flex;
+        gap:0;
+        flex-direction: column;
+    }
+    .inputbox
+    {
+        width: 100%;
+    }
+    .contact
+    {
+        padding: 30px;
+    }
     .map
     {
         min-height: 300px;
+        padding: 0;
     }
 }
