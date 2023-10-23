@@ -3,7 +3,9 @@ body {
 }
 
 .container{
-    margin: 100px;
+    margin-top: 100px;
+    margin-left: 50px;
+    margin-right: 50px;
     margin-bottom: 30px;
     border-radius: 15px;
     background-color: whitesmoke ;
@@ -15,6 +17,11 @@ body {
     grid-template-columns: repeat(2, 1fr);
     gap: 50px;
     padding: 30px;
+    padding-top: 0px;
+}
+
+.returnCart{
+    margin-top: -30px;
 }
   
 .checkoutLayout .right{
@@ -23,6 +30,7 @@ body {
     border-radius: 20px;
     padding: 40px;
     color: white;
+    margin-bottom: -30px;
 }
   
 .checkoutLayout .List img{
