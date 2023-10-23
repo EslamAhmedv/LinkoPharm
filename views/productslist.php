@@ -6,89 +6,108 @@
   <title>Linko Pharm</title>
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Mr+De+Haviland" />
   <link rel="stylesheet" href="../public/css/categories.css">
-
-  <link rel="stylesheet" href="../public/css/products.css" />
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+  <link rel="stylesheet" href="../public/css/productslist.css" />
 </head>
 <body>
-<section class="section__container sale__container">
-    <h2 class="section__title">OUR PRODUCTS </h2>
-    <div class="sale__grid">
-      <div class="sale__card">
-        <img src="../public/images/skin care.jpg" alt="sale" />
-        <div class="sale__content">
-          <p class="sale__subtitle">1</p>
-          <h4 class="sale__title">SKIN CARE </h4>
-          <p class="sale__subtitle">Products</p>
-          <button class="btnn sale__btnn">Add to cart </button>
+</section>
+        <table>
+            <tr>
+              <h1>OUR PRODUCTS</h1>
+                <div class="products">
 
-        </div>
-      </div>
+                <div class="prod">
+                    <img src="../public/images/wish2.webp" alt="PIC1">
 
+                    <div class="design">
+                        <span>Skin prod</span>
+                        <h5>Sunscreen</h5>
+                      <del>$850</del>$800
+                      <button class="btn"><i class="uil uil-shopping-cart-alt"></i></button>
+                      <button class="btn"><i class="uil uil-heart"></i></button>
+                    </div>
+                </div> 
+                <div class="prod">
+                    <img src="../public/images/prod3-removebg-preview.png" alt="PIC2">
 
-      <div class="sale__card">
-        <img src="" alt="sale" />
-        <div class="sale__content">
-          <p class="sale__subtitle">
-           2 </p>
-          <h4 class="sale__title">vitamin</h4>
-          <p class="sale__subtitle">Product</p>
-          <button class="btnn sale__btnn">Add to cart </button>
+                    <div class="design">
+                        <span>Hair product</span>
+                        <h5>Hair vitamin</h5>
+                        <del>$800</del>$680
+                        <button class="btn"><i class="uil uil-shopping-cart-alt"></i></button>
+                      <button class="btn"><i class="uil uil-heart"></i></button>
+                    </div>
+                </div>
+                <div class="prod">
+                    <img src="../public/images/prod1-removebg-preview.png" alt="bed3">
 
-        </div>
-      </div>
-
-
-      <div class="sale__card">
-      <img src="" alt="sale" />
-      <div class="sale__content">
-        <p class="sale__subtitle">ORAL CARE</p>
-        <h4 class="sale__title">sale <span>40% </span>off </h4>
-        <p class="sale__subtitle">Dont miss</p>
-        <button class="btnn sale__btnn">Add to cart </button>
-
-      </div>
-    </div>
-
-      <div class="sale__card">
-        <img src="" alt="sale" />
-        <div class="sale__content">
-          <p class="sale__subtitle">Nurients </p>
-          <h4 class="sale__title">sale <span>40% </span>off </h4>
-          <p class="sale__subtitle">Dont miss</p>
-          <button class="btnn sale__btnn">Add to cart </button>
-
-        </div>
-      </div>
+                    <div class="design">
+                        <span>Hair product</span>
+                        <h5>Hair vitamin </h5>
+                        <del>$2000</del>$1500
+                        <button class="btn"><i class="uil uil-shopping-cart-alt"></i></button>
+                      <button class="btn"><i class="uil uil-heart"></i></button>
+                    </div>
+                </div>
 
 
+                <div class="prod">
+                    <img src="../public/images/prod4-removebg-preview.png " alt="bed4">
 
+                    <div class="design">
+                        <span>Hair-Skin product</span>
+                        <h5>Hair and skin vitamin</h5>
+                        <del>$2800</del>$2000
+                        <button class="btn"><i class="uil uil-shopping-cart-alt"></i></button>
+                      <button class="btn"><i class="uil uil-heart"></i></button>
+            </div>
+            </div>
+            </td>
+            </tr>
 
-      <div class="sale__card">
-        <img src="" alt="sale" />
-        <div class="sale__content">
-          <p class="sale__subtitle">TOPICAL MUSCLE RELAXANTS</p>
-          <h4 class="sale__title">sale <span>40% </span>off </h4>
-          <p class="sale__subtitle">Dont miss</p>
-          <button class="btnn sale__btnn">Add to cart </button>
+                <tr>
+                <td>
+                  <div class="prod">
+                  <img src="../public/images/prod5-removebg-preview.png" alt="bed5">
+                  <div class="design">
+                    <span>Hair-Skin product</span>
+                    <h5>Hair and skin vitamin</h5>
+                    <del>$300<span></del>$270
+                    <button class="btn"><i class="uil uil-shopping-cart-alt"></i></button>
+                      <button class="btn"><i class="uil uil-heart"></i></button>
+                  </div>
+                  </div>
+                  </td>
 
-        </div>
-      </div>
+                     <td>
+                     <div class="prod">
+                        <img src="../public/images/prod7-removebg-preview.png " alt="bed6">
+                        <div class="design">
+                          <span>Skin product</span>
+                          <h5>Shampoo</h5>
+                         
+                          <div class=btn> <del>$345<span></del>$275</div>
+                         
+                          <button class="btn"><i class="uil uil-shopping-cart-alt"></i></button>
+                      <button class="btn"><i class="uil uil-heart"></i></button>
+                        </div>
+                    </div>
+                    </td>
 
-
-      <div class="sale__card">
-        <img src="" alt="sale" />
-        <div class="sale__content">
-          <p class="sale__subtitle">TOPICAL MUSCLE RELAXANTS</p>
-          <h4 class="sale__title">sale <span>40% </span>off </h4>
-          <p class="sale__subtitle">Dont miss</p>
-          <button class="btnn sale__btnn">Add to cart</button>
-
-        </div>
-      </div>
-
-
-
-    </div>
-  </section>
+                    <td>
+                     <div class="prod">
+                    <img src="../public/images/prod10-removebg-preview.png" alt="bed7">
+                    <div class="design">
+                      <span>skin products</span>
+                      <h5>Deodrant</h5>
+                      <del>$155<span></del>$145
+                      <button class="btn"><i class="uil uil-shopping-cart-alt"></i></button>
+                      <button class="btn"><i class="uil uil-heart"></i></button>
+                   </div>
+                   </div> 
+                   </td>
+                   </tr>
+</table>
+</section>
 </body>
  
