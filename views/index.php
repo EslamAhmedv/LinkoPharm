@@ -177,7 +177,7 @@
         <div class="card-wrapper swiper-wrapper">
           <div class="card swiper-slide">
             <div class="image-box">
-              <img src="../public/images/babyycare.png.webp" alt="" />
+              <img src="../public/images/shop1.jpg" alt="" />
             </div>
             <div class="profile-details">
 
@@ -189,7 +189,7 @@
           </div>
           <div class="card swiper-slide">
             <div class="image-box">
-              <img src="../public/images/babyycare.png.webp" alt="" />
+              <img src="../public/images/shop2.jpg" alt="" />
             </div>
             <div class="profile-details">
 
@@ -201,7 +201,7 @@
           </div>
           <div class="card swiper-slide">
             <div class="image-box">
-              <img src="../public/images/babyycare.png.webp" alt="" />
+              <img src="../public/images/shop3.webp" alt="" />
             </div>
             <div class="profile-details">
 
@@ -213,7 +213,7 @@
           </div>
           <div class="card swiper-slide">
             <div class="image-box">
-              <img src="../public/images/babyycare.png.webp" alt="" />
+              <img src="../public/images/shop4.webp" alt="" />
             </div>
             <div class="profile-details">
 
@@ -225,7 +225,7 @@
           </div>
           <div class="card swiper-slide">
             <div class="image-box">
-              <img src="../public/images/babyycare.png.webp" alt="" />
+              <img src="../public/images/shop5.jpg" alt="" />
             </div>
             <div class="profile-details">
 
