@@ -34,6 +34,70 @@
                            </a>
                </td>
                         <td><img src="../public/images/wish1.webp"  width="100"height="100"></td>
+                        <td>Makeup remover</td>
+                        <td>In Stock</td>
+                        <td>$500</td>
+                        <td><a href="">
+                              <button class ="add">Add to cart</button></td>
+                           </a>
+                    </tr>
+                    <td>
+                        
+               </td>
+                    <tr>   
+                    <td>
+                           <a href="">
+                              <button>Delete</button></td>
+                           </a>
+               </td>
+                        <td><img src="../public/images/wish2.webp"  width="100"height="100"></td>
+                        <td>Sun screen</td>
+                        <td>Out Of Stock</td>
+                        <td>$600</td> 
+                        <td><a href="">
+                              <button class ="add">Add to cart</button></td>
+                           </a>
+                    </tr>
+                    <td>
+                          
+               </td>
+                    <tr>   
+                    <td>
+                           <a href="">
+                              <button>Delete</button></td>
+                           </a>
+               </td>
+                        <td><img src="../public/images/prod3-removebg-preview.png"  width="100"height="100"></td>
+                        <td>hair mask</td>
+                        <td>Out Of Stock</td>
+                        <td>$180</td>
+                        <td><a href="">
+                              <button class ="add">Add to cart</button></td>
+                           </a>
+                    </tr>
+              
+               <td>
+                           <a href="">
+                              <button>Delete</button></td>
+                           </a>
+               </td>
+                        <td><img src="../public/images/prod1-removebg-preview.png"  width="100"height="100"></td>
+                        <td>vitamin</td>
+                        <td>In Stock</td>
+                        <td>$1200</td>
+                        <td><a href="">
+                              <button class ="add">Add to cart</button></td>
+                           </a>
+                    </tr>
+                     
+                    <tr>   
+                    <td>
+                           <a href="">
+                              <button>Delete</button></td>
+                           </a>
+    
+               </td>
+                        <td><img src="../public/images/prod4-removebg-preview.png"  width="100"height="100"></td>
                         <td>Panadol</td>
                         <td>In Stock</td>
                         <td>$200</td>
@@ -50,7 +114,7 @@
                               <button>Delete</button></td>
                            </a>
                </td>
-                        <td><img src="../public/images/wish2.webp"  width="100"height="100"></td>
+                        <td><img src="../public/images/prod5-removebg-preview.png"  width="100"height="100"></td>
                         <td>Panadol</td>
                         <td>Out Of Stock</td>
                         <td>$80</td> 
@@ -67,7 +131,7 @@
                               <button>Delete</button></td>
                            </a>
                </td>
-                        <td><img src="1.jpeg"  width="100"height="100"></td>
+                        <td><img src="../public/images/prod7-removebg-preview.png"  width="100"height="100"></td>
                         <td>Panadol</td>
                         <td>Out Of Stock</td>
                         <td>$80</td>
@@ -75,13 +139,13 @@
                               <button class ="add">Add to cart</button></td>
                            </a>
                     </tr>
-              
-               <td>
+                    <tr>   
+                    <td>
                            <a href="">
                               <button>Delete</button></td>
                            </a>
                </td>
-                        <td><img src="1.jpeg"  width="100"height="100"></td>
+                        <td><img src="../public/images/prod10-removebg-preview.png"  width="100"height="100"></td>
                         <td>Panadol</td>
                         <td>In Stock</td>
                         <td>$200</td>
@@ -92,9 +156,87 @@
                     <td>
                         
                </td>
-                       
+                    <tr>   
+                    <td>
+                           <a href="">
+                              <button>Delete</button></td>
+                           </a>
+               </td>
+                        <td><img src="../public/images/prod5-removebg-preview.png"  width="100"height="100"></td>
+                        <td>Panadol</td>
+                        <td>Out Of Stock</td>
+                        <td>$80</td> 
+                        <td><a href="">
+                              <button class ="add">Add to cart</button></td>
+                           </a>
+                    </tr>
+                    <td>
+                          
+               </td>
+                    <tr>   
+                    <td>
+                           <a href="">
+                              <button>Delete</button></td>
+                           </a>
+               </td>
+                        <td><img src="../public/images/prod4-removebg-preview.png"  width="100"height="100"></td>
+                        <td>Panadol</td>
+                        <td>Out Of Stock</td>
+                        <td>$80</td>
+                        <td><a href="">
+                              <button class ="add">Add to cart</button></td>
+                           </a>
+                    </tr>
                          <br>
                          <br>
+                    </tr>
+                    <tr>   
+                    <td>
+                           <a href="">
+                              <button>Delete</button></td>
+                           </a>
+               </td>
+                        <td><img src="../public/images/wish2.webp"  width="100"height="100"></td>
+                        <td>Panadol</td>
+                        <td>In Stock</td>
+                        <td>$200</td>
+                        <td><a href="">
+                              <button class ="add">Add to cart</button></td>
+                           </a>
+                    </tr>
+                    <td>
+                        
+               </td>
+                    <tr>   
+                    <td>
+                           <a href="">
+                              <button>Delete</button></td>
+                           </a>
+               </td>
+                        <td><img src="../public/images/prod1-removebg-preview.png"  width="100"height="100"></td>
+                        <td>Panadol</td>
+                        <td>Out Of Stock</td>
+                        <td>$80</td> 
+                        <td><a href="">
+                              <button class ="add">Add to cart</button></td>
+                           </a>
+                    </tr>
+                    <td>
+                          
+               </td>
+                    <tr>   
+                    <td>
+                           <a href="">
+                              <button>Delete</button></td>
+                           </a>
+               </td>
+                        <td><img src="../public/images/wish2.webp"  width="100"height="100"></td>
+                        <td>Panadol</td>
+                        <td>Out Of Stock</td>
+                        <td>$80</td>
+                        <td><a href="">
+                              <button class ="add">Add to cart</button></td>
+                           </a>
                     </tr>
                 </table> 
             </div>
