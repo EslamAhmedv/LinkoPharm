@@ -50,7 +50,7 @@
                 </div>
             </form>
             </div>
-
+     
             <div class="contact info">
             <h3>Contact Info</h3>
             <div class="infobox">
@@ -62,7 +62,6 @@
                     <span><ion-icon name="mail"></ion-icon></span>
                     <a href="mailtoLinko@gmail.com">Linko@gmail.com</a>
                 </div>
-
                 <div>
                     <span><ion-icon name="call"></ion-icon></span>
                     <a href="tel:+201234567890">+20 123 456 7890</a>
@@ -77,7 +76,7 @@
                 </ul>
             </div>
             </div>
-      
+        
             <div class="contact map">
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13806.837479012767!2d31.
                 266953453397168!3d30.10250879830669!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!

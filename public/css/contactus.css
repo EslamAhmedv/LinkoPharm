@@ -1,4 +1,5 @@
-*{
+*
+{
     margin:0;
     padding: 0;
     box-sizing: border-box;
@@ -6,7 +7,7 @@
 }
 
 body{
-    background: linear-gradient(90deg,blue);
+    background-image: linear-gradient(90deg, #17025a, #55030c);
 }
 
 .contactus
@@ -16,18 +17,20 @@ body{
   padding: 40px 100px;  
 }
 
-.contactus.title
+.contactus .title
 {
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 2em;
+    
 }
 
-.contactus.title h2
+.contactus .title h2
 {
-  color:aliceblue;
-    font-weight: 500;
+  color:rgb(255, 255, 255);
+  font-weight: 500;
+
 }
 
 .form{
@@ -51,7 +54,7 @@ body{
 {
     position: relative;
     display: grid;
-    grid-template-columns: 2gr 1fr;
+    grid-template-columns: 2fr 1fr;
     grid-template-rows: 5fr 4fr;
     grid-template-areas:
     "form info" 
@@ -110,10 +113,9 @@ margin-bottom: 10px;
     min-height: 220px;
     margin-bottom: 10px;
 }
-.inputbox input [type="submit"]
+.inputbox input[type="submit"]
 {
-    background: #ff578b;
-    color: #fff;
+    background-color: grey;   
     border: none;
     font-size: 1.1em;
     max-height: 120px;
@@ -184,6 +186,10 @@ margin-bottom: 10px;
 .sci li a:hover
 {
     color: white;
+}
+.map
+{
+    padding: 0;
 }
 .map iframe
 {
