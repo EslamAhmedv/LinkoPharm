@@ -17,6 +17,25 @@
         font-weight: bold;
         justify-content: space-between;
       }
+      button{
+
+     background:rgb(80, 122, 162) ;
+     color:white ;
+     width:150px;
+     height:30px;
+     border-radius:20px;
+     margin-left:200px;
+     margin-bottom:2px
+
+      }
+      
+      button:hover{
+        background:white;
+        color:black;
+        border-radius:1px;
+        cursor: pointer;
+        border-width: 0.2px;
+      }
 
    #map {
             
@@ -29,6 +48,7 @@
         border-bottom: 5px solid rgb(80, 122, 162);
 
         border-top:5px solid rgb(80, 122, 162) ;
+        padding-bottom:5px;
             }
 
         /* 
@@ -55,7 +75,7 @@
     <br>
     <br>
     <br>
-    <h1><b>Our location</b></h1>
+    <h1><b>LINKOPHARM LOCATION</b></h1>
     <br>
     <br>
     <br>
@@ -67,7 +87,7 @@
         ({key: "AIzaSyBx7CdxF5ge7fkkHAUpi1WlPTX4YwvQ0Fo", v: "beta"});</script>
         <br><br><br><br>
 
-   
+        <button>Back</button>
   </body>
   <script>
     let map;
