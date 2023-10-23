@@ -201,6 +201,30 @@
           </div>
           <div class="card swiper-slide">
             <div class="image-box">
+              <img src="../public/images/shop6.jpg" alt="" />
+            </div>
+            <div class="profile-details">
+
+              <div class="name-job">
+                <h3 class="name">LAROCHE-POSAY</h3>
+                <h4 class="job"> Effacalar Cleanser</h4>
+              </div>
+            </div>
+          </div>
+          <div class="card swiper-slide">
+            <div class="image-box">
+              <img src="../public/images/shop7.webp" alt="" />
+            </div>
+            <div class="profile-details">
+
+              <div class="name-job">
+                <h3 class="name">LAROCHE-POSAY</h3>
+                <h4 class="job"> Effacalar Cleanser</h4>
+              </div>
+            </div>
+          </div>
+          <div class="card swiper-slide">
+            <div class="image-box">
               <img src="../public/images/shop3.webp" alt="" />
             </div>
             <div class="profile-details">
@@ -235,6 +259,7 @@
               </div>
             </div>
           </div>
+          
         </div>
       </div>
       <div class="swiper-button-next swiper-navBtn"></div>
