@@ -17,6 +17,7 @@
             <a href="#products">products</a>
             <a href="#categories">categories</a>
             <a href="#review">review</a>
+            <a href="#review">Register</a>
             
             
 
