@@ -55,9 +55,10 @@
         </div>
       </div>
       <div class="carousel-item">
-      <video controls autoplay muted style="width: 100%; height: auto;">
+        <video controls autoplay muted style="width: 100%; height: auto;">
           <source src="../public/images/slideshow3.mp4" type="video/mp4">
-        </video>        <div class="carousel-caption">
+        </video>
+        <div class="carousel-caption">
           <h5>HIGH QUALITY PRODUCTS FOR EACH NEED</h5>
           <p><a href="#" class="btnnn">DISCOVER PRODUCTS</a></p>
         </div>
@@ -82,79 +83,96 @@
   </div>
 
 
-
+  <!-- categories -->
 
   <section class="section__container sale__container">
     <h2 class="section__title">OUR CATEGORIES </h2>
     <div class="sale__grid">
       <div class="sale__card">
-        <img src="../public/images/medications.png.jpg" alt="sale" />
+        <img src="../public/images/skin care.jpg" alt="sale" />
         <div class="sale__content">
-          <p class="sale__subtitle">Medications </p>
+          <p class="sale__subtitle">SKIN CARE</p>
           <h4 class="sale__title">sale <span>40% </span>off </h4>
           <p class="sale__subtitle">Dont miss</p>
           <button class="btnn sale__btnn">shop now </button>
 
         </div>
       </div>
-      <div class="sale__card">
-        <img src="../public/images/vitamines.png.jpg" alt="sale" />
-        <div class="sale__content">
-          <p class="sale__subtitle">Vitamines </p>
-          <h4 class="sale__title">sale <span>40% </span>off </h4>
-          <p class="sale__subtitle">Dont miss</p>
-          <button class="btnn sale__btnn">shop now </button>
 
-        </div>
-      </div>
 
       <div class="sale__card">
-        <img src="../public/images/haircare.png.jpg" alt="sale" />
+        <img src="../public/images/haircare.jpg" alt="sale" />
         <div class="sale__content">
-          <p class="sale__subtitle">Hair Care </p>
+          <p class="sale__subtitle">
+            HAIR CARE</p>
           <h4 class="sale__title">sale <span>40% </span>off </h4>
           <p class="sale__subtitle">Dont miss</p>
           <button class="btnn sale__btnn">shop now </button>
 
         </div>
       </div>
+
+
       <div class="sale__card">
-        <img src="../public/images/skincare.png.jpg" alt="sale" />
-        <div class="sale__content">
-          <p class="sale__subtitle">Skin Care </p>
-          <h4 class="sale__title">sale <span>40% </span>off </h4>
-          <p class="sale__subtitle">Dont miss</p>
-          <button class="btnn sale__btnn">shop now </button>
+      <img src="../public/images/oral.jpg" alt="sale" />
+      <div class="sale__content">
+        <p class="sale__subtitle">ORAL CARE</p>
+        <h4 class="sale__title">sale <span>40% </span>off </h4>
+        <p class="sale__subtitle">Dont miss</p>
+        <button class="btnn sale__btnn">shop now </button>
 
-        </div>
       </div>
+    </div>
+
       <div class="sale__card">
-        <img src="../public/images/medical.png.jpg" alt="sale" />
+        <img src="../public/images/nutrients.jpg" alt="sale" />
         <div class="sale__content">
-          <p class="sale__subtitle">Medical Supplies </p>
+          <p class="sale__subtitle">Nurients </p>
           <h4 class="sale__title">sale <span>40% </span>off </h4>
           <p class="sale__subtitle">Dont miss</p>
           <button class="btnn sale__btnn">shop now </button>
 
         </div>
       </div>
+
+
+
+
       <div class="sale__card">
-        <img src="../public/images/babyycare.png.webp" alt="sale" />
+        <img src="../public/images/TOPICAL MUSCLE RELAXANTS.jpeg" alt="sale" />
         <div class="sale__content">
-          <p class="sale__subtitle">Baby Care </p>
+          <p class="sale__subtitle">TOPICAL MUSCLE RELAXANTS</p>
           <h4 class="sale__title">sale <span>40% </span>off </h4>
           <p class="sale__subtitle">Dont miss</p>
           <button class="btnn sale__btnn">shop now </button>
 
         </div>
       </div>
+
+
+      <div class="sale__card">
+        <img src="../public/images/ff.jpg" alt="sale" />
+        <div class="sale__content">
+          <p class="sale__subtitle">TOPICAL MUSCLE RELAXANTS</p>
+          <h4 class="sale__title">sale <span>40% </span>off </h4>
+          <p class="sale__subtitle">Dont miss</p>
+          <button class="btnn sale__btnn">shop now </button>
+
+        </div>
+      </div>
+
+
+
     </div>
   </section>
 
-  <div class="section__container news__container">
-      <h2 class="section__title">Latest News</h2>
 
-  <div class="container swiper">
+  <!-- slider -->
+
+  <div class="section__container news__container">
+    <h2 class="section__title">Latest News</h2>
+
+    <div class="container swiper">
       <div class="slide-container">
         <div class="card-wrapper swiper-wrapper">
           <div class="card swiper-slide">
@@ -162,7 +180,7 @@
               <img src="../public/images/babyycare.png.webp" alt="" />
             </div>
             <div class="profile-details">
-             
+
               <div class="name-job">
                 <h3 class="name">LAROCHE-POSAY</h3>
                 <h4 class="job"> Effacalar Cleanser</h4>
@@ -174,9 +192,9 @@
               <img src="../public/images/babyycare.png.webp" alt="" />
             </div>
             <div class="profile-details">
-             
+
               <div class="name-job">
-              <h3 class="name">LAROCHE-POSAY</h3>
+                <h3 class="name">LAROCHE-POSAY</h3>
                 <h4 class="job"> Effacalar Cleanser</h4>
               </div>
             </div>
@@ -186,9 +204,9 @@
               <img src="../public/images/babyycare.png.webp" alt="" />
             </div>
             <div class="profile-details">
-            
+
               <div class="name-job">
-              <h3 class="name">LAROCHE-POSAY</h3>
+                <h3 class="name">LAROCHE-POSAY</h3>
                 <h4 class="job"> Effacalar Cleanser</h4>
               </div>
             </div>
@@ -198,9 +216,9 @@
               <img src="../public/images/babyycare.png.webp" alt="" />
             </div>
             <div class="profile-details">
-             
+
               <div class="name-job">
-              <h3 class="name">LAROCHE-POSAY</h3>
+                <h3 class="name">LAROCHE-POSAY</h3>
                 <h4 class="job"> Effacalar Cleanser</h4>
               </div>
             </div>
@@ -210,9 +228,9 @@
               <img src="../public/images/babyycare.png.webp" alt="" />
             </div>
             <div class="profile-details">
-             
+
               <div class="name-job">
-              <h3 class="name">LAROCHE-POSAY</h3>
+                <h3 class="name">LAROCHE-POSAY</h3>
                 <h4 class="job"> Effacalar Cleanser</h4>
               </div>
             </div>
@@ -223,7 +241,7 @@
       <div class="swiper-button-prev swiper-navBtn"></div>
       <div class="swiper-pagination"></div>
     </div>
-</div>
+  </div>
 
 
 
@@ -337,20 +355,21 @@
 
 
 
-    
+
 
   <?php
   include('../partials/footer.php');
-  // include('../partials/chat.php'); ?>
-  
+  // include('../partials/chat.php'); 
+  ?>
+
 
 </body>
-   
+
 
 <script src="../public/js/swiper-bundle.min.js"></script>
 <script src="../public/js/swiper.js"></script>
 <script src="../public/js/bootstrap.bundle.min.js"></script>
 <script src="../public/js/chat.js"></script>
- 
+
 
 </html>
