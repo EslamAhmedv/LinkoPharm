@@ -8,7 +8,7 @@
 <title>
     404 error
 </title>
-<link rel="stylesheet" type="text/css" href="css/404 error.css">
+<link rel="stylesheet" type="text/css" href="../public/css/404error.css">
 </head>
 
 <body>
