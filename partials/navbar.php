@@ -1,3 +1,15 @@
+<?php
+
+session_start();
+
+// Include connection
+include_once "../includes/db.php";
+?>
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,7 +41,7 @@
           </div>
 
           <span>
-         user1
+          <?=$_SESSION['firstname']?>
             <i class="fa-solid fa-angle-down"></i>
           </span>
         </div>
@@ -75,7 +87,7 @@
           <hr />
 
           <li class="profile-dropdown-list-item">
-            <a href="#">
+            <a href="signout.php">
               <i class="fa-solid fa-arrow-right-from-bracket"></i>
               Log out
             </a>
