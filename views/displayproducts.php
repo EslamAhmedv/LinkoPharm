@@ -37,7 +37,7 @@ include('../partials/dashboardsidebar.php');
                     <input type="search" placeholder="Search existing products...">
                 </div>
                 <div class="add_product">
-                    <a href="/addproducts.php">
+                    <a href="addproducts.php">
                         <button class="btn add-product"><i class="fa fa-plus"></i> Add Product</button>
                     </a>
                 </div>
