@@ -51,9 +51,37 @@
             </form>
             </div>
 
-            <div class="contact info"></div>
+            <div class="contact info">
+            <h1>Contact Info</h1>
+            <div class="infobox">
+                <div>
+                    <span><ion-icon name="location"></ion-icon></span>
+                    <p>17 Street, Cairo <br>EGYPT</p>
+                </div>
+                <div>
+                    <span><ion-icon name="mail"></ion-icon></span>
+                    <a href="mailtoLinko@gmail.com">Linko@gmail.com</a>
+                </div>
+
+                <div>
+                    <span><ion-icon name="call"></ion-icon></span>
+                    <a href="tel:+201234567890">+20 123 456 7890</a>
+                </div>
+
+
+                <ul class="sci">
+                    <li><a href="#"><ion-icon name="logo-facebook"></ion-icon></a></li>
+                    <li><a href="#"><ion-icon name="logo-instagram"></ion-icon></a></li>
+                    <li><a href="#"><ion-icon name="logo-twitter"></ion-icon></a></li>
+                    <li><a href="#"><ion-icon name="logo-linkedin"></ion-icon></a></li>
+                </ul>
+            </div>
+            </div>
             <div class="contact map"></div>
         </div>
     </div>
+    </div>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 </html>
