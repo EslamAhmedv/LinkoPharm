@@ -101,6 +101,16 @@ height: 80px;
     /* padding: 30px; */
 }
 
+.temp{
+    font-size: 1.8rem;
+    margin: 0 1rem;
+    color: #130f40;
+    text-decoration: none;
+    font-weight: 500;
+    
+    /* padding: 30px; */
+}
+
 
 .navbar a:hover{
     color: rgb(13, 13, 152);

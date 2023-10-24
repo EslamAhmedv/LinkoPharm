@@ -34,6 +34,15 @@ include_once "../includes/db.php";
             
 
         </nav>
+       
+
+   
+      
+      
+
+
+             
+      <?php if(isset($_SESSION["id"])){?>
         <div class="profile-dropdown">
         <div onclick="toggle()" class="profile-dropdown-btn">
           <div class="profile-img">
@@ -45,56 +54,53 @@ include_once "../includes/db.php";
             <i class="fa-solid fa-angle-down"></i>
           </span>
         </div>
+       <ul class="profile-dropdown-list">
+         <li class="profile-dropdown-list-item">    <a href="userprofle.php">
+            <i class="fa-regular fa-user"></i>
+            Edit Profile
+          </a>
+        </li>
 
+        <li class="profile-dropdown-list-item">
+          <a href="#">
+            <i class="fa-regular fa-envelope"></i>
+            Inbox
+          </a>
+        </li>
+
+        <li class="profile-dropdown-list-item">
+          <a href="#">
+            <i class="fa-solid fa-chart-line"></i>
+            Analytics
+          </a>
+        </li>
+
+        <li class="profile-dropdown-list-item">
+          <a href="#">
+            <i class="fa-solid fa-sliders"></i>
+            Settings
+          </a>
+        </li>
+
+        <li class="profile-dropdown-list-item">
+          <a href="#">
+            <i class="fa-regular fa-circle-question"></i>
+            Help & Support
+          </a>
+        </li>
+        <hr />
+
+        <li class="profile-dropdown-list-item">
+          <a href="signout.php">
+            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+            Log out
+          </a>
+        </li>
+      </ul>
+        </div>
         
-      
 
-<ul class="profile-dropdown-list">
-          <li class="profile-dropdown-list-item">
-            <a href="userprofle.php">
-              <i class="fa-regular fa-user"></i>
-              Edit Profile
-            </a>
-          </li>
 
-          <li class="profile-dropdown-list-item">
-            <a href="#">
-              <i class="fa-regular fa-envelope"></i>
-              Inbox
-            </a>
-          </li>
-
-          <li class="profile-dropdown-list-item">
-            <a href="#">
-              <i class="fa-solid fa-chart-line"></i>
-              Analytics
-            </a>
-          </li>
-
-          <li class="profile-dropdown-list-item">
-            <a href="#">
-              <i class="fa-solid fa-sliders"></i>
-              Settings
-            </a>
-          </li>
-
-          <li class="profile-dropdown-list-item">
-            <a href="#">
-              <i class="fa-regular fa-circle-question"></i>
-              Help & Support
-            </a>
-          </li>
-          <hr />
-
-          <li class="profile-dropdown-list-item">
-            <a href="signout.php">
-              <i class="fa-solid fa-arrow-right-from-bracket"></i>
-              Log out
-            </a>
-          </li>
-        </ul>
-    </div>
-        
 
         <div class="icons">
             <div class="fas fa-bars" id="menu-btn"></div>
@@ -132,6 +138,16 @@ include_once "../includes/db.php";
             <div class="total">total : $19.69</div>
             <a href="" class="btn">checkout</a>
         </div>
+
+    <?php }
+   else{?>
+      <a class="temp" href="signup.php">sign up</a>
+      <a class="temp" href="login.php">login</a>
+
+  <?php  }  ?>
+    
+   
+
     </header>
    <script>
 
