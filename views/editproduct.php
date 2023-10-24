@@ -9,7 +9,8 @@ if (isset($_POST['editproduct'])) {
     updateProduct();
 }
 
-function updateProduct() {
+function updateProduct()
+{
     global $conn;
 
     $id = $_POST['id'];
@@ -18,7 +19,8 @@ function updateProduct() {
     $description = $_POST['description'];
     $category = $_POST['category'];
     $availability = $_POST['availability'];
-
+    $file = $_FILES["image"];
+    $uploaddirectory = "../public/uploads/";
     // Sanitize user input and handle potential SQL injection
     $id = mysqli_real_escape_string($conn, $id);
     $name = mysqli_real_escape_string($conn, $name);
@@ -28,30 +30,28 @@ function updateProduct() {
     $availability = mysqli_real_escape_string($conn, $availability);
 
     // Check if the product with the provided ID exists
+   
+    if (move_uploaded_file($file["tmp_name"], $uploaddirectory. $file["name"])) {
+
+        $uploadedfileName = $file["name"];
+        $fileurl = $uploaddirectory . $uploadedfileName ;
+    }else{
+        die('There was an error uploading your file');
+    }
 
     $product_query = "SELECT * FROM products WHERE id = $id";
     $product_result = mysqli_query($conn, $product_query);
 
-    if ($product_result && mysqli_num_rows($product_result) > 0) {
-        // Product exists, update it
-        $image = $_FILES['image']['name'];
-        $path = "../public/uploads";
-        $image_ext = pathinfo($image, PATHINFO_EXTENSION);
-        $filename = time() . '.' . $image_ext;
+    $product_query = "UPDATE products SET image = '$fileurl', name = '$name', availability = '$availability', price = '$price', description = '$description', category = '$category' WHERE id = $id";
+    $product_query_run = mysqli_query($conn, $product_query);
 
-        $product_query = "UPDATE products SET image = '$image', name = '$name', availability = '$availability', price = '$price', description = '$description', category = '$category' WHERE id = $id";
-        $product_query_run = mysqli_query($conn, $product_query);
+    // if (move_uploaded_file($file["tmp_name"], $uploaddirectory . $file["name"])) {
 
-        if ($product_query_run) {
-            move_uploaded_file($_FILES["image"]["tmp_name"], "$path/$filename");
-            header("Location: editproduct.php?id=$id&message=Product updated successfully");
-            exit;
-        } else {
-            echo "Error: " . $conn->error;
-        }
-    } else {
-        echo "Product not found";
-    }
+    //     $uploadedfileName = $file["name"];
+    //     $fileurl = $uploaddirectory . $uploadedfileName;
+    // } else {
+    //     die('There was an error uploading your file');
+    // }
 }
 
 // Retrieve the product ID from the URL
@@ -121,24 +121,24 @@ if (isset($_GET['id'])) {
                         <div class="input">
                             <label for="price">Product Price</label>
                             <div><input type="text" id="price" placeholder="Product Price" name="price" required value="<?php echo $productPrice; ?>"></div>
-                            <span class ="errormsg"></span>
+                            <span class="errormsg"></span>
                         </div>
                         <div class="input">
                             <label for="availability">Availability</label>
                             <div><input type="text" id="availability" placeholder="Product Availability" name="availability" required value="<?php echo $productAvailability; ?>"></div>
-                            <span class ="errormsg"></span>
+                            <span class="errormsg"></span>
                         </div>
 
                         <div class="input">
                             <label for="description">Product Description</label>
                             <textarea id="desc" name="description" rows="4" cols="50" required><?php echo $productDescription; ?></textarea>
-                            <span class ="errormsg"></span>
+                            <span class="errormsg"></span>
                         </div>
 
                         <div class="input">
                             <label for="category">Category</label>
                             <div><input type="text" id="category" placeholder="Product Category" name="category" required value="<?php echo $productCategory; ?>"></div>
-                            <span class ="errormsg"></span>
+                            <span class="errormsg"></span>
                         </div>
 
                         <input type="submit" name="editproduct" id="add" value="Update"></input>
