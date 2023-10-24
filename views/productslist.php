@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="../public/css/categories.css">
   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
   <link rel="stylesheet" href="../public/css/productslist.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 </section>
@@ -23,6 +24,7 @@
                         <span>Skin prod</span>
                         <h5>Sunscreen</h5>
                         <del>$345<span></del>$275
+                        <a href="..public/views/
                       <button class="btn"><i class="uil uil-shopping-cart-alt"></i></button>
                       <button class="btn"><i class="uil uil-heart"></i></button>
                     </div>
