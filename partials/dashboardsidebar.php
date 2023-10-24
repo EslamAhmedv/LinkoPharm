@@ -12,7 +12,7 @@
                 <a href="dashboard.php" class="<?php echo ($currentPage === 'dashboard') ? 'active' : ''; ?>"><span class="material-symbols-sharp">dashboard</span>
                     <h3>Dashboard</h3>
                 </a>
-                <a href="customers.php" class="<?php echo ($currentPage === 'editcustdash') ? 'active' : ''; ?>"><span class="material-symbols-sharp">person</span>
+                <a href="custdash.php" class="<?php echo ($currentPage === 'custdash') ? 'active' : ''; ?>"><span class="material-symbols-sharp">person</span>
                     <h3>Customers</h3>
                 </a>
                 <a href="" class="<?php echo ($currentPage === 'ordersdash') ? 'active' : ''; ?>"><span class="material-symbols-sharp">receipt_long</span>
