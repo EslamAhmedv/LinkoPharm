@@ -22,20 +22,7 @@ include_once "../includes/db.php";
 <body>
     <header class="header">
     <img src="../public/images/logo.png" class="logo">
-        <nav class="navbar">
-       
-            <a href="#home">home</a>
-            <!-- <a href="#features">features</a> -->
-            <a href="#products">products</a>
-            <a href="#categories">categories</a>
-            <a href="#review">review</a>
-          
-            
-            
-
-        </nav>
-       
-
+      
    
       
       
@@ -43,6 +30,20 @@ include_once "../includes/db.php";
 
              
       <?php if(isset($_SESSION["id"])){?>
+        <nav class="navbar">
+       
+       <a href="#home">home</a>
+       <!-- <a href="#features">features</a> -->
+       <a href="#products">products</a>
+       <a href="#categories">categories</a>
+       <a href="#review">review</a>
+     
+       
+       
+
+   </nav>
+  
+
         <div class="profile-dropdown">
         <div onclick="toggle()" class="profile-dropdown-btn">
           <div class="profile-img">
@@ -141,8 +142,16 @@ include_once "../includes/db.php";
 
     <?php }
    else{?>
+    <nav class="navbar">
+       
+       <a href="#home">home</a>
+       <!-- <a href="#features">features</a> -->
+       <a href="#products">products</a>
+       <a href="#categories">categories</a>
+       <a href="#review">review</a>
       <a class="temp" href="signup.php">sign up</a>
       <a class="temp" href="login.php">login</a>
+      </nav>
 
   <?php  }  ?>
     
