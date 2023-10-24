@@ -24,7 +24,7 @@
                         <span>Skin prod</span>
                         <h5>Sunscreen</h5>
                         <del>$345<span></del>$275
-                        <a href="..public/views/
+                      
                       <button class="btn"><i class="uil uil-shopping-cart-alt"></i></button>
                       <button class="btn"><i class="uil uil-heart"></i></button>
                     </div>
