@@ -25,7 +25,7 @@ session_start();
 			$result=mysqli_query($conn, $query);
 			if($result)	{
 
-			header("Location: index.php");
+			header("Location: login.php");
 			}
 		}
 	}
