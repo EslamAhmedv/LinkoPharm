@@ -2,18 +2,15 @@
 require '../includes/db.php';
 
 if (isset($_POST['deleteProduct'])) {
-    // Ensure that the product ID is provided
     if (isset($_POST['productId'])) {
         $productId = $_POST['productId'];
 
-        // Perform the deletion of the product from the database
+        // y3ml delete l product from the database
         $deleteQuery = "DELETE FROM products WHERE id = $productId";
         if ($conn->query($deleteQuery) === TRUE) {
-            // Product deleted successfully
             header("Location: displayproducts.php?message=Product deleted successfully");
             exit;
         } else {
-            // If deletion fails, display an error message
             echo "Error: " . $conn->error;
         }
     }
@@ -78,7 +75,7 @@ $result = $conn->query($sql);
                                 <td>
                                     <?php echo $product['id']; ?>
                                 </td>
-                                <td><img src="/Images/<?php echo $product['image']; ?>" alt="" id="prod_img"></td>
+                                <td><img src="<?php echo $product['image']; ?>" alt="" id="prod_img"></td>
                                 <td>
                                     <?php echo $product['name']; ?>
                                 </td>
