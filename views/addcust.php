@@ -13,7 +13,7 @@ if (isset($_POST['submit'])) {
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
     $user_query = "INSERT INTO users (firstname, lastname, username, email, gender, password)
-        VALUES ('$firstname', '$lastname', '$username', '$email', '$gender', '$password')";
+        VALUES ('$firstname', '$lastname', '$username', '$email', '$gender', '$hashedPassword')";
 
     if (mysqli_query($conn, $user_query)) {
         header("Location: addcust.php?id=$id&message=user added successfully");

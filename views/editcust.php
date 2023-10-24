@@ -19,6 +19,9 @@ function updateUser() {
     $gender = $_POST['gender'];
     $password = $_POST['password'];
 
+    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
+
     // nmn3 SQL injection
     $userId = mysqli_real_escape_string($conn, $userId);
     $firstName = mysqli_real_escape_string($conn, $firstName);
@@ -35,7 +38,7 @@ function updateUser() {
     if ($user_result && mysqli_num_rows($user_result) > 0) {
 
 
-        $user_query = "UPDATE users SET firstname = '$firstName', lastname = '$lastName', username = '$userName', email = '$email', gender = '$gender', password = '$password' WHERE id = $userId";
+        $user_query = "UPDATE users SET firstname = '$firstName', lastname = '$lastName', username = '$userName', email = '$email', gender = '$gender', password = '$hashedPassword' WHERE id = $userId";
         $user_query_run = mysqli_query($conn, $user_query);
 
         if ($user_query_run) {
