@@ -1,6 +1,21 @@
 <?php
 require '../includes/db.php';
 
+if (isset($_POST['deleteProduct'])) {
+    if (isset($_POST['productId'])) {
+        $productId = $_POST['productId'];
+
+        // y3ml delete l product from the database
+        $deleteQuery = "DELETE FROM products WHERE id = $productId";
+        if ($conn->query($deleteQuery) === TRUE) {
+            header("Location: displayproducts.php?message=Product deleted successfully");
+            exit;
+        } else {
+            echo "Error: " . $conn->error;
+        }
+    }
+}
+
 // Fetch products data from the database
 $sql = "SELECT * FROM products";
 $result = $conn->query($sql);
@@ -60,7 +75,7 @@ $result = $conn->query($sql);
                                 <td>
                                     <?php echo $product['id']; ?>
                                 </td>
-                                <td><img src="/Images/<?php echo $product['image']; ?>" alt="" id="prod_img"></td>
+                                <td><img src="<?php echo $product['image']; ?>" alt="" id="prod_img"></td>
                                 <td>
                                     <?php echo $product['name']; ?>
                                 </td>
@@ -70,9 +85,9 @@ $result = $conn->query($sql);
                                         <button class="btn edit-product"><i class="fa fa-edit"></i></button>
                                     </a>
 
-                                    <form method="POST" action="/displayproduct.php/<?php echo $product['id']; ?>" onsubmit="return confirmDelete(event);">
+                                    <form method="POST" >
                                         <input type="hidden" name="productId" value="<?php echo $product['id']; ?>">
-                                        <button class="btn delete-product" type="submit"><i class="fa fa-trash"></i></button>
+                                        <button class="btn delete-product" type="submit" name="deleteProduct"><i class="fa fa-trash"></i></button>
                                         <div id="errmsgdel"></div>
                                     </form>
 
