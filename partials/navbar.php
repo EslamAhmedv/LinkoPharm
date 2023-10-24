@@ -1,9 +1,11 @@
 <?php
 
-session_start();
+// session_start();
 
-// Include connection
-include_once "../includes/db.php";
+// // Include connection
+// include_once "../includes/db.php";
+// require "../includes/functions.php";
+// 	check_login();
 ?>
 
 
@@ -27,7 +29,7 @@ include_once "../includes/db.php";
 
 
              
-      <?php if(isset($_SESSION["id"])){?>
+    <?php if(check_login(false)){?>
         <nav class="navbar">
        
        <a href="#home">home</a>
@@ -49,7 +51,8 @@ include_once "../includes/db.php";
           </div> -->
 
           <span>
-          <?=$_SESSION['firstname']?>
+          <?=$_SESSION['USER']->username?>
+
             <i class="fa-solid fa-angle-down"></i>
           </span>
         </div>
@@ -134,7 +137,7 @@ include_once "../includes/db.php";
         </div>
 
     <?php }
-   else{?>
+   else {?>
     <nav class="navbar">
        
        <a href="#home">home</a>

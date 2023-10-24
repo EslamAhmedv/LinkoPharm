@@ -1,34 +1,53 @@
 <?php 
-session_start();
+// session_start();
 
-	include("../includes/db.php");
-	// include("functions.php");
+// 	include("../includes/db.php");
+// 	// include("functions.php");
 
 
-	if($_SERVER['REQUEST_METHOD'] == "POST")
-	{
-		//something was posted
-		$firstname = $_POST['firstname'];
-		$lastname = $_POST['lastname'];
-		$username = $_POST['username'];
-		$email = $_POST['email'];
-		$gender = $_POST['gender'];
-		$password = $_POST['password'];
+// 	if($_SERVER['REQUEST_METHOD'] == "POST")
+// 	{
+// 		//something was posted
+// 		$firstname = $_POST['firstname'];
+// 		$lastname = $_POST['lastname'];
+// 		$username = $_POST['username'];
+// 		$email = $_POST['email'];
+// 		$gender = $_POST['gender'];
+// 		$password = $_POST['password'];
 
-		if(!empty($username) && !empty($password) && !empty($firstname)   && !empty($lastname)  && !empty($email) && !is_numeric($username)&& !is_numeric($lastname)&& !is_numeric($firstname)&& !is_numeric($email))
-		{
+// 		if(!empty($username) && !empty($password) && !empty($firstname)   && !empty($lastname)  && !empty($email) && !is_numeric($username)&& !is_numeric($lastname)&& !is_numeric($firstname)&& !is_numeric($email))
+// 		{
 
-			//save to database
+// 			//save to database
 			
-			$query = "insert into users (firstname,lastname,username,email,gender,password) values ('$firstname','$lastname','$username','$email','$gender','$password')";
+// 			$query = "insert into users (firstname,lastname,username,email,gender,password) values ('$firstname','$lastname','$username','$email','$gender','$password')";
 
-			$result=mysqli_query($conn, $query);
-			if($result)	{
+// 			$result=mysqli_query($conn, $query);
+// 			if($result)	{
 
-			header("Location: login.php");
-			}
-		}
+// 			header("Location: login.php");
+// 			}
+// 		}
+// 	}
+
+
+
+require "../includes/functions.php";
+
+$errors = array();
+
+if($_SERVER['REQUEST_METHOD'] == "POST")
+{
+
+	$errors = signup($_POST);
+
+	if(count($errors) == 0)
+	{
+		header("Location: login.php");
+		die;
 	}
+}
+
 ?>
 
 
@@ -97,6 +116,14 @@ include('../partials/navbar.php'); ?>
 				</div>
 				<form method="post">
 					<h3>Sign up Form</h3>
+					<div>
+			<?php if(count($errors) > 0):?>
+				<?php foreach ($errors as $error):?>
+					<?= $error?> <br>	
+				<?php endforeach;?>
+			<?php endif;?>
+
+		</div>
 					<div class="form-group">
 						<input type="text" placeholder="First Name" name="firstname" class="form-control">
 						<input type="text" placeholder="Last Name"  name="lastname" class="form-control">
@@ -123,10 +150,10 @@ include('../partials/navbar.php'); ?>
 						<i class="zmdi zmdi-lock"></i>
 					</div>
 					<div class="form-wrapper">
-						<input type="password" placeholder="Confirm Password" class="form-control">
+						<input type="password" placeholder="Confirm Password" name="password2" class="form-control">
 						<i class="zmdi zmdi-lock"></i>
 					</div>
-					<button type="submit">Register</button>
+					<button type="submit" value="signup">Register</button>
 				</form>
 			</div>
 		</div>
