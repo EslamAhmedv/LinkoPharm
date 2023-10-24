@@ -49,7 +49,7 @@ $result = $conn->query($sql);
                     <input type="search" placeholder="Search existing users...">
                 </div>
                 <div class="add_user">
-                    <a href="adduser.php">
+                    <a href="addcust.php">
                         <button class="btn add-product"><i class="fa fa-plus"></i> Add User</button>
                     </a>
                 </div>
