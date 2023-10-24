@@ -77,7 +77,7 @@ $result = $conn->query($sql);
                                 <td><?php echo $user['email']; ?></td>
                                 <td><?php echo $user['gender']; ?></td>
                                 <td>
-                                    <a href="edituser.php?id=<?php echo $user['id']; ?>">
+                                    <a href="editcust.php?id=<?php echo $user['id']; ?>">
                                         <button class="btn edit-user"><i class="fa fa-edit"></i></button>
                                     </a>
                                     <form method="POST">

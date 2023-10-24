@@ -41,7 +41,7 @@ if (isset($_POST['submit'])) {
     <div class="container">
         <aside>
             <?php
-            $currentPage = 'usermanagement';
+            $currentPage = 'custdash';
             include('../partials/dashboardsidebar.php');
             ?>
         </aside>
@@ -87,7 +87,7 @@ if (isset($_POST['submit'])) {
                         </div>
 
                         <button type="submit" name="submit" id="add">Add</button>
-                        <a href="usermanagement.php"><button id="cancel">Cancel</button></a>
+                        <a href="addcust.php"><button id="cancel">Cancel</button></a>
                     </div>
                 </form>
             </div>
