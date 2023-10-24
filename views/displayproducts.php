@@ -21,14 +21,14 @@ $result = $conn->query($sql);
 </head>
 
 <body>
-   
+
     <div class="container">
-    <aside>
-    <?php
-$currentPage = 'displayproducts'; 
-include('../partials/dashboardsidebar.php');
-?>
-    </aside>
+        <aside>
+            <?php
+            $currentPage = 'displayproducts';
+            include('../partials/dashboardsidebar.php');
+            ?>
+        </aside>
 
         <main class="table">
             <section class="theader">
@@ -66,9 +66,10 @@ include('../partials/dashboardsidebar.php');
                                 </td>
 
                                 <td>
-                                    <a href="/editproducts.php/<?php echo $product['id']; ?>">
+                                    <a href="editproduct.php?id=<?php echo $product['id']; ?>">
                                         <button class="btn edit-product"><i class="fa fa-edit"></i></button>
                                     </a>
+
                                     <form method="POST" action="/displayproduct.php/<?php echo $product['id']; ?>" onsubmit="return confirmDelete(event);">
                                         <input type="hidden" name="productId" value="<?php echo $product['id']; ?>">
                                         <button class="btn delete-product" type="submit"><i class="fa fa-trash"></i></button>

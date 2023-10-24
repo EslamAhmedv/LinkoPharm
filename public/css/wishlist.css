@@ -1,12 +1,14 @@
 body{
     width:100%;
+    background-image: linear-gradient(45deg, #230585, #c51126);
 }
 
 #wish{
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    letter-spacing: 5px;
+    letter-spacing: 3px;
     padding:12px;
-   
+    color: aliceblue;
+    margin-left: 5px;
 }
 #wish h1{
     justify-content: center;
@@ -18,9 +20,12 @@ body{
 #wish .wishTable table{
     border-collapse: collapse;
     font-size:20px;
-    box-shadow: 0 0 20px rgba(198, 13, 13, 0.25); 
+    box-shadow: 0 0 20px rgb(107, 73, 107); 
     border-radius: 25px;
-   
+    color: rgb(21, 22, 23);
+   background-color: rgb(238, 228, 228);
+   padding-right:4px;
+
     
 }
  .wishTable tr{
@@ -71,13 +76,16 @@ body{
     margin-top: 40px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size:18;
-    background-color:rgb(154, 24, 6);
+    background-color: aliceblue;
     border: none;
-    color:white;
+    color:rgb(23, 20, 20);
     border-radius: 30px;
 }
 .delbutton:hover{
-    background-color: white;
-    color:black;
+    background-color: rgb(16, 15, 15);
+    color:rgb(255, 255, 255);
     transition: 0.25s ease;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    cursor: pointer;
 }
