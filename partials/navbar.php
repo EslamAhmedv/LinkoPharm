@@ -8,8 +8,6 @@ include_once "../includes/db.php";
 
 
 
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,9 +44,9 @@ include_once "../includes/db.php";
 
         <div class="profile-dropdown">
         <div onclick="toggle()" class="profile-dropdown-btn">
-          <div class="profile-img">
+          <!-- <div class="profile-img">
             <i class="fa-solid fa-circle"></i>
-          </div>
+          </div> -->
 
           <span>
           <?=$_SESSION['firstname']?>
@@ -69,12 +67,7 @@ include_once "../includes/db.php";
           </a>
         </li>
 
-        <li class="profile-dropdown-list-item">
-          <a href="#">
-            <i class="fa-solid fa-chart-line"></i>
-            Analytics
-          </a>
-        </li>
+        
 
         <li class="profile-dropdown-list-item">
           <a href="#">
@@ -149,9 +142,41 @@ include_once "../includes/db.php";
        <a href="#products">products</a>
        <a href="#categories">categories</a>
        <a href="#review">review</a>
-      <a class="temp" href="signup.php">sign up</a>
-      <a class="temp" href="login.php">login</a>
+      
+      
       </nav>
+      
+      <div class="profile-dropdown">
+        <div onclick="toggle()" class="profile-dropdown-btn">
+          <!-- <div class="profile-img">
+            <i class="fa-solid fa-circle"></i>
+          </div> -->
+
+          <span>
+          Guest
+            <i class="fa-solid fa-angle-down"></i>
+          </span>
+        </div>
+       <ul class="profile-dropdown-list">
+         <li class="profile-dropdown-list-item">    <a href="signup.php">
+            <i class="fa-regular fa-user"></i>
+           Signup
+          </a>
+        </li>
+
+        <li class="profile-dropdown-list-item">
+          <a href="login.php">
+          <i class="fa-regular fa-user"></i>
+           Login
+          </a>
+        </li>
+
+        
+
+      
+      </ul>
+        </div>
+        
 
   <?php  }  ?>
     
