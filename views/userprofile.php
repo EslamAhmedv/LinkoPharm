@@ -1,53 +1,65 @@
-
 <!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Profile</title>
-	<link rel="stylesheet" type="text/css" href="../public/css/bootstrap/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="../public/css/bootstrap/bootstrap-icons.css">
-</head>
-<body>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Setting Page UI Design</title>
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    />
+    <!-- CSS -->
+    <link rel="stylesheet" href="../public/css/userprofile.css" />
+  </head>
 
-	<!-- <div class="text-center p-1"><a href="users.php">All users</a></div> -->
+  <body>
 
-	
-		<div class="row col-lg-8 border rounded mx-auto mt-5 p-2 shadow-lg">
-			<div class="col-md-4 text-center">
-				<img src="../public/images/profile-pic.jpg" style="width: 180px;height:180px;object-fit: cover;">
-				<div>
+    <div class="container">
+      <div id="logo">
+        <h1 class="logo">hulu</h1>
+        <div class="CTA">
+          <h1>Get $10</h1>
+        </div>
+      </div>
 
-					
+      <div class="leftbox">
+        <nav>
+          <a href="#" class="active">
+            <i class="fa fa-user"></i>
+          </a>
+          <a href="#">
+            <i class="fa fa-credit-card"></i>
+          </a>
+          <a href="#">
+            <i class="fa fa-tv"></i>
+          </a>
+          <a href="#">
+            <i class="fa fa-tasks"></i>
+          </a>
+          <a href="#">
+            <i class="fa fa-cog"></i>
+          </a>
+        </nav>
+      </div>
 
-						<a href="profile-edit.php">
-							<button class="mx-auto m-1 btn-sm btn btn-primary">Edit</button>
-						</a>
-						<a href="profile-delete.php">
-							<button class="mx-auto m-1 btn-sm btn btn-warning text-white">Delete</button>
-						</a>
-						<a href="logout.php">
-							<button class="mx-auto m-1 btn-sm btn btn-info text-white">Logout</button>
-						</a>
-					
-				</div>
-			</div>
-			<div class="col-md-8">
-				<div class="h2">User Profile</div>
-				<table class="table table-striped">
-					<tr><th colspan="2">User Details:</th></tr>
-					<tr><th><i class="bi bi-envelope"></i> Email</th><td>user@gmail.com</td></tr>
-					<tr><th><i class="bi bi-person-circle"></i> First name</th><td>mohamed</td></tr>
-					<tr><th><i class="bi bi-person-square"></i> Last name</th><td>ali</td></tr>
-					<tr><th><i class="bi bi-gender-ambiguous"></i> Gender</th><td>Male</td></tr>
-				</table>
-			</div>
-		</div>
-	<!-- <div class="text-center alert alert-danger">That profile was not found</div>
-		<a href="index.php">
-			<button class="btn btn-primary m-4">Home</button>
-		</a> -->
-	
+      <div class="rightbox">
+        <div class="profile">
+          <h1>Personal Info</h1>
+          <h2>Full Name</h2>
+          <p>Hassnain Haider <button class="btn">update</button></p>
+          <h2>Birthday</h2>
+          <p>January 5</p>
+          <h2>Gender</h2>
+          <p>Male</p>
+          <h2>Email</h2>
+          <p>example@example.com <button class="btn">update</button></p>
+          <h2>Password</h2>
+          <p>******** <button class="btn">Change</button></p>
+        </div>
+      </div>
+    </div>
 
-</body>
+  </body>
 </html>

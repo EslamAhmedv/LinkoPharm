@@ -1,6 +1,24 @@
 <?php
 require '../includes/db.php';
 
+if (isset($_POST['deleteProduct'])) {
+    // Ensure that the product ID is provided
+    if (isset($_POST['productId'])) {
+        $productId = $_POST['productId'];
+
+        // Perform the deletion of the product from the database
+        $deleteQuery = "DELETE FROM products WHERE id = $productId";
+        if ($conn->query($deleteQuery) === TRUE) {
+            // Product deleted successfully
+            header("Location: displayproducts.php?message=Product deleted successfully");
+            exit;
+        } else {
+            // If deletion fails, display an error message
+            echo "Error: " . $conn->error;
+        }
+    }
+}
+
 // Fetch products data from the database
 $sql = "SELECT * FROM products";
 $result = $conn->query($sql);
@@ -70,9 +88,9 @@ $result = $conn->query($sql);
                                         <button class="btn edit-product"><i class="fa fa-edit"></i></button>
                                     </a>
 
-                                    <form method="POST" action="/displayproduct.php/<?php echo $product['id']; ?>" onsubmit="return confirmDelete(event);">
+                                    <form method="POST" >
                                         <input type="hidden" name="productId" value="<?php echo $product['id']; ?>">
-                                        <button class="btn delete-product" type="submit"><i class="fa fa-trash"></i></button>
+                                        <button class="btn delete-product" type="submit" name="deleteProduct"><i class="fa fa-trash"></i></button>
                                         <div id="errmsgdel"></div>
                                     </form>
 
