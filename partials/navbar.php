@@ -4,8 +4,11 @@
 
 // // Include connection
 // include_once "../includes/db.php";
-// require "../includes/functions.php";
-// 	check_login();
+if(function_exists("signup")===false){
+require "../includes/functions.php";
+
+	check_login();
+}
 ?>
 
 
