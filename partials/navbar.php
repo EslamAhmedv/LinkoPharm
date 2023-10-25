@@ -1,7 +1,4 @@
 <?php
-
-// session_start();
-
 // // Include connection
 // include_once "../includes/db.php";
 if(function_exists("signup")===false){
@@ -35,9 +32,9 @@ require "../includes/functions.php";
     <?php if(check_login(false)){?>
         <nav class="navbar">
        
-       <a href="#home">home</a>
+       <a href="index.php">home</a>
        <!-- <a href="#features">features</a> -->
-       <a href="#products">products</a>
+       <a href="productslist.php">products</a>
        <a href="#categories">categories</a>
        <a href="#review">review</a>
      
@@ -60,7 +57,7 @@ require "../includes/functions.php";
           </span>
         </div>
        <ul class="profile-dropdown-list">
-         <li class="profile-dropdown-list-item">    <a href="userprofle.php">
+         <li class="profile-dropdown-list-item">    <a href="userprofile.php">
             <i class="fa-regular fa-user"></i>
             Edit Profile
           </a>
@@ -143,9 +140,9 @@ require "../includes/functions.php";
    else {?>
     <nav class="navbar">
        
-       <a href="#home">home</a>
+       <a href="index.php">home</a>
        <!-- <a href="#features">features</a> -->
-       <a href="#products">products</a>
+       <a href="productslist.php">products</a>
        <a href="#categories">categories</a>
        <a href="#review">review</a>
       

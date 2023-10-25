@@ -1,4 +1,15 @@
+<?php
 
+// session_start();
+
+// // Include connection
+// include_once "../includes/db.php";
+if(function_exists("signup")===false){
+require "../includes/functions.php";
+
+	check_login();
+}
+?>
 <!--Website: wwww.codingdung.com-->
 <!DOCTYPE html>
 <html lang="en">
@@ -46,22 +57,47 @@
                                         Upload new photo
                                         <input type="file" class="account-settings-fileinput">
                                     </label> &nbsp;
-                                    <button type="button" class="btn btn-default md-btn-flat">Reset</button>
+                                    <button type="button" class="btn btn-default md-btn-flat"><a href="index.php">home</a></button>
                                     <div class="text-light small mt-1">Allowed JPG, GIF or PNG. Max size of 800K</div>
                                 </div>
                             </div>
+
+                            <?php if(check_login(false)){?>
                             <hr class="border-light m-0">
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label class="form-label">Username</label>
+                                    <label class="form-label">  username</label>
+                                    <input type="text" class="form-control mb-1" value= <?=$_SESSION['USER']->username?> >
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">  Name</label>
+                                    <input type="text" class="form-control" value= <?=$_SESSION['USER']->firstname?>>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">  email</label>
+                                    <input type="text" class="form-control mb-1" value= <?=$_SESSION['USER']->email?>>
+                                    
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">  gender</label>
+                                    <input type="text" class="form-control" value= <?=$_SESSION['USER']->gender?>>
+                                </div>
+                            </div>
+                        </div>
+                        <?php }
+                         else {?>
+                           <hr class="border-light m-0">
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label class="form-label">  namee</label>
                                     <input type="text" class="form-control mb-1" value="nmaxwell">
                                 </div>
                                 <div class="form-group">
-                                    <label class="form-label">Name</label>
+                                    <label class="form-label"> email</label>
                                     <input type="text" class="form-control" value="Nelle Maxwell">
                                 </div>
                                 <div class="form-group">
-                                    <label class="form-label">E-mail</label>
+                                    <label class="form-label">   user</label>
                                     <input type="text" class="form-control mb-1" value="nmaxwell@mail.com">
                                     <div class="alert alert-warning mt-3">
                                         Your email is not confirmed. Please check your inbox.<br>
@@ -69,11 +105,15 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="form-label">Company</label>
+                                    <label class="form-label">  gender</label>
                                     <input type="text" class="form-control" value="Company Ltd.">
                                 </div>
                             </div>
                         </div>
+
+
+
+<?php  }  ?>
                         <div class="tab-pane fade" id="account-change-password">
                             <div class="card-body pb-2">
                                 <div class="form-group">

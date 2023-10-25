@@ -121,8 +121,8 @@ function database_run($query,$vars = array())
 function check_login($redirect = true){
 
 	if(isset($_SESSION['USER']) && isset($_SESSION['LOGGED_IN'])){
-
 		return true;
+       
 	}
 
 	if($redirect){
