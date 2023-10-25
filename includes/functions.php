@@ -125,12 +125,12 @@ function check_login($redirect = true){
        
 	}
 
-	if($redirect){
-		header("Location: login.php");
-		die;
-	}else{
-		return false;
-	}
+	// if($redirect){
+	// 	header("Location: login.php");
+	// 	die;
+	// }else{
+	// 	return false;
+	// }
 	
 }
 
