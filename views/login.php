@@ -1,29 +1,4 @@
 <?php
-//    session_start();
-//    include_once "../includes/db.php";
-//    //grab data from user and see if it exists in database
-//    if($_SERVER["REQUEST_METHOD"]=="POST"){
-
-//     $email=$_POST["email"];
-// 	$password=$_POST["password"];
-// 	$sql="Select * from users where email ='$email' and password='$password'";
-// 	$result = mysqli_query($conn,$sql);
-//     if($row=mysqli_fetch_array($result))	{
-// 		$_SESSION["id"]=$row[0];
-// 		$_SESSION["firstname"]=$row["firstname"];
-// 		$_SESSION["lastname"]=$row["lastname"];
-//         $_SESSION["username"]=$row["username"];
-// 		$_SESSION["email"]=$row["email"];
-//         $_SESSION["gender"]=$row["gender"];
-// 		$_SESSION["password"]=$row["password"];
-// 		header("Location:index.php?login=success");
-// 	}
-// 	else	{
-// 		echo "Inalid Email or Password";
-// 	}
-//    }
-
-
 require "../includes/functions.php";
 
 $errors = array();
@@ -39,7 +14,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 		die;
 	}
     else{
-        header("Location: login.php");
+       return $errors;
 
     }
 }
