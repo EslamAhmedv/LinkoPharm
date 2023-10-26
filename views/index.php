@@ -82,6 +82,106 @@
     <p>Your Beauty and Well-being, Our Commitment.</p>
   </div>
 
+  <!-- slider -->
+
+  <div class="section__container news__container">
+    <h2 class="section__title">Latest Products</h2>
+
+    <div class="container swiper">
+      <div class="slide-container">
+        <div class="card-wrapper swiper-wrapper">
+          <div class="card swiper-slide">
+            <div class="image-box">
+              <img src="../public/images/PNGs/pack.png" alt="" />
+            </div>
+            <div class="profile-details">
+
+              <div class="name-job">
+                <h3 class="name">Jelace</h3>
+                <h4 class="job"> TOPICAL MUSCLE RELAXANTS</h4>
+              </div>
+            </div>
+          </div>
+          <div class="card swiper-slide">
+            <div class="image-box">
+              <img src="../public/images/PNGs/spray1.png" alt="" />
+            </div>
+            <div class="profile-details">
+
+              <div class="name-job">
+                <h3 class="name">Universal Spray</h3>
+                <h4 class="job"> TOPICAL MUSCLE RELAXANTS</h4>
+              </div>
+            </div>
+          </div>
+          <div class="card swiper-slide">
+            <div class="image-box">
+              <img src="../public/images/PNGs/Mohair Mockup(1).png" alt="" />
+            </div>
+            <div class="profile-details">
+
+              <div class="name-job">
+                <h3 class="name">Mohair</h3>
+                <h4 class="job"> hair care</h4>
+              </div>
+            </div>
+          </div>
+          <div class="card swiper-slide">
+            <div class="image-box">
+              <img src="../public/images/PNGs/Vulga cream.png" alt="" />
+            </div>
+            <div class="profile-details">
+
+              <div class="name-job">
+                <h3 class="name">Vulga</h3>
+                <h4 class="job"> skin care</h4>
+              </div>
+            </div>
+          </div>
+          <div class="card swiper-slide">
+            <div class="image-box">
+              <img src="../public/images/PNGs/Vindo Serum.png" alt="" />
+            </div>
+            <div class="profile-details">
+
+              <div class="name-job">
+                <h3 class="name">Vindo Serum</h3>
+                <h4 class="job"> hair care</h4>
+              </div>
+            </div>
+          </div>
+          <div class="card swiper-slide">
+            <div class="image-box">
+              <img src="../public/images/PNGs/Defanso soap.png" alt="" />
+            </div>
+            <div class="profile-details">
+
+              <div class="name-job">
+                <h3 class="name">Defanso soap</h3>
+                <h4 class="job"> skin care</h4>
+              </div>
+            </div>
+          </div>
+          <div class="card swiper-slide">
+            <div class="image-box">
+              <img src="../public/images/PNGs/Psyllose  mockup.png" alt="" />
+            </div>
+            <div class="profile-details">
+
+              <div class="name-job">
+                <h3 class="name">Psyllose</h3>
+                <h4 class="job"> nutrients</h4>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      <div class="swiper-button-next swiper-navBtn"></div>
+      <div class="swiper-button-prev swiper-navBtn"></div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
 
   <!-- categories -->
 
@@ -127,7 +227,7 @@
       <div class="sale__card">
         <img src="../public/images/nutrients.jpg" alt="sale" />
         <div class="sale__content">
-          <p class="sale__subtitle">Nurients </p>
+          <p class="sale__subtitle">Nutrients</p>
           <h4 class="sale__title">sale <span>40% </span>off </h4>
           <p class="sale__subtitle">Dont miss</p>
           <button class="btnn sale__btnn">shop now </button>
@@ -153,7 +253,7 @@
       <div class="sale__card">
         <img src="../public/images/ff.jpg" alt="sale" />
         <div class="sale__content">
-          <p class="sale__subtitle">TOPICAL MUSCLE RELAXANTS</p>
+          <p class="sale__subtitle">Feminine</p>
           <h4 class="sale__title">sale <span>40% </span>off </h4>
           <p class="sale__subtitle">Dont miss</p>
           <button class="btnn sale__btnn">shop now </button>
@@ -167,106 +267,7 @@
   </section>
 
 
-  <!-- slider -->
-
-  <div class="section__container news__container">
-    <h2 class="section__title">Latest News</h2>
-
-    <div class="container swiper">
-      <div class="slide-container">
-        <div class="card-wrapper swiper-wrapper">
-          <div class="card swiper-slide">
-            <div class="image-box">
-              <img src="../public/images/shop1.jpg" alt="" />
-            </div>
-            <div class="profile-details">
-
-              <div class="name-job">
-                <h3 class="name">LAROCHE-POSAY</h3>
-                <h4 class="job"> Effacalar Cleanser</h4>
-              </div>
-            </div>
-          </div>
-          <div class="card swiper-slide">
-            <div class="image-box">
-              <img src="../public/images/shop2.jpg" alt="" />
-            </div>
-            <div class="profile-details">
-
-              <div class="name-job">
-                <h3 class="name">LAROCHE-POSAY</h3>
-                <h4 class="job"> Effacalar Cleanser</h4>
-              </div>
-            </div>
-          </div>
-          <div class="card swiper-slide">
-            <div class="image-box">
-              <img src="../public/images/shop6.jpg" alt="" />
-            </div>
-            <div class="profile-details">
-
-              <div class="name-job">
-                <h3 class="name">LAROCHE-POSAY</h3>
-                <h4 class="job"> Effacalar Cleanser</h4>
-              </div>
-            </div>
-          </div>
-          <div class="card swiper-slide">
-            <div class="image-box">
-              <img src="../public/images/shop7.webp" alt="" />
-            </div>
-            <div class="profile-details">
-
-              <div class="name-job">
-                <h3 class="name">LAROCHE-POSAY</h3>
-                <h4 class="job"> Effacalar Cleanser</h4>
-              </div>
-            </div>
-          </div>
-          <div class="card swiper-slide">
-            <div class="image-box">
-              <img src="../public/images/shop3.webp" alt="" />
-            </div>
-            <div class="profile-details">
-
-              <div class="name-job">
-                <h3 class="name">LAROCHE-POSAY</h3>
-                <h4 class="job"> Effacalar Cleanser</h4>
-              </div>
-            </div>
-          </div>
-          <div class="card swiper-slide">
-            <div class="image-box">
-              <img src="../public/images/shop4.webp" alt="" />
-            </div>
-            <div class="profile-details">
-
-              <div class="name-job">
-                <h3 class="name">LAROCHE-POSAY</h3>
-                <h4 class="job"> Effacalar Cleanser</h4>
-              </div>
-            </div>
-          </div>
-          <div class="card swiper-slide">
-            <div class="image-box">
-              <img src="../public/images/shop5.jpg" alt="" />
-            </div>
-            <div class="profile-details">
-
-              <div class="name-job">
-                <h3 class="name">LAROCHE-POSAY</h3>
-                <h4 class="job"> Effacalar Cleanser</h4>
-              </div>
-            </div>
-          </div>
-          
-        </div>
-      </div>
-      <div class="swiper-button-next swiper-navBtn"></div>
-      <div class="swiper-button-prev swiper-navBtn"></div>
-      <div class="swiper-pagination"></div>
-    </div>
-  </div>
+  
 
 
 

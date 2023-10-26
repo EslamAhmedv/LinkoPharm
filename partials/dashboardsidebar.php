@@ -2,7 +2,8 @@
         <aside>
             <div class="top">
                 <div class="logo">
-                    <img src="../public/images/Linko logo transperant.png" alt="">
+                    <a href="index.php"> <img src="../public/images/Linko logo transperant.png" alt="">
+                    </a>
                 </div>
                 <div class="close" id="close-btn">
                     <span class="material-symbols-sharp">close</span>
@@ -33,7 +34,7 @@
                 <a href="" class="<?php echo ($currentPage === 'settings') ? 'active' : ''; ?>"><span class="material-symbols-sharp">Settings</span>
                     <h3>Settings</h3>
                 </a>
-               
+
                 <a href=""><span class="material-symbols-sharp">logout</span>
                     <h3>Logout</h3>
                 </a>

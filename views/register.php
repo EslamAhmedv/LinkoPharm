@@ -65,12 +65,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <label for="email">Email:</label>
             <input type="email" name="email" required>
             <label for="password">Password:</label>
-            <input type="password" name="password" required>
+            <input type="password" name="password" id="password" required>
+            <span id="passwordValidation"></span>
             <label for="password_confirm">Confirm Password:</label> 
-            <input type="password" name="password_confirm" required> 
+            <input type="password" name="password_confirm" id="confirmPassword" required> 
+            <span id="passwordValidationMessage"></span>
             <button type="submit" name="submit">Register</button>
         </form>
         <p>Already have an account? <a href="login.php">Log in</a></p>
     </div>
+    
+    <script src="../public/js/signup.js">
+
+        </script>
 </body>
 </html>

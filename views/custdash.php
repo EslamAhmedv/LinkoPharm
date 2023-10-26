@@ -7,7 +7,7 @@ if (isset($_POST['deleteUser'])) {
         // Delete the user from the database
         $deleteQuery = "DELETE FROM users WHERE id = $userId";
         if ($conn->query($deleteQuery) === TRUE) {
-            header("Location: usermanagement.php?message=User deleted successfully");
+            header("Location: custdash.php?message=User deleted successfully");
             exit;
         } else {
             echo "Error: " . $conn->error;
