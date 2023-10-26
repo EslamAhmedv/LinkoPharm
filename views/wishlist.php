@@ -8,6 +8,8 @@
     </head>
     <body>
         
+    <?php
+include('../partials/navbar.php'); ?>
         <section id="wish">
             
            
@@ -243,7 +245,13 @@
             </div>
             <a href="/deletewishlist">
                 <button class="delbutton">Delete All</button>
+
             </a>
+            <?php
+  include('../partials/footer.php');
+  // include('../partials/chat.php'); 
+  ?>
+
     </body>            
 </html>               
           

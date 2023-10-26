@@ -9,6 +9,10 @@
 </head>
 
 <body>
+  
+<?php
+
+include('../partials/navbar.php'); ?>
   <h1>Product Display</h1>
   <div class="product-container">
     <div class="card">
@@ -96,6 +100,10 @@
       <p><button>Add to Cart</button></p>
     </div>
   </div>
+  <?php
+  include('../partials/footer.php');
+  // include('../partials/chat.php'); 
+  ?>
 </body>
 
 </html>

@@ -35,8 +35,8 @@ require "../includes/functions.php";
        <a href="index.php">home</a>
        <!-- <a href="#features">features</a> -->
        <a href="productslist.php">products</a>
-       <a href="#categories">categories</a>
-       <a href="#review">review</a>
+       <a href="contactus.php">contact us</a>
+       <a href="wishlist.php">wishlist</a>
      
        
        

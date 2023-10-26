@@ -6,6 +6,9 @@
     <link rel="stylesheet" href="../public/css/contactus.css">
 </head>
 <body>
+      
+<?php
+include('../partials/navbar.php'); ?>
     <div class="contactus">
         <div class="title">
             <h2>Get in touch</h2>
@@ -86,6 +89,10 @@
             </div>
         </div>
     </div>
+    <?php
+  include('../partials/footer.php');
+  // include('../partials/chat.php'); 
+  ?>
 
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
