@@ -127,7 +127,7 @@
       <div class="sale__card">
         <img src="../public/images/nutrients.jpg" alt="sale" />
         <div class="sale__content">
-          <p class="sale__subtitle">Nurients </p>
+          <p class="sale__subtitle">Nutrients</p>
           <h4 class="sale__title">sale <span>40% </span>off </h4>
           <p class="sale__subtitle">Dont miss</p>
           <button class="btnn sale__btnn">shop now </button>
@@ -153,7 +153,7 @@
       <div class="sale__card">
         <img src="../public/images/ff.jpg" alt="sale" />
         <div class="sale__content">
-          <p class="sale__subtitle">TOPICAL MUSCLE RELAXANTS</p>
+          <p class="sale__subtitle">Feminine</p>
           <h4 class="sale__title">sale <span>40% </span>off </h4>
           <p class="sale__subtitle">Dont miss</p>
           <button class="btnn sale__btnn">shop now </button>
