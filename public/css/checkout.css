@@ -148,3 +148,8 @@ h1 {
 .text {
     font-size: medium;  
 }
+
+.error {
+    font-size: small;  
+    color: #FF3333;
+}
