@@ -156,7 +156,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <div class="group">
                             <label for="" class="text">CVC</label>
                             <div class="error"><?php echo $CVCErr?></div>
-                            <input type="text" name="CVC" id="" placeholder="*">
+                            <input type="text" name="CVC" id="" placeholder="***">
                         </div>
                     </div>
                     <div class="return">
