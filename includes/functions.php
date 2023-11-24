@@ -152,4 +152,3 @@ function check_login($redirect = true){
 // 	return false;
  	
 // }
-

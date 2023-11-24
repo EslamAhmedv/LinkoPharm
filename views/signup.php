@@ -125,19 +125,19 @@ include('../partials/navbar.php'); ?>
 
 		</div>
 					<div class="form-group">
-						<input type="text" placeholder="First Name" name="firstname" class="form-control">
-						<input type="text" placeholder="Last Name"  name="lastname" class="form-control">
+						<input type="text" placeholder="First Name" name="firstname" class="form-control" required>
+						<input type="text" placeholder="Last Name"  name="lastname" class="form-control" required>
 					</div>
 					<div class="form-wrapper">
-						<input type="text" placeholder="Username"  name="username" class="form-control">
+						<input type="text" placeholder="Username"  name="username" class="form-control" required>
 						<i class="zmdi zmdi-account"></i>
 					</div>
 					<div class="form-wrapper">
-						<input type="text" placeholder="Email Address"  name="email" class="form-control">
+						<input type="text" placeholder="Email Address"  name="email" class="form-control" required>
 						<i class="zmdi zmdi-email"></i>
 					</div>
 					<div class="form-wrapper">
-						<select name="gender" id="" class="form-control">
+						<select name="gender" id="" class="form-control" required>
 							<option value="" disabled selected>Gender</option>
 							<option value="male">Male</option>
 							<option value="femal">Female</option>
@@ -146,11 +146,11 @@ include('../partials/navbar.php'); ?>
 						<i class="zmdi zmdi-caret-down" style="font-size: 17px"></i>
 					</div>
 					<div class="form-wrapper">
-						<input type="password" placeholder="Password"  name="password" class="form-control">
+						<input type="password" placeholder="Password"  name="password" class="form-control" required>
 						<i class="zmdi zmdi-lock"></i>
 					</div>
 					<div class="form-wrapper">
-						<input type="password" placeholder="Confirm Password" name="password2" class="form-control">
+						<input type="password" placeholder="Confirm Password" name="password2" class="form-control" required>
 						<i class="zmdi zmdi-lock"></i>
 					</div>
 					<button type="submit" value="signup">Register</button>

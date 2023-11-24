@@ -100,10 +100,7 @@ include('../partials/navbar.php'); ?>
       <p><button>Add to Cart</button></p>
     </div>
   </div>
-  <?php
-  include('../partials/footer.php');
-  // include('../partials/chat.php'); 
-  ?>
+ 
 </body>
 
 </html>
