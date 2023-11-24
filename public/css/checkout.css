@@ -118,11 +118,14 @@ body {
 .returnCart .item .returnPrice {
     font-size: large;
     font-weight: bold;
+    margin-left: 5px;
 }
 
 .quantity,
 .price {
-    font-size: large; 
+    font-size: medium; 
+    margin: 10px;
+    margin-left: 5px;
 }
 
 .keepShopping {
