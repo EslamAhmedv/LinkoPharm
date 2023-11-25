@@ -1,3 +1,87 @@
+<?php
+// Assuming you have a product object with details
+$product = [
+    'name' => 'Bioderma Photoderm Max Tinted Aquafluid Light Color SPF 50+ - 40ml',
+    'price' => 900.00,
+    'quantity' =>2,
+    'description' => 'Sun protection products',
+    'code' => 376089,
+    'image' => '../public/images/bioderma-photoderm-max-tinted-aquafluid-light-color-spf-50-40ml-782493.webp'
+];
+
+// you can try to comment product2 to check if the div will be exist or not
+$product2 = [
+  'name' => 'prod2',
+  'price' => 500.00,
+  'quantity' =>3,
+  'description' => '---',
+  'code' => 376080,
+  'image' => '../public/images/376089-1.jpeg'
+];
+
+
+// Validation
+// define variables and set to empty values
+$Fname = $Lname = $Phone = $Address = $City = $NameCard = $CardNo = $ExDate = $CVC = "";
+$FnameErr  = $LnameErr = $PhoneErr = $AddressErr = $CityErr = $NameCardErr = $CardNoErr = $ExDateErr = $CVCErr = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  if (empty($_POST["Fname"])) {
+    $FnameErr = "*First Name is required";
+  } else {
+    $Fname = $_POST["Fname"];
+  }
+
+  if (empty($_POST["Lname"])) {
+    $LnameErr = "*Last Name is required";
+  } else {
+    $Lname = $_POST["Lname"];
+  }
+    
+  if (empty($_POST["Phone"])) {
+    $PhoneErr = "*Phone Number is required";
+  } else {
+    $Phone = $_POST["Phone"];
+  }
+
+  if (empty($_POST["Address"])) {
+    $AddressErr = "*Address is required";
+  } else {
+    $Address = $_POST["Address"];
+  }
+
+  if (empty($_POST["City"])) {
+    $CityErr = "*City is required";
+  } else {
+    $City = $_POST["City"];
+  }
+
+  if (empty($_POST["NameCard"])) {
+    $NameCardErr = "*Name on card is required";
+  } else {
+    $NameCard = $_POST["NameCard"];
+  }
+
+  if (empty($_POST["CardNo"])) {
+    $CardNoErr = "*Card number is required";
+  } else {
+    $CardNo = $_POST["CardNo"];
+  }
+
+  if (empty($_POST["ExDate"])) {
+    $ExDateErr = "*Expiring Date is required";
+  } else {
+    $ExDate = $_POST["ExDate"];
+  }
+
+  if (empty($_POST["CVC"])) {
+    $CVCErr = "*CVC is required";
+  } else {
+    $CVC = $_POST["CVC"];
+  }
+}
+?>
+
 <hb>
 <!DOCTYPE html>
 <html lang="en">
@@ -10,69 +94,6 @@
 </style>
 </head>
 <body>
-
-<?php
-// define variables and set to empty values
-$Fname = $Lname = $Phone = $Address = $City = $NameCard = $CardNo = $ExDate = $CVC = "";
-$FnameErr  = $LnameErr = $PhoneErr = $AddressErr = $CityErr = $NameCardErr = $CardNoErr = $ExDateErr = $CVCErr = "";
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  if (empty($_POST["Fname"])) {
-    $FnameErr = "First Name is required";
-  } else {
-    $Fname = test_input($_POST["Fname"]);
-  }
-
-  if (empty($_POST["Lname"])) {
-    $LnameErr = "Last Name is required";
-  } else {
-    $Lname = test_input($_POST["Lname"]);
-  }
-    
-  if (empty($_POST["Phone"])) {
-    $PhoneErr = "Phone Number is required";
-  } else {
-    $Phone = test_input($_POST["Phone"]);
-  }
-
-  if (empty($_POST["Address"])) {
-    $AddressErr = "Address is required";
-  } else {
-    $Address = test_input($_POST["Address"]);
-  }
-
-  if (empty($_POST["City"])) {
-    $CityErr = "City is required";
-  } else {
-    $City = test_input($_POST["City"]);
-  }
-
-  if (empty($_POST["NameCard"])) {
-    $NameCardErr = "Name on card is required";
-  } else {
-    $NameCard = test_input($_POST["NameCard"]);
-  }
-
-  if (empty($_POST["CardNo"])) {
-    $CardNoErr = "Card number is required";
-  } else {
-    $CardNo = test_input($_POST["CardNo"]);
-  }
-
-  if (empty($_POST["ExDate"])) {
-    $ExDateErr = "Expiring Date is required";
-  } else {
-    $ExDate = test_input($_POST["ExDate"]);
-  }
-
-  if (empty($_POST["CVC"])) {
-    $CVCErr = "CVC is required";
-  } else {
-    $CVC = test_input($_POST["CVC"]);
-  }
-}
-?>
-
   <div class="hero">
     <?php
     include('../partials/navbar.php');
@@ -84,29 +105,35 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <h1>List Products In Cart</h1>
                     <div class="list">
                         <div class="item">
-                            <img src="../public/images/Sunblock_SPF60_120ml_1200x1200.webp" alt="">
+                            <img src="<?php echo $product['image']; ?> " alt="">
                             <div class="info">
-                                <div class="name">Product 1</div>
-                                <div class="price">50 EGP</div>
+                                <div class="name"> <?php echo $product['name']; ?> </div>
+                                <div class="price"><?php echo $product['price']; ?> EGP</div>
                             </div>
-                            <div class="quantity">2</div>
-                            <div class="returnPrice">100 EGP</div>
+                            <div class="quantity"><?php echo $product['quantity']; ?></div>
+                            <div class="returnPrice"><?php echo $product['price'] * $product['quantity']; ?> EGP</div>
                         </div>
-                        <div class="item">
-                            <img src="../public/images/376089-1.jpeg" alt="">
+                        <!-- you can try to comment product2 to check the if the div will be exist or not -->
+                        <?php 
+                        if (isset($product2)) {
+                          echo 
+                          '<div class="item">
+                            <img src="' . $product2['image'] . '" alt="">
                             <div class="info">
-                                <div class="name">Product 2</div>
-                                <div class="price">80 EGP</div>
+                              <div class="name">' . $product2['name'] . '</div>
+                              <div class="price">' . $product2['price'] . ' EGP</div>
                             </div>
-                            <div class="quantity">1</div>
-                            <div class="returnPrice">80 EGP</div>
-                        </div>
+                            <div class="quantity">' . $product2['quantity'] . '</div>
+                            <div class="returnPrice">' . ($product2['price'] * $product2['quantity']) . ' EGP</div>
+                          </div> ';
+                        }
+                        ?>     
                     </div>
                 </div>
                 <div class="right">
                     <h1>CHECKOUT</h1>
                     <h1 class="sInfo">Shipping information</h1>
-                    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>"> 
+                    <form method="post"> 
                     <div class="form">
                         <div class="group">
                             <label for="" class="text">First Name</label>
@@ -162,11 +189,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <div class="return">
                         <div class="row">
                             <div class="text">Total Quantity</div>
-                            <div class="totalQuantity">3</div>
+                            <div class="totalQuantity"><?php echo $product['quantity'] + $product2['quantity']; ?></div>
                         </div>
                         <div class="row">
                             <div class="text">Total Price</div>
-                            <div class="totalPrice">180 EGP</div>
+                            <div class="totalPrice"><?php echo ($product['quantity']*$product['price']) + ($product2['quantity']*$product2['price']); ?> EGP</div>
                         </div>
                     </div>
                     <button class="buttonCheckout" type="submit">
