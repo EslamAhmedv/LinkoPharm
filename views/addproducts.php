@@ -1,27 +1,9 @@
 <?php
 require '../includes/db.php';
-
-
+include "../controller/adminfunctions.php";
 if (isset($_POST['submit'])) {
-    $name = $_POST['name'];
-    $price = $_POST['price'];
-    $description = $_POST['description'];
-    $category = $_POST['category'];
-    $availability = $_POST['availability'];
-$file = $_FILES["image"];
-    $uploaddirectory = "../public/uploads/";
-
-    if (move_uploaded_file($file["tmp_name"], $uploaddirectory. $file["name"])) {
-
-        $uploadedfileName = $file["name"];
-        $fileurl = $uploaddirectory . $uploadedfileName ;
-    }else{
-        die('There was an error uploading your file');
-    }
-
-    $product_query = ("INSERT INTO products (image, name, availability, price, description, category) 
-        VALUES ('$fileurl', '$name', '$availability', '$price', '$description', '$category')");
-   mysqli_query($conn, $product_query);}
+ addproduct();  
+}
 
 
 ?>
