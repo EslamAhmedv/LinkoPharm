@@ -1,84 +1,107 @@
 <?php
-// Assuming you have a product object with details
-$product = [
+// Assuming you have a cart array with products details
+
+$cart = array(
+  array(
     'name' => 'Bioderma Photoderm Max Tinted Aquafluid Light Color SPF 50+ - 40ml',
     'price' => 900.00,
     'quantity' =>2,
     'description' => 'Sun protection products',
     'code' => 376089,
     'image' => '../public/images/bioderma-photoderm-max-tinted-aquafluid-light-color-spf-50-40ml-782493.webp'
-];
-
-// you can try to comment product2 to check if the div will be exist or not
-$product2 = [
-  'name' => 'prod2',
-  'price' => 500.00,
-  'quantity' =>3,
-  'description' => '---',
-  'code' => 376080,
-  'image' => '../public/images/376089-1.jpeg'
-];
+    ),
+  array(
+    'name' => 'prod2',
+    'price' => 500.00,
+    'quantity' =>3,
+    'description' => '---',
+    'code' => 376080,
+    'image' => '../public/images/376089-1.jpeg'
+    )
+  );
 
 
 // Validation
 // define variables and set to empty values
+
 $Fname = $Lname = $Phone = $Address = $City = $NameCard = $CardNo = $ExDate = $CVC = "";
 $FnameErr  = $LnameErr = $PhoneErr = $AddressErr = $CityErr = $NameCardErr = $CardNoErr = $ExDateErr = $CVCErr = "";
-
+$Error=false;
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  if (empty($_POST["Fname"])) {
-    $FnameErr = "*First Name is required";
-  } else {
-    $Fname = $_POST["Fname"];
-  }
 
-  if (empty($_POST["Lname"])) {
-    $LnameErr = "*Last Name is required";
-  } else {
-    $Lname = $_POST["Lname"];
-  }
+  // checks if cart empty or not if empty will display alert 
+
+  if (!empty($cart)) {
+    if (empty($_POST["Fname"])) {
+      $FnameErr = "*First Name is required";
+      $Error=true;
+    } else {
+      $Fname = $_POST["Fname"];
+    }
+
+    if (empty($_POST["Lname"])) {
+      $LnameErr = "*Last Name is required";
+      $Error=true;
+    } else {
+      $Lname = $_POST["Lname"];
+    }
     
-  if (empty($_POST["Phone"])) {
-    $PhoneErr = "*Phone Number is required";
-  } else {
-    $Phone = $_POST["Phone"];
-  }
+    if (empty($_POST["Phone"])) {
+      $PhoneErr = "*Phone Number is required";
+      $Error=true;
+    } else {
+      $Phone = $_POST["Phone"];
+    }
 
-  if (empty($_POST["Address"])) {
-    $AddressErr = "*Address is required";
-  } else {
-    $Address = $_POST["Address"];
-  }
+    if (empty($_POST["Address"])) {
+      $AddressErr = "*Address is required";
+      $Error=true;
+    } else {
+      $Address = $_POST["Address"];
+    }
 
-  if (empty($_POST["City"])) {
-    $CityErr = "*City is required";
-  } else {
-    $City = $_POST["City"];
-  }
+    if (empty($_POST["City"])) {
+      $CityErr = "*City is required";
+      $Error=true;
+    } else {
+      $City = $_POST["City"];
+    }
 
-  if (empty($_POST["NameCard"])) {
-    $NameCardErr = "*Name on card is required";
-  } else {
-    $NameCard = $_POST["NameCard"];
-  }
+    if (empty($_POST["NameCard"])) {
+      $NameCardErr = "*Name on card is required";
+      $Error=true;
+    } else {
+      $NameCard = $_POST["NameCard"];
+    }
 
-  if (empty($_POST["CardNo"])) {
-    $CardNoErr = "*Card number is required";
-  } else {
-    $CardNo = $_POST["CardNo"];
-  }
+    if (empty($_POST["CardNo"])) {
+      $CardNoErr = "*Card number is required";
+      $Error=true;
+    } else {
+      $CardNo = $_POST["CardNo"];
+    }
 
-  if (empty($_POST["ExDate"])) {
-    $ExDateErr = "*Expiring Date is required";
-  } else {
-    $ExDate = $_POST["ExDate"];
-  }
+    if (empty($_POST["ExDate"])) {
+      $ExDateErr = "*Expiring Date is required";
+      $Error=true;
+    } else {
+      $ExDate = $_POST["ExDate"];
+    }
 
-  if (empty($_POST["CVC"])) {
-    $CVCErr = "*CVC is required";
-  } else {
-    $CVC = $_POST["CVC"];
+    if (empty($_POST["CVC"])) {
+      $CVCErr = "*CVC is required";
+      $Error=true;
+    } else {
+      $CVC = $_POST["CVC"];
+    }
+    if ($Error!=true) {
+
+    }
   }
+  else {
+    echo '<script>alert("Your cart is empty")</script>';
+  }
+  
 }
 ?>
 
@@ -104,29 +127,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <a class="keepShopping" href="../views/index.php">Keep shopping</a>
                     <h1>List Products In Cart</h1>
                     <div class="list">
-                        <div class="item">
-                            <img src="<?php echo $product['image']; ?> " alt="">
-                            <div class="info">
-                                <div class="name"> <?php echo $product['name']; ?> </div>
-                                <div class="price"><?php echo $product['price']; ?> EGP</div>
-                            </div>
-                            <div class="quantity"><?php echo $product['quantity']; ?></div>
-                            <div class="returnPrice"><?php echo $product['price'] * $product['quantity']; ?> EGP</div>
-                        </div>
-                        <!-- you can try to comment product2 to check the if the div will be exist or not -->
+                        <!-- checks if cart empty or not, if empty will display "Your cart is empty!", if not will display products-->
                         <?php 
-                        if (isset($product2)) {
-                          echo 
-                          '<div class="item">
-                            <img src="' . $product2['image'] . '" alt="">
-                            <div class="info">
-                              <div class="name">' . $product2['name'] . '</div>
-                              <div class="price">' . $product2['price'] . ' EGP</div>
-                            </div>
-                            <div class="quantity">' . $product2['quantity'] . '</div>
-                            <div class="returnPrice">' . ($product2['price'] * $product2['quantity']) . ' EGP</div>
-                          </div> ';
-                        }
+                          if (empty($cart)) {
+                            echo "<h2> Your cart is empty! </h2>";
+                          } else {
+                            foreach ($cart as $item) {
+                              echo 
+                              '<div class="item">
+                                <img src="' . $item['image'] . '" alt="">
+                                <div class="info">
+                                  <div class="name">' . $item['name'] . '</div>
+                                  <div class="price">' . $item['price'] . ' EGP</div>
+                                </div>
+                                <div class="quantity">' . $item['quantity'] . '</div>
+                                <div class="returnPrice">' . ($item['price'] * $item['quantity']) . ' EGP</div>
+                              </div> ';
+                            }
+                          } 
                         ?>     
                     </div>
                 </div>
@@ -189,11 +207,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <div class="return">
                         <div class="row">
                             <div class="text">Total Quantity</div>
-                            <div class="totalQuantity"><?php echo $product['quantity'] + $product2['quantity']; ?></div>
+                            <div class="totalQuantity">
+                              <?php 
+                              $totalQuantity = array_sum(array_column($cart, 'quantity'));
+                              echo $totalQuantity
+                              ?>
+                            </div>
                         </div>
                         <div class="row">
                             <div class="text">Total Price</div>
-                            <div class="totalPrice"><?php echo ($product['quantity']*$product['price']) + ($product2['quantity']*$product2['price']); ?> EGP</div>
+                            <div class="totalPrice">
+                            <?php 
+                              $totalPrice = 0;
+                              foreach ($cart as $item) {
+                                $totalPrice += $item['price'] * $item['quantity'];
+                              }
+                              echo $totalPrice
+                            ?> EGP
+                            </div>
                         </div>
                     </div>
                     <button class="buttonCheckout" type="submit">
