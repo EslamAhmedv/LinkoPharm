@@ -98,6 +98,10 @@ body {
     border-radius: 5px;
 }
 
+.returnPrice {
+    margin: 10px;
+}
+
 .item {
     display: grid;
     grid-template-columns: 80px 1fr 50px 80px;
