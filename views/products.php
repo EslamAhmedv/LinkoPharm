@@ -9,13 +9,15 @@
 </head>
 
 <body>
-<!-- partial:index.partial.html -->
+<?php
+
+include('../partials/navbar.php'); ?>
 
 <section class="section-products">
 		<div class="container">
 				<div class="row justify-content-center text-center">
 						<div class="col-md-8 col-lg-6">
-								<div class="header">
+								<div class="header2">
 										<h3>Featured Product</h3>
 										<h2>Popular Products</h2>
 								</div>
@@ -238,6 +240,10 @@
 		</div>
 </section>
 <!-- partial -->
+<?php
+  include('../partials/footer.php');
+  // include('../partials/chat.php'); 
+  ?>
   
 </body>
 </html>
