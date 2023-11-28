@@ -1,29 +1,16 @@
 <?php
 require '../includes/db.php';
+require '../controllers/productscontroller.php';
 
 if (isset($_POST['deleteProduct'])) {
-    if (isset($_POST['productId'])) {
-        $productId = $_POST['productId'];
-
-        // y3ml delete l product from the database
-        $deleteQuery = "DELETE FROM products WHERE id = $productId";
-        if ($conn->query($deleteQuery) === TRUE) {
-            header("Location: displayproducts.php?message=Product deleted successfully");
-            exit;
-        } else {
-            echo "Error: " . $conn->error;
-        }
-    }
+    deleteproduct();
 }
 
-// Fetch products data from the database
-$sql = "SELECT * FROM products";
-$result = $conn->query($sql);
+$products = getAllProducts();
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -34,9 +21,7 @@ $result = $conn->query($sql);
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Products</title>
 </head>
-
 <body>
-
     <div class="container">
         <aside>
             <?php
@@ -44,7 +29,6 @@ $result = $conn->query($sql);
             include('../partials/dashboardsidebar.php');
             ?>
         </aside>
-
         <main class="table">
             <section class="theader">
                 <h1>Products List</h1>
@@ -70,61 +54,38 @@ $result = $conn->query($sql);
                         </tr>
                     </thead>
                     <tbody>
-                        <?php while ($product = mysqli_fetch_assoc($result)) { ?>
+                        <?php foreach ($products as $product) { ?>
                             <tr>
-                                <td>
-                                    <?php echo $product['id']; ?>
-                                </td>
+                                <td><?php echo $product['id']; ?></td>
                                 <td><img src="<?php echo $product['image']; ?>" alt="" id="prod_img"></td>
-                                <td>
-                                    <?php echo $product['name']; ?>
-                                </td>
-
+                                <td><?php echo $product['name']; ?></td>
                                 <td>
                                     <a href="editproduct.php?id=<?php echo $product['id']; ?>">
                                         <button class="btn edit-product"><i class="fa fa-edit"></i></button>
                                     </a>
-
-                                    <form method="POST" >
+                                    <form method="POST">
                                         <input type="hidden" name="productId" value="<?php echo $product['id']; ?>">
                                         <button class="btn delete-product" type="submit" name="deleteProduct"><i class="fa fa-trash"></i></button>
-                                        <div id="errmsgdel"></div>
                                     </form>
-
-                                    <!-- <div id="confirmationDialog" class="confirmation-dialog">
-                                        <div class="dialog-content">
-                                            <p>Are you sure you want to delete this product?</p>
-                                            <div class="dialog-buttons">
-                                                <button class="btn confirm-button" onclick="deleteProduct(this);">Yes</button>
-                                                <button class="btn cancel-button" onclick="hideConfirmationDialog(this);">No</button>
-                                            </div>
-                                        </div>
-                                    </div> -->
+                                </td>
+                                <td>
+                                    <?php if ($product['availability']) { ?>
+                                        <p class="status_instock">In Stock</p>
+                                        <p class="avail_amount">*Available: <?php echo $product['availability']; ?> Pieces</p>
+                                    <?php } else { ?>
+                                        <p class="status_outofstock">Out Of Stock</p>
+                                        <p class="avail_amount">*Available: 0 Pieces</p>
+                                    <?php } ?>
+                                </td>
+                                <td>
+                                    <strong><?php echo $product['price']; ?> EGP</strong>
+                                </td>
+                            </tr>
+                        <?php } ?>
+                    </tbody>
+                </table>
+            </section>
+        </main>
     </div>
-    </td>
-    <td>
-        <?php if ($product['availability']) { ?>
-            <p class="status_instock">In Stock</p>
-            <p class="avail_amount">*Available: <?php echo $product['availability']; ?> Pieces</p>
-        <?php } else { ?>
-            <p class="status_outofstock">Out Of Stock</p>
-            <p class="avail_amount">*Available: 0 Pieces</p>
-        <?php } ?>
-    </td>
-    <td><strong>
-            <?php echo $product['price']; ?> EGP
-        </strong></td>
-    </tr>
-<?php } ?>
-</tbody>
-
-</table>
-</section>
-</main>
-</div>
-
-
 </body>
-
-
 </html>

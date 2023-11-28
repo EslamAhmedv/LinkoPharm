@@ -16,7 +16,7 @@
                 <a href="custdash.php" class="<?php echo ($currentPage === 'custdash') ? 'active' : ''; ?>"><span class="material-symbols-sharp">person</span>
                     <h3>Customers</h3>
                 </a>
-                <a href="" class="<?php echo ($currentPage === 'ordersdash') ? 'active' : ''; ?>"><span class="material-symbols-sharp">receipt_long</span>
+                <a href="orderdash.php" class="<?php echo ($currentPage === 'ordersdash') ? 'active' : ''; ?>"><span class="material-symbols-sharp">receipt_long</span>
                     <h3>Orders</h3>
                 </a>
                 <a href="" class="<?php echo ($currentPage === 'employersdash') ? 'active' : ''; ?>"><span class="material-symbols-sharp">business</span>

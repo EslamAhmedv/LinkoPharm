@@ -1,6 +1,6 @@
 <?php
 require '../includes/db.php';
-include "../controller/adminfunctions.php";
+include "../controllers/adminfunctions.php";
 
 
 $customerAdded = false;

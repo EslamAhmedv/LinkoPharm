@@ -1,6 +1,6 @@
 <?php
 require '../includes/db.php';
-include "../controller/adminfunctions.php";
+include "../controllers/productscontroller.php";
 
 $productAdded = false; // Flag to track if the product was added
 
