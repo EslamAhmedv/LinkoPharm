@@ -25,13 +25,12 @@ function addproduct(){
 
 }
 
-function deleteproduct(){
-    $productId = $_POST['productId'];
-global $conn;
-    // y3ml delete l product from the database
-    $deleteQuery = "DELETE FROM products WHERE id = $productId";
+function deleteProduct(){
+    global $conn; // Ensure that the database connection is accessible
 
-    if ($conn->query($deleteQuery) === TRUE) {
+    $productId = $_POST['productId'];
+
+    if (ProductsModel::deleteProduct($conn, $productId)) {
         header("Location: displayproducts.php?message=Product deleted successfully");
         exit;
     } else {
