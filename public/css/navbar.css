@@ -65,7 +65,7 @@ body{
 
 
 }
-.header{
+.headerm{
 position: fixed;
 top: 0; left: 0; right: 0;
 z-index: 1000;
@@ -78,7 +78,7 @@ box-shadow: var(--box-shadow);
 height: 80px;
 }
 
-.header .logo{
+.headerm .logom{
     font-size: 2.5rem;
     font-weight: bolder;
     color:black;
@@ -87,11 +87,11 @@ height: 80px;
     
 }
 
-.header .logo i{
+.headerm .logom i{
     color: #140996;
 }
 
- .navbar a{
+ .navbarm a{
     font-size: 1.8rem;
     margin: 0 1rem;
     color: #130f40;
@@ -101,7 +101,7 @@ height: 80px;
     /* padding: 30px; */
 }
 
-.navbar a{
+.navbarm a{
     font-size: 1.8rem;
     margin: 0 1rem;
     color: #130f40;
@@ -112,12 +112,12 @@ height: 80px;
 }
 
 
-.navbar a:hover{
+.navbarm a:hover{
     color: rgb(13, 13, 152);
     
 }
 
- .icons div{
+ .iconsm div{
     height: 4rem;
     width: 4rem;
     line-height: 4rem;
@@ -128,7 +128,7 @@ height: 80px;
     margin-left: .3rem;
     text-align: center;
 }
- .icons div:hover{
+ .iconsm div:hover{
     background-color: #140996;
     color: #000000;
     cursor: pointer;
@@ -138,7 +138,7 @@ height: 80px;
     display: none;
 }
 
-.header .search-form{
+.headerm .search-form{
     position: absolute;
     top: 110%;
     right:-110%;
@@ -153,7 +153,7 @@ height: 80px;
    
 }
 
-.header .search-form input{
+.headerm .search-form input{
     height: 100%;
     width: 100%;
     background: none;
@@ -166,14 +166,14 @@ height: 80px;
 
 }
 
-.header .search-form label{
+.headerm .search-form label{
     font-size: 2.2rem;
     padding-right: 1.5rem;
     color: black;
     cursor: pointer;
 
 }
-.header .search-form label:hover{
+.headerm .search-form label:hover{
     color: #140996;
 
 
@@ -184,7 +184,7 @@ height: 80px;
 
 
 
-.header .search-form.active{
+.headerm .search-form.active{
     right:2rem;
     transition: .4s linear;
 
@@ -201,7 +201,7 @@ height: 80px;
 
 
 
-.header .shopping-cart{
+.headerm .shopping-cart{
     position: absolute;
     top: 110%;
     right: -110%;
@@ -213,14 +213,14 @@ height: 80px;
 
 }
 
-.header .shopping-cart.active{
+.headerm .shopping-cart.active{
     right:2rem;
     transition: .4s linear;
 
 }
 
 
-.header .shopping-cart .box{
+.headerm .shopping-cart .box{
     display: flex;
     align-items: center;
     gap:1rem;
@@ -228,7 +228,7 @@ height: 80px;
     margin: 1rem 0;
 }
 
-.header .shopping-cart .box img{
+.headerm .shopping-cart .box img{
     height: 10rem;
     width: 15rem;
 }
@@ -239,7 +239,7 @@ height: 80px;
 
 
 
-.header .shopping-cart .box .fa-trash{
+.headerm .shopping-cart .box .fa-trash{
     font-size: 2rem;
     position: absolute;
     top: 50%;
@@ -249,8 +249,7 @@ height: 80px;
     transform: translate(-50%);
 }
 
-
-.header .shopping-cart .box .fa-trash:hover{
+.headerm .shopping-cart .box .fa-trash:hover{
     color: #140996;
 
 }
@@ -260,30 +259,28 @@ height: 80px;
 
 
 
-.header .shopping-cart .box .content h3{
+.headerm .shopping-cart .box .content h3{
     color: #000000;
     font-size: 1.7rem;
     padding-bottom: 1rem;
 
 }
 
-
-.header .shopping-cart .box .content span{
+.headerm .shopping-cart .box .content span{
     color: #938f8f;
     font-size: 1.6rem;
   
 }
 
 
-.header .shopping-cart .box .content .quantity{
+.headerm .shopping-cart .box .content .quantity{
     padding-left: 1rem;
 }
 
 
 
 
-
-.header .shopping-cart .total{
+.headerm .shopping-cart .total{
     font-size: 2.5rem;
     padding: 1rem 0;
     text-align: center;
@@ -291,7 +288,7 @@ height: 80px;
 }
 
 
-.header .shopping-cart .btn{
+.headerm .shopping-cart .btn{
     display: block;
     text-align: center;
     margin: 1rem;

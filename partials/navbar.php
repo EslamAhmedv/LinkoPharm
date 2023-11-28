@@ -16,12 +16,12 @@ require "../includes/functions.php";
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
     <link rel="stylesheet" href="../public/css/navbar.css">
 </head>
 <body>
-    <header class="header">
-    <img src="../public/images/logo.png" class="logo">
+    <header class="headerm">
+    <img src="../public/images/logo.png" class="logom">
       
    
       
@@ -30,13 +30,13 @@ require "../includes/functions.php";
 
              
     <?php if(check_login(false)){?>
-        <nav class="navbar">
+        <nav class="navbarm">
        
-       <a href="index.php">home</a>
+       <a class="mm" href="index.php">home</a>
        <!-- <a href="#features">features</a> -->
-       <a href="productslist.php">products</a>
-       <a href="contactus.php">contact us</a>
-       <a href="wishlist.php">wishlist</a>
+       <a  class="mm" href="products.php">products</a>
+       <a  class="mm" href="contactus.php">contact us</a>
+       <a  class="mm" href="wishlist.php">wishlist</a>
      
        
        
@@ -99,7 +99,7 @@ require "../includes/functions.php";
 
 
 
-        <div class="icons">
+        <div class="iconsm">
             <div class="fas fa-bars" id="menu-btn"></div>
             <div class="fas fa-search" id="search-btn" ></div>
             <div class="fas fa-shopping-cart" id="cart-btn"></div>
@@ -138,13 +138,13 @@ require "../includes/functions.php";
 
     <?php }
    else {?>
-    <nav class="navbar">
+    <nav class="navbarm">
        
-       <a href="index.php">home</a>
+    <a class="mm" href="index.php">home</a>
        <!-- <a href="#features">features</a> -->
-       <a href="productslist.php">products</a>
-       <a href="#categories">categories</a>
-       <a href="#review">review</a>
+       <a  class="mm" href="products.php">products</a>
+       <a  class="mm" href="contactus.php">contact us</a>
+       <a  class="mm" href="wishlist.php">wishlist</a>
       
       
       </nav>

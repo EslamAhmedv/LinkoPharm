@@ -1,143 +1,249 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Linkopharm Products</title>
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fontawesome/5.15.3/css/all.min.css">
-    <link rel="stylesheet" href="../public/css/products.css">
-    <script src="https://kit.fontawesome.com/f4bd0b4361.js" crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <title>CodePen - Popular Products Section Using HTML , CSS , Bootstrap</title>
+  <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css'>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css'>  <link rel="stylesheet" href="../public/css/products.css">
+
 </head>
+
 <body>
+<?php
 
-<div id="menu_selections">
-    <h1 id ="headaftersafety">Our Products</h1>
-    <h2 id ="headaftersafety">Choose What You Want </h2>
-    <hr>
+include('../partials/navbar.php'); ?>
 
-   
-</div>
-<hr>
-<div id ="menubody" onclick="favorites(event.target)">
-
-    <div class="menu_items" ><img src="../public/images/haircare.png.jpg" alt="" width="100%" height="100%" class="menu_img">
-        <div class="descr_and_add">
-            <img src="../public/images/favourite.png" class="favrs" alt=""title="remove from favourite">
-            <img src="../public/images/love.png" class="favs" alt=""title="add to favourite">
-            <img src="../public/images/add.png" alt="" 
-             class="icons">
-        <div class="description"> 
-            <span class="names"> Hair Oil</span>
-            <br>
-            <p class="ingred">150 gm of oil with mxafa dq2 </p>
-            <span class="prices">Price : 20$</span>
-        </div></div>
-    
-    </div>
-    
-    <div class="menu_items" ><img src="../public/images/haircare.png.jpg" alt="" width="100%" height="100%" class="menu_img">
-        <div class="descr_and_add">
-            <img src="../public/images/favourite.png" class="favrs" alt=""title="remove from favourite">
-            <img src="../public/images/love.png" class="favs" alt=""title="add to favourite">
-            <img src="../public/images/add.png" alt="" 
-             class="icons">
-        <div class="description"> 
-            <span class="names"> Hair Oil</span>
-            <br>
-            <p class="ingred">150 gm of oil with mxafa dq2 </p>
-            <span class="prices">Price : 20$</span>
-        </div></div>
-    
-    </div>
-    
-    <div class="menu_items" ><img src="../public/images/haircare.png.jpg" alt="" width="100%" height="100%" class="menu_img">
-        <div class="descr_and_add">
-            <img src="../public/images/favourite.png" class="favrs" alt=""title="remove from favourite">
-            <img src="../public/images/love.png" class="favs" alt=""title="add to favourite">
-            <img src="../public/images/add.png" alt="" 
-             class="icons">
-        <div class="description"> 
-            <span class="names"> Hair Oil</span>
-            <br>
-            <p class="ingred">150 gm of oil with mxafa dq2 </p>
-            <span class="prices">Price : 20$</span>
-        </div></div>
-    
-    </div>
-    <div class="menu_items" ><img src="../public/images/haircare.png.jpg" alt="" width="100%" height="100%" class="menu_img">
-        <div class="descr_and_add">
-            <img src="../public/images/favourite.png" class="favrs" alt=""title="remove from favourite">
-            <img src="../public/images/love.png" class="favs" alt=""title="add to favourite">
-            <img src="../public/images/add.png" alt="" 
-             class="icons">
-        <div class="description"> 
-            <span class="names"> Hair Oil</span>
-            <br>
-            <p class="ingred">150 gm of oil with mxafa dq2 </p>
-            <span class="prices">Price : 20$</span>
-        </div></div>
-    
-    </div>
-    <div class="menu_items" ><img src="../public/images/haircare.png.jpg" alt="" width="100%" height="100%" class="menu_img">
-        <div class="descr_and_add">
-            <img src="../public/images/favourite.png" class="favrs" alt=""title="remove from favourite">
-            <img src="../public/images/love.png" class="favs" alt=""title="add to favourite">
-            <img src="../public/images/add.png" alt="" 
-             class="icons">
-        <div class="description"> 
-            <span class="names"> Hair Oil</span>
-            <br>
-            <p class="ingred">150 gm of oil with mxafa dq2 </p>
-            <span class="prices">Price : 20$</span>
-        </div></div>
-    
-    </div>
-    <div class="menu_items" ><img src="../public/images/haircare.png.jpg" alt="" width="100%" height="100%" class="menu_img">
-        <div class="descr_and_add">
-            <img src="../public/images/favourite.png" class="favrs" alt=""title="remove from favourite">
-            <img src="../public/images/love.png" class="favs" alt=""title="add to favourite">
-            <img src="../public/images/add.png" alt="" 
-             class="icons">
-        <div class="description"> 
-            <span class="names"> Hair Oil</span>
-            <br>
-            <p class="ingred">150 gm of oil with mxafa dq2 </p>
-            <span class="prices">Price : 20$</span>
-        </div></div>
-    
-    </div>
-    <div class="menu_items" ><img src="../public/images/haircare.png.jpg" alt="" width="100%" height="100%" class="menu_img">
-        <div class="descr_and_add">
-            <img src="../public/images/favourite.png" class="favrs" alt=""title="remove from favourite">
-            <img src="../public/images/love.png" class="favs" alt=""title="add to favourite">
-            <img src="../public/images/add.png" alt="" 
-             class="icons">
-        <div class="description"> 
-            <span class="names"> Hair Oil</span>
-            <br>
-            <p class="ingred">150 gm of oil with mxafa dq2 </p>
-            <span class="prices">Price : 20$</span>
-        </div></div>
-    
-    </div>
-    <div class="menu_items" ><img src="../public/images/haircare.png.jpg" alt="" width="100%" height="100%" class="menu_img">
-        <div class="descr_and_add">
-            <img src="../public/images/favourite.png" class="favrs" alt=""title="remove from favourite">
-            <img src="../public/images/love.png" class="favs" alt=""title="add to favourite">
-            <img src="../public/images/add.png" alt="" 
-             class="icons">
-        <div class="description"> 
-            <span class="names"> Hair Oil</span>
-            <br>
-            <p class="ingred">150 gm of oil with mxafa dq2 </p>
-            <span class="prices">Price : 20$</span>
-        </div></div>
-    
-    </div>
-       
-    </div>
-
-   
+<section class="section-products">
+		<div class="container">
+				<div class="row justify-content-center text-center">
+						<div class="col-md-8 col-lg-6">
+								<div class="header2">
+										<h3>Featured Product</h3>
+										<h2>Popular Products</h2>
+								</div>
+						</div>
+				</div>
+				<div class="row">
+						<!-- Single Product -->
+						<div class="col-md-6 col-lg-4 col-xl-3">
+								<div id="product-1" class="single-product">
+										<div class="part-1">
+												<ul>
+														<li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
+														<li><a href="#"><i class="fas fa-heart"></i></a></li>
+														<li><a href="#"><i class="fas fa-plus"></i></a></li>
+														<li><a href="#"><i class="fas fa-expand"></i></a></li>
+												</ul>
+										</div>
+										<div class="part-2">
+												<h3 class="product-title">Here Product Title</h3>
+												<h4 class="product-old-price">$79.99</h4>
+												<h4 class="product-price">$49.99</h4>
+										</div>
+								</div>
+						</div>
+                        <div class="col-md-6 col-lg-4 col-xl-3">
+								<div id="product-1" class="single-product">
+										<div class="part-1">
+												<ul>
+														<li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
+														<li><a href="#"><i class="fas fa-heart"></i></a></li>
+														<li><a href="#"><i class="fas fa-plus"></i></a></li>
+														<li><a href="#"><i class="fas fa-expand"></i></a></li>
+												</ul>
+										</div>
+										<div class="part-2">
+												<h3 class="product-title">Here Product Title</h3>
+												<h4 class="product-old-price">$79.99</h4>
+												<h4 class="product-price">$49.99</h4>
+										</div>
+								</div>
+						</div>
+                        <div class="col-md-6 col-lg-4 col-xl-3">
+								<div id="product-1" class="single-product">
+										<div class="part-1">
+												<ul>
+														<li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
+														<li><a href="#"><i class="fas fa-heart"></i></a></li>
+														<li><a href="#"><i class="fas fa-plus"></i></a></li>
+														<li><a href="#"><i class="fas fa-expand"></i></a></li>
+												</ul>
+										</div>
+										<div class="part-2">
+												<h3 class="product-title">Here Product Title</h3>
+												<h4 class="product-old-price">$79.99</h4>
+												<h4 class="product-price">$49.99</h4>
+										</div>
+								</div>
+						</div>
+                        <div class="col-md-6 col-lg-4 col-xl-3">
+								<div id="product-1" class="single-product">
+										<div class="part-1">
+												<ul>
+														<li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
+														<li><a href="#"><i class="fas fa-heart"></i></a></li>
+														<li><a href="#"><i class="fas fa-plus"></i></a></li>
+														<li><a href="#"><i class="fas fa-expand"></i></a></li>
+												</ul>
+										</div>
+										<div class="part-2">
+												<h3 class="product-title">Here Product Title</h3>
+												<h4 class="product-old-price">$79.99</h4>
+												<h4 class="product-price">$49.99</h4>
+										</div>
+								</div>
+						</div>
+                        <div class="col-md-6 col-lg-4 col-xl-3">
+								<div id="product-1" class="single-product">
+										<div class="part-1">
+												<ul>
+														<li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
+														<li><a href="#"><i class="fas fa-heart"></i></a></li>
+														<li><a href="#"><i class="fas fa-plus"></i></a></li>
+														<li><a href="#"><i class="fas fa-expand"></i></a></li>
+												</ul>
+										</div>
+										<div class="part-2">
+												<h3 class="product-title">Here Product Title</h3>
+												<h4 class="product-old-price">$79.99</h4>
+												<h4 class="product-price">$49.99</h4>
+										</div>
+								</div>
+						</div>
+						<!-- Single Product -->
+						<div class="col-md-6 col-lg-4 col-xl-3">
+								<div id="product-2" class="single-product">
+										<div class="part-1">
+												<span class="discount">15% off</span>
+												<ul>
+														<li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
+														<li><a href="#"><i class="fas fa-heart"></i></a></li>
+														<li><a href="#"><i class="fas fa-plus"></i></a></li>
+														<li><a href="#"><i class="fas fa-expand"></i></a></li>
+												</ul>
+										</div>
+										<div class="part-2">
+												<h3 class="product-title">Here Product Title</h3>
+												<h4 class="product-price">$49.99</h4>
+										</div>
+								</div>
+						</div>
+						<!-- Single Product -->
+						<div class="col-md-6 col-lg-4 col-xl-3">
+								<div id="product-3" class="single-product">
+										<div class="part-1">
+												<ul>
+														<li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
+														<li><a href="#"><i class="fas fa-heart"></i></a></li>
+														<li><a href="#"><i class="fas fa-plus"></i></a></li>
+														<li><a href="#"><i class="fas fa-expand"></i></a></li>
+												</ul>
+										</div>
+										<div class="part-2">
+												<h3 class="product-title">Here Product Title</h3>
+												<h4 class="product-old-price">$79.99</h4>
+												<h4 class="product-price">$49.99</h4>
+										</div>
+								</div>
+						</div>
+						<!-- Single Product -->
+						<div class="col-md-6 col-lg-4 col-xl-3">
+								<div id="product-4" class="single-product">
+										<div class="part-1">
+												<span class="new">new</span>
+												<ul>
+														<li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
+														<li><a href="#"><i class="fas fa-heart"></i></a></li>
+														<li><a href="#"><i class="fas fa-plus"></i></a></li>
+														<li><a href="#"><i class="fas fa-expand"></i></a></li>
+												</ul>
+										</div>
+										<div class="part-2">
+												<h3 class="product-title">Here Product Title</h3>
+												<h4 class="product-price">$49.99</h4>
+										</div>
+								</div>
+						</div>
+						<!-- Single Product -->
+						<div class="col-md-6 col-lg-4 col-xl-3">
+								<div id="product-1" class="single-product">
+										<div class="part-1">
+												<ul>
+														<li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
+														<li><a href="#"><i class="fas fa-heart"></i></a></li>
+														<li><a href="#"><i class="fas fa-plus"></i></a></li>
+														<li><a href="#"><i class="fas fa-expand"></i></a></li>
+												</ul>
+										</div>
+										<div class="part-2">
+												<h3 class="product-title">Here Product Title</h3>
+												<h4 class="product-old-price">$79.99</h4>
+												<h4 class="product-price">$49.99</h4>
+										</div>
+								</div>
+						</div>
+						<!-- Single Product -->
+						<div class="col-md-6 col-lg-4 col-xl-3">
+								<div id="product-2" class="single-product">
+										<div class="part-1">
+												<span class="discount">15% off</span>
+												<ul>
+														<li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
+														<li><a href="#"><i class="fas fa-heart"></i></a></li>
+														<li><a href="#"><i class="fas fa-plus"></i></a></li>
+														<li><a href="#"><i class="fas fa-expand"></i></a></li>
+												</ul>
+										</div>
+										<div class="part-2">
+												<h3 class="product-title">Here Product Title</h3>
+												<h4 class="product-price">$49.99</h4>
+										</div>
+								</div>
+						</div>
+						<!-- Single Product -->
+						<div class="col-md-6 col-lg-4 col-xl-3">
+								<div id="product-3" class="single-product">
+										<div class="part-1">
+												<ul>
+														<li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
+														<li><a href="#"><i class="fas fa-heart"></i></a></li>
+														<li><a href="#"><i class="fas fa-plus"></i></a></li>
+														<li><a href="#"><i class="fas fa-expand"></i></a></li>
+												</ul>
+										</div>
+										<div class="part-2">
+												<h3 class="product-title">Here Product Title</h3>
+												<h4 class="product-old-price">$79.99</h4>
+												<h4 class="product-price">$49.99</h4>
+										</div>
+								</div>
+						</div>
+						<!-- Single Product -->
+						<div class="col-md-6 col-lg-4 col-xl-3">
+								<div id="product-4" class="single-product">
+										<div class="part-1">
+												<span class="new">new</span>
+												<ul>
+														<li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
+														<li><a href="#"><i class="fas fa-heart"></i></a></li>
+														<li><a href="#"><i class="fas fa-plus"></i></a></li>
+														<li><a href="#"><i class="fas fa-expand"></i></a></li>
+												</ul>
+										</div>
+										<div class="part-2">
+												<h3 class="product-title">Here Product Title</h3>
+												<h4 class="product-price">$49.99</h4>
+										</div>
+								</div>
+						</div>
+				</div>
+		</div>
+</section>
+<!-- partial -->
+<?php
+  include('../partials/footer.php');
+  // include('../partials/chat.php'); 
+  ?>
+  
 </body>
 </html>
