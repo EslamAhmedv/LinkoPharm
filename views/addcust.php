@@ -1,25 +1,11 @@
 <?php
 require '../includes/db.php';
+include "../controller/adminfunctions.php";
 
+
+$customerAdded = false;
 if (isset($_POST['submit'])) {
-    $firstname = $_POST['firstname'];
-    $lastname = $_POST['lastname'];
-    $username = $_POST['username'];
-    $email = $_POST['email'];
-    $gender = $_POST['gender'];
-    $password = $_POST['password'];
-
-    // hash the password
-    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-
-    $user_query = "INSERT INTO users (firstname, lastname, username, email, gender, password)
-        VALUES ('$firstname', '$lastname', '$username', '$email', '$gender', '$hashedPassword')";
-
-    if (mysqli_query($conn, $user_query)) {
-        header("Location: addcust.php?id=$id&message=user added successfully");
-    } else {
-        $errorMessage = "Error: " . $user_query . "<br>" . mysqli_error($conn);
-    }
+    $customerAdded = addcustomer();
 }
 ?>
 
@@ -93,5 +79,19 @@ if (isset($_POST['submit'])) {
             </div>
         </main>
     </div>
+
+    <div id="successPopup" style="display: none; position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background-color: green; color: white; padding: 20px; border-radius: 5px; font-size: 1.2em; z-index: 1000;">
+    User added successfully!
+</div>
+
+<script src="../public/js/popup.js"></script>
+
+
+        <?php if ($customerAdded) : ?>
+    <script>
+        showSuccessPopup(); 
+    </script>
+<?php endif; ?>
+
 </body>
 </html>
