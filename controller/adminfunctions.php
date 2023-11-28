@@ -14,10 +14,12 @@ function addproduct(){
 
         $uploadedfileName = $file["name"];
         $fileurl = $uploaddirectory . $uploadedfileName;
+        return adminmodel::addproduct($fileurl, $name, $availability, $price, $description, $category);
+
     } else {
-        die('There was an error uploading your file');
+        return false;
+
     }
-    adminmodel::addproduct($fileurl, $name, $availability, $price, $description, $category);
     // $product_query = ("INSERT INTO products (image, name, availability, price, description, category) 
     //     VALUES ('$fileurl', '$name', '$availability', '$price', '$description', '$category')");
     // mysqli_query($conn, $product_query);

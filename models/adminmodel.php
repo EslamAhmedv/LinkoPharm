@@ -8,6 +8,6 @@ class adminmodel
     {
         include "../includes/db.php";
         $query =  "INSERT INTO products (image, name, availability, price, description, category) VALUES ('$fileurl', '$name', '$availability', '$price', '$description', '$category')";
-        mysqli_query($conn, $query);
+        return mysqli_query($conn, $query);
     }
 }

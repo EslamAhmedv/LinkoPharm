@@ -1,8 +1,11 @@
 <?php
 require '../includes/db.php';
 include "../controller/adminfunctions.php";
+
+$productAdded = false; // Flag to track if the product was added
+
 if (isset($_POST['submit'])) {
- addproduct();  
+    $productAdded = addproduct();
 }
 
 
@@ -99,7 +102,20 @@ if (isset($_POST['submit'])) {
             </div>
 
         </main>
-    </div>
+        <div id="successPopup" style="display: none; position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background-color: green; color: white; padding: 20px; border-radius: 5px; font-size: 1.2em; z-index: 1000;">
+            Product added successfully!
+        </div>
+        
+        <script src="../public/js/popup.js"></script>
+
+
+        <?php if ($productAdded) : ?>
+    <script>
+        showSuccessPopup(); 
+    </script>
+<?php endif; ?>
+
+
 </body>
 
 </html>
