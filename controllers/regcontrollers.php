@@ -18,9 +18,9 @@ class regcontrollers{
 
 
 
-    public function isuserexist(){
-        $checkuser= "SELECT email FROM users WHERE email = '$email' LIMIT 1 ";
-        $result= $this->conn->query( $checkuser);
+    public function isuserexist($email){
+        $checkuser= "SELECT email FROM users WHERE email = '$email' LIMIT 1";
+        $result= $this->conn->query($checkuser);
         if($result->num_rows > 0){
             return true;
 
