@@ -1,12 +1,4 @@
-<?php
-// // Include connection
-// include_once "../includes/db.php";
-if(function_exists("signup")===false){
-require "../includes/functions.php";
 
-	check_login();
-}
-?>
 
 
 
@@ -28,8 +20,6 @@ require "../includes/functions.php";
       
 
 
-             
-    <?php if(check_login(false)){?>
         <nav class="navbarm">
        
        <a class="mm" href="index.php">home</a>
@@ -51,7 +41,7 @@ require "../includes/functions.php";
           </div> -->
 
           <span>
-          <?=$_SESSION['USER']->username?>
+        
 
             <i class="fa-solid fa-angle-down"></i>
           </span>
@@ -136,55 +126,7 @@ require "../includes/functions.php";
             <a href="" class="btn">checkout</a>
         </div>
 
-    <?php }
-   else {?>
-    <nav class="navbarm">
-       
-    <a class="mm" href="index.php">home</a>
-       <!-- <a href="#features">features</a> -->
-       <a  class="mm" href="products.php">products</a>
-       <a  class="mm" href="contactus.php">contact us</a>
-       <a  class="mm" href="wishlist.php">wishlist</a>
-      
-      
-      </nav>
-      
-      <div class="profile-dropdown">
-        <div onclick="toggle()" class="profile-dropdown-btn">
-          <!-- <div class="profile-img">
-            <i class="fa-solid fa-circle"></i>
-          </div> -->
-
-          <span>
-          Guest
-            <i class="fa-solid fa-angle-down"></i>
-          </span>
-        </div>
-       <ul class="profile-dropdown-list">
-         <li class="profile-dropdown-list-item">    <a href="signup.php">
-            <i class="fa-regular fa-user"></i>
-           Signup
-          </a>
-        </li>
-
-        <li class="profile-dropdown-list-item">
-          <a href="login.php">
-          <i class="fa-regular fa-user"></i>
-           Login
-          </a>
-        </li>
-
-        
-
-      
-      </ul>
-        </div>
-        
-
-  <?php  }  ?>
-    
    
-
     </header>
    <script>
 

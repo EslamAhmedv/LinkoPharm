@@ -1,21 +1,12 @@
-<?php
-require "../includes/functions.php";
+<?php 
+ include("../config/app.php");
 
-$errors = array();
 
-if($_SERVER['REQUEST_METHOD'] == "POST")
-{
 
-	$errors = login($_POST);
 
-	if(count($errors) == 0)
-	{
-		header("Location: index.php");
-		die;
-	}
-  
-}
- ?>
+?>
+
+
 
 
 
@@ -64,11 +55,11 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 		<!-- STYLE CSS -->
 		<link rel="stylesheet" href="../public/css/signup.css">
 	</head>
-
-	<body>
-    <?php
+	<?php
 
 include('../partials/navbar.php'); ?>
+	<body>
+  
 
 		<div class="wrapper" style="background-image: url('images/bg-registration-form-1.jpg');">
 			<div class="inner">
@@ -78,11 +69,7 @@ include('../partials/navbar.php'); ?>
 				<form method="post">
 					<h3>login Form</h3>
                     <div>
-			<?php if(count($errors) > 0):?>
-				<?php foreach ($errors as $error):?>
-					<?= $error?> <br>	
-				<?php endforeach;?>
-			<?php endif;?>
+		
 
 		</div>
 					
