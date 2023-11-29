@@ -1,16 +1,19 @@
 
+<?php 
+ include_once("../config/app.php");
 
 
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
+?>
+
+
+
+
+   
     
     <link rel="stylesheet" href="../public/css/navbar.css">
-</head>
+
 <body>
     <header class="headerm">
     <img src="../public/images/logo.png" class="logom">
@@ -22,7 +25,7 @@
 
         <nav class="navbarm">
        
-       <a class="mm" href="index.php">home</a>
+       <a class="mm" href="<?=base_url('index.php')?>">home</a>
        <!-- <a href="#features">features</a> -->
        <a  class="mm" href="products.php">products</a>
        <a  class="mm" href="contactus.php">contact us</a>
@@ -43,20 +46,20 @@
           <span>
         
 
-            <i class="fa-solid fa-angle-down"></i>
+            <i class="fa-solid fa-angle-down">alii</i>
           </span>
         </div>
        <ul class="profile-dropdown-list">
          <li class="profile-dropdown-list-item">    <a href="userprofile.php">
             <i class="fa-regular fa-user"></i>
-            Edit Profile
+          login
           </a>
         </li>
 
         <li class="profile-dropdown-list-item">
-          <a href="#">
+          <a href="<?=base_url('signup.php')?>">
             <i class="fa-regular fa-envelope"></i>
-            Inbox
+          signup
           </a>
         </li>
 

@@ -1,48 +1,11 @@
 <?php 
  include("../config/app.php");
+ include("../models/auth.php");
 
 
 
 
 ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -105,7 +68,7 @@ include('../partials/navbar.php'); ?>
 						<input type="password" placeholder="Confirm Password" name="password2" class="form-control" required>
 						<i class="zmdi zmdi-lock"></i>
 					</div>
-					<button type="submit" value="signup">Register</button>
+					<button type="submit" value="signup" name="reg">Register</button>
 				</form>
 			</div>
 		</div>

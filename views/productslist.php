@@ -11,7 +11,6 @@
 <body>
   
 <?php
-
 include('../partials/navbar.php'); ?>
   <h1>Product Display</h1>
   <div class="product-container">

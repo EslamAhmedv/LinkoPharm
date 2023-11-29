@@ -21,12 +21,12 @@
     <h3>OH NO!<span> 404</span></h3>
     <h1>Page Not Found</h1>
     <P><b>something went wrong.. try again later</b></p>
+    <?php  if(isset($_SESSION['message'])){
 
-            <p>The page you are looking for might have been removed</P>
-            <P> or had its name changed or is temporarily unavailable</p>
-
-            <a href="#" class="btn_404">Go back to home</a>
-
+           echo" <h4>".$_SESSION['message']."</h4>";
+           unset($_SESSION['message']);
+          
+       }?>
 </div>
 
 </body>
