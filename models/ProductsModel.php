@@ -1,35 +1,33 @@
 <?php
-include "../includes/db.php";
+require_once "../models/Model.php";
 
-class ProductsModel {
+class ProductsModel extends Model {
 
-    
-    public static function addproduct($fileurl, $name, $availability, $price, $description, $category)
-    {
-        include "../includes/db.php";
-        $query =  "INSERT INTO products (image, name, availability, price, description, category) VALUES ('$fileurl', '$name', '$availability', '$price', '$description', '$category')";
-        return mysqli_query($conn, $query);
+    public function addProduct($fileurl, $name, $availability, $price, $description, $category) {
+        $query = "INSERT INTO products (image, name, availability, price, description, category) VALUES (?, ?, ?, ?, ?, ?)";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param("ssidsi", $fileurl, $name, $availability, $price, $description, $category);
+        return $stmt->execute();
     }
 
-
-    public static function getAllProducts($conn) {
-        
+    public function getAllProducts() {
         $sql = "SELECT * FROM products";
-        $result = $conn->query($sql);
+        $result = $this->conn->query($sql);
 
         $products = array();
-
-        while ($product = mysqli_fetch_assoc($result)) {
+        while ($product = $result->fetch_assoc()) {
             $products[] = $product;
         }
-
         return $products;
     }
 
-    public static function deleteProduct($conn, $productId) {
-        $deleteQuery = "DELETE FROM products WHERE id = $productId";
-        $conn->query($deleteQuery);
+    public function deleteProduct($productId) {
+        $deleteQuery = "DELETE FROM products WHERE id = ?";
+        $stmt = $this->conn->prepare($deleteQuery);
+        $stmt->bind_param("i", $productId);
+        return $stmt->execute();
     }
+
 }
 
 ?>
