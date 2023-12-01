@@ -1,6 +1,6 @@
 
 <?php 
- include_once("../config/app.php");
+ include_once("../includes/Dbh.php");
 
 
 
@@ -25,7 +25,7 @@
 
         <nav class="navbarm">
        
-       <a class="mm" href="<?=base_url('index.php')?>">home</a>
+        <a class="mm" href="index.php">home</a>
        <!-- <a href="#features">features</a> -->
        <a  class="mm" href="products.php">products</a>
        <a  class="mm" href="contactus.php">contact us</a>
@@ -57,7 +57,7 @@
         </li>
 
         <li class="profile-dropdown-list-item">
-          <a href="<?=base_url('signup.php')?>">
+        <a href="signup.php">
             <i class="fa-regular fa-envelope"></i>
           signup
           </a>

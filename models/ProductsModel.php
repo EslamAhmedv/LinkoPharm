@@ -3,7 +3,7 @@ require_once "../models/Model.php";
 
 class ProductsModel extends Model {
 
-    public function addProduct($fileurl, $name, $availability, $price, $description, $category) {
+    public function addProduct($fileurl, $name, $availability,  $price, $description, $category) {
         $query = "INSERT INTO products (image, name, availability, price, description, category) VALUES (?, ?, ?, ?, ?, ?)";
         $stmt = $this->conn->prepare($query);
         $stmt->bind_param("ssidsi", $fileurl, $name, $availability, $price, $description, $category);
