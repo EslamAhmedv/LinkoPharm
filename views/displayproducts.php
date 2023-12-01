@@ -5,10 +5,10 @@ require_once '../models/ProductsModel.php';
 
 $productsModel = new ProductsModel();
 $products = $productsModel->getAllProducts();
-if (isset($_POST['deleteProduct'])) {
-    deleteproduct();
-}
 
+if (isset($_POST['deleteProduct'])) {
+    deleteProduct(); 
+}
 
 ?>
 

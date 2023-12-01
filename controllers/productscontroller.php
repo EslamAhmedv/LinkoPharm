@@ -2,7 +2,7 @@
 
 include '../models/ProductsModel.php';
 
-function addproduct(){
+function addProduct(){
     $name = $_POST['name'];
     $price = $_POST['price'];
     $description = $_POST['description'];
@@ -12,38 +12,32 @@ function addproduct(){
     $uploaddirectory = "../public/uploads/";
 
     if (move_uploaded_file($file["tmp_name"], $uploaddirectory . $file["name"])) {
-
         $uploadedfileName = $file["name"];
         $fileurl = $uploaddirectory . $uploadedfileName;
-        return ProductsModel::addproduct($fileurl, $name, $availability, $price, $description, $category);
+
+        $productsModel = new ProductsModel();
+        return $productsModel->addProduct($fileurl, $name, $availability, $price, $description, $category);
 
     } else {
         return false;
-
     }
-    
-
 }
 
 function deleteProduct(){
-    global $conn; // Ensure that the database connection is accessible
-
     $productId = $_POST['productId'];
 
-    if (ProductsModel::deleteProduct($conn, $productId)) {
+    $productsModel = new ProductsModel();
+    if ($productsModel->deleteProduct($productId)) {
         header("Location: displayproducts.php?message=Product deleted successfully");
         exit;
     } else {
-        echo "Error: " . $conn->error;
+        echo "Error: Unable to delete product";
     }
 }
 
 function getAllProducts() {
-    global $conn; 
-
-    $products = ProductsModel::getAllProducts($conn);
-
-    return $products;
+    $productsModel = new ProductsModel();
+    return $productsModel->getAllProducts();
 }
 
 ?>
