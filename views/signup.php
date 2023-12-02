@@ -1,12 +1,26 @@
-<?php 
- include("../config/app.php");
- include("../models/auth.php");
+<?php
+require_once("../controllers/UserController.php");
 
+$userController = new UserController();
+$message = '';
 
+if (isset($_POST['reg'])) {
+    $firstname = $_POST['firstname'];
+    $lastname = $_POST['lastname'];
+    $username = $_POST['username'];
+    $email = $_POST['email'];
+    $gender = $_POST['gender'];
+    $password = $_POST['password'];
+    $password2 = $_POST['password2'];
 
-
+    $message = $userController->registerUser($firstname, $lastname, $username, $email, $gender, $password, $password2);
+    
+    if ($message === "Success") {
+        header("Location: index.php");
+        exit;
+    }
+}
 ?>
-
 
 
 <!DOCTYPE html>
