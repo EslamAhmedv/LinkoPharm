@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="../public/css/swiper-bundle.min.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" href="../public/css/style.css">
 
   <style>
     <?php
@@ -192,7 +193,7 @@
         <img src="../public/images/skin care.jpg" alt="sale" />
         <div class="sale__content">
           <p class="sale__subtitle">SKIN CARE</p>
-          <h4 class="sale__title">sale <span>40% </span>off </h4>
+          <h4 class="sale__title">sale <span>50% </span>off </h4>
           <p class="sale__subtitle">Dont miss</p>
           <button class="btnn sale__btnn">shop now </button>
 
@@ -387,7 +388,7 @@
   include('../partials/footer.php');
   // include('../partials/chat.php'); 
   ?>
-
+<a href="https:/wa.me/201066656123"  target="_blank" class="whatsapp_float"><i class="fa-brands fa-whatsapp whatsapp-icon"></i></a>
 
 </body>
 
