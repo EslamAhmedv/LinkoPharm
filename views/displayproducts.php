@@ -1,14 +1,14 @@
 <?php
  
-require '../controllers/productscontroller.php';
-require_once '../models/ProductsModel.php';
+ require_once '../controllers/productscontroller.php';
 
-$productsModel = new ProductsModel();
-$products = $productsModel->getAllProducts();
+$productController = new ProductController();
+$products = $productController->getAllProducts();
 
 if (isset($_POST['deleteProduct'])) {
-    deleteProduct(); 
-}
+    $productId = $_POST['productId'];
+
+    $productController->deleteProduct($productId);}
 
 ?>
 

@@ -1,11 +1,11 @@
 <?php
-require '../includes/db.php';
-include "../controllers/productscontroller.php";
+require_once '../controllers/productscontroller.php';
 
 $productAdded = false; // Flag to track if the product was added
+$productController = new ProductController();
 
 if (isset($_POST['submit'])) {
-    $productAdded = addproduct();
+    $productAdded = $productController->addProduct();
 }
 
 

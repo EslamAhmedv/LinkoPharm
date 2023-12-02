@@ -28,6 +28,21 @@ class ProductsModel extends Model {
         return $stmt->execute();
     }
 
+    public function updateProduct($id, $fileurl, $name, $availability, $price, $description, $category) {
+        $query = "UPDATE products SET image = ?, name = ?, availability = ?, price = ?, description = ?, category = ? WHERE id = ?";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param("ssidsii", $fileurl, $name, $availability, $price, $description, $category, $id);
+        return $stmt->execute();
+    }
+
+    public function getProductById($id) {
+        $stmt = $this->conn->prepare("SELECT * FROM products WHERE id = ?");
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_assoc(); 
+    }
+
 }
 
 ?>

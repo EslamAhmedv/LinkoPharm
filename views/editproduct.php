@@ -1,78 +1,35 @@
 <?php
-require '../includes/db.php';
+require_once '../controllers/productscontroller.php';
+$productController = new ProductController();
 
 //to hold product details
 $productID = $productName = $productPrice = $productDescription = $productCategory = $productAvailability = '';
 
-
-if (isset($_POST['editproduct'])) {
-    updateProduct();
-}
-
-function updateProduct()
-{
-    global $conn;
-
-    $id = $_POST['id'];
-    $name = $_POST['name'];
-    $price = $_POST['price'];
-    $description = $_POST['description'];
-    $category = $_POST['category'];
-    $availability = $_POST['availability'];
-    $file = $_FILES["image"];
-    $uploaddirectory = "../public/uploads/";
-    // Sanitize user input and handle potential SQL injection
-    $id = mysqli_real_escape_string($conn, $id);
-    $name = mysqli_real_escape_string($conn, $name);
-    $price = mysqli_real_escape_string($conn, $price);
-    $description = mysqli_real_escape_string($conn, $description);
-    $category = mysqli_real_escape_string($conn, $category);
-    $availability = mysqli_real_escape_string($conn, $availability);
-
-    // Check if the product with the provided ID exists
-   
-    if (move_uploaded_file($file["tmp_name"], $uploaddirectory. $file["name"])) {
-
-        $uploadedfileName = $file["name"];
-        $fileurl = $uploaddirectory . $uploadedfileName ;
-    }else{
-        die('There was an error uploading your file');
-    }
-
-    $product_query = "SELECT * FROM products WHERE id = $id";
-    $product_result = mysqli_query($conn, $product_query);
-
-    $product_query = "UPDATE products SET image = '$fileurl', name = '$name', availability = '$availability', price = '$price', description = '$description', category = '$category' WHERE id = $id";
-    $product_query_run = mysqli_query($conn, $product_query);
-
-    // if (move_uploaded_file($file["tmp_name"], $uploaddirectory . $file["name"])) {
-
-    //     $uploadedfileName = $file["name"];
-    //     $fileurl = $uploaddirectory . $uploadedfileName;
-    // } else {
-    //     die('There was an error uploading your file');
-    // }
-}
-
-// Retrieve the product ID from the URL
 if (isset($_GET['id'])) {
     $productID = $_GET['id'];
-    // Fetch the product details from the database based on the product ID
-    $product_query = "SELECT * FROM products WHERE id = $productID";
-    $product_result = mysqli_query($conn, $product_query);
+    $product = $productController->getProductById($productID);
 
-    if ($product_result && mysqli_num_rows($product_result) > 0) {
-        $product = mysqli_fetch_assoc($product_result);
-
-        // Populate the variables with the product details
+    if ($product) {
         $productName = $product['name'];
         $productPrice = $product['price'];
         $productDescription = $product['description'];
         $productCategory = $product['category'];
         $productAvailability = $product['availability'];
+    } else {
+        echo "No product found with this ID";
     }
-} else {
-    echo "no product with this id";
+}
+
+
+if (isset($_POST['editproduct'])) {
+    $updateSuccess = $productController->updateProduct();
+
+    if ($updateSuccess) {
+        header("Location: displayproducts.php?message=Product updated successfully");
+        exit;
+    } else {
+        echo "No product found with this ID";
+    }
 }
 ?>
 
@@ -149,6 +106,7 @@ if (isset($_GET['id'])) {
                 </form>
             </div>
         </main>
+
     </div>
 </body>
 
