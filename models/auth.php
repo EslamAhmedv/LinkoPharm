@@ -1,6 +1,67 @@
 <?php 
 // include("../config/app.php");
 include_once("../controllers/regcontrollers.php");
+include_once("../controllers/logincontroller.php");
+
+
+
+
+
+
+    
+$auth=new logincontroller;
+if(isset($_POST['log'])){
+
+    $email =validateinput( $db->conn, $_POST['email']);
+    $password = validateinput( $db->conn, $_POST['password']);
+
+    $checklogin= $auth->userlogin($email,$password);
+    if($checklogin){
+        redirect("successsssss","index.php");
+
+
+       }
+       else{
+        redirect("faileeeeeeeeeeeeeeeed","login.php");
+
+
+
+
+       }
+
+
+
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 if(isset($_POST['reg'])){ //check if form was submitted
     $firstname =validateinput( $db->conn, $_POST['firstname']);
     $lastname =validateinput( $db->conn, $_POST['lastname']);
