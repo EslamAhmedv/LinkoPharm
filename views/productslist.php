@@ -12,7 +12,35 @@
   
 <?php
 include('../partials/navbar.php'); ?>
+
+
+
   <h1>Product Display</h1>
+  <!-- Filter Form -->
+<form id="filterForm">
+    <label for="category">Category:</label>
+    <select name="category" id="category">
+        <option value="all">All</option>
+        <option value="medicine">Medicine</option>
+        <option value="equipment">Equipment</option>
+        <!-- Add more options as needed -->
+    </select>
+
+    <label for="price">Price:</label>
+    <input type="number" name="price" id="price" placeholder="Enter maximum price">
+
+    <button type="button" onclick="applyFilter()">Filter</button>
+</form>
+
+<!-- Display Filtered Items -->
+<div id="filteredItems">
+    <?php
+    // Fetch and display all items initially
+    // Replace this with your actual PHP code to fetch items from the database
+    //$allItems = getMedicalItemsFromDatabase();
+    //displayMedicalItems($allItems);
+    ?>
+</div>
   <div class="product-container">
     <div class="card">
       <img src="../public/images/prod5-removebg-preview.png" alt="Denim Jeans" style="width:100%">
@@ -99,7 +127,25 @@ include('../partials/navbar.php'); ?>
       <p><button>Add to Cart</button></p>
     </div>
   </div>
- 
+  
+  <script>
+    function applyFilter() {
+        // Fetch filter criteria
+        var category = document.getElementById("category").value;
+        var price = document.getElementById("price").value;
+
+        // Make an AJAX request to the server to get filtered items
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                document.getElementById("filteredItems").innerHTML = xhr.responseText;
+            }
+        };
+        xhr.open("GET", "filter.php?category=" + category + "&price=" + price, true);
+        xhr.send();
+    }
+
+</script>
 </body>
 
 </html>

@@ -4,7 +4,7 @@
 
 body {
   font-family: Arial, sans-serif;
-  margin: 0;
+  margin: 20px;
   padding: 20px;
 }
 
@@ -67,5 +67,36 @@ h1 {
 @media (max-width: 480px) {
   .card {
     width: 100%;
+  }
+}
+select, input {
+  margin-right: 10px;
+}
+
+button {
+  cursor: pointer;
+}
+
+#filteredItems {
+  margin-top: 20px;
+}
+
+/* Style for each displayed item /
+div {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+/ Responsive design */
+@media (max-width: 600px) {
+  form {
+      display: flex;
+      flex-wrap: wrap;
+  }
+
+  select, input, button {
+      flex: 1 0 100%;
+      margin-bottom: 10px;
   }
 }
