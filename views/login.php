@@ -1,6 +1,6 @@
 <?php 
  include("../config/app.php");
-
+ include("../models/auth.php");
 
 
 
@@ -53,7 +53,7 @@
 		<link rel="stylesheet" href="fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
 
 		<!-- STYLE CSS -->
-		<link rel="stylesheet" href="../public/css/signup.css">
+		<link rel="stylesheet" href="../public/css/login.css">
 	</head>
 	<?php
 
@@ -61,32 +61,44 @@ include('../partials/navbar.php'); ?>
 	<body>
   
 
-		<div class="wrapper" style="background-image: url('images/bg-registration-form-1.jpg');">
-			<div class="inner">
-				<div class="image-holder">
-					<img src="../public/images/doct.png.png" alt="">
-				</div>
-				<form method="post">
-					<h3>login Form</h3>
-                    <div>
-		
+	<div class="container">
 
-		</div>
-					
-					<div class="form-wrapper">
-						<input type="email" placeholder="Email Address"  name="email" class="form-control">
-						<i class="zmdi zmdi-email"></i>
-					</div>
-					
-					<div class="form-wrapper">
-						<input type="password" placeholder="Password"  name="password" class="form-control">
-						<i class="zmdi zmdi-lock"></i>
-					</div>
-					
-					<button type="submit">login</button>
-				</form>
-			</div>
-		</div>
+
+<!-- <img src="./images/signlogo.png" alt="phpt">  -->
+
+<h1>Sign Up Now</h1>
+<h3>Aussie food to be enjoyed</h3>
+<form method='POST'>
+	<!-- <label><b>Firstname: </b> </label> -->
+
+	<div id='lname' class='err'></div>
+
+
+	<!-- <label>
+<b>Phone:</b>
+</label> -->
+
+
+	<!-- <label for="email"><b>Email</b></label> -->
+	<input type="email" id="inputmail" placeholder="Enter Email" name="email" required>
+	<div id='mail' class='err'></div>
+
+
+	<input type="password" name="password" id="inputpass" placeholder="Enter Password">
+	<div id='password' class='err'></div>
+	
+	<button type="submit" class="registerbtn" value="signup" name="log">Sign Up</button>
+</form>
+
+
+<p>Already have an account? <a href="/customers/profile/signinn">login</a></p>
+
+
+
+
+
+</div>
+
 		
 	</body>
 </html>

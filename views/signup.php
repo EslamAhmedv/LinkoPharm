@@ -21,90 +21,83 @@
 
 		<!-- STYLE CSS -->
 		<link rel="stylesheet" href="../public/css/signup.css">
+		<script src="https://kit.fontawesome.com/f4bd0b4361.js" crossorigin="anonymous"></script>
 	</head>
 
+
+
+
 	<body>
- 
+    
     <?php
 
 include('../partials/navbar.php'); ?>
-		<div class="wrapper" style="background-image: url('images/bg-registration-form-1.jpg');">
-			<div class="inner">
-				<div class="image-holder">
-					<img src="../public/images/doct.png.png" alt="">
-				</div>
-				<form method="post">
-					<h3>Sign up Form</h3>
-					<div>
-			
+      
+	<div class="container">
 
-		</div>
-					<div class="form-group">
-						<input type="text" placeholder="First Name" name="firstname" class="form-control" required>
-						<input type="text" placeholder="Last Name"  name="lastname" class="form-control" required>
-					</div>
-					<div class="form-wrapper">
-						<input type="text" placeholder="Username"  name="username" class="form-control" required>
-						<i class="zmdi zmdi-account"></i>
-					</div>
-					<div class="form-wrapper">
-						<input type="text" placeholder="Email Address"  name="email" class="form-control" required>
-						<i class="zmdi zmdi-email"></i>
-					</div>
-					<div class="form-wrapper">
-						<select name="gender" id="" class="form-control" required>
+
+		<!-- <img src="./images/signlogo.png" alt="phpt">  -->
+
+		<h1>Sign Up Now</h1>
+		<h3>Aussie food to be enjoyed</h3>
+		<form method='POST'>
+			<!-- <label><b>Firstname: </b> </label> -->
+			<input type="text" id="inputfname" name="firstname" placeholder="Firstname" size="15" />
+			<div id='fname' class='err'></div>
+			<!-- <label> <b>Middlename:</b> </label> -->
+			<input type="text" id="inputmname" name="lastname" placeholder="Middlename" size="15" />
+			<div id='mname' class='err'></div>
+
+			<!-- <label> <b>Lastname</b>: </label> -->
+			<input type="text" id="inputlname" name="username" placeholder="Lastname" size="15" />
+			<div id='lname' class='err'></div>
+
+
+			<!-- <label>
+ <b>Phone:</b>
+</label> -->
+
+
+			<!-- <label for="email"><b>Email</b></label> -->
+			<input type="email" id="inputmail" placeholder="Enter Email" name="email" required>
+			<div id='mail' class='err'></div>
+
+
+			<select name="gender" id="" class="form-control" required>
 							<option value="" disabled selected>Gender</option>
 							<option value="male">Male</option>
 							<option value="femal">Female</option>
 							<option value="other">Other</option>
 						</select>
-						<i class="zmdi zmdi-caret-down" style="font-size: 17px"></i>
-					</div>
-					<div class="form-wrapper">
-						<input type="password" placeholder="Password"  name="password" class="form-control" required>
-						<i class="zmdi zmdi-lock"></i>
-					</div>
-					<div class="form-wrapper">
-						<input type="password" placeholder="Confirm Password" name="password2" class="form-control" required>
-						<i class="zmdi zmdi-lock"></i>
-					</div>
-					<button type="submit" value="signup" name="reg">Register</button>
-				</form>
-			</div>
-		</div>
+			<div id='phone' class='err'></div>
+			<!-- <label for="psw"><b>Password</b></label> -->
+			<input type="password" name="password" id="inputpass" placeholder="Enter Password">
+			<div id='password' class='err'></div>
+			<!-- <label for="psw-confirm"><b>Re-type Password</b></label> -->
+			<input type="password" name="password2" id="inputcpass" placeholder="confirm Password">
+			<div id='cpassword' class='err'></div>
 
-		<?php
-		/*if(isset($_GET["error"]))
-		{
-			if($_GET["error"]=="emptyinput"){
-				echo"<p>Fill in all fields!</p>";
-			}
-         else if ($_GET["error"]=="invaliduid"){
-			echo"<p>choose a proper email!</p>";
-		 }
-		 else if ($_GET["error"]=="invalidemail"){
-			echo"<p>choose  proper email!</p>";
-		 }
-		 else if ($_GET["error"]=="passwordsdontmatch"){
-			echo"<p>Psswords doesn't match!</p>";
-		 }
-		 else if ($_GET["error"]=="stmtfailed"){
-			echo"<p>Something went wrong,try again!</p>";
-		 }
-		 else if ($_GET["error"]=="usernametaken"){
-			echo"<p>Username already taken!</p>";
-		 }
-		 else if ($_GET["error"]=="none"){
-			echo"<p>You have signed up!</p>";
-		 }
-		}
-*/
-?>
+			<button type="submit" class="registerbtn" value="signup" name="reg">Sign Up</button>
+		</form>
 
-<?php
-  include('../partials/footer.php');
-  // include('../partials/chat.php'); 
-  ?>
-	</body>
-	
+
+		<p>Already have an account? <a href="/customers/profile/signinn">sign
+				in</a></p>
+
+
+
+
+
+	</div>
+
+
+</body>
+
+
+
+
+
+
+
+
 </html>

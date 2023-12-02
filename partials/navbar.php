@@ -1,6 +1,6 @@
 
 <?php 
- include_once("../includes/Dbh.php");
+ include_once("../config/app.php");
 
 
 
@@ -8,160 +8,146 @@
 ?>
 
 
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>login</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<!-- MATERIAL DESIGN ICONIC FONT -->
+		<link rel="stylesheet" href="fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
+
+		<!-- STYLE CSS -->
+	  <link rel="stylesheet" href="../public/css/navbar.css">
+    <script src="https://kit.fontawesome.com/f4bd0b4361.js" crossorigin="anonymous"></script>
+	</head>
 
 
    
     
-    <link rel="stylesheet" href="../public/css/navbar.css">
-
-<body>
-    <header class="headerm">
-    <img src="../public/images/logo.png" class="logom">
-      
-   
-      
-      
-
-
-        <nav class="navbarm">
-       
-        <a class="mm" href="index.php">home</a>
-       <!-- <a href="#features">features</a> -->
-       <a  class="mm" href="products.php">products</a>
-       <a  class="mm" href="contactus.php">contact us</a>
-       <a  class="mm" href="wishlist.php">wishlist</a>
-     
-       
-       
-
-   </nav>
   
 
-        <div class="profile-dropdown">
-        <div onclick="toggle()" class="profile-dropdown-btn">
-          <!-- <div class="profile-img">
-            <i class="fa-solid fa-circle"></i>
-          </div> -->
-
-          <span>
-        
-
-            <i class="fa-solid fa-angle-down">alii</i>
-          </span>
-        </div>
-       <ul class="profile-dropdown-list">
-         <li class="profile-dropdown-list-item">    <a href="userprofile.php">
-            <i class="fa-regular fa-user"></i>
-          login
-          </a>
-        </li>
-
-        <li class="profile-dropdown-list-item">
-        <a href="signup.php">
-            <i class="fa-regular fa-envelope"></i>
-          signup
-          </a>
-        </li>
-
-        
-
-        <li class="profile-dropdown-list-item">
-          <a href="#">
-            <i class="fa-solid fa-sliders"></i>
-            Settings
-          </a>
-        </li>
-
-        <li class="profile-dropdown-list-item">
-          <a href="#">
-            <i class="fa-regular fa-circle-question"></i>
-            Help & Support
-          </a>
-        </li>
-        <hr />
-
-        <li class="profile-dropdown-list-item">
-          <a href="signout.php">
-            <i class="fa-solid fa-arrow-right-from-bracket"></i>
-            Log out
-          </a>
-        </li>
-      </ul>
-        </div>
-        
+<body>
 
 
 
-        <div class="iconsm">
-            <div class="fas fa-bars" id="menu-btn"></div>
-            <div class="fas fa-search" id="search-btn" ></div>
-            <div class="fas fa-shopping-cart" id="cart-btn"></div>
-        </div>
-        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+<nav class="navbarr">
+   
+            
+
+<img src="../public/images/logo.png" class="logom">
+
+
+ 
+   <a href="#" class="toggle-button">
+       <span class="bar"></span>
+       <span class="bar"></span>
+       <span class="bar"></span>
+     </a>
+     <div class="navbar-links">
+
+   <ul>
+
+       <li>
+           <form action="/products/search" method="post">
+           <input class="search" type="text" placeholder="Search Food" name="search">
+        <button type="submit" style="background: orangered"><i class="fa-solid fa-magnifying-glass" id="q1" ></i></button> 
+       </form>
+       </li>
+       
+
+
+       <li class="part2"><a href="<?=base_url('index.php')?>">Home</a></li>
+       <li class="part2"><a href="/products/All">Menu</a></li>
+       <li class="part2" id="cart" onclick="dis()">
+
+           <span id="notification">
+             
+           </span>
+           <!-- <span style="position: relative; top: -20px;">0</span> -->
+           <i class="fa-solid fa-cart-shopping">
+           </i>
+
+
+           <!-- onclick="check_out(event.target)" -->
+           <!-- <div class="kk" >
+               <div style="width: 98%;height: 78.5%;  overflow: auto; border: 1px solid rgb(23, 28, 100);" class="cc">
+                   
+               <%if(s.length>0){%>
+               <% s.forEach( function(itemss) { %> 
+                  
+                   <div class ="art"><img src="<%-itemss.item.path%>"alt="" class="item_img" >
+                       
+                   <span class="s1"> <b>item name :</b> <%- itemss.item.name %></span>
+                   <br>
+                   <span class="s2"><b>Price : <%-itemss.item.price%> $ Qty : </b> <b class="qty1"><%-itemss.qty%></b> </span>
+                   
+               </div>  
+               <% }); %>  
+           </div>
+           
+<%}%>
+<div style="border: 1px soild black ;" id="div-btn"> 
+<a href="/products/cart/end/checkout" ><button id ="check_now" >CheckOut Now </button></a></div>
+
+            </div> -->
+
+           <!-- <div style="height: 90%; width: 80%; border: 1px solid black;"></div> -->
+           
+       </li>
+
       
-        
-        <form action="" class="search-form">
-            <input type="search" id="search-box" placeholder="search here..." >
-            <label for="search-box" class="fas fa-search"></label>
-        </form>
-        
-        <div class="shopping-cart">
-            <div class="box">
-                <i class="fas fa-trash"></i>
-                <img src="../public/images/haircare.png.jpg" alt="">
-                <div class="content">
-                    <h3>hair care</h3>
-                    <span class="price">$4.99</span>
-                    <span class="Quantity">qty:4</span>
-                </div>
-            </div>
-            <div class="box">
-                <i class="fas fa-trash"></i>
-                <img src="../public/images/haircare.png.jpg" alt="">
-                <div class="content">
-                    <h3>hair care</h3>
-                    <span class="price">$4.99</span>
-                    <span class="Quantity">qty:4</span>
-                </div>
-            </div>
-        
-            <div class="total">total : $19.69</div>
-            <a href="" class="btn">checkout</a>
-        </div>
-
-   
-    </header>
-   <script>
-
-let searchForm=document.querySelector('.search-form');
- document.querySelector('#search-btn').onclick=()=>{
-    searchForm.classList.toggle('active');
-    shoppingCart.classList.remove('active');
-    Navbar.classList.remove('active');
- }
- let shoppingCart=document.querySelector('.shopping-cart');
- document.querySelector('#cart-btn').onclick=()=>{
-    shoppingCart.classList.toggle('active');
-    searchForm.classList.remove('active');
-    Navbar.classList.remove('active');
- }
-
- let Navbar=document.querySelector('.navbar');
- document.querySelector('#menu-btn').onclick=()=>{
-    Navbar.classList.toggle('active');
-    searchForm.classList.remove('active');
-    shoppingCart.classList.remove('active');
-   
- }
-
- window.onscroll=()=>{
-    searchForm.classList.remove('active');
-    shoppingCart.classList.remove('active');
-    Navbar.classList.remove('active');
-
- }
-
-</script>
+           <li class="part2"><a class="sign" href="/customers/profile/login">
+                
+             login  </a></li>
+          
+               <li class="part2"><a class="sign" href="/customers/signin">Profile</a></li>
+             
+                 
+   </ul>
+</div>
+</nav>
 
 
 
@@ -169,7 +155,6 @@ let searchForm=document.querySelector('.search-form');
 
 
 
-<
 
 
   <script>let profileDropdownList = document.querySelector(".profile-dropdown-list");
@@ -183,6 +168,7 @@ window.addEventListener("click", function (e) {
   if (!btn.contains(e.target)) classList.remove("active");
 });
 </script>
+
 
 </body>
 </html>
