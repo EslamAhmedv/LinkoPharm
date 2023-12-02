@@ -6,15 +6,12 @@ body {
 .ui-w-80 {
     width : 80px !important;
     height: auto;
-   
 }
 
 .btn-default {
     border-color: rgba(24, 28, 33, 0.1);
     background  : rgba(0, 0, 0, 0);
     color       : #4E5155;
-    margin-top: 600px;
-    padding-top: 1000px;
 }
 
 label.btn {
