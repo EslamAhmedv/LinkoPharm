@@ -23,6 +23,33 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 $isUserLoggedIn = isset($_SESSION['authenticated']) && $_SESSION['authenticated'] === true;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+$userId = $_SESSION['auth_user']['user_id'];
+$userRole = $userController->getUserRole($userId);
+
+// Check if the user is an admin
+if ($userRole == 1) {
+   header("Location: dashboard.php");
+    // Display admin-specific content, e.g., a link to the admin dashboard
+   
+}
+
+
 ?>
 
 
@@ -73,20 +100,30 @@ $isUserLoggedIn = isset($_SESSION['authenticated']) && $_SESSION['authenticated'
    <body>
    
    <?php if ($isUserLoggedIn){?>
+    
+    
+
    
       <header class="header" id="header">
          <nav class="nav container">
          <img src="../public/images/logo.png" class="logom">
-
+      
+        
             <div class="nav__menu" id="nav-menu">
                <ul class="nav__list">
                   <li class="nav__item">
-                     <a href="index.php" class="nav__link">Home</a>
+                 
+        
+    
+              
+                 
+             <a href="index.php" class="nav__link">Home</a>
                   </li>
 
                   <li class="nav__item">
-                     <a href="#" class="nav__link">About Us</a>
+                     <a href="products.php" class="nav__link">menu</a>
                   </li>
+                  
 
                   <li class="nav__item">
                      <a href="#" class="nav__link">Services</a>
@@ -100,7 +137,8 @@ $isUserLoggedIn = isset($_SESSION['authenticated']) && $_SESSION['authenticated'
                      <a href="logout.php" class="nav__link">log out</a>
                   </li>
                </ul>
-
+               
+      
                <div class="nav__close" id="nav-close">
                   <i class="ri-close-line"></i>
                </div>

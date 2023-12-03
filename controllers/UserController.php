@@ -120,4 +120,15 @@ public function updatePassword($userId, $newPassword) {
 
 
 
+
+
+
+public function getUserRole($userId) {
+    return $this->userModel->getUserRole($userId);
+}
+
+
+
+
+
 }?>

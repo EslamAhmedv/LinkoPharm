@@ -1,5 +1,5 @@
 body {
-  background: rgba(0, 0, 0, 0.7) url(../images/food2.webp) fixed;
+  background:white;
   background-size: cover;
   background-blend-mode: darken;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
@@ -37,11 +37,12 @@ body {
 
 .container {
   width: 400px;
-  height: 950px;
+  height: 650px;
   margin: auto;
   background-color: rgb(203, 224, 243);
   border-radius: 3px;
   opacity: 90%;
+  margin-top: 100px;
 }
 
 h1 {
