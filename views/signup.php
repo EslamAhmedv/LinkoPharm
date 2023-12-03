@@ -16,7 +16,7 @@ if (isset($_POST['reg'])) {
     $message = $userController->registerUser($firstname, $lastname, $username, $email, $gender, $password, $password2);
     
     if ($message === "Success") {
-        header("Location: index.php");
+        header("Location: login.php");
         exit;
     }
 }

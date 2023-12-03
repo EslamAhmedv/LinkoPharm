@@ -1,23 +1,26 @@
-<?php 
- include("../config/app.php");
- include("../models/auth.php");
+<?php
+require_once("../controllers/UserController.php");
+require_once("../models/UserModel.php");
 
+$userController = new UserController(new UserModel());
 
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Assuming you have form fields named 'email' and 'password'
+    $email = $_POST['email'];
+    $password = $_POST['password'];
 
+    $loginResult = $userController->userLogin($email, $password);
+
+    if ($loginResult === true) {
+        // Redirect to the dashboard or another page upon successful login
+        header("Location: index.php");
+        exit();
+    } else {
+        // Display the login error message using JavaScript
+        echo "<script>alert('$loginResult');</script>";
+    }
+}
 ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -55,6 +58,7 @@
 		<!-- STYLE CSS -->
 		<link rel="stylesheet" href="../public/css/login.css">
 	</head>
+
 	<?php
 
 include('../partials/navbar.php'); ?>

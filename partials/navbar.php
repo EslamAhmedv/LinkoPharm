@@ -1,3 +1,60 @@
+<?php
+require_once("../controllers/UserController.php");
+require_once("../models/UserModel.php");
+
+$userController = new UserController(new UserModel());
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Assuming you have form fields named 'email' and 'password'
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+    $loginResult = $userController->userLogin($email, $password);
+
+    if ($loginResult === true) {
+        // Redirect to the dashboard or another page upon successful login
+        header("Location: index.php");
+        exit();
+    } else {
+        // Display the login error message using JavaScript
+        echo "<script>alert('$loginResult');</script>";
+    }
+}
+
+
+$isUserLoggedIn = isset($_SESSION['authenticated']) && $_SESSION['authenticated'] === true;
+?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
    <html lang="en">
    <head>
@@ -14,7 +71,9 @@
       <title>navbar</title>
    </head>
    <body>
-      
+   
+   <?php if ($isUserLoggedIn){?>
+   
       <header class="header" id="header">
          <nav class="nav container">
          <img src="../public/images/logo.png" class="logom">
@@ -22,7 +81,74 @@
             <div class="nav__menu" id="nav-menu">
                <ul class="nav__list">
                   <li class="nav__item">
-                     <a href="#" class="nav__link">Home</a>
+                     <a href="index.php" class="nav__link">Home</a>
+                  </li>
+
+                  <li class="nav__item">
+                     <a href="#" class="nav__link">About Us</a>
+                  </li>
+
+                  <li class="nav__item">
+                     <a href="#" class="nav__link">Services</a>
+                  </li>
+
+                  <li class="nav__item">
+                     <a href="#" class="nav__link">Featured</a>
+                  </li>
+
+                  <li class="nav__item">
+                     <a href="logout.php" class="nav__link">log out</a>
+                  </li>
+               </ul>
+
+               <div class="nav__close" id="nav-close">
+                  <i class="ri-close-line"></i>
+               </div>
+            </div>
+
+            <div class="nav__actions">
+            <a href="userprofile.php"> <i class="ri-user-line nav__login" id="login-btn"></i></a>
+               
+               <i class="ri-search-line nav__search" id="search-btn"></i>
+
+               
+            
+               <a href="signup.php"><div class="fas fa-shopping-cart" id="cart-btn"></div></a>
+               
+               <div class="nav__toggle" id="nav-toggle">
+                  <i class="ri-menu-line"></i>
+               </div>
+             
+            </div>
+         </nav>
+      </header>
+
+      
+      <div class="search" id="search">
+         <form action="" class="search__form">
+            <i class="ri-search-line search__icon"></i>
+            <input type="search" placeholder="What are you looking for?" class="search__input">
+         </form>
+
+         <i class="ri-close-line search__close" id="search-close"></i>
+      </div>
+      
+
+        
+            
+
+
+
+<?php } 
+     else{  ?>
+   <header class="header" id="header">
+         <nav class="nav container">
+         <img src="../public/images/logo.png" class="logom">
+
+            <div class="nav__menu" id="nav-menu">
+               <ul class="nav__list">
+                  <li class="nav__item">
+                     <a href="index.php" class="nav__link">Home</a>
                   </li>
 
                   <li class="nav__item">
@@ -72,21 +198,21 @@
 
          <i class="ri-close-line search__close" id="search-close"></i>
       </div>
-
+      
       
       <div class="login" id="login">
-         <form action="" class="login__form">
+         <form action="" class="login__form"  method='POST'>
             <h2 class="login__title">Log In</h2>
             
             <div class="login__group">
                <div>
                   <label for="email" class="login__label">Email</label>
-                  <input type="email" placeholder="Write your email" id="email" class="login__input">
+                  <input type="email" placeholder="Write your email" id="email" class="login__input"  name="email">
                </div>
                
                <div>
-                  <label for="password" class="login__label">Password</label>
-                  <input type="password" placeholder="Enter your password" id="password" class="login__input">
+                  <label for="password" class="login__label"  >Password</label>
+                  <input type="password" placeholder="Enter your password" id="password" class="login__input" name="password">
                </div>
             </div>
 
@@ -99,15 +225,14 @@
                   You forgot your password
                </a>
    
-               <button type="submit" class="login__button">Log In</button>
+               <button type="submit" class="login__button" value="signup" name="log">Log In</button>
             </div>
          </form>
 
          <i class="ri-close-line login__close" id="login-close"></i>
       </div>
+      <?php  } ?>
 
-     
-      
       <!--=============== MAIN JS ===============-->
       <script>/*=============== SHOW MENU ===============*/
 const navMenu = document.getElementById('nav-menu'),

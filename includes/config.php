@@ -22,7 +22,7 @@
     }
     
     
-    
+
     function validateinput($dbcon,$input){
     
         return mysqli_real_escape_string($dbcon,$input);
