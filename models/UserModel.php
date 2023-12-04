@@ -131,20 +131,20 @@ public function updatePassword($userId, $newPasswordHash) {
 
 
 
-// public function getUserRole($userId) {
- //   $query = "SELECT role FROM users WHERE id = ?";
-   // $stmt = $this->conn->prepare($query);
-   // $stmt->bind_param("i", $userId);
-    //$stmt->execute();
-   // $result = $stmt->get_result();
+public function getUserRole($userId) {
+   $query = "SELECT role FROM users WHERE id = ?";
+   $stmt = $this->conn->prepare($query);
+   $stmt->bind_param("i", $userId);
+    $stmt->execute();
+   $result = $stmt->get_result();
 
-   // if ($result->num_rows > 0) {
-   //     $userData = $result->fetch_assoc();
-  //      return $userData['role'];
-  //  } else {
-  //      return null; // User not found
-  //  }
-//}
+   if ($result->num_rows > 0) {
+       $userData = $result->fetch_assoc();
+       return $userData['role'];
+   } else {
+       return null; // User not found
+   }
+}
 
 
 

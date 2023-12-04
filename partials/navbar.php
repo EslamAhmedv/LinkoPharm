@@ -39,15 +39,15 @@ $isUserLoggedIn = isset($_SESSION['authenticated']) && $_SESSION['authenticated'
 
 
 
-// $userId = $_SESSION['auth_user']['user_id'];
-//$userRole = $userController->getUserRole($userId);
+$userId = $_SESSION['auth_user']['user_id'];
+$userRole = $userController->getUserRole($userId);
 
-// Check if the user is an admin
-//if ($userRole == 1) {
-//   header("Location: dashboard.php");
-    // Display admin-specific content, e.g., a link to the admin dashboard
+//Check if the user is an admin
+if ($userRole == 1) {
+  header("Location: dashboard.php");
+   // Display admin-specific content, e.g., a link to the admin dashboard
    
-//}
+}
 
 
 ?>
