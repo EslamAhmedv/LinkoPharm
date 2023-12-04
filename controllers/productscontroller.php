@@ -64,6 +64,10 @@ class ProductController {
     public function getProductById($id) {
         return $this->productsModel->getProductById($id);
     }
+    public function searchProducts($searchTerm) {
+        return $this->productsModel->searchProducts($searchTerm);
+    }
+    
 
 }
 
