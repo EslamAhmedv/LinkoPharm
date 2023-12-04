@@ -1,7 +1,8 @@
 <?php
 require_once("../controllers/UserController.php");
 require_once("../models/UserModel.php");
-include '../models/ProductsModel.php';
+require_once '../controllers/productscontroller.php';
+
 $userController = new UserController(new UserModel());
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
