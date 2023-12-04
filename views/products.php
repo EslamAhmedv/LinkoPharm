@@ -1,15 +1,4 @@
 
-
-
-
-
-
-
-
-
-
-
-
 <?php
 require_once '../controllers/CartController.php';
 
@@ -32,21 +21,11 @@ if (isset($_POST['SubmitButton'])) {
 }
 ?>
 
-
-
-
-
-
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
-  <title>CodePen - Popular Products Section Using HTML , CSS , Bootstrap</title>
+  <title>mo</title>
   <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css'>
 <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css'>  <link rel="stylesheet" href="../public/css/products.css">
 
@@ -73,7 +52,7 @@ include('../partials/navbar.php'); ?>
 						<!-- Single Product -->
 						<div class="col-md-6 col-lg-4 col-xl-3">
 								<div id="product-1" class="single-product">
-										<div class="part-1" > <input type="text" name="image">
+										<div class="part-1" > <input type="text" name="image" value="logo.png">
 												<ul>
 													<button  type="submit" name="SubmitButton"><li><a href="products.php"><i class="fas fa-shopping-cart"></i></a></li></button>
 														<li><a href="#"><i class="fas fa-heart"></i></a></li>
@@ -81,9 +60,9 @@ include('../partials/navbar.php'); ?>
 												</ul>
 										</div>
 										<div class="part-2">
-										<input type="text" id="name" placeholder="Here Product Title" name="name" class="product-title">
-										<input type="text" class="product-price" id="price" placeholder="1" name="quantity">
-												<input type="text" class="product-price" id="price" placeholder="49.99$" name="price">
+										<input type="text" id="name" placeholder="Here Product Title" value="hairrrrrrrrr" name="name" class="product-title">
+										<input type="text" class="product-price" id="price"value="1" name="quantity">
+												<input type="text" class="product-price" id="price" value="49.99$" name="price">
 										</div>
 								</div>
 						</div>
