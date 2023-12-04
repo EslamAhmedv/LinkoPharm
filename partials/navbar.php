@@ -151,7 +151,7 @@ if ($userRole == 1) {
 
                
             
-               <a href="signup.php"><div class="fas fa-shopping-cart" id="cart-btn"></div></a>
+               <a href="cart.php"><div class="fas fa-shopping-cart" id="cart-btn"></div></a>
                
                <div class="nav__toggle" id="nav-toggle">
                   <i class="ri-menu-line"></i>
