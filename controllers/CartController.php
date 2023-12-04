@@ -8,30 +8,40 @@ class CartController {
         $this->cartModel = new CartModel();
     }
 
-    public function addToCart($item = []) {
-        $this->cartModel->addToCart($item);
-    }
 
-    public function updateCart($item = []) {
-        $this->cartModel->updateCart($item);
-    }
 
-    public function removeFromCart($id) {
-        $this->cartModel->remove($id);
-    }
 
-    public function viewCart() {
-        $cartItems = $this->cartModel->getAllItems();
-        // Implement logic to display the cart items in the view
-    }
 
-    public function getCartTotal() {
-        return $this->cartModel->getCartTotal();
+
+
+    public function cartt($image, $name, $price, $quantity) {
+    
+        $result = $this->cartModel->addtocart($image, $name, $price, $quantity);
+        if ($result) {
+            return "Success";
+        } else {
+            return "faileeeeeed";
+        }
     }
 
 
-    public function destroyCart() {
-        $this->cartModel->destroy();
-    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
 }
 ?>

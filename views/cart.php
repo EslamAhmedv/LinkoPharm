@@ -19,7 +19,7 @@
                     <div class="title">
                         <div class="row">
                             <div class="col"><h4><b>Shopping Cart</b></h4></div>
-                            <div class="col align-self-center text-right text-muted">3 items</div>
+                          
                         </div>
                     </div>    
                     <div class="row border-top border-bottom">
@@ -67,7 +67,7 @@
                     <div><h5><b>Summary</b></h5></div>
                     <hr>
                     <div class="row">
-                        <div class="col" style="padding-left:0;">ITEMS 3</div>
+                       
                         <div class="col text-right">&euro; 132.00</div>
                     </div>
                     <form>
@@ -80,7 +80,7 @@
                         <div class="col">TOTAL PRICE</div>
                         <div class="col text-right">&euro; 137.00</div>
                     </div>
-                    <button class="btn">CHECKOUT</button>
+                   <a href="checkout.php"> <button class="btn">CHECKOUT</button></a>
                 </div>
             </div>
             

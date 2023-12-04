@@ -59,7 +59,7 @@ a:hover {
 }
 
 .section-products #product-1 .part-1::before {
-    background: url("https://i.ibb.co/L8Nrb7p/1.jpg") no-repeat center;
+    background: white;
     background-size: cover;
 		transition: all 0.3s;
 }
