@@ -43,6 +43,19 @@ class ProductsModel extends Model {
         return $result->fetch_assoc(); 
     }
 
+    public function searchProducts($searchTerm) {
+        $searchTerm = "%{$searchTerm}%";
+        $stmt = $this->conn->prepare("SELECT * FROM products WHERE name LIKE ? OR description LIKE ?");
+        $stmt->bind_param("ss", $searchTerm, $searchTerm);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $products = [];
+        while ($product = $result->fetch_assoc()) {
+            $products[] = $product;
+        }
+        return $products;
+    }
+
 }
 
 ?>
