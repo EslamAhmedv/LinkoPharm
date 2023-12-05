@@ -1,3 +1,18 @@
+<?php
+require_once '../controllers/CartController.php';
+
+
+$cart = new CartController();
+
+?>
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <head>
     <meta charset="utf-8">
@@ -11,6 +26,8 @@
 </head>
 
 
+<body>
+    
 
 
 <div class="card">
@@ -22,54 +39,25 @@
                           
                         </div>
                     </div>    
-                    <div class="row border-top border-bottom">
-                        <div class="row main align-items-center">
-                            <div class="col-2"><img class="img-fluid" src="https://i.imgur.com/1GrakTl.jpg"></div>
-                            <div class="col">
-                                <div class="row text-muted">Shirt</div>
-                                <div class="row">Cotton T-shirt</div>
-                            </div>
-                            <div class="col">
-                                <a href="#">-</a><a href="#" class="border">1</a><a href="#">+</a>
-                            </div>
-                            <div class="col">&euro; 44.00 <span class="close">&#10005;</span></div>
-                        </div>
-                    </div>
+                    <?php if($cart->getCartTotal()>0): ?>
+                    
+                    <?php $items=$cart->getCartItems(); ?>
+						<?php foreach($items as $item): ?>
                     <div class="row">
                         <div class="row main align-items-center">
                             <div class="col-2"><img class="img-fluid" src="https://i.imgur.com/ba3tvGm.jpg"></div>
                             <div class="col">
-                                <div class="row text-muted">Shirt</div>
+                                <div class="row text-muted"><?php echo $item["name"];?></div>
                                 <div class="row">Cotton T-shirt</div>
                             </div>
                             <div class="col">
                                 <a href="#">-</a><a href="#" class="border">1</a><a href="#">+</a>
                             </div>
-                            <div class="col">&euro; 44.00 <span class="close">&#10005;</span></div>
+                            <div class="col"> <?php echo $item["price"];?><span class="close">&#10005;</span></div>
                         </div>
                     </div>
-                    <div class="row border-top border-bottom">
-                        <div class="row main align-items-center">
-                            <div class="col-2"><img class="img-fluid" src="https://i.imgur.com/pHQ3xT3.jpg"></div>
-                            <div class="col">
-                                <div class="row text-muted">Shirt</div>
-                                <div class="row">Cotton T-shirt</div>
-                            </div>
-                            <div class="col">
-                                <a href="#">-</a><a href="#" class="border">1</a><a href="#">+</a>
-                            </div>
-                            <div class="col">&euro; 44.00 <span class="close">&#10005;</span></div>
-                        </div>
-                    </div>
-                    <div class="back-to-shop"><a href="products.php">&leftarrow;</a><span class="text-muted">Back to shop</span></div>
-                </div>
-                <div class="col-md-4 summary">
-                    <div><h5><b>Summary</b></h5></div>
-                    <hr>
-                    <div class="row">
-                       
-                        <div class="col text-right">&euro; 132.00</div>
-                    </div>
+                    <?php endforeach; ?>
+                   
                     <form>
                         <p>SHIPPING</p>
                         <select><option class="text-muted">Standard-Delivery- &euro;5.00</option></select>
@@ -78,10 +66,42 @@
                     </form>
                     <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
                         <div class="col">TOTAL PRICE</div>
-                        <div class="col text-right">&euro; 137.00</div>
+                        <div class="col text-right"><?php echo $cart->getCartTotal();?></div>
                     </div>
+                    <?php else: ?>
+						<div class='alert alert-warning'>Cart is empty...</div>
+					<?php endif; ?>
                    <a href="checkout.php"> <button class="btn">CHECKOUT</button></a>
                 </div>
             </div>
+           
             
-        </div>
+        </div></body>
+        <script>
+			$(document).ready(function(){
+				$(".qty").change(function(){
+					update_cart($(this));
+				});
+				$(".qty").keyup(function(){
+					update_cart($(this));
+				});
+				
+				function update_cart(cls){
+					var pid=$(cls).attr("pid");
+					var q=$(cls).val();
+					
+					$.ajax({
+						url:"updatecart.php",
+						type:"post",
+						data:{id:pid,qty:q},
+						success:function(res){
+							console.log(res);
+							
+							var a=JSON.parse(res);
+							$("#total").text(a.total);
+							$(cls).closest("tr").find(".row_total").text(a.row_total);
+						}
+					});
+				}
+			});
+		</script>

@@ -8,19 +8,20 @@ $products = $productController->getAllProducts();
 $message = '';
 
 if (isset($_POST['SubmitButton'])) {
-    $image = $_POST['image'];
-    $name = $_POST['name'];
-    $price = $_POST['price'];
-    $quantity = $_POST['quantity'];
+    $item = [
+        "image" => $_POST["image"],
+        "name" => $_POST["name"],
+        "price" => $_POST["price"],
+        "quantity" => $_POST["quantity"],
+        "total" => ($_POST["quantity"] * $_POST["price"]),
+       
+    ];
 
-    $message = $cartController->cartt($image, $name, $price, $quantity);
-    
-    if ($message === "Success") {
-        header("Location: cart.php");
-        exit;
-    }
+    $cartController->addtocart($item);
+    header("location:cart.php");
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
