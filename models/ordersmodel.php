@@ -1,31 +1,37 @@
 <?php
-include "../includes/db.php";
+require_once "../models/Model.php";
 
-class OrdersModel {
+class OrdersModel extends Model {
 
-    public static function getAllOrders($conn) {
+    public function getAllOrders() {
         $sql = "SELECT * FROM orders";
-        $result = $conn->query($sql);
+        $result = $this->conn->query($sql);
         $orders = array();
-        while ($order = mysqli_fetch_assoc($result)) {
+        while ($order = $result->fetch_assoc()) {
             $orders[] = $order;
         }
         return $orders;
     }
 
-    public static function addOrder($conn, $customerName, $city, $orderDate, $status, $totalAmount) {
-        $query = "INSERT INTO orders (customer_name, city, order_date, status, total_amount) VALUES ('$customerName', '$city', '$orderDate', '$status', '$totalAmount')";
-        return $conn->query($query);
+    public function addOrder($customerName, $city, $orderDate, $status, $totalAmount) {
+        $query = "INSERT INTO orders (customer_name, city, order_date, status, total_amount) VALUES (?, ?, ?, ?, ?)";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param("ssssi", $customerName, $city, $orderDate, $status, $totalAmount);
+        return $stmt->execute();
     }
 
-    public static function updateOrder($conn, $orderId, $status) {
-        $query = "UPDATE orders SET status = '$status' WHERE id = $orderId";
-        return $conn->query($query);
+    public function updateOrder($orderId, $status) {
+        $query = "UPDATE orders SET status = ? WHERE id = ?";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param("si", $status, $orderId);
+        return $stmt->execute();
     }
 
-    public static function deleteOrder($conn, $orderId) {
-        $query = "DELETE FROM orders WHERE id = $orderId";
-        return $conn->query($query);
+    public function deleteOrder($orderId) {
+        $query = "DELETE FROM orders WHERE id = ?";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param("i", $orderId);
+        return $stmt->execute();
     }
 }
 ?>

@@ -1,13 +1,13 @@
 <?php
-require '../includes/db.php';
 require '../controllers/orderscontroller.php';
+$ordercontriller = new OrdersController();
 
 // Check if the 'deleteOrder' form was submitted
 if (isset($_POST['deleteOrder'])) {
-    deleteOrder($_POST['orderId']);
+    $ordercontriller -> deleteOrder($_POST['orderId']);
 }
 
-$orders = getAllOrders();
+$orders = $ordercontriller -> getAllOrders();
 ?>
 
 <!DOCTYPE html>

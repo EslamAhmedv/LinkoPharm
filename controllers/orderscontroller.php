@@ -1,24 +1,34 @@
-<?php 
-include '../models/OrdersModel.php';
+<?php
+require_once '../models/ordersmodel.php';
 
-function getAllOrders() {
-    global $conn; 
-    return OrdersModel::getAllOrders($conn);
+class OrdersController {
+    private $ordersModel;
+
+    public function __construct() {
+        $this->ordersModel = new OrdersModel();
+    }
+
+    public function getAllOrders() {
+        return $this->ordersModel->getAllOrders();
+    }
+
+    public function addOrder($customerName, $city, $orderDate, $status, $totalAmount) {
+        return $this->ordersModel->addOrder($customerName, $city, $orderDate, $status, $totalAmount);
+    }
+
+    public function updateOrder($orderId, $status) {
+        return $this->ordersModel->updateOrder($orderId, $status);
+    }
+
+    public function deleteOrder($orderId) {
+        return $this->ordersModel->deleteOrder($orderId);
+    }
 }
 
-function addOrder($customerName, $city, $orderDate, $status, $totalAmount) {
-    global $conn;
-    return OrdersModel::addOrder($conn, $customerName, $city, $orderDate, $status, $totalAmount);
-}
+$ordersController = new OrdersController();
 
-function updateOrder($orderId, $status) {
-    global $conn;
-    return OrdersModel::updateOrder($conn, $orderId, $status);
-}
-
-function deleteOrder($orderId) {
-    global $conn;
-    return OrdersModel::deleteOrder($conn, $orderId);
+if (isset($_POST['deleteOrder'])) {
+    $orderId = $_POST['orderId'];
+    $ordersController->deleteOrder($orderId);
 }
 ?>
- 
