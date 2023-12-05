@@ -48,8 +48,11 @@ if (isset($_POST['SubmitButton'])) {
         <div class="row">
             <?php foreach ($products as $product): ?>
                 <div class="col-md-6 col-lg-4 col-xl-3">
+                    
                     <form action="" method="POST" class="single-product">
                         <div class="part-1">
+                        <a href="prodDetails.php?id=<?php echo $product['id']; ?>" class="product-link">
+
                             <img src="<?php echo htmlspecialchars($product['image']); ?>" alt="Product Image">
                             <ul>
                                 <li><button type="submit" name="SubmitButton"><i class="fas fa-shopping-cart"></i></button></li>
