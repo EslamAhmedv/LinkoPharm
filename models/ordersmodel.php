@@ -14,12 +14,12 @@ class OrdersModel extends Model {
     }
 
     public function addOrder($customerName, $city, $orderDate, $status, $totalAmount) {
-        $query = "INSERT INTO orders (customer_name, city, order_date, status, total_amount) VALUES (?, ?, ?, ?, ?)";
+        $query = "INSERT INTO orders (customer_name, city, order_date, status, amount) VALUES (?, ?, ?, ?, ?)";
         $stmt = $this->conn->prepare($query);
-        $stmt->bind_param("ssssi", $customerName, $city, $orderDate, $status, $totalAmount);
+        $stmt->bind_param("sssss", $customerName, $city, $orderDate, $status, $totalAmount);
         return $stmt->execute();
     }
-
+    
     public function updateOrder($orderId, $status) {
         $query = "UPDATE orders SET status = ? WHERE id = ?";
         $stmt = $this->conn->prepare($query);

@@ -1,0 +1,99 @@
+<?php
+require_once '../controllers/orderscontroller.php';
+
+$orderAdded = false; 
+$ordersController = new OrdersController();
+
+if (isset($_POST['submit'])) {
+    $customerName = $_POST['customer_name'];
+    $city = $_POST['city'];
+    $orderDate = $_POST['order_date'];
+    $status = $_POST['status'];
+    $totalAmount = $_POST['total_amount'];
+
+    $orderAdded = $ordersController->addOrder($customerName, $city, $orderDate, $status, $totalAmount);
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp" />
+    <link rel="stylesheet" href="../public/css/displayproducts.css">
+    <link rel="stylesheet" href="../public/css/dashboard.css">
+    <link rel="stylesheet" href="../public/css/editdash.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Add Order</title>
+</head>
+
+<body>
+    <div class="container">
+        <aside>
+            <?php
+            $currentPage = 'ordersdash';
+            include('../partials/dashboardsidebar.php');
+            ?>
+        </aside>
+
+        <main>
+            <h1>Orders</h1>
+
+            <div class="addprod">
+                <form action="addorder.php" class="form" method="POST">
+                    <h2 class="title">Add an Order</h2>
+                    <div class="product-container" style="display: block;">
+                        <div class="input">
+                            <label for="customer_name">Customer Name</label>
+                            <div><input type="text" id="customer_name" placeholder="Customer name" name="customer_name" required></div>
+                            <span class="errormsg"></span>
+                        </div>
+
+                        <div class="input">
+                            <label for="city">City</label>
+                            <div><input type="text" id="city" placeholder="City" name="city" required></div>
+                            <span class="errormsg"></span>
+                        </div>
+
+                        <div class="input">
+                            <label for="order_date">Order Date</label>
+                            <div><input type="text" id="order_date" placeholder="Order Date" name="order_date" required></div>
+                            <span class="errormsg"></span>
+                        </div>
+
+                        <div class="input">
+                            <label for="status">Status</label>
+                            <div><input type="text" id="status" placeholder="Status" name="status" required></div>
+                            <span class="errormsg"></span>
+                        </div>
+
+                        <div class="input">
+                            <label for="total_amount">Total Amount</label>
+                            <div><input type="text" id="total_amount" placeholder="Total Amount" name="total_amount" required></div>
+                            <span class="errormsg"></span>
+                        </div>
+
+                        <button type="submit" name="submit" id="add">Add</button><span>
+                            <a href="addorder.php"><button id="cancel">Cancel</button></a></span>
+                    </div>
+                </form>
+            </div>
+        </main>
+
+        <div id="successPopup" style="display: none; position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background-color: green; color: white; padding: 20px; border-radius: 5px; font-size: 1.2em; z-index: 1000;">
+            Order added successfully!
+        </div>
+
+        <script src="../public/js/popup.js"></script>
+
+        <?php if ($orderAdded) : ?>
+            <script>
+                showSuccessPopup();
+            </script>
+        <?php endif; ?>
+    </div>
+</body>
+
+</html>

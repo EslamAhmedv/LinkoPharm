@@ -63,7 +63,7 @@ $orders = $ordercontriller -> getAllOrders();
                                 <td><?php echo $order['city']; ?></td>
                                 <td><?php echo $order['order_date']; ?></td>
                                 <td><?php echo $order['status']; ?></td>
-                                <td><?php echo 'EGP ' . $order['total_amount']; ?></td>
+                                <td><?php echo 'EGP ' . $order['amount']; ?></td>
                                 <td>
                                     <a href="editorder.php?id=<?php echo $order['id']; ?>">
                                         <button class="btn edit-order"><i class="fa fa-edit"></i></button>
