@@ -42,7 +42,7 @@
         <div class="carousel-caption text-center">
           <img src="../public/images/Linko logo transperant.png" alt="" style="max-width: 200px; height: auto;" class="mx-auto">
           <p>THE SCIENCE FOR HEALTHIER LIVING</p>
-          <p><a href="#" class="btnnn">ABOUT US</a></p>
+          <p><a href="aboutus.php" class="btnnn">ABOUT US</a></p>
         </div>
       </div>
       <div class="carousel-item">
@@ -61,7 +61,7 @@
         </video>
         <div class="carousel-caption">
           <h5>HIGH QUALITY PRODUCTS FOR EACH NEED</h5>
-          <p><a href="#" class="btnnn">DISCOVER PRODUCTS</a></p>
+          <p><a href="products.php" class="btnnn">DISCOVER PRODUCTS</a></p>
         </div>
       </div>
     </div>
