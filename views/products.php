@@ -54,6 +54,7 @@ if (isset($_POST['SubmitButton'])) {
                         <a href="prodDetails.php?id=<?php echo $product['id']; ?>" class="product-link">
 
                             <img src="<?php echo htmlspecialchars($product['image']); ?>" alt="Product Image">
+            </a>
                             <ul>
                                 <li><button type="submit" name="SubmitButton"><i class="fas fa-shopping-cart"></i></button></li>
                                 <li><a href="#"><i class="fas fa-heart"></i></a></li>
