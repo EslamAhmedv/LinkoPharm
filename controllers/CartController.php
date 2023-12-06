@@ -8,45 +8,48 @@ class CartController {
         $this->cartModel = new CartModel();
     }
 
-    public function addToCart($item) {
-        $result = $this->cartModel->addToCart($item);
+    public function addToCart($userId, $productName, $productPrice, $productImage, $productQuantity) {
+        $resultMessage = $this->cartModel->addToCart($userId, $productName, $productPrice, $productImage, $productQuantity);
+        echo $resultMessage;
+    }
 
-        if ($result) {
-            echo "Item added to the cart!";
-        } else {
-            echo "Failed to add item to the cart.";
+    public function updateCartItemQuantity() {
+        if (isset($_POST['update_cart'])) {
+            $updateQuantity = $_POST['quantity'];
+        
+
+            $result = $this->cartModel->updateCartItemQuantity($updateQuantity, $updateId);
+
+            if ($result) {
+                echo 'Cart quantity updated successfully!';
+                header("Location: index.php");
+            } else {
+                echo 'Failed to update cart quantity.';
+            }
         }
     }
 
-    public function updateCart($item) {
-        $result = $this->cartModel->updateCart($item);
+    // public function removeItem($itemId) {
+    //     $this->cartModel->removeItem($itemId);
+    //     echo "Item removed from the cart!";
+    // }
 
-        if ($result) {
-            echo "Cart updated!";
-        } else {
-            echo "Failed to update cart.";
-        }
+    // public function viewCart() {
+    //     $cartItems = $this->cartModel->getCartItems();
+    //     $cartTotal = $this->cartModel->getCartTotal();
+
+    //     // You can pass $cartItems and $cartTotal to your view
+    //     include 'cart_view.php';
+    // }
+
+   
+    public function getCartProducts() {
+        return $this->cartModel->getCartProducts();
     }
 
-    public function removeItem($itemId) {
-        $this->cartModel->removeItem($itemId);
-        echo "Item removed from the cart!";
-    }
+        // public function getCartItems() {
 
-    public function viewCart() {
-        $cartItems = $this->cartModel->getCartItems();
-        $cartTotal = $this->cartModel->getCartTotal();
-
-        // You can pass $cartItems and $cartTotal to your view
-        include 'cart_view.php';
-    }
-
-    public function getCartTotal() {
-        $result = $this->cartModel->getCartTotal();}
-
-        public function getCartItems() {
-
-            $result = $this->cartModel->getCartItems();}
+        //     $result = $this->cartModel->getCartItems();}
 
 
 
