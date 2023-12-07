@@ -16,9 +16,9 @@ class CartController {
     public function updateCartItemQuantity() {
         if (isset($_POST['update_cart'])) {
             $updateQuantity = $_POST['quantity'];
-        
+            $cartItemId = $_POST['id']; // Assuming you have a hidden input with name="cart_item_id"
 
-            $result = $this->cartModel->updateCartItemQuantity($updateQuantity, $updateId);
+            $result = $this->cartModel->updateCartItemQuantity($updateQuantity, $cartItemId);
 
             if ($result) {
                 echo 'Cart quantity updated successfully!';
@@ -28,6 +28,7 @@ class CartController {
             }
         }
     }
+
 
     // public function removeItem($itemId) {
     //     $this->cartModel->removeItem($itemId);

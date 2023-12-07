@@ -65,7 +65,7 @@ $product_image = $_POST['image'];
                         <input type="hidden" name="image" value="<?php echo htmlspecialchars($product['image']); ?>">
                         <input type="hidden" name="name" value="<?php echo htmlspecialchars($product['name']); ?>">
                         <input type="hidden" name="price" value="<?php echo htmlspecialchars($product['price']); ?>">
-                        <input type="hidden" name="quantity" value="1">
+                        <input type="hidden" name="quantity" value="<?php echo "1";?>">
                     </form>
                 </div>
             <?php endforeach; ?>

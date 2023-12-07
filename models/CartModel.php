@@ -4,7 +4,7 @@ require_once("../models/Model.php");
 class CartModel extends Model {
 
     public function addToCart($userId, $productName, $productPrice, $productImage, $productQuantity) {
-        $selectCart = $this->conn->prepare("SELECT * FROM `cart` WHERE name = ? AND user_id = ?");
+        $selectCart = $this->conn->prepare("SELECT * FROM cart WHERE 'name' = ? AND user_id = ?");
         $selectCart->bind_param("si", $productName, $userId);
         $selectCart->execute();
         $result = $selectCart->get_result();
@@ -12,7 +12,7 @@ class CartModel extends Model {
         if ($result->num_rows > 0) {
             return 'product already added to cart!';
         } else {
-            $insertCart = $this->conn->prepare("INSERT INTO `cart` (user_id, image, name, price,  quantity) VALUES (?, ?, ?, ?, ?)");
+            $insertCart = $this->conn->prepare("INSERT INTO cart (user_id, image, name, price,  quantity) VALUES (?, ?, ?, ?, ?)");
             $insertCart->bind_param("issii", $userId, $productName, $productPrice, $productImage, $productQuantity);
             $insertCart->execute();
             return 'product added to cart!';
@@ -61,14 +61,12 @@ class CartModel extends Model {
 
 
 
-
-
-    public function updateCartItemQuantity($updateQuantity) {
-        $query = "UPDATE `cart` SET quantity = ? WHERE id = ?";
+    public function updateCartItemQuantity($updateQuantity, $cartItemId) {
+        $query = "UPDATE cart SET quantity = ? WHERE id = ?";
         $stmt = $this->conn->prepare($query);
 
         if ($stmt) {
-            $stmt->bind_param("ii", $updateQuantity, $updateId);
+            $stmt->bind_param("ii", $updateQuantity, $cartItemId);
             $stmt->execute();
             // You may want to check for success, handle errors, and return appropriate values
             return true;
@@ -77,8 +75,6 @@ class CartModel extends Model {
             return false;
         }
     }
-
-
 
 
 
