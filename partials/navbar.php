@@ -5,23 +5,22 @@ require_once '../controllers/productscontroller.php';
 
 $userController = new UserController(new UserModel());
 
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Assuming you have form fields named 'email' and 'password'
+    $email = $_POST['email'];
+    $password = $_POST['password'];
 
-// if ($_SERVER["REQUEST_METHOD"] == "POST") {
-//     // Assuming you have form fields named 'email' and 'password'
-//     $email = $_POST['email'];
-//     $password = $_POST['password'];
+    $loginResult = $userController->userLogin($email, $password);
 
-//     $loginResult = $userController->userLogin($email, $password);
-
-//     if ($loginResult === true) {
-//         // Redirect to the dashboard or another page upon successful login
-//         header("Location: index.php");
-//         exit();
-//     } else {
-//         // Display the login error message using JavaScript
-//         echo "<script>alert('$loginResult');</script>";
-//     }
-// }
+    if ($loginResult === true) {
+        // Redirect to the dashboard or another page upon successful login
+        header("Location: index.php");
+        exit();
+    } else {
+        // Display the login error message using JavaScript
+        echo "<script>alert('$loginResult');</script>";
+    }
+}
 
 
 if (isset($_GET['search'])){
@@ -223,8 +222,10 @@ $isUserLoggedIn = isset($_SESSION['authenticated']) && $_SESSION['authenticated'
 
             <div class="nav__actions">
                
-               <i class="ri-search-line nav__search" id="search-btn"></i>
-
+               <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                  <i class="ri-search-line nav__search" id="search-btn"></i>
+                  
+</button>
                
                <i class="ri-user-line nav__login" id="login-btn"></i>
                <a href="signup.php"><div class="fas fa-shopping-cart" id="cart-btn"></div></a>
@@ -238,19 +239,28 @@ $isUserLoggedIn = isset($_SESSION['authenticated']) && $_SESSION['authenticated'
       </header>
 
       
-      <div class="search" id="search">
-         <form method="get" class="search__form"action="search_backend.php?search">
-            <i class="ri-search-line search__icon"></i>
-            <input type="text" placeholder="search" name="search">
-            <button class="btn btn-dark" name="submit" name="search"> search </button>
+      <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form method="get" action="search_backend.php" id="searchForm">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <input type="text" class="form-control" placeholder="search" name="search" id="searchInput">
+                    <div class="data-details" id="searchResults">
+                        <!-- Searched data will be displayed here -->
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="searchButton">Search</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 
-     
-
-         </form>  
-              <div id="search-results"></div>
-
-         <i class="ri-close-line search__close" id="search-close"></i>
-      </div>
       
       
       <div class="login" id="login">
@@ -331,5 +341,27 @@ loginBtn.addEventListener('click', () =>{
 loginClose.addEventListener('click', () =>{
    login.classList.remove('show-login')
 })</script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#searchButton').on('click', function() {
+            var searchTerm = $('#searchInput').val(); // Get the search term
+
+            $.ajax({
+                type: 'GET',
+                url: 'search_backend.php',
+                data: { search: searchTerm },
+                success: function(response) {
+                    $('#searchResults').html(response); // Update search results in the div
+                },
+                error: function() {
+                    $('#searchResults').html('Error occurred while processing the search.');
+                }
+            });
+        });
+    });
+</script>
+
+
    </body>
 </html>
