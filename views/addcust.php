@@ -1,11 +1,11 @@
 <?php
-require '../includes/db.php';
-include "../controllers/adminfunctions.php";
+require_once '../controllers/CustomerController.php';
 
-
+$customerController = new CustomerController();
 $customerAdded = false;
+
 if (isset($_POST['submit'])) {
-    $customerAdded = addcustomer();
+    $customerAdded = $customerController->addCustomer();
 }
 ?>
 
@@ -16,7 +16,6 @@ if (isset($_POST['submit'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp" />
-    <link rel="stylesheet" href="../public/css/usermanagement.css">
     <link rel="stylesheet" href="../public/css/dashboard.css">
     <link rel="stylesheet" href="../public/css/editdash.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -28,70 +27,66 @@ if (isset($_POST['submit'])) {
         <aside>
             <?php
             $currentPage = 'custdash';
-            include('../partials/dashboardsidebar.php');
-            ?>
+
+            include('../partials/dashboardsidebar.php'); ?>
         </aside>
 
         <main>
-            <h1>Users</h1>
-
+            <h1>Add User</h1>
             <div class="adduser">
                 <form action="addcust.php" class="form" method="POST">
                     <h2 class="title">Add a User</h2>
-                    <?php if (!empty($successMessage)) { ?>
-                        <div class="success-message"><?php echo $successMessage; ?></div>
-                    <?php } ?>
-                    <div class="user-container" style="display: block;">
+                    <div class="user-container">
                         <div class="input">
                             <label for="firstname">First Name</label>
-                            <div><input type="text" id="firstname" placeholder="First Name" name="firstname" required></div>
+                            <div><input type="text" id="firstname" name="firstname" placeholder="First Name" required></div>
                         </div>
 
                         <div class="input">
                             <label for="lastname">Last Name</label>
-                            <div><input type="text" id="lastname" placeholder="Last Name" name="lastname" required></div>
+                            <div><input type="text" id="lastname" name="lastname" placeholder="Last Name" required></div>
                         </div>
 
                         <div class="input">
                             <label for="username">Username</label>
-                            <div><input type="text" id="username" placeholder="Username" name="username" required></div>
+                            <div><input type="text" id="username" name="username" placeholder="Username" required></div>
                         </div>
 
                         <div class="input">
                             <label for="email">Email</label>
-                            <div><input type="email" id="email" placeholder="Email" name="email" required></div>
+                            <div><input type="email" id="email" name="email" placeholder="Email" required></div>
                         </div>
 
                         <div class="input">
                             <label for="gender">Gender</label>
-                            <div><input type="text" id="gender" placeholder="Gender" name="gender" required></div>
+                            <div><input type="text" id="gender" name="gender" placeholder="Gender" required></div>
                         </div>
 
                         <div class="input">
                             <label for="password">Password</label>
-                            <div><input type="password" id="password" placeholder="Password" name="password" required></div>
+                            <div><input type="password" id="password" name="password" placeholder="Password" required></div>
                         </div>
 
                         <button type="submit" name="submit" id="add">Add</button>
-                        <a href="addcust.php"><button id="cancel">Cancel</button></a>
+                        <a href="custdash.php"><button id="cancel" type="button">Cancel</button></a>
                     </div>
                 </form>
+            </div>
+
+            <div id="successPopup" style="display: none; position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background-color: green; color: white; padding: 20px; border-radius: 5px; font-size: 1.2em; z-index: 1000;">
+                User added successfully!
             </div>
         </main>
     </div>
 
-    <div id="successPopup" style="display: none; position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background-color: green; color: white; padding: 20px; border-radius: 5px; font-size: 1.2em; z-index: 1000;">
-    User added successfully!
-</div>
-
-<script src="../public/js/popup.js"></script>
-
-
-        <?php if ($customerAdded) : ?>
     <script>
-        showSuccessPopup(); 
+        <?php if ($customerAdded) : ?>
+            document.getElementById('successPopup').style.display = 'block';
+            setTimeout(function() {
+                document.getElementById('successPopup').style.display = 'none';
+            }, 3000);
+        <?php endif; ?>
     </script>
-<?php endif; ?>
-
 </body>
+
 </html>

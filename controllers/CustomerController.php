@@ -39,5 +39,18 @@ class CustomerController {
 
         return $this->customerModel->updateCustomer($id, $firstName, $lastName, $userName, $email, $gender, $hashedPassword);
     }
+    public function addCustomer() {
+        $firstName = $_POST['firstname'];
+        $lastName = $_POST['lastname'];
+        $userName = $_POST['username'];
+        $email = $_POST['email'];
+        $gender = $_POST['gender'];
+        $password = $_POST['password'];
+    
+        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+    
+        return $this->customerModel->addCustomer($firstName, $lastName, $userName, $email, $gender, $hashedPassword);
+    }
+    
 }
 ?>

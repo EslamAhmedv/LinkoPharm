@@ -34,5 +34,12 @@ class CustomerModel extends Model {
         $stmt->bind_param("sssssii", $firstName, $lastName, $userName, $email, $gender, $hashedPassword, $id);
         return $stmt->execute();
     }
+    
+    public function addCustomer($firstName, $lastName, $userName, $email, $gender, $hashedPassword) {
+        $query = "INSERT INTO users (firstname, lastname, username, email, gender, password) VALUES (?, ?, ?, ?, ?, ?)";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param("ssssss", $firstName, $lastName, $userName, $email, $gender, $hashedPassword);
+        return $stmt->execute();
+    }
 }
 ?>
