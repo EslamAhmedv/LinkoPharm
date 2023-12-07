@@ -43,9 +43,10 @@ class CartController {
     // }
 
    
-    public function getCartProducts() {
-        return $this->cartModel->getCartProducts();
+    public function getCartProducts($userId) {
+        return $this->cartModel->getCartProducts($userId);
     }
+    
 
         // public function getCartItems() {
 

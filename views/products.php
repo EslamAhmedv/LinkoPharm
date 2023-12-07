@@ -16,7 +16,7 @@ $product_image = $_POST['image'];
    $product_price = $_POST['price'];
    $product_quantity = $_POST['quantity'];
 
-   $cartController->addToCart($user_id, $product_name, $product_price, $product_image, $product_quantity);
+   $cartController->addToCart($user_id, $product_image,  $product_name, $product_price, $product_quantity);
 }
 ?>
 

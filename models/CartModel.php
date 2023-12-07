@@ -33,17 +33,22 @@ class CartModel extends Model {
     //     return $stmt->execute();
     // }
 
-    public function getCartProducts() {
-        $query = "SELECT * FROM cart " ;
-        $result = $this->conn->query($query);
+    public function getCartProducts($userId) {
+        $query = "SELECT * FROM cart WHERE user_id = ?"; 
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param("i", $userId);
+        $stmt->execute();
+        $result = $stmt->get_result();
+    
         $cartItems = array();
-
         while ($row = $result->fetch_assoc()) {
             $cartItems[] = $row;
         }
-
+    
         return $cartItems;
     }
+    
+    
 
     // public function getCartTotal() {
     //     $query = "SELECT SUM(total) as total FROM cart";
