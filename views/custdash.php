@@ -1,24 +1,12 @@
-<?php require '../includes/db.php'; 
+<?php
+require_once '../controllers/CustomerController.php';
+
+$customerController = new CustomerController();
+$customers = $customerController->getAllCustomers();
 
 if (isset($_POST['deleteUser'])) {
-    if (isset($_POST['userId'])) {
-        $userId = $_POST['userId'];
-
-        // Delete the user from the database
-        $deleteQuery = "DELETE FROM users WHERE id = $userId";
-        if ($conn->query($deleteQuery) === TRUE) {
-            header("Location: custdash.php?message=User deleted successfully");
-            exit;
-        } else {
-            echo "Error: " . $conn->error;
-        }
-    }
+    $customerController->deleteCustomer();
 }
-
-// Fetch user data from the database
-$sql = "SELECT * FROM users";
-$result = $conn->query($sql);
-
 ?>
 
 <!DOCTYPE html>
@@ -27,16 +15,15 @@ $result = $conn->query($sql);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp">
     <link rel="stylesheet" href="../public/css/displayproducts.css">
     <link rel="stylesheet" href="../public/css/dashboard.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Admin Dashboard</title>
+    <title>Customers</title>
 </head>
 <body>
     <div class="container">
-    <aside>
+        <aside>
             <?php
             $currentPage = 'custdash';
             include('../partials/dashboardsidebar.php');
@@ -64,26 +51,27 @@ $result = $conn->query($sql);
                             <th>Username</th>
                             <th>Email</th>
                             <th>Gender</th>
+                            <th>Role</th>
                             <th>Edit/Delete</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php while ($user = $result->fetch_assoc()) { ?>
+                        <?php foreach ($customers as $customer) { ?>
                             <tr>
-                                <td><?php echo $user['id']; ?></td>
-                                <td><?php echo $user['firstname']; ?></td>
-                                <td><?php echo $user['lastname']; ?></td>
-                                <td><?php echo $user['username']; ?></td>
-                                <td><?php echo $user['email']; ?></td>
-                                <td><?php echo $user['gender']; ?></td>
+                                <td><?php echo htmlspecialchars($customer['id']); ?></td>
+                                <td><?php echo htmlspecialchars($customer['firstname']); ?></td>
+                                <td><?php echo htmlspecialchars($customer['lastname']); ?></td>
+                                <td><?php echo htmlspecialchars($customer['username']); ?></td>
+                                <td><?php echo htmlspecialchars($customer['email']); ?></td>
+                                <td><?php echo htmlspecialchars($customer['gender']); ?></td>
+                                <td><?php echo ($customer['role'] == 1) ? 'Admin' : 'User'; ?></td>
                                 <td>
-                                    <a href="editcust.php?id=<?php echo $user['id']; ?>">
+                                    <a href="editcust.php?id=<?php echo $customer['id']; ?>">
                                         <button class="btn edit-user"><i class="fa fa-edit"></i></button>
                                     </a>
                                     <form method="POST">
-                                        <input type="hidden" name="userId" value="<?php echo $user['id']; ?>">
+                                        <input type="hidden" name="userId" value="<?php echo $customer['id']; ?>">
                                         <button class="btn delete-user" type="submit" name="deleteUser"><i class="fa fa-trash"></i></button>
-                                        <div id="errmsgdel"></div>
                                     </form>
                                 </td>
                             </tr>
