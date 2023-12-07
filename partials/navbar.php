@@ -23,6 +23,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 
+if (isset($_GET['search'])){
+   $search=$_GET['search'];
+   $sql="select * from 'products' where name='$search'";
+   $result=mysqli_query($conn,$sql);
+   return $result;
+   
+}
+
 $isUserLoggedIn = isset($_SESSION['authenticated']) && $_SESSION['authenticated'] === true;
 
 
@@ -40,15 +48,15 @@ $isUserLoggedIn = isset($_SESSION['authenticated']) && $_SESSION['authenticated'
 
 
 
-$userId = $_SESSION['auth_user']['user_id'];
-$userRole = $userController->getUserRole($userId);
+//$userId = $_SESSION['auth_user']['user_id'];
+//$userRole = $userController->getUserRole($userId);
 
 //Check if the user is an admin
-if ($userRole == 1) {
-  header("Location: dashboard.php");
+//if ($userRole == 1) {
+ // header("Location: dashboard.php");
    // Display admin-specific content, e.g., a link to the admin dashboard
    
-}
+//}
 
 
 ?>
@@ -163,14 +171,14 @@ if ($userRole == 1) {
       </header>
 
       
-      <div class="search" id="search">
-         <form action="" class="search__form">
+      <!-- <div class="search" id="search">
+         <form action="search" class="search__form">
             <i class="ri-search-line search__icon"></i>
-            <input type="search" placeholder="searching" class="search__input">
+            <input type="text" placeholder="searching" class="search__input">
          </form>
 
          <i class="ri-close-line search__close" id="search-close"></i>
-      </div>
+      </div> -->
       
 
         
@@ -208,7 +216,7 @@ if ($userRole == 1) {
                </ul>
 
                <div class="nav__close" id="nav-close">
-                  <i class="ri-close-line"></i>
+                  <i class="i-close-line"></i>
                </div>
             </div>
 
@@ -230,49 +238,15 @@ if ($userRole == 1) {
 
       
       <div class="search" id="search">
-         <form method="post" class="search__form">
+         <form method="get" class="search__form"action="search_backend.php?search">
             <i class="ri-search-line search__icon"></i>
-            <input type="search" placeholder="searching ?" name="search">
-            <button class="btn btn-dark" name="submit" > search </button>
+            <input type="text" placeholder="search" name="search">
+            <button class="btn btn-dark" name="submit" name="search"> search </button>
 
+     
 
-         </form>
-<div class="search" id="search">
-   <table class="table">
-      <?php
-        if(isset($_POST['submit'])){
-         $search=$_POST['search'];
-         $sql="select * from 'products'  '$search' ";
-         $result=mysqli_query($con,$sql);
-         if($result){
-           if(mysqli_num_rows($result)>0){
-            echo '<thead>
-            <tr>
-            <th>id</th>
-            <th>image</th>
-            <th>name</th>
-            <th>price</th>
-            </tr>
-            </thead>
-            ';
-            $row=mysqli_fetch_assoc($result);
-            echo '<tbody>
-            <tr>
-            <td>'.$row['id'].'</td>
-            <td>'.$row['image'].'</td>
-            <td>'.$row['name'].'</td>
-            <td>'.$row['price'].'</td>
-            </tr>
-            </tbody>';
-           }else{
-            echo'<h2 class=:text-danger>Data not found</h2>';
-           }
-         }
-        }
-      ?>
-   </table>
-</div>
-
+         </form>  
+              <div id="search-results"></div>
 
          <i class="ri-close-line search__close" id="search-close"></i>
       </div>
