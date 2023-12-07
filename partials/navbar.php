@@ -5,22 +5,22 @@ require_once '../controllers/productscontroller.php';
 
 $userController = new UserController(new UserModel());
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Assuming you have form fields named 'email' and 'password'
-    $email = $_POST['email'];
-    $password = $_POST['password'];
+// if ($_SERVER["REQUEST_METHOD"] == "POST") {
+//     // Assuming you have form fields named 'email' and 'password'
+//     $email = $_POST['email'];
+//     $password = $_POST['password'];
 
-    $loginResult = $userController->userLogin($email, $password);
+//     $loginResult = $userController->userLogin($email, $password);
 
-    if ($loginResult === true) {
-        // Redirect to the dashboard or another page upon successful login
-        header("Location: index.php");
-        exit();
-    } else {
-        // Display the login error message using JavaScript
-        echo "<script>alert('$loginResult');</script>";
-    }
-}
+//     if ($loginResult === true) {
+//         // Redirect to the dashboard or another page upon successful login
+//         header("Location: index.php");
+//         exit();
+//     } else {
+//         // Display the login error message using JavaScript
+//         echo "<script>alert('$loginResult');</script>";
+//     }
+// }
 
 
 if (isset($_GET['search'])){
@@ -227,7 +227,7 @@ $isUserLoggedIn = isset($_SESSION['authenticated']) && $_SESSION['authenticated'
                   
 </button>
                
-               <i class="ri-user-line nav__login" id="login-btn"></i>
+<a href="login.php"> <i class="ri-user-line nav__login" id="login-btn"></i></a>
                <a href="signup.php"><div class="fas fa-shopping-cart" id="cart-btn"></div></a>
                
                <div class="nav__toggle" id="nav-toggle">
