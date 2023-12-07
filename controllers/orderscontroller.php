@@ -16,12 +16,16 @@ class OrdersController {
         return $this->ordersModel->addOrder($customerName, $city, $orderDate, $status, $totalAmount);
     }
 
-    public function updateOrder($orderId, $status) {
-        return $this->ordersModel->updateOrder($orderId, $status);
+    public function updateOrder($orderId, $customerName, $city, $orderDate, $status, $amount) {
+        return $this->ordersModel->updateOrder($orderId, $customerName, $city, $orderDate, $status, $amount);
     }
+    
 
     public function deleteOrder($orderId) {
         return $this->ordersModel->deleteOrder($orderId);
+    }
+    public function getOrderById($orderId) {
+        return $this->ordersModel->getOrderById($orderId);
     }
 }
 
