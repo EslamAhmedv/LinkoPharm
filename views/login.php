@@ -65,13 +65,13 @@ include('../partials/navbar.php'); ?>
 	<body>
   
 
-	<div class="container">
+	<div class="macontainer">
 
 
 <!-- <img src="./images/signlogo.png" alt="phpt">  -->
 
-<h1>Sign Up Now</h1>
-<h3>Aussie food to be enjoyed</h3>
+<h1>Sign in</h1>
+<h3>Linkopharm Always with You</h3>
 <form method='POST'>
 	<!-- <label><b>Firstname: </b> </label> -->
 
@@ -91,11 +91,11 @@ include('../partials/navbar.php'); ?>
 	<input type="password" name="password" id="inputpass" placeholder="Enter Password">
 	<div id='password' class='err'></div>
 	
-	<button type="submit" class="registerbtn" value="signup" name="log">Sign Up</button>
+	<button type="submit" class="registerbtn" value="signup" name="log">Login</button>
 </form>
 
 
-<p>Already have an account? <a href="/customers/profile/signinn">login</a></p>
+<p>don"t have an account? <a href="signup.php">Signup</a></p>
 
 
 
