@@ -71,5 +71,20 @@ class CartController {
 
 
   
+
+
+        public function removeAllItems($userId) {
+            $result = $this->cartModel->removeAllItems($userId);
+    
+            if ($result) {
+                echo "All items removed from the cart!";
+                header("Location: cart.php");
+            } else {
+                echo "Failed to remove all items from the cart.";
+            }
+        }
+
+
+
 }
 ?>

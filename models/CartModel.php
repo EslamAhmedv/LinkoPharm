@@ -94,5 +94,19 @@ class CartModel extends Model {
 
 
 
+    public function removeAllItems($userId) {
+        $deleteAll = $this->conn->prepare("DELETE FROM cart WHERE user_id = ?");
+        $deleteAll->bind_param("i", $userId);
+        
+        if ($deleteAll->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
+
+
 }
 ?>

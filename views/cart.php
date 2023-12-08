@@ -38,6 +38,13 @@ if (isset($_POST['remove_item'])) {
 }
 
 
+
+
+if (isset($_POST['remove_all'])) {
+    $cartController->removeAllItems($user_id);
+    // Optionally you can redirect the user or perform additional actions after removing all items
+}
+
 ?>
 
 <div class="card">
@@ -76,6 +83,14 @@ if (isset($_POST['remove_item'])) {
                 </div>
             <?php endforeach; ?>
             <div class="back-to-shop"><a href="products.php">&leftarrow;</a><span class="text-muted">Back to shop</span></div>
+
+
+            <form action="" method="POST">
+    <input type="hidden" name="remove_all" value="1">
+  
+
+            <div class="back-to-shop"> <span class="close"> <input type="submit" value="Empty Cart" ></span></div>
+            </form>
         </div>
         <div class="col-md-4 summary">
             <div><h5><b>Summary</b></h5></div>
