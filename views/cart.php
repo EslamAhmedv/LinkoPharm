@@ -29,6 +29,15 @@ if (isset($_POST['update_cart'])) {
     // Optionally you can redirect the user or perform additional actions after updating the cart
 }
 
+
+
+if (isset($_POST['remove_item'])) {
+    $itemIdToRemove = $_POST['remove_item'];
+    $cartController->removeItem($itemIdToRemove);
+    // Optionally you can redirect the user or perform additional actions after removing the item
+}
+
+
 ?>
 
 <div class="card">
@@ -57,7 +66,12 @@ if (isset($_POST['update_cart'])) {
                                 <input type="submit" name="update_cart" class="border" value="Update">
                             </form>
                         </div>
-                        <div class="col"><?php echo htmlspecialchars($row['price']); ?> <span class="close">&#10005;</span></div>
+                        <form action="" method="POST" class="single-product">
+    <input type="hidden" name="remove_item" value="<?php echo htmlspecialchars($row['id']); ?>">
+    
+
+
+                        <div class="col"><?php echo htmlspecialchars($row['price']); ?> <span class="close"> <input type="submit" value="&#10005;" ></span></div></form>
                     </div>
                 </div>
             <?php endforeach; ?>

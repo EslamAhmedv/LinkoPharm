@@ -8,7 +8,7 @@ class CartController {
         $this->cartModel = new CartModel();
     }
 
-    public function addToCart($userId, $productName, $productPrice, $productImage, $productQuantity) {
+    public function addToCart($userId, $productImage, $productName, $productPrice, $productQuantity) {
         $resultMessage = $this->cartModel->addToCart($userId, $productName, $productPrice, $productImage, $productQuantity);
         echo $resultMessage;
     }
@@ -58,7 +58,16 @@ class CartController {
 
 
 
-
+        public function removeItem($itemId) {
+            $result = $this->cartModel->removeItem($itemId);
+    
+            if ($result) {
+                echo "Item removed from the cart!";
+                header("Location: cart.php");
+            } else {
+                echo "Failed to remove item from the cart.";
+            }
+        }
 
 
   

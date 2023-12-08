@@ -4,20 +4,21 @@ require_once("../models/Model.php");
 class CartModel extends Model {
 
     public function addToCart($userId, $productName, $productPrice, $productImage, $productQuantity) {
-        $selectCart = $this->conn->prepare("SELECT * FROM cart WHERE 'name' = ? AND user_id = ?");
+        $selectCart = $this->conn->prepare("SELECT * FROM cart WHERE `name` = ? AND user_id = ?");
         $selectCart->bind_param("si", $productName, $userId);
         $selectCart->execute();
         $result = $selectCart->get_result();
-
+    
         if ($result->num_rows > 0) {
-            return 'product already added to cart!';
+            return 'Product already added to cart!';
         } else {
-            $insertCart = $this->conn->prepare("INSERT INTO cart (user_id, image, name, price,  quantity) VALUES (?, ?, ?, ?, ?)");
-            $insertCart->bind_param("issii", $userId, $productName, $productPrice, $productImage, $productQuantity);
+            $insertCart = $this->conn->prepare("INSERT INTO cart (user_id, image, name, price, quantity) VALUES (?, ?, ?, ?, ?)");
+            $insertCart->bind_param("issii", $userId,$productImage, $productName, $productPrice, $productQuantity);
             $insertCart->execute();
-            return 'product added to cart!';
+            return 'Product added to cart!';
         }
     }
+    
 
     // public function updateCart($item) {
     //     $query = "UPDATE cart SET quantity = ? WHERE id = ?";
@@ -79,6 +80,16 @@ class CartModel extends Model {
 
 
 
+    public function removeItem($itemId) {
+        $deleteCart = $this->conn->prepare("DELETE FROM cart WHERE id = ?");
+        $deleteCart->bind_param("i", $itemId);
+        
+        if ($deleteCart->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
 
 
