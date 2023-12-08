@@ -4,7 +4,7 @@ class MedicalController
 {
     public function index()
     {
-        require_once 'views/index.php';
+        require_once '../views/index.php';
     }
 
     public function filter()
