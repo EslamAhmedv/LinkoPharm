@@ -14,8 +14,12 @@
 require_once '../controllers/CartController.php';
 require_once '../controllers/productscontroller.php';
 require_once("../controllers/UserController.php");
-
-$user_id = $_SESSION['auth_user']['user_id'];
+if (isset($_SESSION['auth_user'])) {
+    $user_id = $_SESSION['auth_user']['user_id'];}
+    else {
+        // Set a default value for $user_id or handle the case where "auth_user" is not set
+        $user_id = 0; // Set to a default value or use a value that makes sense in your context
+    }
 $cartController = new CartController();
 $cartProducts = $cartController->getCartProducts($user_id);
 
@@ -48,7 +52,8 @@ if (isset($_POST['update_cart'])) {
                             <form action="" method="POST" class="single-product">
                               
                                 <input type="text" name="quantity" class="border" value="<?php echo htmlspecialchars($row['quantity']); ?>">
-                                <input type="hidden" name="cart_item_id" value="<?php echo htmlspecialchars($row['id']); ?>">
+                                <input type="hidden" name="id" value="<?php echo htmlspecialchars($row['id']); ?>">
+
                                 <input type="submit" name="update_cart" class="border" value="Update">
                             </form>
                         </div>
