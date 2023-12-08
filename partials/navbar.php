@@ -188,7 +188,7 @@ $isUserLoggedIn = isset($_SESSION['authenticated']) && $_SESSION['authenticated'
 
 <?php } 
      else{  ?>
-   <header class="header" id="header">
+   <header class="headerm" id="header">
          <nav class="nav container">
          <img src="../public/images/logo.png" class="logom">
 
