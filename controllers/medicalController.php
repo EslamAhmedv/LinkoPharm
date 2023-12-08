@@ -9,7 +9,7 @@ class MedicalController
 
     public function filter()
     {
-        require_once '../Models/MedicalModel.php';
+        require_once '../models/medicalModel.php';
 
         $category = $_GET['category'];
         $price = $_GET['price'];
