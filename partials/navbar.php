@@ -36,6 +36,18 @@ $isUserLoggedIn = isset($_SESSION['authenticated']) && $_SESSION['authenticated'
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 //$userId = $_SESSION['auth_user']['user_id'];
 //$userRole = $userController->getUserRole($userId);
 
@@ -48,6 +60,32 @@ $isUserLoggedIn = isset($_SESSION['authenticated']) && $_SESSION['authenticated'
 
 
 ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -174,6 +212,10 @@ $isUserLoggedIn = isset($_SESSION['authenticated']) && $_SESSION['authenticated'
 
          <i class="ri-close-line search__close" id="search-close"></i>
       </div> -->
+      
+
+        
+            
 
 
 
@@ -190,15 +232,7 @@ $isUserLoggedIn = isset($_SESSION['authenticated']) && $_SESSION['authenticated'
 
 
 
-
-
-
-
-
-
-
-
-
+      
 
 <?php } 
      else{  ?>
