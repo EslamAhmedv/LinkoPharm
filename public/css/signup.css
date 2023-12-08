@@ -1,33 +1,14 @@
 body {
-  background:white;
+  background: rgba(178, 167, 167, 0.7)  fixed;
   background-size: cover;
   background-blend-mode: darken;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-
+  overflow: hidden;
 }
 
-/* alert  */
 
-.alert {
-  padding: 20px;
-  background-color: #f44336;
-  color: white;
-}
 
-.closebtn {
-  margin-left: 15px;
-  color: white;
-  font-weight: bold;
-  float: right;
-  font-size: 22px;
-  line-height: 20px;
-  cursor: pointer;
-  transition: 0.3s;
-}
 
-.closebtn:hover {
-  color: black;
-}
 
 
 
@@ -35,40 +16,40 @@ body {
 /* alert */
 
 
-.container {
+.macontainer {
   width: 400px;
   height: 650px;
   margin: auto;
-  background-color: rgb(203, 224, 243);
+  background-color: rgb(255, 255, 255);
   border-radius: 3px;
   opacity: 90%;
   margin-top: 100px;
 }
 
-h1 {
+.macontainer h1 {
   text-align: center;
   padding-top: 140px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-h3 {
+.macontainer h3 {
   text-align: center;
 
   font-family: monospace
 }
 
-form {
+.macontainer form {
   width: 300px;
   margin-left: 30px;
 }
 
-form label {
+.macontainer form label {
   display: flex;
   margin-top: 20px;
   font-size: 18px;
 }
 
-form input {
+.macontainer form input {
   width: 100%;
   height: 30px;
   padding: 5px;
@@ -80,12 +61,12 @@ form input {
   border-bottom: 1px solid black;
 }
 
-form input:focus {
+.macontainer form input:focus {
   border: none;
 
 }
 
-form textarea {
+.macontainer form textarea {
   width: 100%;
   padding: 5px;
   border: none;
@@ -97,11 +78,11 @@ form textarea {
 
 }
 
-form textarea:focus {
+.macontainerform textarea:focus {
   border: none;
 }
 
-button {
+.macontainer button {
   width: 320px;
   height: 35px;
   margin-top: 20px;
@@ -112,23 +93,23 @@ button {
 
 }
 
-button:hover {
+.macontainer button:hover {
   cursor: pointer;
   font-size: 20px;
   opacity: 50%;
 }
 
-p {
+.macontainer p {
   text-align: center;
   padding-top: 10px;
   font-size: 15px;
 }
 
-a:hover {
+.macontainer a:hover {
   font-size: 18px;
 }
 
-img {
+.macontainer img {
   width: 200px;
   margin-top: -5px;
   margin-bottom: 50px;

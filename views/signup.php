@@ -23,11 +23,14 @@ if (isset($_POST['reg'])) {
 ?>
 
 
+
+
+
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>RegistrationForm_v1 by Colorlib</title>
+		<title>signup</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		
 		<!-- MATERIAL DESIGN ICONIC FONT -->
@@ -35,8 +38,8 @@ if (isset($_POST['reg'])) {
 
 		<!-- STYLE CSS -->
 		<link rel="stylesheet" href="../public/css/signup.css">
-		<script src="https://kit.fontawesome.com/f4bd0b4361.js" crossorigin="anonymous"></script>
 	</head>
+
 
 
 
@@ -47,13 +50,12 @@ if (isset($_POST['reg'])) {
 
 include('../partials/navbar.php'); ?>
       
-	<div class="container">
+	<div class="macontainer">
 
 
-		<!-- <img src="./images/signlogo.png" alt="phpt">  -->
 
 		<h1>Sign Up Now</h1>
-		<h3>Aussie food to be enjoyed</h3>
+		<h3>Linkopharm Always with You</h3>
 		<form method='POST'>
 			<!-- <label><b>Firstname: </b> </label> -->
 			<input type="text" id="inputfname" name="firstname" placeholder="Firstname" size="15" />
@@ -95,7 +97,7 @@ include('../partials/navbar.php'); ?>
 		</form>
 
 
-		<p>Already have an account? <a href="/customers/profile/signinn">sign
+		<p>Already have an account? <a href="login.php">sign
 				in</a></p>
 
 
