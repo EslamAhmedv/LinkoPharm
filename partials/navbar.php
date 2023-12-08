@@ -36,18 +36,6 @@ $isUserLoggedIn = isset($_SESSION['authenticated']) && $_SESSION['authenticated'
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 //$userId = $_SESSION['auth_user']['user_id'];
 //$userRole = $userController->getUserRole($userId);
 
@@ -60,32 +48,6 @@ $isUserLoggedIn = isset($_SESSION['authenticated']) && $_SESSION['authenticated'
 
 
 ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -156,8 +118,41 @@ $isUserLoggedIn = isset($_SESSION['authenticated']) && $_SESSION['authenticated'
             <div class="nav__actions">
             <a href="userprofile.php"> <i class="ri-user-line nav__login" id="login-btn"></i></a>
                
-               <i class="ri-search-line nav__search" id="search-btn"></i>
+            <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                  <i class="ri-search-line nav__search" id="search-btn"></i>
 
+            
+               <a href="cart.php"><div class="fas fa-shopping-cart" id="cart-btn"></div></a>
+               
+               <div class="nav__toggle" id="nav-toggle">
+                  <i class="ri-menu-line"></i>
+               </div>
+             
+            </div>
+         </nav>
+      </header>
+
+      <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form method="get" action="search_backend.php" id="searchForm">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <input type="text" class="form-control" placeholder="search" name="search" id="searchInput">
+                    <div class="data-details" id="searchResults">
+                        <!-- Searched data will be displayed here -->
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="searchButton">Search</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
                
             
                <a href="cart.php"><div class="fas fa-shopping-cart" id="cart-btn"></div></a>
@@ -179,10 +174,29 @@ $isUserLoggedIn = isset($_SESSION['authenticated']) && $_SESSION['authenticated'
 
          <i class="ri-close-line search__close" id="search-close"></i>
       </div> -->
-      
 
-        
-            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
