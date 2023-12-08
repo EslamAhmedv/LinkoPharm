@@ -1,18 +1,14 @@
 <?php
-class medicalModel
-{
-    private static $pdo;
 
-    // Database connection
+class MedicalModel
+{
+    private static $dbh;
+
     private static function connect()
     {
-        if (!isset(self::$pdo)) {
-            try {
-                self::$pdo = new PDO("mysql:host=localhost;dbname=your_database", "root", ""); // Assuming the default XAMPP credentials
-                self::$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            } catch (PDOException $e) {
-                die("Connection failed: " . $e->getMessage());
-            }
+        if (!isset(self::$dbh)) {
+            require_once 'Dbh.php';
+            self::$dbh = Dbh::getInstance();
         }
     }
 
@@ -30,7 +26,7 @@ class medicalModel
             $sql .= " AND price <= :price";
         }
 
-        $stmt = self::$pdo->prepare($sql);
+        $stmt = self::$dbh->prepare($sql);
 
         if ($category != 'all') {
             $stmt->bindParam(':category', $category);
