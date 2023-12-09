@@ -6,15 +6,15 @@ $cartController = new CartController();
 $medicalModel = new MedicalModel();
 
 // Handle filter logic
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['filterButton'])) {
-    $filterCategory = $_POST['filterCategory'] ?? '';
-    $filterPrice = $_POST['filterPrice'] ?? '';
-
-    // Modify this function based on your actual filtering logic
+if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['filterButton'])) {
+    $filterCategory = urldecode($_GET['filterCategory']) ?? '';
+    $filterPrice = urldecode($_GET['filterPrice']) ?? '';
+    echo "Category: $filterCategory, Price: $filterPrice";
+    
     $products = $medicalModel->filterItems($filterCategory, $filterPrice);
 } else {
     // If no filter is applied, get all products
- $products = $medicalModel->getAllProducts(); // You may need to implement this method in your MedicalModel
+    $products = $medicalModel->getAllProducts();
 }
 
 $message = '';
@@ -30,25 +30,10 @@ if (isset($_SESSION['auth_user'])) {
     }
 }
 ?>
-    $product_image = $_POST['image'];
-       $product_name = $_POST['name'];
-       $product_price = $_POST['price'];
-       $product_quantity = $_POST['quantity'];
-    
-       $cartController->addToCart($user_id, $product_image,  $product_name, $product_price, $product_quantity);
-    }}
+
+
   
 
-// if(isset($_POST['SubmitButton'])){
-// 	$user_id = $_SESSION['auth_user']['user_id'];
-// $product_image = $_POST['image'];
-//    $product_name = $_POST['name'];
-//    $product_price = $_POST['price'];
-//    $product_quantity = $_POST['quantity'];
-
-//    $cartController->addToCart($user_id, $product_image,  $product_name, $product_price, $product_quantity);
-// }
-?>
 
 
 <!DOCTYPE html>
@@ -67,17 +52,20 @@ if (isset($_SESSION['auth_user'])) {
     <section class="section-products">
         <div class="container">
             <!-- Filter Form -->
-            <form method="POST" class="filter-form">
+            <form method="GET" class="filter-form">
                 <label for="filterCategory">Filter by Category:</label>
                 <select name="filterCategory" id="filterCategory">
                     <option value="">All</option>
-                    <!-- Add options for your categories dynamically if needed -->
+                    <option value="skin care">Skin Care</option>
+    <option value="hair care">Hair Care</option>
+    <option value="TOPICAL MUSCLE RELAXANTS ">Topical Muscle Relaxants</option>
+                   
                 </select>
 
                 <label for="filterPrice">Filter by Price:</label>
                 <input type="number" name="filterPrice" id="filterPrice" placeholder="Enter maximum price">
-
                 <button type="submit" name="filterButton">Apply Filter</button>
+                
             </form>
 
             <div class="row">

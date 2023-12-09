@@ -15,7 +15,7 @@ class MedicalModel {
     }
 
     public function filterItems($category, $price) {
-       // Sample SQL query (modify as per your database structure)
+       
        $sql = "SELECT * FROM products WHERE category = ? AND price <= ?";
 
        // Prepare the statement
@@ -32,7 +32,7 @@ class MedicalModel {
 
        // Fetch the results
        $filteredItems = $result->fetch_all(MYSQLI_ASSOC);
-
+       
        return $filteredItems;
     }
 
