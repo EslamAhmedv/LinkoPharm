@@ -389,17 +389,24 @@
   // include('../partials/chat.php'); 
   ?>
   
-<button class="whatsapp_float" onclick="openForm()"><i class="fa-brands fa-whatsapp whatsapp-icon"></i></button> 
 
+<button class="whatsapp_float" onclick="openForm()"><i class="fa-brands fa-whatsapp whatsapp-icon"></i></button> 
 <div class="chat-popup" id="myForm">
   <form action="/action_page.php" class="form-container">
-    
-
     <label for="msg"><b>Message</b></label>
-    <textarea placeholder="Got any questions? I'm happy to help.
-Please press Send to contact with us easily" name="msg" required></textarea>
-    
+    <br>
+    <br>
+    <div class="containery">
+  <img src="../public/images/logo.png" alt="Avatar">
+  <p>Hello. How can we help you ?</p>
 
+</div>
+    <div class="containery darker">
+  <img src="../public/images/avatarr.png.jpg" alt="Avatar" class="right">
+  <p>Hey! I was asking about a product!</p>
+
+</div>
+    <br>
     <a href="https:/wa.me/201066656123"  target="_blank" button  class="btn">Send </button> ></a>
     <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
   </form>
