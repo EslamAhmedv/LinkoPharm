@@ -3,11 +3,10 @@
 body {
     font-family: "Poppins", sans-serif;
     color: #444444;
-    overflow-x: hidden;
+   
 }
 
-.section-products a,
-.section-products a:hover {
+ a, a:hover {
     text-decoration: none;
     color: inherit;
 }

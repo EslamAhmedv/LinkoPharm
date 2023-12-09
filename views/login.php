@@ -17,7 +17,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit();
     } else {
         // Display the login error message using JavaScript
-        echo "<script>alert('$loginResult');</script>";
+		$errorMessage = '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+		' . $loginResult . '
+		<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+	</div>';
     }
 }
 ?>
@@ -57,6 +60,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 		<!-- STYLE CSS -->
 		<link rel="stylesheet" href="../public/css/login.css">
+		  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css">
+		
 	</head>
 
 	<?php
@@ -103,6 +108,13 @@ include('../partials/navbar.php'); ?>
 
 </div>
 
-		
+<?php
+    // Display the Bootstrap alert if there's an error message
+    if (isset($errorMessage)) {
+        echo $errorMessage;
+    }
+    ?>	
 	</body>
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"></script>
 </html>
