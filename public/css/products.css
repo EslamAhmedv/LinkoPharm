@@ -3,10 +3,10 @@
 body {
     font-family: "Poppins", sans-serif;
     color: #444444;
-   
 }
 
- a, a:hover {
+a,
+a:hover {
     text-decoration: none;
     color: inherit;
 }
@@ -41,7 +41,6 @@ body {
     max-height: 290px;
     margin-bottom: 20px;
     overflow: hidden;
-
 }
 
 .section-products .single-product .part-1::before {

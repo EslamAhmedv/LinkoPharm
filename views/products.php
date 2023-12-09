@@ -19,7 +19,15 @@ if (isset($_SESSION['auth_user'])) {
     }}
   
 
+// if(isset($_POST['SubmitButton'])){
+// 	$user_id = $_SESSION['auth_user']['user_id'];
+// $product_image = $_POST['image'];
+//    $product_name = $_POST['name'];
+//    $product_price = $_POST['price'];
+//    $product_quantity = $_POST['quantity'];
 
+//    $cartController->addToCart($user_id, $product_image,  $product_name, $product_price, $product_quantity);
+// }
 ?>
 
 
@@ -75,7 +83,7 @@ if (isset($_SESSION['auth_user'])) {
     </div>
 </section>
 
-<?php  ?>
+<?php include('../partials/footer.php'); ?>
 
 </body>
 </html>
