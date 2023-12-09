@@ -113,7 +113,7 @@ $isUserLoggedIn = isset($_SESSION['authenticated']) && $_SESSION['authenticated'
     
 
    
-      <header class="header" id="header">
+      <header class="headerm" id="header">
          <nav class="nav container">
          <img src="../public/images/logo.png" class="logom">
       
@@ -139,7 +139,7 @@ $isUserLoggedIn = isset($_SESSION['authenticated']) && $_SESSION['authenticated'
                   </li>
 
                   <li class="nav__item">
-                     <a href="#" class="nav__link">Featured</a>
+                     <a href="contactus.php" class="nav__link">contact us</a>
                   </li>
 
                   <li class="nav__item">
@@ -236,7 +236,7 @@ $isUserLoggedIn = isset($_SESSION['authenticated']) && $_SESSION['authenticated'
 
 <?php } 
      else{  ?>
-   <header class="header" id="header">
+   <header class="headerm" id="header">
          <nav class="nav container">
          <img src="../public/images/logo.png" class="logom">
 
@@ -247,7 +247,7 @@ $isUserLoggedIn = isset($_SESSION['authenticated']) && $_SESSION['authenticated'
                   </li>
 
                   <li class="nav__item">
-                     <a href="#" class="nav__link">About Us</a>
+                     <a href="products.php" class="nav__link">menu</a>
                   </li>
 
                   <li class="nav__item">
@@ -259,7 +259,7 @@ $isUserLoggedIn = isset($_SESSION['authenticated']) && $_SESSION['authenticated'
                   </li>
 
                   <li class="nav__item">
-                     <a href="#" class="nav__link">Contact Me</a>
+                     <a href="contactus.php" class="nav__link">Contact us</a>
                   </li>
                </ul>
 
@@ -276,7 +276,7 @@ $isUserLoggedIn = isset($_SESSION['authenticated']) && $_SESSION['authenticated'
 </button>
                
 <a href="login.php"> <i class="ri-user-line nav__login" id="login-btn"></i></a>
-               <a href="signup.php"><div class="fas fa-shopping-cart" id="cart-btn"></div></a>
+               <a href="cart.php"><div class="fas fa-shopping-cart" id="cart-btn"></div></a>
                
                <div class="nav__toggle" id="nav-toggle">
                   <i class="ri-menu-line"></i>
@@ -311,37 +311,7 @@ $isUserLoggedIn = isset($_SESSION['authenticated']) && $_SESSION['authenticated'
 
       
       
-      <div class="login" id="login">
-         <form action="" class="login__form"  method='POST'>
-            <h2 class="login__title">Log In</h2>
-            
-            <div class="login__group">
-               <div>
-                  <label for="email" class="login__label">Email</label>
-                  <input type="email" placeholder="Write your email" id="email" class="login__input"  name="email">
-               </div>
-               
-               <div>
-                  <label for="password" class="login__label"  >Password</label>
-                  <input type="password" placeholder="Enter your password" id="password" class="login__input" name="password">
-               </div>
-            </div>
-
-            <div>
-               <p class="login__signup">
-                  You do not have an account? <a href="signup.php">Sign up</a>
-               </p>
-   
-               <a href="#" class="login__forgot">
-                  You forgot your password
-               </a>
-   
-               <button type="submit" class="login__button" value="signup" name="log">Log In</button>
-            </div>
-         </form>
-
-         <i class="ri-close-line login__close" id="login-close"></i>
-      </div>
+  
       <?php  } ?>
 
       <!--=============== MAIN JS ===============-->

@@ -5,8 +5,8 @@ body {
     color: #444444;
 }
 
-a,
-a:hover {
+.section-products a,
+.section-products a:hover {
     text-decoration: none;
     color: inherit;
 }

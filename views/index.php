@@ -28,6 +28,35 @@
 
   include('../partials/navbar.php'); ?>
 
+<form id="filterForm">
+    <label for="category">Category:</label>
+    <select name="category" id="category">
+        <option value="all">All</option>
+        <option value="medicine">Medicine</option>
+        <option value="equipment">Equipment</option>
+    </select>
+
+    <label for="price">Price:</label>
+    <input type="number" name="price" id="price" placeholder="Enter maximum price">
+
+    <button type="button" onclick="applyFilter()">Filter</button>
+</form>
+
+<div id="filteredItems">
+    <?php
+   require_once '../models/medicalModel.php';
+  // Get user input for filtering
+  $userCategory = $_GET['category'] ?? 'all';
+  $userPrice = $_GET['price'] ?? '';
+
+  // Fetch filtered items based on user input
+  $filteredItems = MedicalModel::filterItems($userCategory, $userPrice);
+
+  foreach ($filteredItems as $item) {
+      echo "<div>{$item['name']} - {$item['category']} - {$item['price']}</div>";
+  }
+    ?>
+</div>
   <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators">
       <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -269,7 +298,6 @@
 
 
   
-
 
 
   <!-- <section class="news">
