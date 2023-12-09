@@ -25,7 +25,7 @@ if (isset($_POST['deleteProduct'])) {
     <title>Products</title>
 </head>
 <body>
-    <div class="container">
+    <div class="containermmm">
         <aside>
             <?php
             $currentPage = 'displayproducts';

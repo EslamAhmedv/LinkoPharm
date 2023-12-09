@@ -1,6 +1,16 @@
 
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'poppins', sans-serif;
+}
 
-.main.table {
+body{
+ 
+    overflow-x: hidden;
+}
+.containermmm .main.table {
     width: 75vw;
     height: 90vh;
     background-color: rgba(215, 215, 215, 0.3);
@@ -9,13 +19,13 @@
     margin-left: 30px;
     margin-bottom: 100px;
 }
-table {
+.containermmm table {
     width: 100%;
 }
 
 
 
-.theader {
+.containermmm .theader {
 
     width: 100%;
     height: 10%;
@@ -27,7 +37,7 @@ table {
 
 }
 
-.theader .search {
+.containermmm .theader .search {
     width: 35%;
     height: 100%;
     background-color: #fff5;
@@ -39,14 +49,14 @@ table {
     transition: .2s;
 }
 
-.theader .search:hover {
+.containermmm .theader .search:hover {
 width: 45%;
 box-shadow: 0 .1rem .4rem #0002;
 background-color:#fff8 ;
 
 }
 
-.theader .search input{
+.containermmm .theader .search input{
     width: 100%;
     padding: 0 .5rem 0 .3rem;
     background-color: transparent;
@@ -54,7 +64,7 @@ background-color:#fff8 ;
     outline: none;
 }
 
-.table_body{
+.containermmm .table_body{
 
     width: 95%;
     max-height: calc(89% - 1.6rem);
@@ -64,33 +74,33 @@ background-color:#fff8 ;
     overflow: overlay;
 }
 
-.table_body::-webkit-scrollbar{
+.containermmm .table_body::-webkit-scrollbar{
     width: 0.5rem;
     height: 0.5rem;
 }
-.table_body::-webkit-scrollbar-thumb {
+.containermmm .table_body::-webkit-scrollbar-thumb {
     border-radius: .5rem;
     background-color: rgba(81, 81, 81, 0.267);
     visibility: hidden;
 }
-.table_body:hover::-webkit-scrollbar-thumb {
+.containermmm .table_body:hover::-webkit-scrollbar-thumb {
     visibility: visible;
 }
-td img {
+.containermmm td img {
     width: 36px;
     height: 36px;
     margin-right: .5rem;
     border-radius: 50%;
     vertical-align: middle;
 }
-table,
-th,
-td {
+.containermmm table,
+.containermmm th,
+.containermmm td {
     border-collapse: collapse;
     padding: 1rem;
     text-align: left;
 }
-thead th {
+.containermmm thead th {
     position: sticky;
     top: 0;
     left: 0;
@@ -99,61 +109,61 @@ thead th {
     text-transform: capitalize;
 }
 
-tbody tr:nth-child(even) {
+.containermmm tbody tr:nth-child(even) {
     background-color: #0000000b;
 }
-tbody tr {
+.containermmm tbody tr {
     --delay: .1s;
     transition: .5s ease-in-out var(--delay), background-color 0s;
 }
 
-tbody tr.hide {
+.containermmm tbody tr.hide {
     opacity: 0;
     transform: translateX(100%);
 }
-tbody tr:hover {
+.containermmm tbody tr:hover {
     background-color: rgba(239, 185, 185, 0.4) !important; 
     /* !important 3lshan t override ALL previous styling rules*/
 }
-tbody tr td,
-tbody tr td p,
-tbody tr td img {
+.containermmm tbody tr td,
+.containermmm tbody tr td p,
+.containermmm tbody tr td img {
     transition: .2s ease-in-out;
 }
-tbody tr.hide td,
-tbody tr.hide td p {
+.containermmm tbody tr.hide td,
+.containermmm tbody tr.hide td p {
     padding: 0;
     font: 0 / 0 sans-serif;
     transition: .2s ease-in-out .5s;
 }
 
-tbody tr.hide td img {
+.containermmm tbody tr.hide td img {
     width: 0;
     height: 0;
     transition: .2s ease-in-out .5s;
 }
 
-.status_delivered {
+.containermmm .status_delivered {
     padding: .4rem 0;
     border-radius: 2rem;
     text-align: center;
     background-color: #86e49d;
     color: #006b21;
 }
-.status_cancelled {
+.containermmm .status_cancelled {
     padding: .4rem 0;
     border-radius: 2rem;
     text-align: center;
     background-color: #d893a3;
     color: #b30021;
 }
-.status_pending {
+.containermmm .status_pending {
     padding: .4rem 0;
     border-radius: 2rem;
     text-align: center;
     background-color: #ebc474;
 }
-.status_shipped {
+.containermmm .status_shipped {
     padding: .4rem 0;
     border-radius: 2rem;
     text-align: center;
@@ -161,32 +171,32 @@ tbody tr.hide td img {
 }
 
 @media (max-width: 1000px) {
-    td:not(:first-of-type) {
+    .containermmm  td:not(:first-of-type) {
         min-width: 12.1rem;
     }
 }
 
 
-thead th:hover {
+.containermmm thead th:hover {
     color: #6c00bd;
 }
 
-thead th.active,
-tbody td.active {
+.containermmm thead th.active,
+.containermmm tbody td.active {
     color: #6c00bd;
 }
 
 
 /* prod table */
-#prod_img {
+.containermmm #prod_img {
     width: 130px;
     height: 130px;
 }
-.add_product {
+.containermmm .add_product {
     text-align: center;
     margin: 20px 0;
 }
-.add-product {
+.containermmm .add-product {
     display: inline-block;
     padding: 8px 18px;
     font-size: 15.5px;
@@ -198,16 +208,16 @@ tbody td.active {
     border-radius: 2px;
     cursor: pointer;
 }
-.add-product:hover {
+.containermmm .add-product:hover {
     background-color: #6ef251;
     transition: 1s ease;
 
 }
-.add-product i {
+.containermmm .add-product i {
     margin-right: 3px;
 }
 
-main.table {
+.containermmm main.table {
     width: 75vw;
     height: 90vh;
     background-color: rgba(215, 215, 215, 0.3);
