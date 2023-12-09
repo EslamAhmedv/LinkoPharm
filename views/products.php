@@ -1,6 +1,7 @@
 <?php
 require_once '../controllers/CartController.php';
-require_once '../models/medicalModel.php'; // Update the path if needed
+require_once '../models/medicalModel.php';
+require_once'../controllers/productscontroller.php';
 
 $cartController = new CartController();
 $medicalModel = new MedicalModel();
@@ -8,12 +9,10 @@ $medicalModel = new MedicalModel();
 // Handle filter logic
 if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['filterButton'])) {
     $filterCategory = urldecode($_GET['filterCategory']) ?? '';
-    $filterPrice = urldecode($_GET['filterPrice']) ?? '';
-    echo "Category: $filterCategory, Price: $filterPrice";
     
-    $products = $medicalModel->filterItems($filterCategory, $filterPrice);
+    $products = $medicalModel->filterItems($filterCategory);
 } else {
-    // If no filter is applied, get all products
+
     $products = $medicalModel->getAllProducts();
 }
 
@@ -60,10 +59,7 @@ if (isset($_SESSION['auth_user'])) {
     <option value="hair care">Hair Care</option>
     <option value="TOPICAL MUSCLE RELAXANTS ">Topical Muscle Relaxants</option>
                    
-                </select>
-
-                <label for="filterPrice">Filter by Price:</label>
-                <input type="number" name="filterPrice" id="filterPrice" placeholder="Enter maximum price">
+</select>
                 <button type="submit" name="filterButton">Apply Filter</button>
 
             </form>
