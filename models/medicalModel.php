@@ -41,10 +41,10 @@ class MedicalModel {
         $this->connect();
 
         // Sample SQL query to fetch all products
-        $sql = "SELECT * FROM items";
+        $sql = "SELECT * FROM products";
 
         // Prepare the statement
-        $stmt = $this->dbh->getConnection()->prepare($sql);
+        $stmt = $this->dbh->getconn()->prepare($sql);
 
         // Execute the query
         $stmt->execute();
