@@ -227,52 +227,55 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <div class="form">
                         <div class="group">
                             <label for="" class="text">First Name</label>
-                            <div class="error"><?php echo $FnameErr;?></div>
+                            <span class="error"><?php echo $FnameErr;?></span>
                             <input type="text" name="Fname" id="" placeholder="Your First Name">
                         </div>
                         <div class="group">
                             <label for="" class="text">Last Name</label>
-                            <div class="error"><?php echo $LnameErr;?></div>
+                            <span class="error"><?php echo $LnameErr;?></span>
                             <input type="text" name="Lname" id="" placeholder="Your Last Name">
                         </div>
                         <div class="group">
                             <label for="" class="text">Phone Number</label>
-                            <div class="error"><?php echo $PhoneErr;?></div>
+                            <span class="error"><?php echo $PhoneErr;?></span>
                             <input type="tel" name="Phone" id="" placeholder="Your Phone Number">
                         </div>
                         <div class="group">
                             <label for="" class="text">Address</label>
-                            <div class="error"><?php echo $AddressErr?></div>
+                            <span class="error"><?php echo $AddressErr?></span>
                             <input type="text" name="Address" id="" placeholder="Your Address">
                         </div>
                         <div class="group">
                             <label for="" class="text">City</label>
-                            <div class="error"><?php echo $CityErr;?></div>
+                            <span class="error"><?php echo $CityErr;?></span>
                             <select name="City" id="">
                                 <option value="">Choose..</option>
+                                <option value="Alexandria">Alexandria</option>
                                 <option value="Cairo">Cairo</option>
+                                <option value="Giza">Giza</option>
+                                <option value="Luxor">Luxor</option>
                             </select>
                         </div>
                         <h1 class="details">Payment details</h1>
                         <div></div>
                         <div class="group">
                             <label for="" class="text">Name on card</label>
-                            <div class="error"><?php echo $NameCardErr?></div>
+                            <span class="error"><?php echo $NameCardErr?></span>
                             <input type="text" name="NameCard" id="" placeholder="Your name and surname">
                         </div>
                         <div class="group">
                             <label for="" class="text">Card number</label>
-                            <div class="error"><?php echo $CardNoErr;?></div>
+                            <span class="error"><?php echo $CardNoErr;?></span>
                             <input type="text" name="CardNo" id="" placeholder="1111-2222-3333-4444">
                         </div>
                         <div class="group">
                             <label for="" class="text">Expiring Date</label>
-                            <div class="error"><?php echo $ExDateErr;?></div>
+                            <span class="error"><?php echo $ExDateErr;?></span>
                             <input type="text" name="ExDate" id="" placeholder="09-21">
                         </div>
                         <div class="group">
                             <label for="" class="text">CVC</label>
-                            <div class="error"><?php echo $CVCErr?></div>
+                            <span class="error"><?php echo $CVCErr?></span>
                             <input type="text" name="CVC" id="" placeholder="***">
                         </div>
                     </div>
