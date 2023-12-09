@@ -144,8 +144,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $totalPrice += $item['price'] * $item['quantity'];
       }
       
+      // create new order model
+      $OrdersModel = new OrdersModel();
+
       //checks if order added into DB
-      if (addOrder($userid, $fullName, $Phone, $Address, $City, $orderDate, $status, $totalPrice)) {
+      if ($OrdersModel->addOrder($userid, $fullName, $Phone, $Address, $City, $orderDate, $status, $totalPrice)) {
 
       // Redirect to the confirmation page
       header("Location:confirmationpage.php");
