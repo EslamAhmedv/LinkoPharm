@@ -23,8 +23,7 @@
 
 <body>
 
-
-  <?php
+<?php
 
   include('../partials/navbar.php'); ?>
 

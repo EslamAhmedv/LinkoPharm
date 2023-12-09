@@ -155,6 +155,7 @@ a {
   background-color: var(--body-color);
   box-shadow: 0 2px 16px hsla(230, 75%, 32%, .15);
   z-index: var(--z-fixed);
+  height: 70px;
 }
 
 .headerm .nav {
