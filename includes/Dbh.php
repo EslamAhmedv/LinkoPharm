@@ -16,12 +16,7 @@ class DBh{
 		$this->username = DB_USER;
 		$this->password = DB_PASS;
 		$this->dbname = DB_DATABASE;
-		try {
-            $this->connection = new PDO("mysql:host=localhost;dbname=$this->dbname", "$this->username", "$this->password");
-            // Other database connection setup goes here
-        } catch (PDOException $e) {
-            die("Database connection failed: " . $e->getMessage());
-        }
+		$this->connect();
     }
 
 
