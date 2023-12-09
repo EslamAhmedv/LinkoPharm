@@ -2,7 +2,7 @@ body {
     font-family: Arial, sans-serif;
   }
   
-  .mainContainer {
+  .mainContainerr {
     margin-left: 2%;
     margin-right: 2%;
     margin-top: 90px;
@@ -11,19 +11,19 @@ body {
     box-shadow: 4px 8px 19px 0px rgba(0, 0, 0, 0.27);
   }
   
-  .container {
+  .mainContainerr.container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 5%;
     padding: 3%;
   }
   
-  .right {
+  .mainContainerr.right {
     border-radius: 5px;
     padding: 2.5%;
   }
   
-  .product-info {
+  .mainContainerr .product-info {
     position: relative;
     margin-left: 2%;
     margin-right: 2%;
@@ -36,13 +36,13 @@ body {
     box-shadow: 4px 8px 19px 0px rgba(0, 0, 0, 0.27);
   }
   
-  .back {
+  .mainContainerr.back {
     color: black;
     text-decoration: none;
     font-size: medium;
   }
   
-  .product-image {
+  .mainContainerr.product-image {
     margin-top: 10px;
     margin-left: 5%;
     position: relative;
@@ -53,11 +53,11 @@ body {
     box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
   }
   
-  .product-image:hover {
+  .mainContainerr.product-image:hover {
     transform: scale(1.02);
   }
   
-  .product-name {
+  .mainContainerr .product-name {
     margin-bottom: 270px;
     margin-top: 15px;
     border-top: 1px solid #ccc;
@@ -65,18 +65,18 @@ body {
     font-size: x-large;
   }
   
-  .product-price {
+  .mainContainerr.product-price {
     font-size: 25px;
     padding-bottom: 15px;
     border-bottom: 1px solid #ccc;
   }
   
-  .availability {
+  .mainContainerr .availability {
     display: flex;
     margin-top: 10px;
   }
   
-  .product-availability {
+  .mainContainerr  .product-availability {
     font-size: medium;
     height: 10px;
     width: 10px;
@@ -86,16 +86,16 @@ body {
     margin-right: 5px;
   }
   
-  .stock {
+  .mainContainerr .stock {
     font-size: 14px;
   }
   
-  .product-code {
+  .mainContainerr .product-code {
     margin-top: 5px;
     font-size: 14px;
   }
   
-  .product-description {
+  .mainContainerr .product-description {
     font-size: 14px;
     margin-bottom: 15px;
     margin-top: 5px;
@@ -103,11 +103,11 @@ body {
     border-bottom: 1px solid #ccc;
   }
   
-  .prodinfo {
+  .mainContainerr .prodinfo {
     font-size: x-large;
   }
   
-  .button {
+  .mainContainerr .button {
     font-size: 12px;
     border-radius: 5px;
     margin-top: 20px;
@@ -121,20 +121,20 @@ body {
     background-color: #3aa856;
   }
   
-  .button,
-  .button__icon,
-  .button__text {
+  .mainContainerr .button,
+  .mainContainerr .button__icon,
+  .mainContainerr .button__text {
     border-radius: 5px;
     transition: all 0.5s;
   }
 
-  .button .button__text {
+  .mainContainerr .button .button__text {
     transform: translateX(14px);
     color: #fff;
     font-weight: bold;
 }
   
-.button .button__icon {
+.mainContainerr.button .button__icon {
     position: absolute;
     transform: translateX(109px);
     height: 100%;
@@ -145,33 +145,33 @@ body {
     justify-content: center;
 }
   
-.button .svg {
+.mainContainerr .button .svg {
     width: 30px;
     stroke: #fff;
 }
   
-.button:hover {
+.mainContainerr .button:hover {
     background: #34974d;
 }
   
-.button:hover .button__text {
+.mainContainerr .button:hover .button__text {
     color: transparent;
 }
   
-.button:hover .button__icon {
+.mainContainerr .button:hover .button__icon {
     border-radius: 5px;
     width: 148px;
     transform: translateX(0);
 }
   
-.button:active .button__icon {
+.mainContainerr .button:active .button__icon {
     background-color: #2e8644;
 }
   
-.button:active {
+.mainContainerr .button:active {
     border: 1px solid #2e8644;
 }
-.modal {
+.mainContainerr .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
@@ -186,7 +186,7 @@ body {
 }
   
   /* Modal Content (image) */
-.modal-content {
+  .mainContainerr .modal-content {
     margin: auto;
     margin-top: 90px;
     display: block;
@@ -197,7 +197,7 @@ body {
 }
   
   /* Caption of Modal Image */
-#caption {
+  .mainContainerr #caption {
     margin: auto;
     display: block;
     width: 80%;
@@ -209,7 +209,7 @@ body {
 }
   
   /* The Close Button */
-.close {
+  .mainContainerr .close {
     margin-top: 70px;
     position: absolute;
     top: 15px;
@@ -220,8 +220,8 @@ body {
     z-index: 1;
 }
   
-.close:hover,
-.close:focus {
+.mainContainerr .close:hover,
+.mainContainerr .close:focus {
     color: #bbb;
     text-decoration: none;
     cursor: pointer;
