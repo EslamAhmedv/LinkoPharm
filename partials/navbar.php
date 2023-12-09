@@ -90,13 +90,6 @@ $isUserLoggedIn = isset($_SESSION['authenticated']) && $_SESSION['authenticated'
 
 
 
-
-<!DOCTYPE html>
-   <html lang="en">
-   <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
       
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.css">
 
@@ -104,9 +97,8 @@ $isUserLoggedIn = isset($_SESSION['authenticated']) && $_SESSION['authenticated'
       
       <link rel="stylesheet" href="../public/css/navbar.css">
 
-      <title>navbar</title>
-   </head>
-   <body>
+ 
+
    
    <?php if ($isUserLoggedIn){?>
     
@@ -380,6 +372,3 @@ loginClose.addEventListener('click', () =>{
     });
 </script>
 
-
-   </body>
-</html>

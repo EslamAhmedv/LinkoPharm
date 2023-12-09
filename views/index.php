@@ -6,18 +6,15 @@
   <title>Linko Pharm</title>
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Mr+De+Haviland" />
   <link rel="stylesheet" href="../public/css/categories.css">
-  <!-- All CSS -->
+
   <link href="../public/css/bootstrap/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="../public/css/swiper-bundle.min.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <link rel="stylesheet" href="../public/css/style.css">
+  <link rel="stylesheet" href="../public/css/homepage.css">
 
-  <style>
-    <?php
-    include  "../public/css/homepage.css"
-    ?>
-  </style>
+
 </head>
 
 
@@ -111,7 +108,7 @@
     <p>Your Beauty and Well-being, Our Commitment.</p>
   </div>
 
-  <!-- slider -->
+
 
   <div class="section__container news__container">
     <h2 class="section__title">Latest Products</h2>
@@ -212,7 +209,6 @@
     </div>
   </div>
 
-  <!-- categories -->
 
   <section class="section__container sale__container">
     <h2 class="section__title">OUR CATEGORIES </h2>
@@ -294,119 +290,6 @@
 
     </div>
   </section>
-
-
-  
-
-
-  <!-- <section class="news">
-    <div class="section__container news__container">
-      <h2 class="section__title">Latest News</h2>
-      <div class="news__grid">
-        <div class="news__card">
-          <img src="../public/images/wish1.webp" />
-          <div class="news__details">
-
-            <h4>LAROCHE-POSAY</h4>
-            <hr />
-            <p>
-              Effacalar Cleanser
-            </p>
-            <a href="#"><i class="ri-arrow-right-line"></i></a>
-          </div>
-        </div>
-        <div class="news__card">
-          <img src="../public/images/shop1.jpg" />
-          <div class="news__details">
-            <h4>LAROCHE-POSAY</h4>
-            <hr />
-            <p>
-              Effaclar Cleanser
-            </p>
-            <a href="#"><i class="ri-arrow-right-line"></i></a>
-          </div>
-        </div>
-        <div class="news__card">
-          <img src="../public/images/shop2.jpg" alt="news" />
-          <div class="news__details">
-            <h4>LAROCHE-POSAY</h4>
-            <hr />
-            <p>
-              Lipikar Baume
-            </p>
-            <a href="#"><i class="ri-arrow-right-line"></i></a>
-          </div>
-        </div>
-        <div class="news__card">
-          <img src="../public/images/shop3.webp" />
-          <div class="news__details">
-            <h4>LAROCHE-POSAY</h4>
-            <hr />
-            <p>
-              Effaclar Cleanser
-            </p>
-            <a href="#"><i class="ri-arrow-right-line"></i></a>
-          </div>
-        </div>
-        <div class="news__card">
-          <img src="../public/images/shop5.jpg" />
-          <div class="news__details">
-            <h4>LAROCHE-POSAY</h4>
-            <hr />
-            <p>
-              Effaclar Cleanser
-            </p>
-            <a href="#"><i class="ri-arrow-right-line"></i></a>
-          </div>
-        </div>
-        <div class="news__card">
-          <img src="../public/images/shop4.webp" />
-          <div class="news__details">
-            <h4>LAROCHE-POSAY</h4>
-            <hr />
-            <p>
-              Effaclar Cleanser
-            </p>
-            <a href="#"><i class="ri-arrow-right-line"></i></a>
-          </div>
-        </div>
-        <div class="news__card">
-          <img src="../public/images/shop6.jpg" />
-          <div class="news__details">
-            <h4>LAROCHE-POSAY</h4>
-            <hr />
-            <p>
-              serum
-            </p>
-            <a href="#"><i class="ri-arrow-right-line"></i></a>
-          </div>
-        </div>
-        <div class="news__card">
-          <img src="../public/images/shop7.webp" />
-          <div class="news__details">
-            <h4>LAROCHE-POSAY</h4>
-            <hr />
-            <p>
-              Moisturizer
-            </p>
-            <a href="#"><i class="ri-arrow-right-line"></i></a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section> -->
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
