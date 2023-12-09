@@ -1,4 +1,10 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+include('../controllers/orderscontroller.php');
+
 // Assuming you have a cart array with products details
 
 $cart = array(
@@ -21,12 +27,34 @@ $cart = array(
   );
 
 
+  // Assuming there is a user
+  class User {
+    private $id;
+    private $name;
+
+    public function __construct($id, $name) {
+        $this->id = $id;
+        $this->name = $name;
+    }
+
+    public function getId() {
+        return $this->id;
+    }
+
+    public function getName() {
+        return $this->name;
+    }
+}
+$user = new User(1234, "Youssef");
+  
+
 // Validation
 // define variables and set to empty values
 
 $Fname = $Lname = $Phone = $Address = $City = $NameCard = $CardNo = $ExDate = $CVC = "";
 $FnameErr  = $LnameErr = $PhoneErr = $AddressErr = $CityErr = $NameCardErr = $CardNoErr = $ExDateErr = $CVCErr = "";
 $Error=false;
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   // checks if cart empty or not if empty will display alert 
@@ -95,13 +123,39 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $CVC = $_POST["CVC"];
     }
     if ($Error!=true) {
+      
+      // Set user ID in session and assign it to a variable
+      session_start();
+      $_SESSION['user_id'] = $user->getId();
+      $userid=$user->getId();
+      
+      //determine the date
+      $orderDate=date("Y/m/d");
+            
+      //initiate status with (pending)
+      $status="pending";
+      
+      //concatenate first and last names
+      $fullName=$Fname." ".$Lname;
+       
+      //calculate total price
+      $totalPrice = 0;
+      foreach ($cart as $item) {
+        $totalPrice += $item['price'] * $item['quantity'];
+      }
+      
+      //checks if order added into DB
+      if (addOrder($userid, $fullName, $Phone, $Address, $City, $orderDate, $status, $totalPrice)) {
 
+      // Redirect to the confirmation page
+      header("Location:confirmationpage.php");
+
+      }
     }
-  }
-  else {
-    echo '<script>alert("Your cart is empty")</script>';
-  }
-  
+    else {
+      echo '<script>alert("Your cart is empty")</script>';
+    }
+ }
 }
 ?>
 
