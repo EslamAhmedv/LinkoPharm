@@ -5,6 +5,21 @@ error_reporting(E_ALL);
 
 include('../controllers/orderscontroller.php');
 
+// Function to calculate taxes
+function TaxCalculator($totalPrice) {
+  $sales_tax = $totalPrice * 0.14;
+  return $sales_tax;
+}
+
+// Function to calculate total price
+function TotalCalculator($cart) {
+  $totalPrice = 0;
+  foreach ($cart as $item) {
+    $totalPrice += $item['price'] * $item['quantity'];
+  }
+  return $totalPrice;
+}
+
 // Assuming you have a cart array with products details
 
 $cart = array(
@@ -129,36 +144,36 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $_SESSION['user_id'] = $user->getId();
       $userid=$user->getId();
       
-      //determine the date
+      // determine the date
       $orderDate=date("Y/m/d");
             
-      //initiate status with (pending)
+      // initiate status with (pending)
       $status="pending";
       
-      //concatenate first and last names
+      //c oncatenate first and last names
       $fullName=$Fname." ".$Lname;
        
-      //calculate total price
-      $totalPrice = 0;
-      foreach ($cart as $item) {
-        $totalPrice += $item['price'] * $item['quantity'];
-      }
+      // calculate total price
+      $totalPrice = TotalCalculator($cart);
+
+      // Add taxes to total price
+      $gross_total= $totalPrice + TaxCalculator($totalPrice);
       
       // create new order model
       $OrdersModel = new OrdersModel();
 
       //checks if order added into DB
-      if ($OrdersModel->addOrder($userid, $fullName, $Phone, $Address, $City, $orderDate, $status, $totalPrice)) {
+      if ($OrdersModel->addOrder($userid, $fullName, $Phone, $Address, $City, $orderDate, $status, $gross_total)) {
 
       // Redirect to the confirmation page
       header("Location:confirmationpage.php");
 
       }
     }
-    else {
-      echo '<script>alert("Your cart is empty")</script>';
-    }
- }
+  }
+  else {
+    echo '<script>alert("Your cart is empty")</script>';
+  }
 }
 ?>
 
@@ -212,58 +227,61 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <div class="form">
                         <div class="group">
                             <label for="" class="text">First Name</label>
-                            <div class="error"><?php echo $FnameErr;?></div>
+                            <span class="error"><?php echo $FnameErr;?></span>
                             <input type="text" name="Fname" id="" placeholder="Your First Name">
                         </div>
                         <div class="group">
                             <label for="" class="text">Last Name</label>
-                            <div class="error"><?php echo $LnameErr;?></div>
+                            <span class="error"><?php echo $LnameErr;?></span>
                             <input type="text" name="Lname" id="" placeholder="Your Last Name">
                         </div>
                         <div class="group">
                             <label for="" class="text">Phone Number</label>
-                            <div class="error"><?php echo $PhoneErr;?></div>
+                            <span class="error"><?php echo $PhoneErr;?></span>
                             <input type="tel" name="Phone" id="" placeholder="Your Phone Number">
                         </div>
                         <div class="group">
                             <label for="" class="text">Address</label>
-                            <div class="error"><?php echo $AddressErr?></div>
+                            <span class="error"><?php echo $AddressErr?></span>
                             <input type="text" name="Address" id="" placeholder="Your Address">
                         </div>
                         <div class="group">
                             <label for="" class="text">City</label>
-                            <div class="error"><?php echo $CityErr;?></div>
+                            <span class="error"><?php echo $CityErr;?></span>
                             <select name="City" id="">
                                 <option value="">Choose..</option>
+                                <option value="Alexandria">Alexandria</option>
                                 <option value="Cairo">Cairo</option>
+                                <option value="Giza">Giza</option>
+                                <option value="Luxor">Luxor</option>
                             </select>
                         </div>
                         <h1 class="details">Payment details</h1>
                         <div></div>
                         <div class="group">
                             <label for="" class="text">Name on card</label>
-                            <div class="error"><?php echo $NameCardErr?></div>
+                            <span class="error"><?php echo $NameCardErr?></span>
                             <input type="text" name="NameCard" id="" placeholder="Your name and surname">
                         </div>
                         <div class="group">
                             <label for="" class="text">Card number</label>
-                            <div class="error"><?php echo $CardNoErr;?></div>
+                            <span class="error"><?php echo $CardNoErr;?></span>
                             <input type="text" name="CardNo" id="" placeholder="1111-2222-3333-4444">
                         </div>
                         <div class="group">
                             <label for="" class="text">Expiring Date</label>
-                            <div class="error"><?php echo $ExDateErr;?></div>
+                            <span class="error"><?php echo $ExDateErr;?></span>
                             <input type="text" name="ExDate" id="" placeholder="09-21">
                         </div>
                         <div class="group">
                             <label for="" class="text">CVC</label>
-                            <div class="error"><?php echo $CVCErr?></div>
+                            <span class="error"><?php echo $CVCErr?></span>
                             <input type="text" name="CVC" id="" placeholder="***">
                         </div>
                     </div>
                     <div class="return">
                         <div class="row">
-                            <div class="text">Total Quantity</div>
+                            <div class="text">Total Quantity:</div>
                             <div class="totalQuantity">
                               <?php 
                               $totalQuantity = array_sum(array_column($cart, 'quantity'));
@@ -272,14 +290,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             </div>
                         </div>
                         <div class="row">
-                            <div class="text">Total Price</div>
-                            <div class="totalPrice">
+                            <div class="text">Total:</div>
+                            <div class="Total">
                             <?php 
-                              $totalPrice = 0;
-                              foreach ($cart as $item) {
-                                $totalPrice += $item['price'] * $item['quantity'];
-                              }
+                              $totalPrice = TotalCalculator($cart);
                               echo $totalPrice
+                            ?> EGP
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="text">Tax:</div>
+                            <div class="tax">
+                              <?php 
+                              $totalPrice = TotalCalculator($cart);
+                              $tax=TaxCalculator($totalPrice);
+                              echo $tax
+                              ?> EGP
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="text">Gross Total:</div>
+                            <div class="GrossTotal">
+                            <?php 
+                              $totalPrice = TotalCalculator($cart);
+                              $gross_total= $totalPrice + TaxCalculator($totalPrice);
+                              echo $gross_total
                             ?> EGP
                             </div>
                         </div>

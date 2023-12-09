@@ -31,7 +31,7 @@ if (!$product) {
 <body>
     <div class="hero">
         <?php include('../partials/navbar.php'); ?>
-<section class="mainContainerr">
+
         <div class="mainContainer">
             <div class="container">
                 <div class="left">
@@ -81,6 +81,7 @@ if (!$product) {
             modal.style.display = "none";
         }
     </script>
-    </section>
+    
+    <?php include('../partials/footer.php'); ?>
 </body>
-</html>
+</html> 
