@@ -13,19 +13,19 @@ class OrdersModel extends Model {
         return $orders;
     }
 
-    public function addOrder($customerName, $city, $orderDate, $status, $totalAmount) {
-        $query = "INSERT INTO orders (customer_name, city, order_date, status, amount) VALUES (?, ?, ?, ?, ?)";
+    public function addOrder($userid, $username, $phone, $address, $city, $order_date, $status, $total_price) {
+        $query = "INSERT INTO `orders`(`userid`, `phone`, `address`, `city`, `order_date`, `status`, `total_price`, `user_name`) 
+        VALUES ('$userid','$phone','$address','$city','$order_date','$status','$total_price','$username')";
         $stmt = $this->conn->prepare($query);
-        $stmt->bind_param("sssss", $customerName, $city, $orderDate, $status, $totalAmount);
         return $stmt->execute();
     }
     
-public function updateOrder($orderId, $customerName, $city, $orderDate, $status, $amount) {
-    $query = "UPDATE orders SET customer_name = ?, city = ?, order_date = ?, status = ?, amount = ? WHERE id = ?";
-    $stmt = $this->conn->prepare($query);
-    $stmt->bind_param("sssssi", $customerName, $city, $orderDate, $status, $amount, $orderId);
-    return $stmt->execute();
-}
+    public function updateOrder($orderId, $customerName, $city, $orderDate, $status, $amount) {
+        $query = "UPDATE orders SET customer_name = ?, city = ?, order_date = ?, status = ?, amount = ? WHERE id = ?";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param("sssssi", $customerName, $city, $orderDate, $status, $amount, $orderId);
+        return $stmt->execute();
+    }
 
 
     public function deleteOrder($orderId) {
@@ -44,3 +44,11 @@ public function updateOrder($orderId, $customerName, $city, $orderDate, $status,
 }
 }
 ?>
+
+
+
+
+
+
+
+
