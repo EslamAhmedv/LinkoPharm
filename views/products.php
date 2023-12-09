@@ -1,27 +1,35 @@
 <?php
 require_once '../controllers/CartController.php';
-require_once '../controllers/productscontroller.php';
+require_once '../models/medicalModel.php'; // Update the path if needed
 
 $cartController = new CartController();
-$productController = new ProductController();
-$products = $productController->getAllProducts();
+$medicalModel = new MedicalModel();
+
+// Handle filter logic
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['filterButton'])) {
+    $filterCategory = $_POST['filterCategory'] ?? '';
+    $filterPrice = $_POST['filterPrice'] ?? '';
+
+    // Modify this function based on your actual filtering logic
+    $products = $medicalModel->filterItems($filterCategory, $filterPrice);
+} else {
+    // If no filter is applied, get all products
+ $products = $medicalModel->getAllProducts(); // You may need to implement this method in your MedicalModel
+}
+
 $message = '';
 
 if (isset($_SESSION['auth_user'])) {
     if(isset($_POST['SubmitButton'])){
         $user_id = $_SESSION['auth_user']['user_id'];
-    $product_image = $_POST['image'];
-       $product_name = $_POST['name'];
-       $product_price = $_POST['price'];
-       $product_quantity = $_POST['quantity'];
-    
-       $cartController->addToCart($user_id, $product_image,  $product_name, $product_price, $product_quantity);
-    }}
-  
-
-
+        $product_image = $_POST['image'];
+        $product_name = $_POST['name'];
+        $product_price = $_POST['price'];
+        $product_quantity = $_POST['quantity'];
+        $cartController->addToCart($user_id, $product_image,  $product_name, $product_price, $product_quantity);
+    }
+}
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -34,48 +42,53 @@ if (isset($_SESSION['auth_user'])) {
 </head>
 
 <body>
-<?php include('../partials/navbar.php'); ?>
+    <?php include('../partials/navbar.php'); ?>
 
-<section class="section-products">
-    <div class="container">
-        <div class="row justify-content-center text-center">
-            <div class="col-md-8 col-lg-6">
-                <div class="header2">
-                    <h2>Featured Products</h2>
-                </div>
+    <section class="section-products">
+        <div class="container">
+            <!-- Filter Form -->
+            <form method="POST" class="filter-form">
+                <label for="filterCategory">Filter by Category:</label>
+                <select name="filterCategory" id="filterCategory">
+                    <option value="">All</option>
+                    <!-- Add options for your categories dynamically if needed -->
+                </select>
+
+                <label for="filterPrice">Filter by Price:</label>
+                <input type="number" name="filterPrice" id="filterPrice" placeholder="Enter maximum price">
+
+                <button type="submit" name="filterButton">Apply Filter</button>
+            </form>
+
+            <div class="row">
+                <?php foreach ($products as $product): ?>
+                    <div class="col-md-6 col-lg-4 col-xl-3">
+                        <form action="" method="POST" class="single-product">
+                            <div class="part-1">
+                                <a href="prodDetails.php?id=<?php echo $product['id']; ?>" class="product-link">
+                                    <img src="<?php echo htmlspecialchars($product['image']); ?>" alt="Product Image">
+                                </a>
+                                <ul>
+                                    <li><button type="submit" name="SubmitButton"><i class="fas fa-shopping-cart"></i></button></li>
+                                    <li><a href="#"><i class="fas fa-heart"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="part-2">
+                                <h3 class="product-title"><?php echo htmlspecialchars($product['name']); ?></h3>
+                                <h4 class="product-price"><?php echo htmlspecialchars($product['price']); ?></h4>
+                            </div>
+                            <!-- Hidden input fields to store product information -->
+                            <input type="hidden" name="image" value="<?php echo htmlspecialchars($product['image']); ?>">
+                            <input type="hidden" name="name" value="<?php echo htmlspecialchars($product['name']); ?>">
+                            <input type="hidden" name="price" value="<?php echo htmlspecialchars($product['price']); ?>">
+                            <input type="hidden" name="quantity" value="<?php echo "1";?>">
+                        </form>
+                    </div>
+                <?php endforeach; ?>
             </div>
         </div>
-        <div class="row">
-            <?php foreach ($products as $product): ?>
-                <div class="col-md-6 col-lg-4 col-xl-3">
-                    
-                    <form action="" method="POST" class="single-product">
-                        <div class="part-1">
-                        <a href="prodDetails.php?id=<?php echo $product['id']; ?>" class="product-link">
+    </section>
 
-                            <img src="<?php echo htmlspecialchars($product['image']); ?>" alt="Product Image">
-            </a>
-                            <ul>
-                                <li><button type="submit" name="SubmitButton"><i class="fas fa-shopping-cart"></i></button></li>
-                                <li><a href="#"><i class="fas fa-heart"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="part-2">
-                            <h3 class="product-title"><?php echo htmlspecialchars($product['name']); ?></h3>
-                            <h4 class="product-price"><?php echo htmlspecialchars($product['price']); ?></h4>
-                        </div>
-                        <input type="hidden" name="image" value="<?php echo htmlspecialchars($product['image']); ?>">
-                        <input type="hidden" name="name" value="<?php echo htmlspecialchars($product['name']); ?>">
-                        <input type="hidden" name="price" value="<?php echo htmlspecialchars($product['price']); ?>">
-                        <input type="hidden" name="quantity" value="<?php echo "1";?>">
-                    </form>
-                </div>
-            <?php endforeach; ?>
-        </div>
-    </div>
-</section>
-
-<?php  ?>
-
+    <?php // Additional content or scripts ?>
 </body>
 </html>

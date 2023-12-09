@@ -1,43 +1,63 @@
 <?php
 
-class MedicalModel
-{
-    private static $dbh;
+require_once '../includes/Dbh.php';
+class MedicalModel {
+    private $dbh;
 
-    private static function connect()
-    {
-        if (!isset(self::$dbh)) {
-            require_once 'Dbh.php';
-            self::$dbh = Dbh::getInstance();
-        }
+    public function __construct() {
+        $this->connect();
     }
 
-    public static function filterItems($category, $price)
+    private function connect() {
+        require_once '../includes/Dbh.php';
+        $this->dbh = new Dbh();
+        $this->dbh->connect(); 
+    }
+
+    public function filterItems($category, $price) {
+       // Sample SQL query (modify as per your database structure)
+       $sql = "SELECT * FROM products WHERE category = ? AND price <= ?";
+
+       // Prepare the statement
+       $stmt = $this->dbh->getconn()->prepare($sql);
+
+       // Bind parameters
+       $stmt->bind_param('ss', $category, $price);
+
+       // Execute the query
+       $stmt->execute();
+
+       // Get the result set
+       $result = $stmt->get_result();
+
+       // Fetch the results
+       $filteredItems = $result->fetch_all(MYSQLI_ASSOC);
+
+       return $filteredItems;
+    }
+
+    public function getAllProducts()
     {
-        self::connect();
+        $this->connect();
 
-        $sql = "SELECT * FROM medical_items WHERE 1";
+        // Sample SQL query to fetch all products
+        $sql = "SELECT * FROM items";
 
-        if ($category != 'all') {
-            $sql .= " AND category = :category";
-        }
+        // Prepare the statement
+        $stmt = $this->dbh->getConnection()->prepare($sql);
 
-        if (!empty($price)) {
-            $sql .= " AND price <= :price";
-        }
-
-        $stmt = self::$dbh->prepare($sql);
-
-        if ($category != 'all') {
-            $stmt->bindParam(':category', $category);
-        }
-
-        if (!empty($price)) {
-            $stmt->bindParam(':price', $price);
-        }
-
+        // Execute the query
         $stmt->execute();
 
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        // Get the result set
+        $result = $stmt->get_result();
+
+        // Fetch the results
+        $products = $result->fetch_all(MYSQLI_ASSOC);
+
+        return $products;
     }
+
+
+
 }

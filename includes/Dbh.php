@@ -16,9 +16,26 @@ class DBh{
 		$this->username = DB_USER;
 		$this->password = DB_PASS;
 		$this->dbname = DB_DATABASE;
-		$this->connect();
-	}
+		try {
+            $this->connection = new PDO("mysql:host=localhost;dbname=$this->dbname", "$this->username", "$this->password");
+            // Other database connection setup goes here
+        } catch (PDOException $e) {
+            die("Database connection failed: " . $e->getMessage());
+        }
+    }
 
+
+	
+	public static function getInstance() {
+        if (!isset(self::$instance) || self::$instance === null) {
+            echo "Creating a new instance of DBh\n"; // Debug output
+            self::$instance = new static();
+            self::$instanceCreated = true;  // Set the flag to true
+        } else {
+            echo "Using existing instance of DBh\n"; // Debug output
+        }
+        return self::$instance;
+    }
 	public function connect(){
 		$this->conn = new mysqli($this->servername, $this->username, $this->password, $this->dbname);
 		if ($this->conn->connect_error) {
@@ -49,8 +66,10 @@ class DBh{
 		return $result->fetch_assoc();
 	}
 
-	function __destruct(){
-		$this->conn->close();
-	}
+	
+    public function __destruct() {
+        // Close the database connection when the object is destroyed
+        $this->connection = null;
+    }
 }
 ?>
