@@ -8,6 +8,7 @@
 
 body{
     background-image: linear-gradient(90deg, #a1e2ef, #d5a1a7);
+    overflow-x: hidden;
 }
 
 .contactus

@@ -44,17 +44,17 @@
 
 <div id="filteredItems">
     <?php
-   require_once '../models/medicalModel.php';
-  // Get user input for filtering
-  $userCategory = $_GET['category'] ?? 'all';
-  $userPrice = $_GET['price'] ?? '';
+  //  require_once '../models/medicalModel.php';
+  // // Get user input for filtering
+  // $userCategory = $_GET['category'] ?? 'all';
+  // $userPrice = $_GET['price'] ?? '';
 
-  // Fetch filtered items based on user input
-  $filteredItems = MedicalModel::filterItems($userCategory, $userPrice);
+  // // Fetch filtered items based on user input
+  // $filteredItems = MedicalModel::filterItems($userCategory, $userPrice);
 
-  foreach ($filteredItems as $item) {
-      echo "<div>{$item['name']} - {$item['category']} - {$item['price']}</div>";
-  }
+  // foreach ($filteredItems as $item) {
+  //     echo "<div>{$item['name']} - {$item['category']} - {$item['price']}</div>";
+  // }
     ?>
 </div>
   <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">

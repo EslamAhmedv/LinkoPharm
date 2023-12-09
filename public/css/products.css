@@ -3,6 +3,7 @@
 body {
     font-family: "Poppins", sans-serif;
     color: #444444;
+    overflow-x: hidden;
 }
 
 .section-products a,
