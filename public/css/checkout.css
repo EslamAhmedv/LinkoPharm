@@ -2,21 +2,23 @@ body {
     font-family: Arial, sans-serif;
 }
 
-.container {
-    width: auto;
+/* .container {
+     width: auto;
     margin: 60px;
     margin-top: 90px;
     margin-bottom: 15px;
     border-radius: 15px;
     background-color: whitesmoke;
-    box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
-}
+    box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27); 
+} */
 
 .checkoutLayout {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
     gap: 50px;
     padding: 30px;
+    margin-top: 70px;
+    
 }
 
 .checkoutLayout .right {
