@@ -82,7 +82,7 @@ body {
   border: none;
 }
 
-.macontainer button {
+.macontainer .lll {
   width: 320px;
   height: 35px;
   margin-top: 20px;
@@ -93,7 +93,7 @@ body {
 
 }
 
-.macontainer button:hover {
+.macontainer .lll:hover {
   cursor: pointer;
   font-size: 20px;
   opacity: 50%;

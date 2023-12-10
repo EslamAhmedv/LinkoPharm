@@ -19,6 +19,12 @@ if (isset($_POST['reg'])) {
         header("Location: login.php");
         exit;
     }
+	else {
+		$errorMessage = '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+		' . $message . '
+		<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+	</div>';
+    }
 }
 ?>
 
@@ -38,6 +44,9 @@ if (isset($_POST['reg'])) {
 
 		<!-- STYLE CSS -->
 		<link rel="stylesheet" href="../public/css/signup.css">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css">
+		<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"></script>
 	</head>
 
 
@@ -52,7 +61,11 @@ include('../partials/navbar.php'); ?>
       
 	<div class="macontainer">
 
-
+	<?php
+    if (isset($errorMessage)) {
+        echo $errorMessage;
+    }
+    ?>	
 
 		<h1>Sign Up Now</h1>
 		<h3>Linkopharm Always with You</h3>
@@ -93,7 +106,7 @@ include('../partials/navbar.php'); ?>
 			<input type="password" name="password2" id="inputcpass" placeholder="confirm Password">
 			<div id='cpassword' class='err'></div>
 
-			<button type="submit" class="registerbtn" value="signup" name="reg">Sign Up</button>
+			<button type="submit" class="lll" value="signup" name="reg">Sign Up</button>
 		</form>
 
 

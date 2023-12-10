@@ -26,7 +26,24 @@ if (isset($_SESSION['auth_user'])) {
         $product_price = $_POST['price'];
         $product_quantity = $_POST['quantity'];
         $cartController->addToCart($user_id, $product_image,  $product_name, $product_price, $product_quantity);
+
+         
+    if ($message === "Product added to cart!") {
+        $errorMessage = '<div class="alert alert-success alert-dismissible fade show" role="alert">
+		"Product added to cart!"
+		<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+	</div>';
+        exit;
     }
+	else {
+		$errorMessage = '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+		"product already added to cart"
+		<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+	</div>';
+    }
+      
+    }
+  
 }
 ?>
 
@@ -43,6 +60,9 @@ if (isset($_SESSION['auth_user'])) {
     <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css'>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css'>
     <link rel="stylesheet" href="../public/css/products.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css">
+		<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"></script>
 </head>
 
 <body>
@@ -63,6 +83,11 @@ if (isset($_SESSION['auth_user'])) {
                 <button type="submit" name="filterButton">Apply Filter</button>
 
             </form>
+            <?php
+    if (isset($errorMessage)) {
+        echo $errorMessage;
+    }
+    ?>	
             <section class="section-products">
     <div class="container">
         <div class="row justify-content-center text-center">

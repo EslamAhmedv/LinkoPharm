@@ -10,7 +10,7 @@ class CartController {
 
     public function addToCart($userId, $productImage, $productName, $productPrice, $productQuantity) {
         $resultMessage = $this->cartModel->addToCart($userId, $productName, $productPrice, $productImage, $productQuantity);
-        echo $resultMessage;
+        return $resultMessage;
     }
 
     public function updateCartItemQuantity() {
