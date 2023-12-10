@@ -1,26 +1,38 @@
 <?php
 require_once '../controllers/CartController.php';
-require_once '../controllers/productscontroller.php';
+require_once '../models/medicalModel.php';
+require_once'../controllers/productscontroller.php';
 
 $cartController = new CartController();
-$productController = new ProductController();
-$products = $productController->getAllProducts();
+$medicalModel = new MedicalModel();
+
+// Handle filter logic
+if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['filterButton'])) {
+    $filterCategory = urldecode($_GET['filterCategory']) ?? '';
+    
+    $products = $medicalModel->filterItems($filterCategory);
+} else {
+
+    $products = $medicalModel->getAllProducts();
+}
+
 $message = '';
 
 if (isset($_SESSION['auth_user'])) {
     if(isset($_POST['SubmitButton'])){
         $user_id = $_SESSION['auth_user']['user_id'];
-    $product_image = $_POST['image'];
-       $product_name = $_POST['name'];
-       $product_price = $_POST['price'];
-       $product_quantity = $_POST['quantity'];
-    
-       $cartController->addToCart($user_id, $product_image,  $product_name, $product_price, $product_quantity);
-    }}
+        $product_image = $_POST['image'];
+        $product_name = $_POST['name'];
+        $product_price = $_POST['price'];
+        $product_quantity = $_POST['quantity'];
+        $cartController->addToCart($user_id, $product_image,  $product_name, $product_price, $product_quantity);
+    }
+}
+?>
+
+
   
 
-
-?>
 
 
 <!DOCTYPE html>
@@ -34,9 +46,24 @@ if (isset($_SESSION['auth_user'])) {
 </head>
 
 <body>
-<?php include('../partials/navbar.php'); ?>
+    <?php include('../partials/navbar.php'); ?>
 
-<section class="section-products">
+    <section class="section-products">
+        <div class="container">
+            <!-- Filter Form -->
+            <form method="GET" class="filter-form">
+                <label for="filterCategory">Filter by Category:</label>
+                <select name="filterCategory" id="filterCategory">
+                    <option value="">All</option>
+                    <option value="skin care">Skin Care</option>
+    <option value="hair care">Hair Care</option>
+    <option value="TOPICAL MUSCLE RELAXANTS ">Topical Muscle Relaxants</option>
+                   
+</select>
+                <button type="submit" name="filterButton">Apply Filter</button>
+
+            </form>
+            <section class="section-products">
     <div class="container">
         <div class="row justify-content-center text-center">
             <div class="col-md-8 col-lg-6">
@@ -48,13 +75,12 @@ if (isset($_SESSION['auth_user'])) {
         <div class="row">
             <?php foreach ($products as $product): ?>
                 <div class="col-md-6 col-lg-4 col-xl-3">
-                    
+
                     <form action="" method="POST" class="single-product">
                         <div class="part-1">
                         <a href="prodDetails.php?id=<?php echo $product['id']; ?>" class="product-link">
 
                             <img src="<?php echo htmlspecialchars($product['image']); ?>" alt="Product Image">
-            </a>
                             <ul>
                                 <li><button type="submit" name="SubmitButton"><i class="fas fa-shopping-cart"></i></button></li>
                                 <li><a href="#"><i class="fas fa-heart"></i></a></li>
@@ -67,15 +93,14 @@ if (isset($_SESSION['auth_user'])) {
                         <input type="hidden" name="image" value="<?php echo htmlspecialchars($product['image']); ?>">
                         <input type="hidden" name="name" value="<?php echo htmlspecialchars($product['name']); ?>">
                         <input type="hidden" name="price" value="<?php echo htmlspecialchars($product['price']); ?>">
-                        <input type="hidden" name="quantity" value="<?php echo "1";?>">
+                        <input type="hidden" name="quantity" value="1">
                     </form>
                 </div>
             <?php endforeach; ?>
         </div>
     </div>
 </section>
-
-<?php include('../partials/footer.php'); ?>
+<?php  ?>
 
 </body>
 </html>
