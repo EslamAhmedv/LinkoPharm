@@ -109,15 +109,6 @@ public function getPasswordHash($userId) {
     }
 }
 
-public function updatePassword($userId, $newPasswordHash) {
-    $query = "UPDATE users SET password = ? WHERE id = ?";
-    $stmt = $this->conn->prepare($query);
-    $stmt->bind_param("si", $newPasswordHash, $userId);
-    $stmt->execute();
-}
-
-
-
 
 
 
@@ -145,6 +136,52 @@ public function getUserRole($userId) {
        return null; // User not found
    }
 }
+
+
+
+
+
+
+
+
+
+
+
+public function updateUserInfo($userId, $newFirstName, $newLastName, $newUsername, $newEmail, $newGender) {
+    $query = "UPDATE users SET firstname = ?, lastname = ?, username = ?, email = ?, gender = ? WHERE id = ?";
+    $stmt = $this->conn->prepare($query);
+    $stmt->bind_param("sssssi", $newFirstName, $newLastName, $newUsername, $newEmail, $newGender, $userId);
+    return $stmt->execute();
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+public function updatePassword($userId, $newPasswordHash) {
+    $query = "UPDATE users SET password = ? WHERE id = ?";
+    $stmt = $this->conn->prepare($query);
+    $stmt->bind_param("si", $newPasswordHash, $userId);
+    return $stmt->execute();
+}
+
+
 
 
 

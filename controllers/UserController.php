@@ -131,4 +131,53 @@ public function getUserRole($userId) {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+public function changePassword($userId, $currentPassword, $newPassword, $confirmPassword) {
+    // Verify the current password
+    $currentPasswordIsValid = $this->verifyCurrentPassword($userId, $currentPassword);
+
+    if (!$currentPasswordIsValid) {
+        return "Incorrect current password";
+    }
+
+    // Check if the new password and confirm password match
+    if ($newPassword !== $confirmPassword) {
+        return "New password and confirm password do not match";
+    }
+
+    // Update the password in the database
+    $hashedNewPassword = password_hash($newPassword, PASSWORD_DEFAULT);
+    $this->userModel->updatePassword($userId, $hashedNewPassword);
+
+    return "Password updated successfully";
+    
+}
+
+public function updateUserInfo($userId, $newFirstName, $newLastName, $newUsername, $newEmail, $newGender) {
+    // Add validation if necessary
+
+    // Update user information
+    $result = $this->userModel->updateUserInfo($userId, $newFirstName, $newLastName, $newUsername, $newEmail, $newGender);
+
+    if ($result) {
+        return "User information updated successfully";
+    } else {
+        return "Failed to update user information";
+    }
+}
+
+
+
+
+
 }?>
