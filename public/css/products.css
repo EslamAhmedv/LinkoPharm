@@ -212,3 +212,25 @@ a:hover {
         width: 100%;
     }
 }
+
+
+.section-products .single-product .part-1 {
+    position: relative;
+    height: 290px;
+    max-height: 290px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    text-align: center; /* Center the content */
+}
+
+.section-products .single-product .part-1 img {
+    width: 100%; /* Make the image fill the container */
+    height: auto; /* Maintain aspect ratio */
+    transition: transform 0.3s ease-in-out;
+}
+
+.section-products .single-product:hover .part-1 img {
+    transform: scale(1.2);
+}
+
+/* Other styles remain the same... */
