@@ -38,9 +38,9 @@ class MedicalController
         return MedicalModel::getAllProducts();
     }
 
-    public function filterProducts($category, $price)
+    public function filterProducts($category)
     {
         require_once '../models/medicalModel.php';
-        return MedicalModel::filterItems($category, $price);
+        return MedicalModel::filterItems($category);
 }
 }

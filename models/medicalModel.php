@@ -14,27 +14,29 @@ class MedicalModel {
         $this->dbh->connect(); 
     }
 
-    public function filterItems($category, $price) {
-       
-       $sql = "SELECT * FROM products WHERE category = ? AND price <= ?";
-
-       // Prepare the statement
-       $stmt = $this->dbh->getconn()->prepare($sql);
-
-       // Bind parameters
-       $stmt->bind_param('ss', $category, $price);
-
-       // Execute the query
-       $stmt->execute();
-
-       // Get the result set
-       $result = $stmt->get_result();
-
-       // Fetch the results
-       $filteredItems = $result->fetch_all(MYSQLI_ASSOC);
-       
-       return $filteredItems;
+    public function filterItems($category) {
+        $this->connect();
+    
+        $sql = "SELECT * FROM products WHERE category = ?";
+    
+        // Prepare the statement
+        $stmt = $this->dbh->getconn()->prepare($sql);
+    
+        // Bind parameters
+        $stmt->bind_param('s', $category);
+    
+        // Execute the query
+        $stmt->execute();
+    
+        // Get the result set
+        $result = $stmt->get_result();
+    
+        // Fetch the results
+        $filteredItems = $result->fetch_all(MYSQLI_ASSOC);
+    
+        return $filteredItems;
     }
+    
 
     public function getAllProducts()
     {
