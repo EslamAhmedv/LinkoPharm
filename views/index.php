@@ -289,7 +289,9 @@
 
 </div>
     <br>
-    <a href="https:/wa.me/201066656123"  target="_blank" button  class="btn">Send </button> ></a>
+    <a href="https:/wa.me/201066656123"  target="_blank" button  class="btn">Send 
+      us via WP
+    </button> ></a>
     <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
   </form>
 </div>
