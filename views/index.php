@@ -283,8 +283,9 @@
 
 </div>
     <div class="containery darker">
-  <img src="../public/images/avatarr.png.jpg" alt="Avatar" class="right">
-  <p>Hey! I was asking about a product!</p>
+  <p>Hey! </p>
+  <p>I was asking about a product!</p>
+  
 
 </div>
     <br>
