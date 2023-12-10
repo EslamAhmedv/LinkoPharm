@@ -159,3 +159,56 @@ a:hover {
     background-color: #444444;
     transform: translateY(-50%);
 }
+
+
+
+
+
+
+
+.filter-form {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.filter-form label {
+    font-weight: bold;
+}
+
+.filter-form select,
+.filter-form input[type="number"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.filter-form button {
+    padding: 8px 16px;
+    background-color: #4c60af;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.filter-form button:hover {
+    background-color: #1a3499;
+}
+
+/* Responsive Styling */
+@media (max-width: 600px) {
+    .filter-form {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .filter-form select,
+    .filter-form input[type="number"] {
+        width: 100%;
+    }
+
+    .filter-form button {
+        width: 100%;
+    }
+}

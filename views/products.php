@@ -104,7 +104,7 @@ if (isset($_SESSION['auth_user'])) {
         </div>
     </div>
 </section>
-<?php include('../partials/footer.php'); ?>
+<?php  ?>
 
 </body>
 </html>
