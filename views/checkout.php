@@ -38,24 +38,38 @@ function calculateTotalPrice($cartProducts)
   return $totalPrice;
 }
 
-if (isset($_POST['update_cart'])) {
-  $cartController->updateCartItemQuantity();
+// if (isset($_POST['update_cart'])) {
+//   $cartController->updateCartItemQuantity();
+//   header("Location: checkout.php");
+//   exit;
+// }
+
+if (isset($_POST['remove_item'])) {
+  $cartController->removeItem($_POST['remove_item']);
   header("Location: checkout.php");
   exit;
 }
 
-if (isset($_POST['remove_item'])) {
-  $itemIdToRemove = $_POST['remove_item'];
-  $cartController->removeItem($itemIdToRemove);
-  header("Location: checkout.php");
-  exit;
-}
 
 if (isset($_POST['remove_all'])) {
   $cartController->removeAllItems($user_id);
   header("Location: checkout.php");
   exit;
 }
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  if (isset($_POST['change_quantity'])) {
+      $cartItemId = $_POST['item_id'];
+      $newQuantity = $_POST['new_quantity'];
+      if ($_POST['change_quantity'] === 'Decrease' && $newQuantity > 1) {
+          $newQuantity--;
+      } elseif ($_POST['change_quantity'] === 'Increase') {
+          $newQuantity++;
+      }
+      $cartController->updateCartItemQuantity($cartItemId, $newQuantity);
+      header("Location: checkout.php");
+      exit;
+  }}
 
 $cart = $cartController->getCartProducts($user_id) ?? []; 
 
@@ -193,18 +207,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="returnCart">
           <h1>List Products In Cart</h1>
           <div class="List">
-            <?php foreach ($cartProducts as $row) : ?>
-              <div class="item">
-                <img src="<?php echo htmlspecialchars($row['image']); ?>" alt="">
-                <div class="info">
-                  <div class="name"><?php echo htmlspecialchars($row['name']); ?></div>
-                  <div class="price"><?php echo htmlspecialchars($row['price']); ?> EGP</div>
-                </div>
-                <div class="quantity"><?php echo htmlspecialchars($row['quantity']); ?></div>
-                <div class="returnPrice"><?php echo (htmlspecialchars($row['price']) * htmlspecialchars($row['quantity'])) . ' EGP'; ?></div>
-              </div>
-            <?php endforeach; ?>
-          </div>
+    <?php foreach ($cartProducts as $row) : ?>
+        <div class="item">
+            <img src="<?php echo htmlspecialchars($row['image']); ?>" alt="">
+            <div class="item-info">
+                <div class="name"><?php echo htmlspecialchars($row['name']); ?></div>
+                <div class="price"><?php echo htmlspecialchars($row['price']); ?> EGP</div>
+            </div>
+            <div class="quantity-adjust">
+                <form method="post" action="checkout.php">
+                    <input type="hidden" name="item_id" value="<?php echo $row['id']; ?>">
+                    <button type="submit" name="change_quantity" value="Decrease">-</button>
+                    <input type="text" readonly name="new_quantity" value="<?php echo $row['quantity']; ?>">
+                    <button type="submit" name="change_quantity" value="Increase">+</button>
+                </form>
+            </div>
+            <form method="post" action="checkout.php">
+                <button type="submit" name="remove_item" value="<?php echo $row['id']; ?>">×</button>
+            </form>
+        </div>
+    <?php endforeach; ?>
+</div>
+
           <a class="keepShopping" href="../views/index.php">Keep shopping</a>
         </div>
 
