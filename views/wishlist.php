@@ -43,6 +43,43 @@ if (isset($_POST['remove_all'])) {
     // Optionally you can redirect the user or perform additional actions after removing all items
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+if (isset($_SESSION['auth_user'])) {
+   if(isset($_POST['SubmitButton'])){
+       $user_id = $_SESSION['auth_user']['user_id'];
+       $product_image = $_POST['image'];
+       $product_name = $_POST['name'];
+       $product_price = $_POST['price'];
+       $product_quantity = $_POST['quantity'];
+       $cartController->addToCart($user_id, $product_image,  $product_name, $product_price, $product_quantity);
+
+ 
+   }
+ 
+}
+
+
+
+
 ?>
 
 
@@ -111,10 +148,18 @@ include('../partials/navbar.php'); ?>
                         <td><img src="<?php echo htmlspecialchars($row['image']); ?>"  width="100"height="100"></td>
                         <td><?php echo htmlspecialchars($row['name']); ?></td>
                         <td><?php echo htmlspecialchars($row['price']); ?> </td>
-                        <td><a href="">
-                              <button class ="add">Add to cart</button></td>
-                           </a>
-                         
+                        <td>
+
+                        <form action="" method="POST" class="single-product">
+                     
+                        <input type="hidden" name="image" value="<?php echo htmlspecialchars($row['image']); ?>">
+                        <input type="hidden" name="name" value="<?php echo htmlspecialchars($row['name']); ?>">
+                        <input type="hidden" name="price" value="<?php echo htmlspecialchars($row['price']); ?>">
+                        <input type="hidden" name="quantity" value="1">
+                    
+                              <button class ="add"  type="submit" name="SubmitButton">Add to cart</button></td>
+                           
+                              </form>
                     </tr>
 
                     <td>

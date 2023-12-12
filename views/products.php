@@ -1,7 +1,7 @@
 <?php
 require_once '../controllers/CartController.php';
 require_once '../models/medicalModel.php';
-require_once'../controllers/productscontroller.php';
+require_once '../controllers/productscontroller.php';
 
 $cartController = new CartController();
 $medicalModel = new MedicalModel();
