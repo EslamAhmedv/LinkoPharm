@@ -2,9 +2,7 @@
 require_once '../controllers/productscontroller.php';
 $productController = new ProductController();
 
-// Check if the product ID is set in the URL
 if (!isset($_GET['id'])) {
-    // Redirect to the products page if no product ID is provided
     header('Location: products.php');
     exit();
 }
@@ -14,7 +12,6 @@ $productId = intval($_GET['id']);
 $product = $productController->getProductById($productId);
 
 if (!$product) {
-    // Handle the case where the product doesn't exist
     echo "<script>alert('Product not found.'); window.location.href = 'products.php';</script>";
     exit();
 }

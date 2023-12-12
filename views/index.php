@@ -95,9 +95,10 @@ $products = $productController->getAllProducts();
    <div class="slide-container">
      <div class="card-wrapper swiper-wrapper">
        <?php foreach ($products as $product): ?>
+        <a href="prodDetails.php?id=<?php echo $product['id']; ?>" class="product-link">
          <div class="card swiper-slide">
            <div class="image-box">
-             <img src="<?php echo $product['image']; ?>" alt="" />
+             <img src="<?php echo $product['image']; ?>" alt="" /></a>
            </div>
            <div class="profile-details">
              <div class="name-job">
