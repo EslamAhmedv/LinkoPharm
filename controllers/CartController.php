@@ -114,6 +114,50 @@ public function getWishProducts($userId) {
 
 
 
+
+
+
+
+
+
+
+
+
+public function removewish($itemId) {
+    $result = $this->cartModel->removewish($itemId);
+
+    if ($result) {
+        echo "Item removed from the cart!";
+        header("Location: wishlist.php");
+    } else {
+        echo "Failed to remove item from the cart.";
+    }
+}
+
+
+
+
+
+public function removeAllwish($userId) {
+    $result = $this->cartModel->removeAllwish($userId);
+
+    if ($result) {
+        echo "All items removed from the cart!";
+        header("Location: wishlist.php");
+    } else {
+        echo "Failed to remove all items from the cart.";
+    }
+}
+
+
+
+
+
+
+
+
+
+
 }
 
 

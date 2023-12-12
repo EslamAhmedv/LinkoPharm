@@ -29,19 +29,19 @@ $cartProducts = $cartController->getWishProducts($user_id);
 
 
 
-// if (isset($_POST['remove_item'])) {
-//     $itemIdToRemove = $_POST['remove_item'];
-//     $cartController->removeItem($itemIdToRemove);
-//     // Optionally you can redirect the user or perform additional actions after removing the item
-// }
+if (isset($_POST['remove_item'])) {
+    $itemIdToRemove = $_POST['remove_item'];
+    $cartController->removewish($itemIdToRemove);
+    // Optionally you can redirect the user or perform additional actions after removing the item
+}
 
 
 
 
-// if (isset($_POST['remove_all'])) {
-//     $cartController->removeAllItems($user_id);
-//     // Optionally you can redirect the user or perform additional actions after removing all items
-// }
+if (isset($_POST['remove_all'])) {
+    $cartController->removeAllwish($user_id);
+    // Optionally you can redirect the user or perform additional actions after removing all items
+}
 
 ?>
 
@@ -102,9 +102,11 @@ include('../partials/navbar.php'); ?>
                        <?php foreach ($cartProducts as $row) : ?>
                     <tr>   
                     <td>
-                           <a href="">
-                              <button>Delete</button></td>
-                           </a>
+                         <form action="" method="post">
+                         <input type="hidden" name="remove_item" value="<?php echo htmlspecialchars($row['id']); ?>">
+                              <button  type="submit">Delete</button></td>
+                              </form>
+                          
                </td>
                         <td><img src="<?php echo htmlspecialchars($row['image']); ?>"  width="100"height="100"></td>
                         <td><?php echo htmlspecialchars($row['name']); ?></td>
@@ -112,6 +114,7 @@ include('../partials/navbar.php'); ?>
                         <td><a href="">
                               <button class ="add">Add to cart</button></td>
                            </a>
+                         
                     </tr>
 
                     <td>
@@ -124,11 +127,17 @@ include('../partials/navbar.php'); ?>
                     <?php endforeach; ?>
                 </table> 
             </div>
-            <a href="/deletewishlist">
-                <button class="delbutton">Delete All</button>
+            
+            <form action="" method="POST">
+    <input type="hidden" name="remove_all" value="1">
+  
 
-            </a>
+    <button class="delbutton">Delete All</button>
+            </form>
+           
+               
 
+            
             <?php
   include('../partials/footer.php');
   // include('../partials/chat.php'); 

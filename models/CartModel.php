@@ -163,6 +163,31 @@ public function getWishProducts($userId) {
 
 
 
+public function removewish($itemId) {
+    $deleteCart = $this->conn->prepare("DELETE FROM wishlist WHERE id = ?");
+    $deleteCart->bind_param("i", $itemId);
+    
+    if ($deleteCart->execute()) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+
+
+
+public function removeAllwish($userId) {
+    $deleteAll = $this->conn->prepare("DELETE FROM wishlist WHERE user_id = ?");
+    $deleteAll->bind_param("i", $userId);
+    
+    if ($deleteAll->execute()) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
 
 
 
