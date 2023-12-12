@@ -123,18 +123,31 @@ public function getPasswordHash($userId) {
 
 
 public function getUserRole($userId) {
-   $query = "SELECT role FROM users WHERE id = ?";
-   $stmt = $this->conn->prepare($query);
-   $stmt->bind_param("i", $userId);
-    $stmt->execute();
-   $result = $stmt->get_result();
+    $query = "SELECT role FROM users WHERE id = ?";
+    $stmt = $this->conn->prepare($query);
 
-   if ($result->num_rows > 0) {
-       $userData = $result->fetch_assoc();
-       return $userData['role'];
-   } else {
-       return null; // User not found
-   }
+    if (!$stmt) {
+        die("Error in preparing the statement: " . $this->conn->error);
+    }
+
+    $stmt->bind_param("i", $userId);
+
+    if (!$stmt->execute()) {
+        die("Error in executing the statement: " . $stmt->error);
+    }
+
+    $result = $stmt->get_result();
+
+    if (!$result) {
+        die("Error in getting result set: " . $stmt->error);
+    }
+
+    if ($result->num_rows > 0) {
+        $userData = $result->fetch_assoc();
+        return $userData['role'];
+    } else {
+        return null; // User not found
+    }
 }
 
 

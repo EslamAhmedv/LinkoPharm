@@ -31,6 +31,9 @@ if (isset($_GET['search'])){
    
 }
 
+
+
+
 $isUserLoggedIn = isset($_SESSION['authenticated']) && $_SESSION['authenticated'] === true;
 
 
@@ -43,20 +46,30 @@ $isUserLoggedIn = isset($_SESSION['authenticated']) && $_SESSION['authenticated'
 
 
 
+if (isset($_SESSION['auth_user'])) {
+   require_once("../controllers/UserController.php");
+
+   $userController = new UserController();
+
+   // Get the user ID from the session
+   $userId = $_SESSION['auth_user']['user_id'];
+
+   // Get the user role using the getUserRole function
+   $userRole = $userController->getUserRole($userId);
+
+   // Debugging output
+   var_dump($userRole);
+
+   // Check if the user role is set and is equal to 1 (adjust this condition based on your actual role values)
+   if ($userRole !== null && $userRole == 1) {
+       // Redirect to the dashboard for users with role 1
+       header("Location: dashboard.php");
+       exit(); // Make sure to exit after sending the header
+   }
+}
 
 
 
-
-
-//$userId = $_SESSION['auth_user']['user_id'];
-//$userRole = $userController->getUserRole($userId);
-
-//Check if the user is an admin
-//if ($userRole == 1) {
- // header("Location: dashboard.php");
-   // Display admin-specific content, e.g., a link to the admin dashboard
-   
-//}
 
 
 ?>
