@@ -5,6 +5,9 @@
         <link rel="stylesheet"
             href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
             <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"> 
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css">
+		<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"></script>
     </head>
 
 
@@ -70,7 +73,19 @@ if (isset($_SESSION['auth_user'])) {
        $product_name = $_POST['name'];
        $product_price = $_POST['price'];
        $product_quantity = $_POST['quantity'];
-       $cartController->addToCart($user_id, $product_image,  $product_name, $product_price, $product_quantity);
+       $loginResult= $cartController->addToCart($user_id, $product_image,  $product_name, $product_price, $product_quantity);
+       if ($loginResult ===  "Product added to cart!") {
+        $successMessage = '<div class="alert alert-success alert-dismissible fade show" role="alert">
+            Product added to cart successfully.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>';
+    } else {
+        $successMessage = '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+        Product already added to cart.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>';
+    }
+
 
  
    }
@@ -119,14 +134,19 @@ if (isset($_SESSION['auth_user'])) {
         
     <?php
 include('../partials/navbar.php'); ?>
+     <?php
+    if (isset($successMessage)) {
+        echo $successMessage;
+    }
+    ?>	
         <section id="wish">
-            
+   
            
             <h1>My Wishlist &#9829</h1>
             <div class = "wishTable">
                 
                 <table width="100%">
-                    
+
                     <tr>
                         <th>    </th>
                         <th>    </th>
@@ -139,6 +159,7 @@ include('../partials/navbar.php'); ?>
                        <?php foreach ($cartProducts as $row) : ?>
                     <tr>   
                     <td>
+
                          <form action="" method="post">
                          <input type="hidden" name="remove_item" value="<?php echo htmlspecialchars($row['id']); ?>">
                               <button  type="submit">Delete</button></td>

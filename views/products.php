@@ -25,30 +25,28 @@ if (isset($_SESSION['auth_user'])) {
         $product_name = $_POST['name'];
         $product_price = $_POST['price'];
         $product_quantity = $_POST['quantity'];
-        $cartController->addToCart($user_id, $product_image,  $product_name, $product_price, $product_quantity);
+        $loginResult= $cartController->addToCart($user_id, $product_image,  $product_name, $product_price, $product_quantity);
+        
+        if ($loginResult ===  "Product added to cart!") {
+            $successMessage = '<div class="alert alert-success alert-dismissible fade show" role="alert">
+                Product added to cart successfully.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>';
+        } else {
+            $successMessage = '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+            Product already added to cart.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>';
+        }
 
          
-    if ($message === "Product added to cart!") {
-        $errorMessage = '<div class="alert alert-success alert-dismissible fade show" role="alert">
-		"Product added to cart!"
-		<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-	</div>';
-        exit;
-    }
-	else {
-		$errorMessage = '<div class="alert alert-danger alert-dismissible fade show" role="alert">
-		"product already added to cart"
-		<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-	</div>';
-    }
-      
-    }
+   
   
 }
 
 
 
-
+}
 
 
 
@@ -114,8 +112,8 @@ if (isset($_SESSION['auth_user'])) {
 
             </form>
             <?php
-    if (isset($errorMessage)) {
-        echo $errorMessage;
+    if (isset($successMessage)) {
+        echo $successMessage;
     }
     ?>	
             <section class="section-products">

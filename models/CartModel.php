@@ -15,7 +15,7 @@ class CartModel extends Model {
             $insertCart = $this->conn->prepare("INSERT INTO cart (user_id, image, name, price, quantity) VALUES (?, ?, ?, ?, ?)");
             $insertCart->bind_param("issii", $userId,$productImage, $productName, $productPrice, $productQuantity);
             $insertCart->execute();
-            echo 'Product added to cart!';
+            return "Product added to cart!";
         }
     }
     
