@@ -95,6 +95,25 @@ public function addToWishlist($userId, $productImage, $productName, $productPric
 }
 
 
+
+
+
+
+
+
+
+
+
+
+public function getWishProducts($userId) {
+    return $this->cartModel->getWishProducts($userId);
+}
+
+
+
+
+
+
 }
 
 

@@ -106,6 +106,17 @@ class CartModel extends Model {
     }
 
 
+
+
+
+
+
+
+
+
+    
+//wishlist
+
     public function addToWishlist($userId, $productName, $productPrice, $productImage) {
         $selectCart = $this->conn->prepare("SELECT * FROM wishlist WHERE `name` = ? AND user_id = ?");
         $selectCart->bind_param("si", $productName, $userId);
@@ -128,6 +139,23 @@ class CartModel extends Model {
 
 
 
+
+
+
+
+public function getWishProducts($userId) {
+    $query = "SELECT * FROM wishlist WHERE user_id = ?"; 
+    $stmt = $this->conn->prepare($query);
+    $stmt->bind_param("i", $userId);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    $cartItems = array();
+    while ($row = $result->fetch_assoc()) {
+        $cartItems[] = $row;
+    }
+
+    return $cartItems;
 }
 
 
@@ -138,7 +166,21 @@ class CartModel extends Model {
 
 
 
-//wishlist
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
 
 
 ?>
