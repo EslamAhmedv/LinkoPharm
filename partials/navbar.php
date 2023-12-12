@@ -127,11 +127,14 @@ $isUserLoggedIn = isset($_SESSION['authenticated']) && $_SESSION['authenticated'
                   
 
                   <li class="nav__item">
-                     <a href="#" class="nav__link">Services</a>
+                     <a href="wishlist.php" class="nav__link">wishlist</a>
                   </li>
 
                   <li class="nav__item">
                      <a href="contactus.php" class="nav__link">contact us</a>
+                  </li>
+                  <li class="nav__item">
+                     <a href="aboutus.php" class="nav__link">about</a>
                   </li>
 
                   <li class="nav__item">
@@ -242,12 +245,12 @@ $isUserLoggedIn = isset($_SESSION['authenticated']) && $_SESSION['authenticated'
                      <a href="products.php" class="nav__link">menu</a>
                   </li>
 
-                  <li class="nav__item">
-                     <a href="#" class="nav__link">Services</a>
-                  </li>
+                  <!-- <li class="nav__item">
+                     <a href="wishlist.php" class="nav__link">wishlist</a>
+                  </li> -->
 
                   <li class="nav__item">
-                     <a href="#" class="nav__link">Featured</a>
+                     <a href="aboutus.php" class="nav__link">about</a>
                   </li>
 
                   <li class="nav__item">
@@ -268,7 +271,7 @@ $isUserLoggedIn = isset($_SESSION['authenticated']) && $_SESSION['authenticated'
 </button>
                
 <a href="login.php"> <i class="ri-user-line nav__login" id="login-btn"></i></a>
-               <a href="checkout.php"><div class="fas fa-shopping-cart" id="cart-btn"></div></a>
+               <!-- <a href="checkout.php"><div class="fas fa-shopping-cart" id="cart-btn"></div></a> -->
                
                <div class="nav__toggle" id="nav-toggle">
                   <i class="ri-menu-line"></i>

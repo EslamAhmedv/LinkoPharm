@@ -87,8 +87,24 @@ class CartController {
                 echo "Failed to remove all items from the cart.";
             }
         }
+//wishlist functions
+public function addToWishlist($userId, $productImage, $productName, $productPrice) {
+    $resultMessage = $this->cartModel->addToWishlist($userId, $productName, $productPrice, $productImage);
+    return $resultMessage;
 
+}
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
 ?>

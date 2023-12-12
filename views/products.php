@@ -45,6 +45,35 @@ if (isset($_SESSION['auth_user'])) {
     }
   
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//wishlist
+
+if (isset($_SESSION['auth_user'])) {
+    if(isset($_POST['Submitwish'])){
+        $user_id = $_SESSION['auth_user']['user_id'];
+        $product_image = $_POST['image'];
+        $product_name = $_POST['name'];
+        $product_price = $_POST['price'];
+        $cartController->addToWishlist($user_id, $product_image,  $product_name, $product_price);
+
+    }
+  
+}
 ?>
 
 
@@ -109,7 +138,7 @@ if (isset($_SESSION['auth_user'])) {
                             <img src="<?php echo htmlspecialchars($product['image']); ?>" alt="Product Image">
                             <ul>
                                 <li><button type="submit" name="SubmitButton"><i class="fas fa-shopping-cart"></i></button></li>
-                                <li><a href="#"><i class="fas fa-heart"></i></a></li>
+                                <li><button type="submit" name="Submitwish"><i class="fas fa-heart"></i></button></li>
                             </ul>
                         </div>
                         <div class="part-2">

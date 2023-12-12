@@ -106,7 +106,39 @@ class CartModel extends Model {
     }
 
 
+    public function addToWishlist($userId, $productName, $productPrice, $productImage) {
+        $selectCart = $this->conn->prepare("SELECT * FROM wishlist WHERE `name` = ? AND user_id = ?");
+        $selectCart->bind_param("si", $productName, $userId);
+        $selectCart->execute();
+        $result = $selectCart->get_result();
+    
+        if ($result->num_rows > 0) {
+            return 'Product already added to wishlist!';
+        } else {
+            $insertCart = $this->conn->prepare("INSERT INTO wishlist (user_id, image, name, price) VALUES (?, ?, ?, ?)");
+            $insertCart->bind_param("issi", $userId,$productImage, $productName, $productPrice);
+            $insertCart->execute();
+            echo 'Product added to wishlist!';
+        }
+    
+
+}
+
+
+
 
 
 }
+
+
+
+
+
+
+
+
+
+//wishlist
+
+
 ?>
