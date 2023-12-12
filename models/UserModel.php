@@ -92,8 +92,6 @@ public function getUserById($userId) {
 
 
 
-
-
 public function getPasswordHash($userId) {
     $query = "SELECT password FROM users WHERE id = ?";
     $stmt = $this->conn->prepare($query);
@@ -109,10 +107,12 @@ public function getPasswordHash($userId) {
     }
 }
 
-
-
-
-
+public function updatePassword($userId, $hashedNewPassword) {
+    $query = "UPDATE users SET password = ? WHERE id = ?";
+    $stmt = $this->conn->prepare($query);
+    $stmt->bind_param("si", $hashedNewPassword, $userId);
+    return $stmt->execute();
+}
 
 
 
@@ -187,12 +187,12 @@ public function updateUserInfo($userId, $newFirstName, $newLastName, $newUsernam
 
 
 
-public function updatePassword($userId, $newPasswordHash) {
-    $query = "UPDATE users SET password = ? WHERE id = ?";
-    $stmt = $this->conn->prepare($query);
-    $stmt->bind_param("si", $newPasswordHash, $userId);
-    return $stmt->execute();
-}
+// public function updatePassword($userId, $newPasswordHash) {
+//     $query = "UPDATE users SET password = ? WHERE id = ?";
+//     $stmt = $this->conn->prepare($query);
+//     $stmt->bind_param("si", $newPasswordHash, $userId);
+//     return $stmt->execute();
+// }
 
 
 

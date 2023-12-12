@@ -110,6 +110,21 @@ if ($userData) {
                 <div class="d-flex justify-content-between align-items-center mb-3">
                     <h4 class="text-right">Profile Settings</h4>
                 </div>
+                <?php
+
+if (isset($_GET['alert']) && isset($_GET['message'])) {
+    $alertType = $_GET['alert'];
+    $message = $_GET['message'];
+
+    echo '<div class="alert alert-' . $alertType . ' alert-dismissible fade show" role="alert">
+            ' . $message . '
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>';
+}
+
+
+?>
+
                 <div class="row mt-2">
                 <form action="" method="POST">
     <div class="col-md-6">
