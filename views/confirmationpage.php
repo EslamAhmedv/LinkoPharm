@@ -13,7 +13,7 @@
   include('../partials/navbar.php');
   ?>
     <center>
-    <div class="container">
+    <div class="containeray">
         <!-- <div class="Left"> -->
             <img class="check" src="../public/images/checked (1).png" alt="">
             <h1 >Thank you for your order!</h1>
