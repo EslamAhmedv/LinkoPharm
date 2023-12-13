@@ -278,8 +278,8 @@
     <br>
     <br>
     <div class="containery">
-  <img src="../public/images/logo.png" alt="Avatar">
-  <p>Hello. How can we help you ?</p>
+   <img src="../public/images/logo.png" alt="Avatar">
+   <p>Hello. How can we help you ?</p>
 
 </div>
     <div class="containery darker">
