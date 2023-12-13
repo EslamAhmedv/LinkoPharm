@@ -27,6 +27,10 @@ class OrdersController {
     public function getOrderById($orderId) {
         return $this->ordersModel->getOrderById($orderId);
     }
+
+    public function getOrder($userid) {
+        return $this->ordersModel->getOrder($userid);
+    }
 }
 
 $ordersController = new OrdersController();
