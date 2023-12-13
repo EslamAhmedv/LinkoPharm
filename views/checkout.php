@@ -7,7 +7,7 @@ error_reporting(E_ALL);
 require_once '../controllers/CartController.php';
 require_once '../controllers/OrdersController.php'; 
 require_once '../controllers/UserController.php'; 
-include('../controllers/api.php');
+// include('../controllers/api.php');
 
 
 $cartController = new CartController();
@@ -189,7 +189,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       if ($OrdersModel->addOrder($userid, $fullName, $Phone, $Address, $City, $orderDate, $status, $gross_total)) {
 
         //Send a confirmation message to the customer’s number
-        message($Phone,$fullName,$gross_total);
+        // message($Phone,$fullName,$gross_total);
 
         // Redirect to the confirmation page
         header("Location:confirmationpage.php");
