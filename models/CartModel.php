@@ -15,7 +15,7 @@ class CartModel extends Model {
             $insertCart = $this->conn->prepare("INSERT INTO cart (user_id, image, name, price, quantity) VALUES (?, ?, ?, ?, ?)");
             $insertCart->bind_param("issii", $userId,$productImage, $productName, $productPrice, $productQuantity);
             $insertCart->execute();
-            echo 'Product added to cart!';
+            return "Product added to cart!";
         }
     }
     
@@ -108,5 +108,104 @@ class CartModel extends Model {
 
 
 
+
+
+
+
+
+
+    
+//wishlist
+
+    public function addToWishlist($userId, $productName, $productPrice, $productImage) {
+        $selectCart = $this->conn->prepare("SELECT * FROM wishlist WHERE `name` = ? AND user_id = ?");
+        $selectCart->bind_param("si", $productName, $userId);
+        $selectCart->execute();
+        $result = $selectCart->get_result();
+    
+        if ($result->num_rows > 0) {
+            return 'Product already added to wishlist!';
+        } else {
+            $insertCart = $this->conn->prepare("INSERT INTO wishlist (user_id, image, name, price) VALUES (?, ?, ?, ?)");
+            $insertCart->bind_param("issi", $userId,$productImage, $productName, $productPrice);
+            $insertCart->execute();
+            echo 'Product added to wishlist!';
+        }
+    
+
 }
+
+
+
+
+
+
+
+
+
+public function getWishProducts($userId) {
+    $query = "SELECT * FROM wishlist WHERE user_id = ?"; 
+    $stmt = $this->conn->prepare($query);
+    $stmt->bind_param("i", $userId);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    $cartItems = array();
+    while ($row = $result->fetch_assoc()) {
+        $cartItems[] = $row;
+    }
+
+    return $cartItems;
+}
+
+
+
+
+
+
+public function removewish($itemId) {
+    $deleteCart = $this->conn->prepare("DELETE FROM wishlist WHERE id = ?");
+    $deleteCart->bind_param("i", $itemId);
+    
+    if ($deleteCart->execute()) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+
+
+
+public function removeAllwish($userId) {
+    $deleteAll = $this->conn->prepare("DELETE FROM wishlist WHERE user_id = ?");
+    $deleteAll->bind_param("i", $userId);
+    
+    if ($deleteAll->execute()) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
 ?>

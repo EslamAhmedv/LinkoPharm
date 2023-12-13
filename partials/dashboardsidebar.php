@@ -35,7 +35,7 @@
                     <h3>Settings</h3>
                 </a>
 
-                <a href=""><span class="material-symbols-sharp">logout</span>
+                <a href="logout.php"><span class="material-symbols-sharp">logout</span>
                     <h3>Logout</h3>
                 </a>
 

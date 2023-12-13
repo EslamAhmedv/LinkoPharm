@@ -19,6 +19,34 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	</div>';
     }
 }
+
+
+
+
+
+
+if (isset($_SESSION['auth_user'])) {
+    require_once("../controllers/UserController.php");
+
+    $userController = new UserController();
+
+    // Get the user ID from the session
+    $userId = $_SESSION['auth_user']['user_id'];
+
+    // Get the user role using the getUserRole function
+    $userRole = $userController->getUserRole($userId);
+
+    // Debugging output
+    var_dump($userRole);
+
+    // Check if the user role is set and is equal to 1 (adjust this condition based on your actual role values)
+    if ($userRole !== null && $userRole == 1) {
+        // Redirect to the dashboard for users with role 1
+        header("Location: dashboard.php");
+        exit(); // Make sure to exit after sending the header
+    }
+}
+
 ?>
 
 <!DOCTYPE html>

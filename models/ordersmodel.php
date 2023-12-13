@@ -41,7 +41,18 @@ class OrdersModel extends Model {
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_assoc(); 
-}
+    }
+
+    public function getOrder($userid) {
+        $query = "SELECT * FROM `orders` WHERE userid = $userid";
+        $result=mysqli_query($this->conn,$query);
+        if ($row = mysqli_fetch_array($result)) {
+            return $row;
+        }
+        else {
+            return false;
+        }  
+    }
 }
 ?>
 

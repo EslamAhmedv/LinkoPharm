@@ -12,8 +12,12 @@ class CartController {
         $resultMessage = $this->cartModel->addToCart($userId, $productName, $productPrice, $productImage, $productQuantity);
         return $resultMessage;
     }
+    public function updateCartItemQuantity($cartItemId, $newQuantity) {
+        return $this->cartModel->updateCartItemQuantity($newQuantity, $cartItemId);
+    }
+    
 
-    public function updateCartItemQuantity() {
+    public function upvdateCartItemQuantity() {
         if (isset($_POST['update_cart'])) {
             $updateQuantity = $_POST['quantity'];
             $cartItemId = $_POST['id']; // Assuming you have a hidden input with name="cart_item_id"
@@ -83,8 +87,87 @@ class CartController {
                 echo "Failed to remove all items from the cart.";
             }
         }
+//wishlist functions
+public function addToWishlist($userId, $productImage, $productName, $productPrice) {
+    $resultMessage = $this->cartModel->addToWishlist($userId, $productName, $productPrice, $productImage);
+    return $resultMessage;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+public function getWishProducts($userId) {
+    return $this->cartModel->getWishProducts($userId);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+public function removewish($itemId) {
+    $result = $this->cartModel->removewish($itemId);
+
+    if ($result) {
+        echo "Item removed from the cart!";
+        header("Location: wishlist.php");
+    } else {
+        echo "Failed to remove item from the cart.";
+    }
+}
+
+
+
+
+
+public function removeAllwish($userId) {
+    $result = $this->cartModel->removeAllwish($userId);
+
+    if ($result) {
+        echo "All items removed from the cart!";
+        header("Location: wishlist.php");
+    } else {
+        echo "Failed to remove all items from the cart.";
+    }
+}
+
+
+
+
+
+
+
 
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
 ?>
