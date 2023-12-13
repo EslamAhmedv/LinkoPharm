@@ -1,3 +1,29 @@
+<?php 
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+include('../controllers/orderscontroller.php');
+
+// Set user ID in session and assign it to a variable
+session_start();
+$_SESSION['user_id'] = $user->getId();
+$userid = $user->getId();
+
+// create new order model
+$OrdersModel = new OrdersModel();
+
+if ($row=$OrdersModel->getOrder($userid)) {
+    $orderid=$row["id"];
+    $user_name=$row["user_name"];
+    $city=$row["city"];
+    $address=$row["address"];
+    $order_date=$row["order_date"];
+    $status=$row["status"];
+    $total_price=$row["total_price"];
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,46 +39,61 @@
   include('../partials/navbar.php');
   ?>
     <center>
-    <div class="containeray">
-        <!-- <div class="Left"> -->
+    <div class="container">
+        <div class="Left">
             <img class="check" src="../public/images/checked (1).png" alt="">
-            <h1 >Thank you for your order!</h1>
-            <p class="abc">you order will be delivered within 2 days of your purchase</p>
-            <h3>Your order number is</h3>
-            <p>#987654</p>
+            <p class="message">Thank you, <?php echo $user_name?> for your order!</p>
+            <p class="message1">Your order will be delivered within 1 day of your purchase</p>
+            <p class="message3">Your order number is</p>
+            <p class="order_number">#<?php echo $orderid?></p>
             <a href="index.php">
             <button>
                 <span>Continue Shopping</span>
             </button>
             </a>
-        <!-- </div> -->
-        <!-- <div class="right">
+        </div>
+        <div class="right">
             <table style="width:100%">
             <tr>
-                <td>Name:</td>
-                <td>Your Name</td>
+                <td class="th">Name:</td>
+                <td><?php echo $user_name?></td>
             </tr>
             <tr>
-                <td>Phone Number:</td>
-                <td>Your Phone Number</td>
+                <td class="th">Order date:</td>
+                <td><?php echo $order_date?></td>
             </tr>
             <tr>
-                <td>City:</td>
-                <td>Your City</td>
+                <td class="th">City:</td>
+                <td><?php echo $city?></td>
             </tr>
             <tr>
-                <td>Address:</td>
-                <td>Your Address</td>
+                <td class="th">Address:</td>
+                <td><?php echo $address?></td>
             </tr>
             <tr>
-                <td>Payment:</td>
+                <td class="th">Status:</td>
+                <td><?php echo $status?></td>
+            </tr>
+            <tr>
+                <td class="th">Total price:</td>
+                <td><?php echo $total_price?></td>
+            </tr>
+            <tr>
+                <td class="th">Payment:</td>
                 <td>Visa</td>
             </tr>
         </table>
-        </div> -->
+        </div>
     </div>
     </center>
     <br>
 </div>   
 </body>
 </html>
+
+
+
+
+
+
+
