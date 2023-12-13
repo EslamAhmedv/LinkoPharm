@@ -189,7 +189,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       if ($OrdersModel->addOrder($userid, $fullName, $Phone, $Address, $City, $orderDate, $status, $gross_total)) {
 
         //Send a confirmation message to the customer’s number
-        message($Phone,$fullName,$totalPrice);
+        message($Phone,$fullName,$gross_total);
 
         // Redirect to the confirmation page
         header("Location:confirmationpage.php");
