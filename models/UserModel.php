@@ -92,8 +92,6 @@ public function getUserById($userId) {
 
 
 
-
-
 public function getPasswordHash($userId) {
     $query = "SELECT password FROM users WHERE id = ?";
     $stmt = $this->conn->prepare($query);
@@ -109,19 +107,12 @@ public function getPasswordHash($userId) {
     }
 }
 
-public function updatePassword($userId, $newPasswordHash) {
+public function updatePassword($userId, $hashedNewPassword) {
     $query = "UPDATE users SET password = ? WHERE id = ?";
     $stmt = $this->conn->prepare($query);
-    $stmt->bind_param("si", $newPasswordHash, $userId);
-    $stmt->execute();
+    $stmt->bind_param("si", $hashedNewPassword, $userId);
+    return $stmt->execute();
 }
-
-
-
-
-
-
-
 
 
 
@@ -132,19 +123,78 @@ public function updatePassword($userId, $newPasswordHash) {
 
 
 public function getUserRole($userId) {
-   $query = "SELECT role FROM users WHERE id = ?";
-   $stmt = $this->conn->prepare($query);
-   $stmt->bind_param("i", $userId);
-    $stmt->execute();
-   $result = $stmt->get_result();
+    $query = "SELECT role FROM users WHERE id = ?";
+    $stmt = $this->conn->prepare($query);
 
-   if ($result->num_rows > 0) {
-       $userData = $result->fetch_assoc();
-       return $userData['role'];
-   } else {
-       return null; // User not found
-   }
+    if (!$stmt) {
+        die("Error in preparing the statement: " . $this->conn->error);
+    }
+
+    $stmt->bind_param("i", $userId);
+
+    if (!$stmt->execute()) {
+        die("Error in executing the statement: " . $stmt->error);
+    }
+
+    $result = $stmt->get_result();
+
+    if (!$result) {
+        die("Error in getting result set: " . $stmt->error);
+    }
+
+    if ($result->num_rows > 0) {
+        $userData = $result->fetch_assoc();
+        return $userData['role'];
+    } else {
+        return null; // User not found
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+public function updateUserInfo($userId, $newFirstName, $newLastName, $newUsername, $newEmail, $newGender) {
+    $query = "UPDATE users SET firstname = ?, lastname = ?, username = ?, email = ?, gender = ? WHERE id = ?";
+    $stmt = $this->conn->prepare($query);
+    $stmt->bind_param("sssssi", $newFirstName, $newLastName, $newUsername, $newEmail, $newGender, $userId);
+    return $stmt->execute();
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// public function updatePassword($userId, $newPasswordHash) {
+//     $query = "UPDATE users SET password = ? WHERE id = ?";
+//     $stmt = $this->conn->prepare($query);
+//     $stmt->bind_param("si", $newPasswordHash, $userId);
+//     return $stmt->execute();
+// }
+
+
 
 
 

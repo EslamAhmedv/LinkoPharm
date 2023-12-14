@@ -9,6 +9,9 @@
 </style>
 </head>
 <body>
+<?php
+  include('../partials/navbar.php');
+  ?>
     <div class="responsive-container-block bigContainer">
   <div class="responsive-container-block Container bottomContainer">
     <div class="ultimateImg">

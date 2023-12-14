@@ -13,6 +13,30 @@ require_once("../controllers/UserController.php");
 $userController = new UserController();
 $userId = $_SESSION['auth_user']['user_id'];
 
+// Check if the form for saving profile is submitted
+if (isset($_POST['saveProfile'])) {
+    // Retrieve updated profile information from the form
+    $firstname = $_POST['firstname'];
+    $lastname = $_POST['lastname'];
+    // Add other fields as needed
+
+    // Call the controller function to update the profile
+    $result = $userController->updateUserInfo($userId, $firstname, $lastname,$newUsername, $newEmail, $newGender);
+    echo $result; // Output the result (success or error message)
+}
+
+// Check if the form for saving password is submitted
+if (isset($_POST['savePassword'])) {
+    // Retrieve password-related information from the form
+    $currentPassword = $_POST['currentPassword'];
+    $newPassword = $_POST['newPassword'];
+    $confirmPassword = $_POST['confirmPassword'];
+
+    // Call the controller function to change the password
+    $result = $userController->changePassword($userId, $currentPassword, $newPassword, $confirmPassword);
+    echo $result; // Output the result (success or error message)
+}
+
 // Fetch user data
 $userData = $userController->getUserProfile($userId);
 
@@ -86,15 +110,37 @@ if ($userData) {
                 <div class="d-flex justify-content-between align-items-center mb-3">
                     <h4 class="text-right">Profile Settings</h4>
                 </div>
+                <?php
+
+if (isset($_GET['alert']) && isset($_GET['message'])) {
+    $alertType = $_GET['alert'];
+    $message = $_GET['message'];
+
+    echo '<div class="alert alert-' . $alertType . ' alert-dismissible fade show" role="alert">
+            ' . $message . '
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>';
+}
+
+
+?>
+
                 <div class="row mt-2">
-                    <div class="col-md-6"><label class="labels">First Name</label><input type="text" class="form-control" placeholder="first name" value="<?php echo $firstname; ?>"></div>
-                    <div class="col-md-6"><label class="labels">Last Name</label><input type="text" class="form-control" value="<?php echo $lastname; ?>" placeholder="surname"></div>
-                </div>
+                <form action="" method="POST">
+    <div class="col-md-6">
+        <label class="labels">First Name</label>
+        <input type="text" class="form-control" name="firstname" placeholder="First name" value="<?php echo $firstname; ?>">
+    </div>
+    <div class="col-md-6">
+        <label class="labels">Last Name</label>
+        <input type="text" class="form-control" name="lastname" placeholder="Last name" value="<?php echo $lastname; ?>">
+    </div>
+</div>
                 <div class="row mt-3">
                     <div class="col-md-12"><label class="labels">Mobile Number</label><input type="text" class="form-control" placeholder="enter phone number" value=""></div>
                     <div class="col-md-12"><label class="labels">Address Line 1</label><input type="text" class="form-control" placeholder="enter address line 1" value=""></div>
                   
-                    <div class="col-md-12"><label class="labels">Gender</label><input type="text" class="form-control" placeholder="enter address line 2" value="<?php echo $gender; ?>"></div>
+                    <div class="col-md-12"><label class="labels">Gender</label><input type="text" class="form-control" name="gender" placeholder="enter address line 2" value="<?php echo $gender; ?>"></div>
                     <div class="col-md-12"><label class="labels">Email ID</label><input type="text" class="form-control" placeholder="enter email id" value="<?php echo $email; ?>"></div>
                   
                 </div>
@@ -102,16 +148,33 @@ if ($userData) {
                     <div class="col-md-6"><label class="labels">Country</label><input type="text" class="form-control" placeholder="country" value=""></div>
                     <div class="col-md-6"><label class="labels">State/Region</label><input type="text" class="form-control" value="" placeholder="state"></div>
                 </div>
-                <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button">Save Profile</button></div>
+                <div class="mt-5 text-center">
+    <button class="btn btn-primary profile-button" type="submit" name="saveProfile">Save Profile</button>
+</div> </form>
             </div>
         </div>
         <div class="col-md-4">
             <div class="p-3 py-5">
                 <div class="d-flex justify-content-between align-items-center experience"><span>change password</span><span class="border px-3 p-1 add-experience"><i class="fa fa-plus"></i>&nbsp;Settings</span></div><br>
-                <div class="col-md-12"><label class="labels">Current Password</label><input type="text" class="form-control" placeholder="old password" value=""></div> <br>
-                <div class="col-md-12"><label class="labels">New Password</label><input type="text" class="form-control" placeholder="new password" value=""></div>
-                <div class="col-md-12"><label class="labels">Confirm Password</label><input type="text" class="form-control" placeholder="new password" value=""></div>
-                <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button">Save password</button></div>
+                <div class="col-md-12">
+                <form action="" method="POST">
+        <label class="labels">Current Password</label>
+        <input type="password" class="form-control" name="currentPassword" placeholder="Current password">
+    </div>
+    <div class="col-md-12">
+        <label class="labels">New Password</label>
+        <input type="password" class="form-control" name="newPassword" placeholder="New password">
+    </div>
+    <div class="col-md-12">
+        <label class="labels">Confirm Password</label>
+        <input type="password" class="form-control" name="confirmPassword" placeholder="Confirm password">
+    </div>
+  
+    <!-- Save Password Button -->
+    <div class="mt-5 text-center">
+        <button class="btn btn-primary profile-button" type="submit" name="savePassword">Save Password</button>
+    </div>
+    </form>
             </div>
         </div>
     </div>

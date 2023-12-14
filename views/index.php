@@ -1,3 +1,10 @@
+<?php
+require_once '../controllers/productscontroller.php';
+
+$productController = new ProductController();
+$products = $productController->getAllProducts();
+
+?>
 <!DOCTYPE html>
 <html>
 
@@ -85,100 +92,29 @@
     <h2 class="section__title">Latest Products</h2>
 
     <div class="container swiper">
-      <div class="slide-container">
-        <div class="card-wrapper swiper-wrapper">
-          <div class="card swiper-slide">
-            <div class="image-box">
-              <img src="../public/images/PNGs/pack.png" alt="" />
-            </div>
-            <div class="profile-details">
+   <div class="slide-container">
+     <div class="card-wrapper swiper-wrapper">
+       <?php foreach ($products as $product): ?>
+        <a href="prodDetails.php?id=<?php echo $product['id']; ?>" class="product-link">
+         <div class="card swiper-slide">
+           <div class="image-box">
+             <img src="<?php echo $product['image']; ?>" alt="" /></a>
+           </div>
+           <div class="profile-details">
+             <div class="name-job">
+               <h3 class="name"><?php echo $product['name']; ?></h3>
+               <h4 class="job"><?php echo $product['category']; ?></h4>
+             </div>
+           </div>
+         </div>
+       <?php endforeach; ?>
+     </div>
+   </div>
+   <div class="swiper-button-next swiper-navBtn"></div>
+   <div class="swiper-button-prev swiper-navBtn"></div>
+   <div class="swiper-pagination"></div>
+ </div>
 
-              <div class="name-job">
-                <h3 class="name">Jelace</h3>
-                <h4 class="job"> TOPICAL MUSCLE RELAXANTS</h4>
-              </div>
-            </div>
-          </div>
-          <div class="card swiper-slide">
-            <div class="image-box">
-              <img src="../public/images/PNGs/spray1.png" alt="" />
-            </div>
-            <div class="profile-details">
-
-              <div class="name-job">
-                <h3 class="name">Universal Spray</h3>
-                <h4 class="job"> TOPICAL MUSCLE RELAXANTS</h4>
-              </div>
-            </div>
-          </div>
-          <div class="card swiper-slide">
-            <div class="image-box">
-              <img src="../public/images/PNGs/Mohair Mockup(1).png" alt="" />
-            </div>
-            <div class="profile-details">
-
-              <div class="name-job">
-                <h3 class="name">Mohair</h3>
-                <h4 class="job"> hair care</h4>
-              </div>
-            </div>
-          </div>
-          <div class="card swiper-slide">
-            <div class="image-box">
-              <img src="../public/images/PNGs/Vulga cream.png" alt="" />
-            </div>
-            <div class="profile-details">
-
-              <div class="name-job">
-                <h3 class="name">Vulga</h3>
-                <h4 class="job"> skin care</h4>
-              </div>
-            </div>
-          </div>
-          <div class="card swiper-slide">
-            <div class="image-box">
-              <img src="../public/images/PNGs/Vindo Serum.png" alt="" />
-            </div>
-            <div class="profile-details">
-
-              <div class="name-job">
-                <h3 class="name">Vindo Serum</h3>
-                <h4 class="job"> hair care</h4>
-              </div>
-            </div>
-          </div>
-          <div class="card swiper-slide">
-            <div class="image-box">
-              <img src="../public/images/PNGs/Defanso soap.png" alt="" />
-            </div>
-            <div class="profile-details">
-
-              <div class="name-job">
-                <h3 class="name">Defanso soap</h3>
-                <h4 class="job"> skin care</h4>
-              </div>
-            </div>
-          </div>
-          <div class="card swiper-slide">
-            <div class="image-box">
-              <img src="../public/images/PNGs/Psyllose  mockup.png" alt="" />
-            </div>
-            <div class="profile-details">
-
-              <div class="name-job">
-                <h3 class="name">Psyllose</h3>
-                <h4 class="job"> nutrients</h4>
-              </div>
-            </div>
-          </div>
-          
-        </div>
-      </div>
-      <div class="swiper-button-next swiper-navBtn"></div>
-      <div class="swiper-button-prev swiper-navBtn"></div>
-      <div class="swiper-pagination"></div>
-    </div>
-  </div>
 
 
   <section class="section__container sale__container">
@@ -278,17 +214,20 @@
     <br>
     <br>
     <div class="containery">
-  <img src="../public/images/logo.png" alt="Avatar">
-  <p>Hello. How can we help you ?</p>
+   <img src="../public/images/logo.png" alt="Avatar">
+   <p>Hello. How can we help you ?</p>
 
 </div>
     <div class="containery darker">
-  <img src="../public/images/avatarr.png.jpg" alt="Avatar" class="right">
-  <p>Hey! I was asking about a product!</p>
+  <p>Hey! </p>
+  <p>I was asking about a product!</p>
+  
 
 </div>
     <br>
-    <a href="https:/wa.me/201066656123"  target="_blank" button  class="btn">Send </button> ></a>
+    <a href="https:/wa.me/201066656123"  target="_blank" button  class="btn">Send 
+      us via WP
+    </button> ></a>
     <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
   </form>
 </div>
