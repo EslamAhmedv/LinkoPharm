@@ -46,6 +46,12 @@ if (isset($_SESSION['auth_user'])) {
 
 
 
+if (isset($_GET['filterCategory']) && !empty($_GET['filterCategory'])) {
+    $filterCategory = $_GET['filterCategory'];
+    $products = $medicalModel->filterItems($filterCategory);
+} else {
+    $products = $medicalModel->getAllProducts();
+}
 
 
 
@@ -93,7 +99,7 @@ if (isset($_SESSION['auth_user'])) {
             <label for="filterCategory">Filter by Category:</label>
             <select name="filterCategory" id="filterCategory">
                 <option value="">All</option>
-                <option value="skin care">Skin Care</option>
+                <option value="skin care" <?php if (isset($_GET['filterCategory']) && $_GET['filterCategory'] == 'skin care') echo 'selected'; ?>>Skin Care</option>
                 <option value="hair care">Hair Care</option>
                 <option value="TOPICAL MUSCLE RELAXANTS ">Topical Muscle Relaxants</option>
             </select>

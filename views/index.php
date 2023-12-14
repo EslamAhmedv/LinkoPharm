@@ -124,12 +124,16 @@ $products = $productController->getAllProducts();
       <div class="sale__card">
         <img src="../public/images/skin care.jpg" alt="sale" />
         <div class="sale__content">
+
           <p class="sale__subtitle">SKIN CARE</p>
           <h4 class="sale__title">sale <span>50% </span>off </h4>
           <p class="sale__subtitle">Dont miss</p>
-          <button class="btnn sale__btnn">shop now </button>
+          <a href="products.php?filterCategory=skin care">
 
+            <button class="btnn sale__btnn">shop now </button>
+          </a>
         </div>
+
       </div>
 
 
@@ -140,7 +144,10 @@ $products = $productController->getAllProducts();
             HAIR CARE</p>
           <h4 class="sale__title">sale <span>40% </span>off </h4>
           <p class="sale__subtitle">Dont miss</p>
-          <button class="btnn sale__btnn">shop now </button>
+          <a href="products.php?filterCategory=<?php echo urlencode('hair care'); ?>">
+
+            <button class="btnn sale__btnn">shop now </button>
+          </a>
 
         </div>
       </div>
@@ -152,8 +159,10 @@ $products = $productController->getAllProducts();
           <p class="sale__subtitle">ORAL CARE</p>
           <h4 class="sale__title">sale <span>40% </span>off </h4>
           <p class="sale__subtitle">Dont miss</p>
-          <button class="btnn sale__btnn">shop now </button>
+          <a href="products.php?filterCategory=<?php echo urlencode('oral care'); ?>">
 
+            <button class="btnn sale__btnn">shop now </button>
+          </a>
         </div>
       </div>
 
@@ -163,8 +172,10 @@ $products = $productController->getAllProducts();
           <p class="sale__subtitle">Nutrients</p>
           <h4 class="sale__title">sale <span>40% </span>off </h4>
           <p class="sale__subtitle">Dont miss</p>
-          <button class="btnn sale__btnn">shop now </button>
+          <a href="products.php?filterCategory=<?php echo urlencode('nutrients'); ?>">
 
+            <button class="btnn sale__btnn">shop now </button>
+          </a>
         </div>
       </div>
 
@@ -177,8 +188,10 @@ $products = $productController->getAllProducts();
           <p class="sale__subtitle">TOPICAL MUSCLE RELAXANTS</p>
           <h4 class="sale__title">sale <span>40% </span>off </h4>
           <p class="sale__subtitle">Dont miss</p>
-          <button class="btnn sale__btnn">shop now </button>
+          <a href="products.php?filterCategory=<?php echo urlencode('TOPICAL MUSCLE RELAXANTS'); ?>">
 
+<button class="btnn sale__btnn">shop now </button>
+</a>
         </div>
       </div>
 
@@ -189,8 +202,10 @@ $products = $productController->getAllProducts();
           <p class="sale__subtitle">Feminine</p>
           <h4 class="sale__title">sale <span>40% </span>off </h4>
           <p class="sale__subtitle">Dont miss</p>
-          <button class="btnn sale__btnn">shop now </button>
+          <a href="products.php?filterCategory=<?php echo urlencode('Feminine'); ?>">
 
+<button class="btnn sale__btnn">shop now </button>
+</a>
         </div>
       </div>
 
@@ -204,16 +219,6 @@ $products = $productController->getAllProducts();
 
   <?php include('../partials/footer.php'); ?>
 
-<button class="whatsapp_float" onclick="openForm()"><i class="fa-brands fa-whatsapp whatsapp-icon"></i></button> 
-<div class="chat-popup" id="myForm">
-  <form action="/action_page.php" class="form-container">
-    <label for="msg"><b>Message</b></label>
-    <br>
-    <br>
-    <div class="containery">
-   <img src="../public/images/logo.png" alt="Avatar">
-   <p>Hello. How can we help you ?</p>
-
   <button class="whatsapp_float" onclick="openForm()"><i class="fa-brands fa-whatsapp whatsapp-icon"></i></button>
   <div class="chat-popup" id="myForm">
     <form action="/action_page.php" class="form-container">
@@ -224,30 +229,40 @@ $products = $productController->getAllProducts();
         <img src="../public/images/logo.png" alt="Avatar">
         <p>Hello. How can we help you ?</p>
 
-      </div>
-      <div class="containery darker">
-        <p>Hey! </p>
-        <p>I was asking about a product!</p>
+        <button class="whatsapp_float" onclick="openForm()"><i class="fa-brands fa-whatsapp whatsapp-icon"></i></button>
+        <div class="chat-popup" id="myForm">
+          <form action="/action_page.php" class="form-container">
+            <label for="msg"><b>Message</b></label>
+            <br>
+            <br>
+            <div class="containery">
+              <img src="../public/images/logo.png" alt="Avatar">
+              <p>Hello. How can we help you ?</p>
+
+            </div>
+            <div class="containery darker">
+              <p>Hey! </p>
+              <p>I was asking about a product!</p>
 
 
-      </div>
-      <br>
-      <a href="https:/wa.me/201066656123" target="_blank" button class="btn">Send
-        us via WP
-        </button> ></a>
-      <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-    </form>
-  </div>
+            </div>
+            <br>
+            <a href="https:/wa.me/201066656123" target="_blank" button class="btn">Send
+              us via WP
+              </button> ></a>
+            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+          </form>
+        </div>
 
-  <script>
-    function openForm() {
-      document.getElementById("myForm").style.display = "block";
-    }
+        <script>
+          function openForm() {
+            document.getElementById("myForm").style.display = "block";
+          }
 
-    function closeForm() {
-      document.getElementById("myForm").style.display = "none";
-    }
-  </script>
+          function closeForm() {
+            document.getElementById("myForm").style.display = "none";
+          }
+        </script>
 
 
 
