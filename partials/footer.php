@@ -18,7 +18,7 @@
   	 		<div class="footer-col">
   	 			<h4>company</h4>
   	 			<ul>
-  	 				<li><a href="#">about us</a></li>
+  	 				<li><a href="aboutus.php">about us</a></li>
   	 				<li><a href="#">our services</a></li>
   	 				<li><a href="#">privacy policy</a></li>
   	 				<li><a href="#">affiliate program</a></li>
@@ -46,10 +46,10 @@
   	 		<div class="footer-col">
   	 			<h4>follow us</h4>
   	 			<div class="social-links">
-  	 				<a href="#"><img src="../public/images/facebook.png"></i></a>
+  	 				<a href="https://web.facebook.com/linkopharm"><img src="../public/images/facebook.png"></i></a>
   	 				<a href="#"><img src="../public/images/twitter.png"></a>
   	 				<a href="#"><img src="../public/images/linkedd.png"></i></a>
-  	 				<a href="#"><img src="../public/images/instagram.webp"></i></a>
+  	 				<a href="https://www.instagram.com/linkopharm/"><img src="../public/images/instagram.webp"></i></a>
   	 			</div>
   	 		</div>
   	 	</div>

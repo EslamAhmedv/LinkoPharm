@@ -5,6 +5,7 @@ $productController = new ProductController();
 $products = $productController->getAllProducts();
 
 ?>
+
 <!DOCTYPE html>
 <html>
 
@@ -27,10 +28,8 @@ $products = $productController->getAllProducts();
 
 <body>
 
-<?php
+  <?php include('../partials/navbar.php'); ?>
 
-  include('../partials/navbar.php'); ?>
-</div>
   <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators">
       <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -92,28 +91,30 @@ $products = $productController->getAllProducts();
     <h2 class="section__title">Latest Products</h2>
 
     <div class="container swiper">
-   <div class="slide-container">
-     <div class="card-wrapper swiper-wrapper">
-       <?php foreach ($products as $product): ?>
-        <a href="prodDetails.php?id=<?php echo $product['id']; ?>" class="product-link">
-         <div class="card swiper-slide">
-           <div class="image-box">
-             <img src="<?php echo $product['image']; ?>" alt="" /></a>
-           </div>
-           <div class="profile-details">
-             <div class="name-job">
-               <h3 class="name"><?php echo $product['name']; ?></h3>
-               <h4 class="job"><?php echo $product['category']; ?></h4>
-             </div>
-           </div>
-         </div>
-       <?php endforeach; ?>
-     </div>
-   </div>
-   <div class="swiper-button-next swiper-navBtn"></div>
-   <div class="swiper-button-prev swiper-navBtn"></div>
-   <div class="swiper-pagination"></div>
- </div>
+      <div class="slide-container">
+        <div class="card-wrapper swiper-wrapper">
+          <?php foreach ($products as $product) : ?>
+            <a href="prodDetails.php?id=<?php echo $product['id']; ?>" class="product-link">
+              <div class="card swiper-slide">
+                <div class="image-box">
+                  <img src="<?php echo $product['image']; ?>" alt="" />
+            </a>
+        </div>
+        <div class="profile-details">
+          <div class="name-job">
+            <h3 class="name"><?php echo $product['name']; ?></h3>
+            <h4 class="job"><?php echo $product['category']; ?></h4>
+          </div>
+        </div>
+      </div>
+    <?php endforeach; ?>
+    </div>
+  </div>
+  <div class="swiper-button-next swiper-navBtn"></div>
+  <div class="swiper-button-prev swiper-navBtn"></div>
+  <div class="swiper-pagination"></div>
+  </div>
+  </div>
 
 
 
@@ -123,12 +124,16 @@ $products = $productController->getAllProducts();
       <div class="sale__card">
         <img src="../public/images/skin care.jpg" alt="sale" />
         <div class="sale__content">
+
           <p class="sale__subtitle">SKIN CARE</p>
           <h4 class="sale__title">sale <span>50% </span>off </h4>
           <p class="sale__subtitle">Dont miss</p>
-          <button class="btnn sale__btnn">shop now </button>
+          <a href="products.php?filterCategory=skin care">
 
+            <button class="btnn sale__btnn">shop now </button>
+          </a>
         </div>
+
       </div>
 
 
@@ -139,22 +144,27 @@ $products = $productController->getAllProducts();
             HAIR CARE</p>
           <h4 class="sale__title">sale <span>40% </span>off </h4>
           <p class="sale__subtitle">Dont miss</p>
-          <button class="btnn sale__btnn">shop now </button>
+          <a href="products.php?filterCategory=<?php echo urlencode('hair care'); ?>">
+
+            <button class="btnn sale__btnn">shop now </button>
+          </a>
 
         </div>
       </div>
 
 
       <div class="sale__card">
-      <img src="../public/images/oral.jpg" alt="sale" />
-      <div class="sale__content">
-        <p class="sale__subtitle">ORAL CARE</p>
-        <h4 class="sale__title">sale <span>40% </span>off </h4>
-        <p class="sale__subtitle">Dont miss</p>
-        <button class="btnn sale__btnn">shop now </button>
+        <img src="../public/images/oral.jpg" alt="sale" />
+        <div class="sale__content">
+          <p class="sale__subtitle">ORAL CARE</p>
+          <h4 class="sale__title">sale <span>40% </span>off </h4>
+          <p class="sale__subtitle">Dont miss</p>
+          <a href="products.php?filterCategory=<?php echo urlencode('oral care'); ?>">
 
+            <button class="btnn sale__btnn">shop now </button>
+          </a>
+        </div>
       </div>
-    </div>
 
       <div class="sale__card">
         <img src="../public/images/nutrients.jpg" alt="sale" />
@@ -162,8 +172,10 @@ $products = $productController->getAllProducts();
           <p class="sale__subtitle">Nutrients</p>
           <h4 class="sale__title">sale <span>40% </span>off </h4>
           <p class="sale__subtitle">Dont miss</p>
-          <button class="btnn sale__btnn">shop now </button>
+          <a href="products.php?filterCategory=<?php echo urlencode('nutrients'); ?>">
 
+            <button class="btnn sale__btnn">shop now </button>
+          </a>
         </div>
       </div>
 
@@ -176,8 +188,10 @@ $products = $productController->getAllProducts();
           <p class="sale__subtitle">TOPICAL MUSCLE RELAXANTS</p>
           <h4 class="sale__title">sale <span>40% </span>off </h4>
           <p class="sale__subtitle">Dont miss</p>
-          <button class="btnn sale__btnn">shop now </button>
+          <a href="products.php?filterCategory=<?php echo urlencode('TOPICAL MUSCLE RELAXANTS'); ?>">
 
+<button class="btnn sale__btnn">shop now </button>
+</a>
         </div>
       </div>
 
@@ -188,8 +202,10 @@ $products = $productController->getAllProducts();
           <p class="sale__subtitle">Feminine</p>
           <h4 class="sale__title">sale <span>40% </span>off </h4>
           <p class="sale__subtitle">Dont miss</p>
-          <button class="btnn sale__btnn">shop now </button>
+          <a href="products.php?filterCategory=<?php echo urlencode('Feminine'); ?>">
 
+<button class="btnn sale__btnn">shop now </button>
+</a>
         </div>
       </div>
 
@@ -201,46 +217,52 @@ $products = $productController->getAllProducts();
 
 
 
-  <?php
-  include('../partials/footer.php');
-  // include('../partials/chat.php'); 
-  ?>
-  
+  <?php include('../partials/footer.php'); ?>
 
-<button class="whatsapp_float" onclick="openForm()"><i class="fa-brands fa-whatsapp whatsapp-icon"></i></button> 
-<div class="chat-popup" id="myForm">
-  <form action="/action_page.php" class="form-container">
-    <label for="msg"><b>Message</b></label>
-    <br>
-    <br>
-    <div class="containery">
-   <img src="../public/images/logo.png" alt="Avatar">
-   <p>Hello. How can we help you ?</p>
+  <button class="whatsapp_float" onclick="openForm()"><i class="fa-brands fa-whatsapp whatsapp-icon"></i></button>
+  <div class="chat-popup" id="myForm">
+    <form action="/action_page.php" class="form-container">
+      <label for="msg"><b>Message</b></label>
+      <br>
+      <br>
+      <div class="containery">
+        <img src="../public/images/logo.png" alt="Avatar">
+        <p>Hello. How can we help you ?</p>
 
-</div>
-    <div class="containery darker">
-  <p>Hey! </p>
-  <p>I was asking about a product!</p>
-  
+        <button class="whatsapp_float" onclick="openForm()"><i class="fa-brands fa-whatsapp whatsapp-icon"></i></button>
+        <div class="chat-popup" id="myForm">
+          <form action="/action_page.php" class="form-container">
+            <label for="msg"><b>Message</b></label>
+            <br>
+            <br>
+            <div class="containery">
+              <img src="../public/images/logo.png" alt="Avatar">
+              <p>Hello. How can we help you ?</p>
 
-</div>
-    <br>
-    <a href="https:/wa.me/201066656123"  target="_blank" button  class="btn">Send 
-      us via WP
-    </button> ></a>
-    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-  </form>
-</div>
+            </div>
+            <div class="containery darker">
+              <p>Hey! </p>
+              <p>I was asking about a product!</p>
 
-<script>
-function openForm() {
-  document.getElementById("myForm").style.display = "block";
-}
 
-function closeForm() {
-  document.getElementById("myForm").style.display = "none";
-}
-</script>
+            </div>
+            <br>
+            <a href="https:/wa.me/201066656123" target="_blank" button class="btn">Send
+              us via WP
+              </button> ></a>
+            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+          </form>
+        </div>
+
+        <script>
+          function openForm() {
+            document.getElementById("myForm").style.display = "block";
+          }
+
+          function closeForm() {
+            document.getElementById("myForm").style.display = "none";
+          }
+        </script>
 
 
 
