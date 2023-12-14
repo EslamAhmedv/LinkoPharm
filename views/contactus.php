@@ -7,6 +7,7 @@
 </head>
 <body>
       
+
 <?php
 include('../partials/navbar.php'); ?>
     <div class="contactus">
