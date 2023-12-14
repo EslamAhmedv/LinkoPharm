@@ -84,9 +84,8 @@ if (isset($_SESSION['auth_user'])) {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"></script>
 
 </head>
-
+<body>
 <?php include('../partials/navbar.php'); ?>
-
 <section class="section-products">
     <div class="container">
         <!-- Filter Form -->
@@ -114,11 +113,12 @@ if (isset($_SESSION['auth_user'])) {
                         <div class="part-1">
                             <a href="prodDetails.php?id=<?php echo $product['id']; ?>" class="product-link">
                                 <img src="<?php echo htmlspecialchars($product['image']); ?>" alt="Product Image">
+                                </a>
+
                                 <ul>
                                     <li><button type="submit" name="SubmitButton"><i class="fas fa-shopping-cart"></i></button></li>
                                     <li><a href="#"><i class="fas fa-heart"></i></a></li>
                                 </ul>
-                            </a>
                         </div>
                         <div class="part-2">
                             <h3 class="product-title"><?php echo htmlspecialchars($product['name']); ?></h3>
