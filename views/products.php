@@ -85,67 +85,55 @@ if (isset($_SESSION['auth_user'])) {
 
 </head>
 
-<body>
-    <?php include('../partials/navbar.php'); ?>
+<?php include('../partials/navbar.php'); ?>
 
-    <section class="section-products">
-        <div class="container">
-            <!-- Filter Form -->
-            <form method="GET" class="filter-form">
-                <label for="filterCategory">Filter by Category:</label>
-                <select name="filterCategory" id="filterCategory">
-                    <option value="">All</option>
-                    <option value="skin care">Skin Care</option>
-                    <option value="hair care">Hair Care</option>
-                    <option value="TOPICAL MUSCLE RELAXANTS ">Topical Muscle Relaxants</option>
+<section class="section-products">
+    <div class="container">
+        <!-- Filter Form -->
+        <form method="GET" class="filter-form">
+            <label for="filterCategory">Filter by Category:</label>
+            <select name="filterCategory" id="filterCategory">
+                <option value="">All</option>
+                <option value="skin care">Skin Care</option>
+                <option value="hair care">Hair Care</option>
+                <option value="TOPICAL MUSCLE RELAXANTS ">Topical Muscle Relaxants</option>
+            </select>
+            <button type="submit" name="filterButton">Apply Filter</button>
+        </form>
 
-                </select>
-                <button type="submit" name="filterButton">Apply Filter</button>
+        <?php
+        if (isset($errorMessage)) {
+            echo $errorMessage;
+        }
+        ?>
 
-            </form>
-            <?php
-            if (isset($successMessage)) {
-                echo $successMessage;
-            }
-            ?>
-            <section class="section-products">
-                <div class="container">
-                    <div class="row justify-content-center text-center">
-                        <div class="col-md-8 col-lg-6">
-                            <div class="header2">
-                                <h2>Featured Products</h2>
-                            </div>
+        <div class="row">
+            <?php foreach ($products as $product) : ?>
+                <div class="col-md-6 col-lg-4 col-xl-3">
+                    <form action="" method="POST" class="single-product">
+                        <div class="part-1">
+                            <a href="prodDetails.php?id=<?php echo $product['id']; ?>" class="product-link">
+                                <img src="<?php echo htmlspecialchars($product['image']); ?>" alt="Product Image">
+                                <ul>
+                                    <li><button type="submit" name="SubmitButton"><i class="fas fa-shopping-cart"></i></button></li>
+                                    <li><a href="#"><i class="fas fa-heart"></i></a></li>
+                                </ul>
+                            </a>
                         </div>
-                    </div>
-                    <div class="row">
-                        <?php foreach ($products as $product) : ?>
-                            <div class="col-md-6 col-lg-4 col-xl-3">
-
-                                <form action="" method="POST" class="single-product">
-                                    <div class="part-1">
-                                        <a href="prodDetails.php?id=<?php echo $product['id']; ?>" class="product-link">
-
-                                            <img src="<?php echo htmlspecialchars($product['image']); ?>" alt="Product Image">
-                                            <ul>
-                                                <li><button type="submit" name="SubmitButton"><i class="fas fa-shopping-cart"></i></button></li>
-                                                <li><button type="submit" name="Submitwish"><i class="fas fa-heart"></i></button></li>
-                                            </ul>
-                                    </div>
-                                    <div class="part-2">
-                                        <h3 class="product-title"><?php echo htmlspecialchars($product['name']); ?></h3>
-                                        <h4 class="product-price"><?php echo htmlspecialchars($product['price']); ?></h4>
-                                    </div>
-                                    <input type="hidden" name="image" value="<?php echo htmlspecialchars($product['image']); ?>">
-                                    <input type="hidden" name="name" value="<?php echo htmlspecialchars($product['name']); ?>">
-                                    <input type="hidden" name="price" value="<?php echo htmlspecialchars($product['price']); ?>">
-                                    <input type="hidden" name="quantity" value="1">
-                                </form>
-                            </div>
-                        <?php endforeach; ?>
-                    </div>
+                        <div class="part-2">
+                            <h3 class="product-title"><?php echo htmlspecialchars($product['name']); ?></h3>
+                            <h4 class="product-price"><?php echo htmlspecialchars($product['price']); ?></h4>
+                        </div>
+                        <input type="hidden" name="image" value="<?php echo htmlspecialchars($product['image']); ?>">
+                        <input type="hidden" name="name" value="<?php echo htmlspecialchars($product['name']); ?>">
+                        <input type="hidden" name="price" value="<?php echo htmlspecialchars($product['price']); ?>">
+                        <input type="hidden" name="quantity" value="1">
+                    </form>
                 </div>
-            </section>
-            <?php  ?>
+            <?php endforeach; ?>
+        </div>
+    </div>
+</section>
 
 </body>
 
