@@ -217,6 +217,17 @@ $products = $productController->getAllProducts();
 
 
 
+
+
+
+
+
+
+
+
+
+
+  
   <?php include('../partials/footer.php'); ?>
 
   <button class="whatsapp_float" onclick="openForm()"><i class="fa-brands fa-whatsapp whatsapp-icon"></i></button>
@@ -229,17 +240,6 @@ $products = $productController->getAllProducts();
         <img src="../public/images/logo.png" alt="Avatar">
         <p>Hello. How can we help you ?</p>
 
-        <button class="whatsapp_float" onclick="openForm()"><i class="fa-brands fa-whatsapp whatsapp-icon"></i></button>
-        <div class="chat-popup" id="myForm">
-          <form action="/action_page.php" class="form-container">
-            <label for="msg"><b>Message</b></label>
-            <br>
-            <br>
-            <div class="containery">
-              <img src="../public/images/logo.png" alt="Avatar">
-              <p>Hello. How can we help you ?</p>
-
-            </div>
             <div class="containery darker">
               <p>Hey! </p>
               <p>I was asking about a product!</p>
