@@ -95,9 +95,10 @@ include('../partials/navbar.php'); ?>
 
 	<input type="password" name="password" id="inputpass" placeholder="Enter Password">
 	<div id='password' class='err'></div>
-	
+	<p><a href="forgetpass.php">Forget Password?</a></p>
 	<button type="submit" class="registerbtn" value="signup" name="log">Login</button>
 </form>
+
 
 
 <p>don"t have an account? <a href="signup.php">Signup</a></p>
