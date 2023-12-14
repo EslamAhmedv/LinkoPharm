@@ -7,6 +7,7 @@ error_reporting(E_ALL);
 require_once '../controllers/CartController.php';
 require_once '../controllers/OrdersController.php'; 
 require_once '../controllers/UserController.php'; 
+// include('../controllers/api.php');
 
 
 $cartController = new CartController();
@@ -78,72 +79,84 @@ $cart = $cartController->getCartProducts($user_id) ?? [];
 
 $Fname = $Lname = $Phone = $Address = $City = $NameCard = $CardNo = $ExDate = $CVC = "";
 $FnameErr  = $LnameErr = $PhoneErr = $AddressErr = $CityErr = $NameCardErr = $CardNoErr = $ExDateErr = $CVCErr = "";
-$Error = false;
+$Error=false;
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   // checks if cart empty or not if empty will display alert 
 
   if (!empty($cart)) {
-    if (empty($_POST["Fname"])) {
+    if (empty($_POST["Fname"]) || gettype($_POST["Fname"])!="string") {
       $FnameErr = "*First Name is required";
-      $Error = true;
+      $Error=true;
     } else {
-      $Fname = $_POST["Fname"];
+      $Fname = str_replace(' ', '', $_POST["Fname"]);
     }
 
-    if (empty($_POST["Lname"])) {
+    if (empty($_POST["Lname"]) || gettype($_POST["Lname"])!="string") {
       $LnameErr = "*Last Name is required";
-      $Error = true;
+      $Error=true;
     } else {
-      $Lname = $_POST["Lname"];
+      $Lname = str_replace(' ', '', $_POST["Lname"]);
     }
-
+    
+    $num_length = strlen((string)$_POST["Phone"]);
     if (empty($_POST["Phone"])) {
       $PhoneErr = "*Phone Number is required";
-      $Error = true;
+      $Error=true;
+    } elseif ($num_length != 11) {
+      $PhoneErr = "*The phone number must be eleven digits";
+      $Error=true;
     } else {
       $Phone = $_POST["Phone"];
     }
 
     if (empty($_POST["Address"])) {
       $AddressErr = "*Address is required";
-      $Error = true;
+      $Error=true;
     } else {
       $Address = $_POST["Address"];
     }
 
     if (empty($_POST["City"])) {
       $CityErr = "*City is required";
-      $Error = true;
+      $Error=true;
     } else {
       $City = $_POST["City"];
     }
 
     if (empty($_POST["NameCard"])) {
       $NameCardErr = "*Name on card is required";
-      $Error = true;
+      $Error=true;
     } else {
       $NameCard = $_POST["NameCard"];
     }
 
+    $num_length = strlen((string)$_POST["CardNo"]);
     if (empty($_POST["CardNo"])) {
       $CardNoErr = "*Card number is required";
-      $Error = true;
+      $Error=true;
+    } elseif ($num_length != 16) {
+      $CardNoErr = "*The card number must be sixteen digits";
+      $Error=true;
     } else {
       $CardNo = $_POST["CardNo"];
     }
 
     if (empty($_POST["ExDate"])) {
       $ExDateErr = "*Expiring Date is required";
-      $Error = true;
+      $Error=true;
     } else {
       $ExDate = $_POST["ExDate"];
     }
 
-    if (empty($_POST["CVC"])) {
+    $num_length = strlen((string)$_POST["CVC"]);
+    if (empty($_POST["Phone"])) {
       $CVCErr = "*CVC is required";
-      $Error = true;
+      $Error=true;
+    } elseif ($num_length != 3) {
+      $CVCErr = "*The CVC must be three numbers";
+      $Error=true;
     } else {
       $CVC = $_POST["CVC"];
     }
@@ -174,6 +187,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
       //checks if order added into DB
       if ($OrdersModel->addOrder($userid, $fullName, $Phone, $Address, $City, $orderDate, $status, $gross_total)) {
+
+        //Send a confirmation message to the customer’s number
+        // message($Phone,$fullName,$gross_total);
 
         // Redirect to the confirmation page
         header("Location:confirmationpage.php");
