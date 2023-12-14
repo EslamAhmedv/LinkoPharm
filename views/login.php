@@ -82,10 +82,10 @@ include('../partials/navbar.php'); ?>
 	<input type="email" id="inputmail" placeholder="Enter Email" name="email" required>
 	<div id='mail' class='err'></div>
 
-
+	
 	<input type="password" name="password" id="inputpass" placeholder="Enter Password">
 	<div id='password' class='err'></div>
-	
+	<p><a href="forgetpass.php">forgetpass?</a></p>
 	<button type="submit" class="registerbtn" value="signup" name="log">Login</button>
 </form>
 
