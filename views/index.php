@@ -208,25 +208,8 @@ $products = $productController->getAllProducts();
 </a>
         </div>
       </div>
-
-
-
     </div>
   </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   
   <?php include('../partials/footer.php'); ?>
 
@@ -239,12 +222,9 @@ $products = $productController->getAllProducts();
       <div class="containery">
         <img src="../public/images/logo.png" alt="Avatar">
         <p>Hello. How can we help you ?</p>
-
             <div class="containery darker">
               <p>Hey! </p>
               <p>I was asking about a product!</p>
-
-
             </div>
             <br>
             <a href="https:/wa.me/201066656123" target="_blank" button class="btn">Send

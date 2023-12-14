@@ -45,14 +45,16 @@
   	 		</div>
   	 		<div class="footer-col">
   	 			<h4>follow us</h4>
-  	 			<div class="social-links">
-  	 				<a href="https://web.facebook.com/linkopharm"><img src="../public/images/facebook.png"></i></a>
-  	 				<a href="#"><img src="../public/images/twitter.png"></a>
-  	 				<a href="#"><img src="../public/images/linkedd.png"></i></a>
-  	 				<a href="https://www.instagram.com/linkopharm/"><img src="../public/images/instagram.webp"></i></a>
-  	 			</div>
+				   <ul class="scin">
+                    <li><a href="#"><ion-icon name="logo-facebook"></ion-icon></a></li>
+                    <li><a href="#"><ion-icon name="logo-instagram"></ion-icon></a></li>
+                    <li><a href="#"><ion-icon name="logo-twitter"></ion-icon></a></li>
+                    <li><a href="#"><ion-icon name="logo-linkedin"></ion-icon></a></li>
+                </ul>
   	 		</div>
   	 	</div>
   	 </div>
   </footer>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
