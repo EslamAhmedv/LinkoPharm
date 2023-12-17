@@ -163,9 +163,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($Error != true) {
 
       // Set user ID in session and assign it to a variable
-      session_start();
-      $_SESSION['user_id'] = $user->getId();
-      $userid = $user->getId();
+      $user_id = $_SESSION['auth_user']['user_id'] ?? 0; 
 
       // determine the date
       $orderDate = date("Y/m/d");
@@ -186,7 +184,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $OrdersModel = new OrdersModel();
 
       //checks if order added into DB
-      if ($OrdersModel->addOrder($userid, $fullName, $Phone, $Address, $City, $orderDate, $status, $gross_total)) {
+      if ($OrdersModel->addOrder($user_id, $fullName, $Phone, $Address, $City, $orderDate, $status, $gross_total)) {
 
         //Send a confirmation message to the customer’s number
         // message($Phone,$fullName,$gross_total);

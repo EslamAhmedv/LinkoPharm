@@ -6,9 +6,8 @@ error_reporting(E_ALL);
 include('../controllers/orderscontroller.php');
 
 // Set user ID in session and assign it to a variable
-session_start();
-$_SESSION['user_id'] = $user->getId();
-$userid = $user->getId();
+$userid = $_SESSION['auth_user']['user_id'] ?? 0; 
+
 
 // create new order model
 $OrdersModel = new OrdersModel();
