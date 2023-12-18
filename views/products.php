@@ -123,7 +123,7 @@ if (isset($_SESSION['auth_user'])) {
 
                                 <ul>
                                     <li><button type="submit" name="SubmitButton"><i class="fas fa-shopping-cart"></i></button></li>
-                                    <li><a href="#"><i class="fas fa-heart"></i></a></li>
+                                    <li><button type="submit" name="Submitwish"><i class="fas fa-heart"></i></button></li>
                                 </ul>
                         </div>
                         <div class="part-2">
