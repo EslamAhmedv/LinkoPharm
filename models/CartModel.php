@@ -129,7 +129,7 @@ class CartModel extends Model {
             $insertCart = $this->conn->prepare("INSERT INTO wishlist (user_id, image, name, price) VALUES (?, ?, ?, ?)");
             $insertCart->bind_param("issi", $userId,$productImage, $productName, $productPrice);
             $insertCart->execute();
-            echo 'Product added to wishlist!';
+            return 'Product added to wishlist!';
         }
     
 

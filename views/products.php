@@ -66,9 +66,21 @@ if (isset($_SESSION['auth_user'])) {
         $product_image = $_POST['image'];
         $product_name = $_POST['name'];
         $product_price = $_POST['price'];
-        $cartController->addToWishlist($user_id, $product_image,  $product_name, $product_price);
+        $loginResult= $cartController->addToWishlist($user_id, $product_image,  $product_name, $product_price);
+        if ($loginResult ===  "Product added to wishlist!") {
+            $successMessage = '<div class="alert alert-success alert-dismissible fade show" role="alert">
+                Product added to wishlist successfully.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>';
+        } else {
+            $successMessage = '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+            Product already added to wishlist.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>';
+        }
     }
-}
+    }
+   
 ?>
 
 
