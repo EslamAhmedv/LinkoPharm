@@ -12,6 +12,7 @@ class CartController {
         $resultMessage = $this->cartModel->addToCart($userId, $productName, $productPrice, $productImage, $productQuantity);
         return $resultMessage;
     }
+    
     public function updateCartItemQuantity($cartItemId, $newQuantity) {
         return $this->cartModel->updateCartItemQuantity($newQuantity, $cartItemId);
     }
@@ -20,7 +21,7 @@ class CartController {
     public function upvdateCartItemQuantity() {
         if (isset($_POST['update_cart'])) {
             $updateQuantity = $_POST['quantity'];
-            $cartItemId = $_POST['id']; // Assuming you have a hidden input with name="cart_item_id"
+            $cartItemId = $_POST['id']; 
 
             $result = $this->cartModel->updateCartItemQuantity($updateQuantity, $cartItemId);
 

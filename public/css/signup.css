@@ -3,7 +3,7 @@ body {
   background-size: cover;
   background-blend-mode: darken;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  overflow: hidden;
+  overflow: auto;
 }
 
 
@@ -23,7 +23,8 @@ body {
   background-color: rgb(255, 255, 255);
   border-radius: 3px;
   opacity: 90%;
-  margin-top: 100px;
+  margin-top: 30px;
+  margin-bottom: 100px;
 }
 
 .macontainer h1 {

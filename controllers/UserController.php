@@ -10,37 +10,24 @@ class UserController {
 
     public function registerUser($firstname, $lastname, $username, $email, $gender, $password, $password2) {
        
-
-        // Validate firstname
         if (!preg_match('/^[a-zA-Z]+$/', $firstname)) {
             return "Please enter a valid firstname";
         }
-    
-        // Validate lastname
         if (!preg_match('/^[a-zA-Z]+$/', $lastname)) {
             return "Please enter a valid lastname";
         }
-    
-        // Validate username
         if (!preg_match('/^[a-zA-Z ]+$/', $username)) {
             return "Please enter a valid username";
         }
-    
-        // Validate email
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             return "Please enter a valid email";
         }
-    
-        // Validate password length
         if (strlen(trim($password)) < 4) {
             return "Password must be at least 4 chars long";
         }
-    
-    
         if ($password !== $password2) {
             return "Passwords do not match";
         }
-
         if ($this->userModel->checkUserExists($email)) {
             return "Email already exists";
         }
