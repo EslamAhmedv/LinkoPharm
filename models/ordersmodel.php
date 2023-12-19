@@ -14,19 +14,18 @@ class OrdersModel extends Model {
     }
 
     public function addOrder($userid, $username, $phone, $address, $city, $order_date, $status, $total_price) {
-        $query = "INSERT INTO `orders`(`userid`, `phone`, `address`, `city`, `order_date`, `status`, `total_price`, `user_name`) 
-        VALUES ('$userid','$phone','$address','$city','$order_date','$status','$total_price','$username')";
+        $query = "INSERT INTO `orders`(`userid`, `user_name`, `phone`, `address`, `city`, `order_date`, `status`, `total_price`) 
+        VALUES ('$userid','$username','$phone','$address','$city','$order_date','$status','$total_price')";
         $stmt = $this->conn->prepare($query);
         return $stmt->execute();
     }
     
     public function updateOrder($orderId, $customerName, $city, $orderDate, $status, $amount) {
-        $query = "UPDATE orders SET customer_name = ?, city = ?, order_date = ?, status = ?, amount = ? WHERE id = ?";
+        $query = "UPDATE orders SET user_name = ?, city = ?, order_date = ?, status = ?, total_price = ? WHERE id = ?";
         $stmt = $this->conn->prepare($query);
         $stmt->bind_param("sssssi", $customerName, $city, $orderDate, $status, $amount, $orderId);
         return $stmt->execute();
     }
-
 
     public function deleteOrder($orderId) {
         $query = "DELETE FROM orders WHERE id = ?";
@@ -34,6 +33,7 @@ class OrdersModel extends Model {
         $stmt->bind_param("i", $orderId);
         return $stmt->execute();
     }
+
     public function getOrderById($orderId) {
         $query = "SELECT * FROM orders WHERE id = ?";
         $stmt = $this->conn->prepare($query);
@@ -48,18 +48,9 @@ class OrdersModel extends Model {
         $result=mysqli_query($this->conn,$query);
         if ($row = mysqli_fetch_array($result)) {
             return $row;
-        }
-        else {
+        } else {
             return false;
         }  
     }
 }
 ?>
-
-
-
-
-
-
-
-
