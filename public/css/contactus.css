@@ -124,6 +124,9 @@ margin-bottom: 10px;
     cursor: pointer;
     padding: 14px 15px;
 }
+.inputbox input[type="submit"]:hover {
+    background-color: rgb(0, 208, 97);
+  }
 .inputbox ::placeholder
 {
     color: #999;
