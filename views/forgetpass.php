@@ -1,25 +1,80 @@
 <?php
-// Assuming you have a basic router implementation
-$uri = $_SERVER['REQUEST_URI'];
-$parts = explode('/', $uri);
+// Check if the form is submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Retrieve the email entered by the user
+    $email = $_POST["email"];
 
-$controllerName = ucfirst($parts[1]) . 'forgetpass';
-$action = $parts[2] ?? 'index';
+    // TODO: Validate the email (you can use filter_var function)
+    // Example validation:
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        // Handle invalid email format, perhaps show an error message
+        echo "Invalid email format";
+        exit();
+    }
 
-// Load the controller
-include '../controllers/forgetpass.php';
-$controller = new $ForgetPassController();
+    // TODO: Check if the email exists in your database
+    // Example check (replace with your database query):
+    $userExists = checkIfUserExists($email);
+    if (!$userExists) {
+        // Handle non-existent email, perhaps show an error message
+        echo "Email not found";
+        exit();
+    }
 
-// Call the action
-$controller->$action();
+    // TODO: Generate a unique token and save it in the database with the user's email
+    // Example token generation (use a secure method):
+    $token = bin2hex(random_bytes(16));
+
+    // Example database update (replace with your database query):
+    saveTokenInDatabase($email, $token);
+
+    // TODO: Send an email to the user with a link containing the token for password reset
+    // Example email sending (replace with your email sending code):
+    $resetLink = "https://LinkoPharm.com/reset_password.php?token=$token";
+    mail($email, "Password Reset", "Click the link to reset your password: $resetLink");
+
+    // For demonstration purposes, you can redirect to a success message
+    header("Location: forgot_password_success.php");
+    exit();
+}
+
+// Function to check if the user exists in the database
+function checkIfUserExists($email) {
+    $dbConnection = mysqli_connect("localhost", "root", "", "linkopharm");
+
+    if (!$dbConnection) {
+        die("Connection failed: " . mysqli_connect_error());
+    }
+
+    $email = mysqli_real_escape_string($dbConnection, $email);
+
+    $query = "SELECT * FROM users WHERE email = '$email'";
+    $result = mysqli_query($dbConnection, $query);
+
+    mysqli_close($dbConnection);
+
+    return mysqli_num_rows($result) > 0;
+}
+
+// Function to save the token in the database
+function saveTokenInDatabase($email, $token) {
+       // Replace this with your database query to save the token
+    // Example: 
+    $dbConnection = mysqli_connect("localhost", "root", "", "linkopharm");
+
+    if (!$dbConnection) {
+        die("Connection failed: " . mysqli_connect_error());
+    }
+
+    $email = mysqli_real_escape_string($dbConnection, $email);
+    $token = mysqli_real_escape_string($dbConnection, $token);
+
+    $query = "UPDATE users SET reset_token = '$token' WHERE email = '$email'";
+    mysqli_query($dbConnection, $query);
+
+    mysqli_close($dbConnection);
+}
 ?>
-
-
-
-
-
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -36,7 +91,8 @@ $controller->$action();
         <div class="form">
             <h1>Forgot Password?</h1>
             <h4>Enter your email address...</h4>
-            <form method="post" action="../controllers/forgetpass.php">
+        
+            <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
                 <label>
                     <i class="uil uil-envelope"></i>
                     <span>Email:</span>
@@ -45,6 +101,8 @@ $controller->$action();
                 </label>
                 <button type="submit" class="submit">Continue</button>
             </form>
+
+          
         </div>
     </div>
 </body>

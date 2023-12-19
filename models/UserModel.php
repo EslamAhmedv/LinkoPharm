@@ -20,7 +20,22 @@ class UserModel extends Model {
         return $result->num_rows > 0;
     }
 
+    public function updatePasswordResetToken($email, $token) {
+        $email = $this->db->real_escape_string($email);
+        $token = $this->db->real_escape_string($token);
 
+        // Assuming your users table has columns 'email' and 'reset_token'
+        $query = "UPDATE users SET reset_token = '$token' WHERE email = '$email'";
+
+        if ($this->db->query($query)) {
+            // Update successful
+            return true;
+        } else {
+            // Update failed
+            echo "Error updating record: " . $this->db->error;
+            return false;
+        }
+    }
 
 
 
