@@ -16,6 +16,8 @@ class OrdersController {
         return $this->ordersModel->addOrder($userid, $username, $phone, $address, $city, $order_date, $status, $total_price);
     }
 
+    
+    
     public function updateOrder($orderId, $customerName, $city, $orderDate, $status, $amount) {
         return $this->ordersModel->updateOrder($orderId, $customerName, $city, $orderDate, $status, $amount);
     }

@@ -1,17 +1,20 @@
 <?php
 require_once '../controllers/orderscontroller.php';
 
-$orderAdded = false; 
+$orderAdded = false;
 $ordersController = new OrdersController();
 
 if (isset($_POST['submit'])) {
-    $customerName = $_POST['customer_name'];
+    $userid = $_POST['userid'];
+    $username = $_POST['user_name'];
+    $phone = $_POST['phone'];
+    $address = $_POST['address'];
     $city = $_POST['city'];
-    $orderDate = $_POST['order_date'];
+    $order_date = $_POST['order_date'];
     $status = $_POST['status'];
-    $totalAmount = $_POST['total_amount'];
+    $total_price = $_POST['total_price'];
 
-    $orderAdded = $ordersController->addOrder($customerName, $city, $orderDate, $status, $totalAmount);
+    $orderAdded = $ordersController->addOrder($userid, $username, $phone, $address, $city, $order_date, $status, $total_price);
 }
 ?>
 
@@ -44,10 +47,28 @@ if (isset($_POST['submit'])) {
             <div class="addprod">
                 <form action="addorder.php" class="form" method="POST">
                     <h2 class="title">Add an Order</h2>
-                    <div class="product-container" style="display: block;">
+                    <div class="product-container">
                         <div class="input">
-                            <label for="customer_name">Customer Name</label>
-                            <div><input type="text" id="customer_name" placeholder="Customer name" name="customer_name" required></div>
+                            <label for="userid">User ID</label>
+                            <div><input type="text" id="userid" placeholder="User ID" name="userid" required></div>
+                            <span class="errormsg"></span>
+                        </div>
+
+                        <div class="input">
+                            <label for="user_name">Customer Name</label>
+                            <div><input type="text" id="user_name" placeholder="Customer name" name="user_name" required></div>
+                            <span class="errormsg"></span>
+                        </div>
+
+                        <div class="input">
+                            <label for="phone">Phone</label>
+                            <div><input type="text" id="phone" placeholder="Phone" name="phone" required></div>
+                            <span class="errormsg"></span>
+                        </div>
+
+                        <div class="input">
+                            <label for="address">Address</label>
+                            <div><input type="text" id="address" placeholder="Address" name="address" required></div>
                             <span class="errormsg"></span>
                         </div>
 
@@ -59,9 +80,10 @@ if (isset($_POST['submit'])) {
 
                         <div class="input">
                             <label for="order_date">Order Date</label>
-                            <div><input type="text" id="order_date" placeholder="Order Date" name="order_date" required></div>
+                            <div><input type="date" id="order_date" name="order_date" required></div>
                             <span class="errormsg"></span>
                         </div>
+
 
                         <div class="input">
                             <label for="status">Status</label>
@@ -70,19 +92,22 @@ if (isset($_POST['submit'])) {
                         </div>
 
                         <div class="input">
-                            <label for="total_amount">Total Amount</label>
-                            <div><input type="text" id="total_amount" placeholder="Total Amount" name="total_amount" required></div>
+                            <label for="total_price">Total Amount</label>
+                            <div><input type="text" id="total_price" placeholder="Total Amount" name="total_price" required></div>
                             <span class="errormsg"></span>
                         </div>
 
-                        <button type="submit" name="submit" id="add">Add</button><span>
-                            <a href="addorder.php"><button id="cancel">Cancel</button></a></span>
+                        <button type="submit" name="submit" id="add">Add</button>
+                        <span>
+                            <a href="addorder.php"><button id="cancel">Cancel</button></a>
+                        </span>
                     </div>
                 </form>
+
             </div>
         </main>
 
-        <div id="successPopup" style="display: none; position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background-color: green; color: white; padding: 20px; border-radius: 5px; font-size: 1.2em; z-index: 1000;">
+        <div id="successPopup" class="success-popup" style="display: none;">
             Order added successfully!
         </div>
 
