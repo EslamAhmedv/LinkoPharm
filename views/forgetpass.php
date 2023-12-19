@@ -31,15 +31,38 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Example database update (replace with your database query):
     saveTokenInDatabase($email, $token);
+    $mail = new PHPMailer(true);
 
-    // TODO: Send an email to the user with a link containing the token for password reset
-    // Example email sending (replace with your email sending code):
-    $resetLink = "https://LinkoPharm.com/reset_password.php?token=$token";
-    mail($email, "Password Reset", "Click the link to reset your password: $resetLink");
-
-    // For demonstration purposes, you can redirect to a success message
-    header("Location: forgot_password_success.php");
-    exit();
+    try {
+        //Server settings
+        $mail->isSMTP();
+        $mail->Host       = 'smtp.example.com'; // Replace with your SMTP server
+        $mail->SMTPAuth   = true;
+        $mail->Username   = 'your-email@example.com'; // Replace with your email
+        $mail->Password   = 'your-email-password'; // Replace with your email password
+        $mail->SMTPSecure = 'tls';
+        $mail->Port       = 587;
+    
+        //Sender and recipient settings
+        $mail->setFrom('your-email@example.com', 'Your Name');
+        $mail->addAddress($email); // User's email
+        $mail->addReplyTo('your-email@example.com', 'Your Name');
+    
+        //Content
+        $mail->isHTML(true);
+        $mail->Subject = 'Password Reset';
+        $mail->Body    = "Click the link to reset your password: $resetLink";
+    
+        $mail->send();
+    
+        // For demonstration purposes, you can redirect to a success message
+        header("Location: forgot_password_success.php");
+        exit();
+    }
+    catch (Exception $e) {
+        // Handle email sending failure
+        echo "Email sending failed. Error: {$mail->ErrorInfo}";
+    }
 }
 
 // Function to check if the user exists in the database
