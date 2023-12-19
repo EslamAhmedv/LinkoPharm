@@ -9,8 +9,11 @@ class ForgetPassController {
                 // Generate a temporary token (you can use a more secure method)
                 $token = md5(uniqid(rand(), true));
 
-                // Save the token and email in the database for later verification
-                // Here, you might want to update the user's record with the token and set a timestamp
+                // Instantiate the model
+                $userModel = new UserModel();
+
+                // Update the database with the reset token
+                $userModel->updatePasswordResetToken($email, $token);
 
                 // Send an email with a link containing the token
                 $resetLink = "http://example.com/reset_password.php?token=$token";
@@ -29,7 +32,7 @@ class ForgetPassController {
         }
 
         // Load the view for the forgot password form
-        include 'views/forgot_password.php';
+        include 'views/forgot_password.php'; // Adjust the path accordingly
     }
 }
 ?>
