@@ -8,7 +8,6 @@ include('../controllers/orderscontroller.php');
 // Set user ID in session and assign it to a variable
 $userid = $_SESSION['auth_user']['user_id'] ?? 0; 
 
-
 // create new order model
 $OrdersModel = new OrdersModel();
 
@@ -34,9 +33,7 @@ if ($row=$OrdersModel->getOrder($userid)) {
 </head>
 <body>
 <div class="hero">
-  <?php
-  include('../partials/navbar.php');
-  ?>
+    <?php include('../partials/navbar.php'); ?>
     <center>
     <div class="container">
         <div class="Left">
@@ -48,6 +45,11 @@ if ($row=$OrdersModel->getOrder($userid)) {
             <a href="index.php">
             <button>
                 <span>Continue Shopping</span>
+            </button>
+            </a>
+            <a href="receipt.php">
+            <button class="B1">
+                <span>Receipt</span>
             </button>
             </a>
         </div>
