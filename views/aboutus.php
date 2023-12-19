@@ -33,8 +33,8 @@
       <p class="text-blk description">
       Linko Pharmaceuticals is a limited liability cosmoceutical company that was established in 2002 with its headquarters located in Cairo with the objective of providing high quality and innovative products to the Egyptian market.In 2011, after 9 years of operations, Linko Pharm has grown from a small local company to a market leader of approximately 500 employees.Our factory was established in year 2010 in Badr City. The plant has been constructed according to the broad outlines and principles of the GMP and GLP. We are a company that offers a diversified product range focused on cosmeceuticals and herbal drugs.
       </p>
-      <a href="contactus.php" class="explore">
-        Contact Us
+      <a href="https:/wa.me/201066656123" class="explore">
+        Contact with Us
       </a>
     </div>
   </div>
