@@ -6,23 +6,9 @@ require_once("../includes/Dbh.php");
 require_once '../controllers/productscontroller.php';
 
 $userController = new UserController(new UserModel());
+$menuModel = new MenuModel();
+$menuItems = $menuModel->fetchMenuItems();
 
-// if ($_SERVER["REQUEST_METHOD"] == "POST") {
-//     // Assuming you have form fields named 'email' and 'password'
-//     $email = $_POST['email'];
-//     $password = $_POST['password'];
-
-//     $loginResult = $userController->userLogin($email, $password);
-
-//     if ($loginResult === true) {
-//         // Redirect to the dashboard or another page upon successful login
-//         header("Location: index.php");
-//         exit();
-//     } else {
-//         // Display the login error message using JavaScript
-//         echo "<script>alert('$loginResult');</script>";
-//     }
-// }
 
 
 if (isset($_GET['search'])) {
@@ -33,32 +19,17 @@ if (isset($_GET['search'])) {
 }
 
 
-
-
 $isUserLoggedIn = isset($_SESSION['authenticated']) && $_SESSION['authenticated'] === true;
-
-
-
-
-
-
-
-
-
-
 
 if (isset($_SESSION['auth_user'])) {
    require_once("../controllers/UserController.php");
 
    $userController = new UserController();
 
-   // Get the user ID from the session
    $userId = $_SESSION['auth_user']['user_id'];
 
-   // Get the user role using the getUserRole function
    $userRole = $userController->getUserRole($userId);
 
-   // Debugging output
    var_dump($userRole);
 
    if ($userRole !== null && $userRole == 1) {
@@ -67,19 +38,7 @@ if (isset($_SESSION['auth_user'])) {
    }
 }
 
-
-
-
-
 ?>
-
-
-
-
-
-
-
-
 
 
 <!DOCTYPE html>
@@ -96,193 +55,96 @@ if (isset($_SESSION['auth_user'])) {
 
 <body>
 
-   <?php if ($isUserLoggedIn) { ?>
 
 
 
 
-      <header class="headerm" id="header">
-         <nav class="nav container">
-            <img src="../public/images/logo.png" class="logom">
+   <header class="headerm" id="header">
+      <nav class="nav container">
+         <img src="../public/images/logo.png" class="logom">
 
 
-            <div class="nav__menu" id="nav-menu">
-               <ul class="nav__list">
-               <?php
-                    // Fetch the menu items using MenuModel
-                    $menuModel = new MenuModel();
-                    $menuItems = $menuModel->fetchMenuItems();
+         <div class="nav__menu" id="nav-menu">
+            <ul class="nav__list">
+               <?php foreach ($menuItems as $menuItem) {
 
-                    foreach ($menuItems as $menuItem) {
-                        echo '<li class="nav__item">';
-                        echo '<a href="' . $menuItem['url'] . '" class="nav__link">' . $menuItem['label'] . '</a>';
-                        echo '</li>';
-                    }
-                    ?>
-               </ul>
+                  if (!$isUserLoggedIn && in_array($menuItem['label'], ['Wishlist', 'Logout'])) {
+                     continue;
+                  }
+                  echo '<li class="nav__item">';
+                  echo '<a href="' . $menuItem['url'] . '" class="nav__link">' . $menuItem['label'] . '</a>';
+                  echo '</li>';
+               }
 
+               if (!$isUserLoggedIn) {
 
-               <div class="nav__close" id="nav-close">
-                  <i class="ri-close-line"></i>
-               </div>
-            </div>
-
-            <div class="nav__actions">
-               <a href="userprofile.php"> <i class="ri-user-line nav__login" id="login-btn"></i></a>
-
-               <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                  <i class="ri-search-line nav__search" id="search-btn"></i>
+                  echo '<li class="nav__item"><a href="login.php" class="nav__link">Login</a></li>';
+               }
+               ?>
+            </ul>
 
 
-                  <a href="checkout.php">
-                     <div class="fas fa-shopping-cart" id="cart-btn"></div>
-                  </a>
-
-                  <div class="nav__toggle" id="nav-toggle">
-                     <i class="ri-menu-line"></i>
-                  </div>
-
-            </div>
-         </nav>
-      </header>
-
-      <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-         <div class="modal-dialog">
-            <div class="modal-content">
-               <form method="get" action="search_backend.php" id="searchForm">
-                  <div class="modal-header">
-                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                     <input type="text" class="form-control" placeholder="search" name="search" id="searchInput">
-                     <div class="data-details" id="searchResults">
-                        <!-- Searched data will be displayed here -->
-                     </div>
-                  </div>
-                  <div class="modal-footer">
-                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                     <button type="button" class="btn btn-primary" id="searchButton">Search</button>
-                  </div>
-               </form>
+            <div class="nav__close" id="nav-close">
+               <i class="ri-close-line"></i>
             </div>
          </div>
-      </div>
 
+         <div class="nav__actions">
+            <a href="userprofile.php"><i class="ri-user-line nav__login" id="login-btn"></i></a>
+            <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+               <i class="ri-search-line nav__search" id="search-btn"></i>
+            </button>
 
-      <a href="cart.php">
-         <div class="fas fa-shopping-cart" id="cart-btn"></div>
-      </a>
+            <?php if ($isUserLoggedIn) : ?>
+               <a href="checkout.php">
+                  <div class="fas fa-shopping-cart" id="cart-btn"></div>
+               </a>
+            <?php endif; ?>
 
-      <div class="nav__toggle" id="nav-toggle">
-         <i class="ri-menu-line"></i>
-      </div>
-
-      </div>
+            <div class="nav__toggle" id="nav-toggle">
+               <i class="ri-menu-line"></i>
+            </div>
+         </div>
       </nav>
-      </header>
+   </header>
 
 
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-   <?php } else {  ?>
-      <header class="headerm" id="header">
-         <nav class="nav container">
-            <img src="../public/images/logo.png" class="logom">
-
-            <div class="nav__menu" id="nav-menu">
-               <ul class="nav__list">
-                  <li class="nav__item">
-                     <a href="index.php" class="nav__link">Home</a>
-                  </li>
-
-                  <li class="nav__item">
-                     <a href="products.php" class="nav__link">menu</a>
-                  </li>
-
-                  <!-- <li class="nav__item">
-                     <a href="wishlist.php" class="nav__link">wishlist</a>
-                  </li> -->
-
-                  <li class="nav__item">
-                     <a href="aboutus.php" class="nav__link">about</a>
-                  </li>
-
-                  <li class="nav__item">
-                     <a href="contactus.php" class="nav__link">Contact us</a>
-                  </li>
-               </ul>
-
-               <div class="nav__close" id="nav-close">
-                  <i class="i-close-line"></i>
+   <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog">
+         <div class="modal-content">
+            <form method="get" action="search_backend.php" id="searchForm">
+               <div class="modal-header">
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                </div>
-            </div>
-
-            <div class="nav__actions">
-
-               <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                  <i class="ri-search-line nav__search" id="search-btn"></i>
-
-               </button>
-
-               <a href="login.php"> <i class="ri-user-line nav__login" id="login-btn"></i></a>
-               <!-- <a href="checkout.php"><div class="fas fa-shopping-cart" id="cart-btn"></div></a> -->
-
-               <div class="nav__toggle" id="nav-toggle">
-                  <i class="ri-menu-line"></i>
+               <div class="modal-body">
+                  <input type="text" class="form-control" placeholder="search" name="search" id="searchInput">
+                  <div class="data-details" id="searchResults">
+                     <!-- Searched data will be displayed here -->
+                  </div>
                </div>
-
-            </div>
-         </nav>
-      </header>
-
-
-      <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-         <div class="modal-dialog">
-            <div class="modal-content">
-               <form method="get" action="search_backend.php" id="searchForm">
-                  <div class="modal-header">
-                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                     <input type="text" class="form-control" placeholder="search" name="search" id="searchInput">
-                     <div class="data-details" id="searchResults">
-                        <!-- Searched data will be displayed here -->
-                     </div>
-                  </div>
-                  <div class="modal-footer">
-                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                     <button type="button" class="btn btn-primary" id="searchButton">Search</button>
-                  </div>
-               </form>
-            </div>
+               <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary" id="searchButton">Search</button>
+               </div>
+            </form>
          </div>
       </div>
+   </div>
 
 
+   <a href="cart.php">
+      <div class="fas fa-shopping-cart" id="cart-btn"></div>
+   </a>
+
+   <div class="nav__toggle" id="nav-toggle">
+      <i class="ri-menu-line"></i>
+   </div>
+
+   </div>
+   </nav>
+   </header>
 
 
-   <?php  } ?>
 
    <!--=============== MAIN JS ===============-->
    <script>
@@ -353,3 +215,6 @@ if (isset($_SESSION['auth_user'])) {
          });
       });
    </script>
+</body>
+
+</html>
