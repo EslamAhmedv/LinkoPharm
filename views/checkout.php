@@ -6,6 +6,7 @@ error_reporting(E_ALL);
 
 require_once '../controllers/CartController.php';
 require_once '../controllers/OrdersController.php'; 
+require_once '../controllers/orderitemscntroller.php'; 
 require_once '../controllers/UserController.php'; 
 // include('../controllers/api.php');
 
@@ -180,11 +181,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       // Add taxes to total price
       $gross_total = $totalPrice + TaxCalculator($totalPrice);
 
-      // create new order model
-      $OrdersModel = new OrdersModel();
+
 
       //checks if order added into DB
-      if ($OrdersModel->addOrder($user_id, $fullName, $Phone, $Address, $City, $orderDate, $status, $gross_total)) {
+      if ($user_id != null) {
+
+        // create new order model
+        $OrdersModel = new OrdersModel();
+        $OrdersModel->addOrder($user_id, $fullName, $Phone, $Address, $City, $orderDate, $status, $gross_total);
+
+        $row=$OrdersModel->getOrder($user_id);
+        $orderid=$row["id"];
+
+        $orderitems=new OrdersItemsController();
+        foreach ($cartProducts as $item) {
+        $orderitems->addOrder($orderid,$item['name'],$item['price'],$item['quantity']);
+        }
 
         //Send a confirmation message to the customer’s number
         // message($Phone,$fullName,$gross_total);
@@ -219,6 +231,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       <div class="checkoutLayout">
         <!-- Cart Display Section -->
         <div class="returnCart">
+        <a class="keepShopping" href="../views/index.php">Keep shopping</a>
           <h1>List Products In Cart</h1>
           <div class="List">
     <?php foreach ($cartProducts as $row) : ?>
@@ -243,7 +256,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <?php endforeach; ?>
 </div>
 
-          <a class="keepShopping" href="../views/index.php">Keep shopping</a>
         </div>
 
 
@@ -360,3 +372,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </body>
 
 </html>
+
+
+
+
+
