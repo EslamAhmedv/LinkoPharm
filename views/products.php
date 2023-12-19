@@ -107,8 +107,8 @@ if (isset($_SESSION['auth_user'])) {
         </form>
 
         <?php
-        if (isset($errorMessage)) {
-            echo $errorMessage;
+        if (isset($successMessage)) {
+            echo $successMessage;
         }
         ?>
 
