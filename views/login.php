@@ -47,6 +47,8 @@ if (isset($_SESSION['auth_user'])) {
     }
 }
 
+
+
 ?>
 
 <!DOCTYPE html>
