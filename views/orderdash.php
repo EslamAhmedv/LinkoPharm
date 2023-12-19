@@ -4,14 +4,15 @@ $ordercontriller = new OrdersController();
 
 // Check if the 'deleteOrder' form was submitted
 if (isset($_POST['deleteOrder'])) {
-    $ordercontriller -> deleteOrder($_POST['orderId']);
+    $ordercontriller->deleteOrder($_POST['orderId']);
 }
 
-$orders = $ordercontriller -> getAllOrders();
+$orders = $ordercontriller->getAllOrders();
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -22,6 +23,7 @@ $orders = $ordercontriller -> getAllOrders();
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Orders</title>
 </head>
+
 <body>
     <div class="container">
         <aside>
@@ -59,11 +61,11 @@ $orders = $ordercontriller -> getAllOrders();
                         <?php foreach ($orders as $order) { ?>
                             <tr>
                                 <td><?php echo $order['id']; ?></td>
-                                <td><?php echo $order['customer_name']; ?></td>
+                                <td><?php echo $order['user_name']; ?></td>
                                 <td><?php echo $order['city']; ?></td>
                                 <td><?php echo $order['order_date']; ?></td>
                                 <td><?php echo $order['status']; ?></td>
-                                <td><?php echo 'EGP ' . $order['amount']; ?></td>
+                                <td><?php echo 'EGP ' . $order['total_price']; ?></td>
                                 <td>
                                     <a href="editorder.php?id=<?php echo $order['id']; ?>">
                                         <button class="btn edit-order"><i class="fa fa-edit"></i></button>
@@ -81,4 +83,5 @@ $orders = $ordercontriller -> getAllOrders();
         </main>
     </div>
 </body>
+
 </html>
