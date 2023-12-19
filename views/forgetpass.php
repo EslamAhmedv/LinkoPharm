@@ -31,11 +31,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Example database update (replace with your database query):
     saveTokenInDatabase($email, $token);
-    $mail = new PHPMailer(true);
+   // $mail = new PHPMailer(true);
 
     try {
         //Server settings
-        $mail->isSMTP();
+       /* $mail->isSMTP();
         $mail->Host       = 'smtp.example.com'; // Replace with your SMTP server
         $mail->SMTPAuth   = true;
         $mail->Username   = 'your-email@example.com'; // Replace with your email
@@ -53,7 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail->Subject = 'Password Reset';
         $mail->Body    = "Click the link to reset your password: $resetLink";
     
-        $mail->send();
+        $mail->send();*/
     
         // For demonstration purposes, you can redirect to a success message
         header("Location: forgot_password_success.php");
