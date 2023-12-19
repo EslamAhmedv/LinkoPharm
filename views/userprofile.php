@@ -23,7 +23,17 @@ if (isset($_POST['saveProfile'])) {
     $newGender = $_POST['gender'];     // Add this line
 
     $result = $userController->updateUserInfo($userId, $firstname, $lastname, $newUsername, $newEmail, $newGender);
-    echo $result; // Output the result (success or error message)
+    if ($result ===  "User information updated successfully") {
+        $successMessage = '<div class="alert alert-success alert-dismissible fade show" role="alert">
+            User information updated successfully.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>';
+    } else {
+        $successMessage = '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+        Failed to update user information.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>';
+    }
 }
 
 
@@ -126,6 +136,11 @@ if (isset($_GET['alert']) && isset($_GET['message'])) {
 
 ?>
 
+<?php
+        if (isset($successMessage)) {
+            echo $successMessage;
+        }
+        ?>
                 <div class="row mt-2">
                 <form action="" method="POST">
     <div class="col-md-6">
