@@ -1,5 +1,9 @@
 <?php
-// Check if the form is submitted
+//require 'vendor/autoload.php'; // Include the PHPMailer autoloader
+
+//use PHPMailer\PHPMailer\PHPMailer;
+//use PHPMailer\PHPMailer\Exception;
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Retrieve the email entered by the user
     $email = $_POST["email"];
