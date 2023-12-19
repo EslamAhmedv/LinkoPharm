@@ -18,12 +18,14 @@ if (isset($_POST['saveProfile'])) {
     // Retrieve updated profile information from the form
     $firstname = $_POST['firstname'];
     $lastname = $_POST['lastname'];
-    // Add other fields as needed
+    $newUsername = $_POST['username']; // Add this line
+    $newEmail = $_POST['email'];       // Add this line
+    $newGender = $_POST['gender'];     // Add this line
 
-    // Call the controller function to update the profile
-    $result = $userController->updateUserInfo($userId, $firstname, $lastname,$newUsername, $newEmail, $newGender);
+    $result = $userController->updateUserInfo($userId, $firstname, $lastname, $newUsername, $newEmail, $newGender);
     echo $result; // Output the result (success or error message)
 }
+
 
 // Check if the form for saving password is submitted
 if (isset($_POST['savePassword'])) {
@@ -47,7 +49,6 @@ if ($userData) {
     $username = $userData['username'];
     $email = $userData['email'];
     $gender = $userData['gender'];
-    // Add other fields as needed
 } else {
     // Handle case where user data is not found
     echo "User not found.";
@@ -137,11 +138,12 @@ if (isset($_GET['alert']) && isset($_GET['message'])) {
     </div>
 </div>
                 <div class="row mt-3">
+                <div class="col-md-12"><label class="labels">username</label><input type="text" class="form-control" name="username" placeholder="enter username" value="<?php echo $username; ?>"></div>
                     <div class="col-md-12"><label class="labels">Mobile Number</label><input type="text" class="form-control" placeholder="enter phone number" value=""></div>
                     <div class="col-md-12"><label class="labels">Address Line 1</label><input type="text" class="form-control" placeholder="enter address line 1" value=""></div>
                   
-                    <div class="col-md-12"><label class="labels">Gender</label><input type="text" class="form-control" name="gender" placeholder="enter address line 2" value="<?php echo $gender; ?>"></div>
-                    <div class="col-md-12"><label class="labels">Email ID</label><input type="text" class="form-control" placeholder="enter email id" value="<?php echo $email; ?>"></div>
+                    <div class="col-md-12"><label class="labels">Gender</label><input type="text" class="form-control" name="gender" placeholder="enter gender" value="<?php echo $gender; ?>"></div>
+                    <div class="col-md-12"><label class="labels">Email ID</label><input type="text" class="form-control" name="email" placeholder="enter email id" value="<?php echo $email; ?>"></div>
                   
                 </div>
                 <div class="row mt-3">

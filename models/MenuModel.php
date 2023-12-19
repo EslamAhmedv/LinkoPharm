@@ -3,7 +3,7 @@ require_once("Model.php");
 
 class MenuModel extends Model {
     
-    public function fetchMenuItems() {
+   public function fetchMenuItems() {
         $sql = "SELECT * FROM menu_items";
         $result = $this->conn->query($sql);
         $menuItems = [];
