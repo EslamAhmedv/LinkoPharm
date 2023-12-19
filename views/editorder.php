@@ -4,17 +4,19 @@ $ordersController = new OrdersController();
 
 // Hold order details
 $orderID = $customerName = $city = $orderDate = $status = $amount = '';
+$updateSuccess = false;
 
 if (isset($_GET['id'])) {
     $orderID = $_GET['id'];
     $order = $ordersController->getOrderById($orderID);
 
     if ($order) {
-        $customerName = $order['customer_name'];
+        $orderID = $order['id'];
+        $customerName = $order['user_name'];
         $city = $order['city'];
         $orderDate = $order['order_date'];
         $status = $order['status'];
-        $amount = $order['amount'];
+        $amount = $order['total_price'];
     } else {
         echo "No order found with this ID";
     }
@@ -23,11 +25,11 @@ if (isset($_GET['id'])) {
 if (isset($_POST['editorder'])) {
     $updateSuccess = $ordersController->updateOrder(
         $_POST['id'],
-        $_POST['customer_name'],
-        $_POST['city'],
+        $_POST['user_name'], 
+        $_POST['city'],      
         $_POST['order_date'],
         $_POST['status'],
-        $_POST['amount']
+        $_POST['total_price']
     );
 
     if ($updateSuccess) {
@@ -65,14 +67,22 @@ if (isset($_POST['editorder'])) {
         <main>
             <h1>Edit Order</h1>
             <div class="addprod">
-                <form class="form" method="POST">
+                <form class="form" method="POST" action="editorder.php?id=<?php echo $orderID; ?>">
                     <h2 class="title">Update an Order</h2>
                     <div class="product-container" style="display: block;">
                         <input type="hidden" name="id" value="<?php echo $orderID; ?>">
 
+                        <input type="hidden" name="userid" value="<?php echo $order['userid']; ?>">
+
                         <div class="input">
-                            <label for="customer_name">Customer Name</label>
-                            <div><input type="text" id="customer_name" name="customer_name" required value="<?php echo $customerName; ?>"></div>
+                            <label for="user_name">Customer Name</label>
+                            <div><input type="text" id="user_name" name="user_name" required value="<?php echo $customerName; ?>"></div>
+                            <span class="errormsg"></span>
+                        </div>
+
+                        <div class="input">
+                            <label for="address">Address</label>
+                            <div><input type="text" id="address" name="address" required value="<?php echo $order['address']; ?>"></div>
                             <span class="errormsg"></span>
                         </div>
 
@@ -95,8 +105,8 @@ if (isset($_POST['editorder'])) {
                         </div>
 
                         <div class="input">
-                            <label for="amount">Total Amount</label>
-                            <div><input type="text" id="amount" name="amount" required value="<?php echo $amount; ?>"></div>
+                            <label for="total_price">Total Amount</label>
+                            <div><input type="text" id="total_price" name="total_price" required value="<?php echo $amount; ?>"></div>
                             <span class="errormsg"></span>
                         </div>
 
@@ -108,7 +118,6 @@ if (isset($_POST['editorder'])) {
                 </form>
             </div>
         </main>
-
     </div>
 </body>
 
