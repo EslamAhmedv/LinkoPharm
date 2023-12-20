@@ -63,4 +63,19 @@ class OrdersModel extends Model
             return false;
         }
     }
+
+    public function getRecentOrders($limit = 3) {
+        $query = "SELECT * FROM orders ORDER BY order_date DESC LIMIT ?";
+        if ($stmt = $this->conn->prepare($query)) {
+            $stmt->bind_param("i", $limit);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            return $result->fetch_all(MYSQLI_ASSOC);
+        } else {
+            error_log("Error preparing statement: " . $this->conn->error);
+        }
+        return [];
+    }
+
+    
 }
