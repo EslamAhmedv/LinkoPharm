@@ -20,22 +20,22 @@ class UserModel extends Model {
         return $result->num_rows > 0;
     }
 
-    public function updatePasswordResetToken($email, $token) {
-        $email = $this->db->real_escape_string($email);
-        $token = $this->db->real_escape_string($token);
+    // public function updatePasswordResetToken($email, $token) {
+    //     $email = $this->db->real_escape_string($email);
+    //     $token = $this->db->real_escape_string($token);
 
-        // Assuming your users table has columns 'email' and 'reset_token'
-        $query = "UPDATE users SET reset_token = '$token' WHERE email = '$email'";
+    //     // Assuming your users table has columns 'email' and 'reset_token'
+    //     $query = "UPDATE users SET reset_token = '$token' WHERE email = '$email'";
 
-        if ($this->db->query($query)) {
-            // Update successful
-            return true;
-        } else {
-            // Update failed
-            echo "Error updating record: " . $this->db->error;
-            return false;
-        }
-    }
+    //     if ($this->db->query($query)) {
+    //         // Update successful
+    //         return true;
+    //     } else {
+    //         // Update failed
+    //         echo "Error updating record: " . $this->db->error;
+    //         return false;
+    //     }
+    // }
 
 
 
@@ -213,6 +213,13 @@ public function updateUserInfo($userId, $newFirstName, $newLastName, $newUsernam
 
 
 
+public function getAdminInfo() {
+    $query = "SELECT * FROM users WHERE role = 'admin' LIMIT 1"; // Assuming 'role' column exists
+    $stmt = $this->conn->prepare($query);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    return $result->fetch_assoc();
+}
 
 
 
