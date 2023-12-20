@@ -19,13 +19,20 @@ class OrdersModel extends Model {
         $stmt = $this->conn->prepare($query);
         return $stmt->execute();
     }
-    
-    public function updateOrder($orderId, $customerName, $city, $orderDate, $status, $amount) {
-        $query = "UPDATE orders SET customer_name = ?, city = ?, order_date = ?, status = ?, amount = ? WHERE id = ?";
+  
+    public function updateOrder($orderId, $username, $city, $orderDate, $status, $total_price) {
+        $query = "UPDATE orders SET user_name = ?, city = ?, order_date = ?, status = ?, total_price = ? WHERE id = ?";
         $stmt = $this->conn->prepare($query);
-        $stmt->bind_param("sssssi", $customerName, $city, $orderDate, $status, $amount, $orderId);
-        return $stmt->execute();
+        if (!$stmt) {
+            error_log("Error preparing statement: " . $this->conn->error);
+            return false;
+        }
+        $stmt->bind_param("ssssdi", $username, $city, $orderDate, $status, $total_price, $orderId);
+        $result = $stmt->execute();
+        $stmt->close();
+        return $result;
     }
+    
 
 
     public function deleteOrder($orderId) {

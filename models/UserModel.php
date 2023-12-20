@@ -214,7 +214,7 @@ public function updateUserInfo($userId, $newFirstName, $newLastName, $newUsernam
 
 
 public function getAdminInfo() {
-    $query = "SELECT * FROM users WHERE role = 'admin' LIMIT 1"; // Assuming 'role' column exists
+    $query = "SELECT * FROM users WHERE role = '1' LIMIT 1"; 
     $stmt = $this->conn->prepare($query);
     $stmt->execute();
     $result = $stmt->get_result();

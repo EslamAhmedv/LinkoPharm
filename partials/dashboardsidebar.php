@@ -28,9 +28,9 @@
                 <a href="displayproducts.php" class="<?php echo ($currentPage === 'displayproducts') ? 'active' : ''; ?>"><span class="material-symbols-sharp">inventory</span>
                     <h3>Products</h3>
                 </a>
-                <a href="" class="<?php echo ($currentPage === 'reports') ? 'active' : ''; ?>"><span class="material-symbols-sharp">report</span>
+                <!-- <a href="" class="<?php echo ($currentPage === 'reports') ? 'active' : ''; ?>"><span class="material-symbols-sharp">report</span>
                     <h3>Reports</h3>
-                </a>
+                </a>-->
                 <a href="" class="<?php echo ($currentPage === 'settings') ? 'active' : ''; ?>"><span class="material-symbols-sharp">Settings</span>
                     <h3>Settings</h3>
                 </a>

@@ -45,7 +45,6 @@ if ($row=$OrdersModel->getOrderID($orderid)) {
 </head>
 <body>
 <div class="hero">
-    <?php include('../partials/navbar.php'); ?>
     <center>
     <div class="container">
         <div class="Left">
