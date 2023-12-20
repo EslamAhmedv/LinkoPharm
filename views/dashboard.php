@@ -11,7 +11,6 @@ $recentOrders = $orderModel->getRecentOrders(3);
 
 
 require_once("../controllers/UserController.php");
-require_once("../models/UserModel.php");
 
 // Create an instance of UserController
 $userController = new UserController();
