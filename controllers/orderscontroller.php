@@ -16,8 +16,6 @@ class OrdersController {
         return $this->ordersModel->addOrder($userid, $username, $phone, $address, $city, $order_date, $status, $total_price);
     }
 
-    
-    
     public function updateOrder($orderId, $customerName, $city, $orderDate, $status, $amount) {
         return $this->ordersModel->updateOrder($orderId, $customerName, $city, $orderDate, $status, $amount);
     }
@@ -33,6 +31,10 @@ class OrdersController {
     public function getOrder($userid) {
         return $this->ordersModel->getOrder($userid);
     }
+
+    public function getOrderID($orderid) {
+        return $this->ordersModel->getOrderID($orderid);
+    }
 }
 
 $ordersController = new OrdersController();
@@ -42,6 +44,13 @@ if (isset($_POST['deleteOrder'])) {
     $ordersController->deleteOrder($orderId);
 }
 ?>
+
+
+
+
+
+
+
 
 
 

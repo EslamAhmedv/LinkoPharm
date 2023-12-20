@@ -187,11 +187,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       if ($user_id != null) {
 
         // create new order model
-        $OrdersModel = new OrdersModel();
+        $OrdersModel = new OrdersController();
         $OrdersModel->addOrder($user_id, $fullName, $Phone, $Address, $City, $orderDate, $status, $gross_total);
 
+        $maxId = null;      
         $row=$OrdersModel->getOrder($user_id);
-        $orderid=$row["id"];
+        foreach ($row as $key) {
+          $orderId1 = $key['id'];
+
+          if ($maxId === null || $orderId1 > $maxId) {
+            $maxId = $orderId1;
+        }
+        }
+        $orderid=$maxId;
+
 
         $orderitems=new OrdersItemsController();
         foreach ($cartProducts as $item) {
@@ -372,6 +381,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+
+
 
 
 

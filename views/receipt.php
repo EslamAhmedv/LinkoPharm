@@ -10,18 +10,27 @@ require_once '../controllers/OrdersController.php';
 $userid = $_SESSION['auth_user']['user_id'] ?? null; 
 
 
-$found=false;
-if ($userid != null) {
-    $OrdersModel = new OrdersModel();
-    if ($row=$OrdersModel->getOrder($userid)) {
-        $orderid=$row["id"];
-        $date=$row["order_date"];
-        $username=$row["user_name"];
-        $address=$row["address"];
-        $orderitems=new OrdersItemsController();
-        $Products = $orderitems->getOrder($orderid);
+$OrdersModel = new OrdersController();
+
+$maxId = null;      
+$row=$OrdersModel->getOrder($userid);
+foreach ($row as $key) {
+    $orderId1 = $key['id'];
+
+    if ($maxId === null || $orderId1 > $maxId) {
+        $maxId = $orderId1;
     }
 }
+$orderid=$maxId;
+
+
+if ($row=$OrdersModel->getOrderID($orderid)) {
+  $date=$row["order_date"];
+  $username=$row["user_name"];
+  $address=$row["address"];
+}
+$orderitems=new OrdersItemsController();
+$Products = $orderitems->getOrder($orderid);
 
 function TotalCalculator($Products)
 {
@@ -119,6 +128,19 @@ function TaxCalculator($totalPrice)
 
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
