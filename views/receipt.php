@@ -9,9 +9,12 @@ require_once '../controllers/OrdersController.php';
 // Set user ID in session and assign it to a variable
 $userid = $_SESSION['auth_user']['user_id'] ?? null; 
 
+if ($userid != null) {
 
+// Create order object
 $OrdersModel = new OrdersController();
 
+// Get last order id
 $maxId = null;      
 $row=$OrdersModel->getOrder($userid);
 foreach ($row as $key) {
@@ -21,17 +24,24 @@ foreach ($row as $key) {
         $maxId = $orderId1;
     }
 }
+
+// Set last order id
 $orderid=$maxId;
 
-
+// Get last order data
 if ($row=$OrdersModel->getOrderID($orderid)) {
   $date=$row["order_date"];
   $username=$row["user_name"];
   $address=$row["address"];
 }
-$orderitems=new OrdersItemsController();
-$Products = $orderitems->getOrder($orderid);
 
+// Create order's items object for last order
+$orderitems=new OrdersItemsController();
+
+// Get last order's items
+$Products = $orderitems->getOrder($orderid);
+}
+//Calculate last order's total price
 function TotalCalculator($Products)
 {
   $totalPrice = 0;
@@ -41,6 +51,7 @@ function TotalCalculator($Products)
   return $totalPrice;
 }
 
+//Calculate last order's taxes
 function TaxCalculator($totalPrice)
 {
   $sales_tax = $totalPrice * 0.14;
@@ -115,7 +126,10 @@ function TaxCalculator($totalPrice)
     </tbody>
     </table>    
     ';
-}
+    }
+    else{
+      echo '<h1> No receipt for you... </h1>';
+    }
 ?>
     <center>
     <a href="index.php">
