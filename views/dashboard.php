@@ -1,121 +1,80 @@
+<?php
+require_once("../models/UserModel.php");
+$userModel = new UserModel();
+$adminInfo = $userModel->getAdminInfo();
+$totalUsers = $userModel->getTotalUsers();
+require_once("../models/ordersmodel.php");
+$orderModel = new ordersmodel();
+$recentOrders = $orderModel->getRecentOrders(3);
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp" />
     <link rel="stylesheet" href="../public/css/dashboard.css">
-        <title>Admin Dashboard</title>
+    <title>Admin Dashboard</title>
 </head>
+
 <body>
-   
-<div class="container">
-<aside>
-<?php
-$currentPage = 'dashboard'; 
-include('../partials/dashboardsidebar.php');
-?>
-    </aside>
+
+    <div class="container">
+        <aside>
+            <?php
+            $currentPage = 'dashboard';
+            include('../partials/dashboardsidebar.php');
+            ?>
+        </aside>
 
         <main>
             <h1>Dashboard</h1>
             <div class="date">
                 <input type="date">
             </div>
-            <div class="insights">
 
-                <div class="sales">
-                    <span class="material-symbols-sharp">analytics</span>
-                    <div class="middle">
-                        <div class="left">
-                            <h3>Total Sales</h3>
-                            <h1>$10,000</h1>
-                        </div>
-                        <div class="progress">
-                            <svg>
-                                <!-- <circle cx="50" cy="50" r="40" stroke="green" stroke-width="4" fill="yellow" /> -->
-                                <circle cx='38' cy='38' r='36'></circle>
-                            </svg>
-
-                            <div class="number">
-                                <p>80%</p>
-                            </div>
-                        </div>
-                    </div>
-                    <small class="text-muted">Last 24 Hours</small>
-                </div>
-                <!-- end of sales -->
-                <div class="expenses">
-                    <span class="material-symbols-sharp">bar_chart</span>
-                    <div class="middle">
-                        <div class="left">
-                            <h3>Total Expenses</h3>
-                            <h1>$4,000</h1>
-                        </div>
-                        <div class="progress">
-                            <svg>
-                                <circle cx='38' cy='38' r='36'></circle>
-                            </svg>
-
-                            <div class="number">
-                                <p>60%</p>
-                            </div>
-                        </div>
-                    </div>
-                    <small class="text-muted">Last 24 Hours</small>
-                </div>
-                <!-- end of expenses -->
-
-                <div class="income">
-                    <span class="material-symbols-sharp">stacked_line_chart</span>
-                    <div class="middle">
-                        <div class="left">
-                            <h3>Total Sales</h3>
-                            <h1>$6,000</h1>
-                        </div>
-                        <div class="progress">
-                            <svg>
-                                <circle cx='38' cy='38' r='36'></circle>
-                            </svg>
-
-                            <div class="number">
-                                <p>40%</p>
-                            </div>
-                        </div>
-                    </div>
-                    <small class="text-muted">Last 24 Hours</small>
-                </div>
-                <!-- end of income -->
+            <div class="employer-info">
+                <h2>Admin Information</h2>
+                <p>Name: <?php echo $adminInfo['firstname'] . ' ' . $adminInfo['lastname']; ?></p>
+                <p>Email: <?php echo $adminInfo['email']; ?></p>
             </div>
-
-            <!-- end of insights -->
 
             <div class="recent-orders">
                 <h2>Recent Orders</h2>
                 <table>
                     <thead>
                         <tr>
-                            <th>Product Name</th>
-                            <th>Product Number</th>
-                            <th>Payment</th>
+                            <th>Order ID</th>
+                            <th>Customer Name</th>
+                            <th>City</th>
+                            <th>Order Date</th>
                             <th>Status</th>
-                            <th></th>
+                            <th>Total Price</th>
+                            <th>Details</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            
-                        </tr>
-                        <tr>
-                           
-                        </tr>
-                        <tr>
-                            
-                        </tr>
+                        <?php foreach ($recentOrders as $order) : ?>
+                            <tr>
+                                <td><?php echo htmlspecialchars($order['id']); ?></td>
+                                <td><?php echo htmlspecialchars($order['user_name']); ?></td>
+                                <td><?php echo htmlspecialchars($order['city']); ?></td>
+                                <td><?php echo htmlspecialchars($order['order_date']); ?></td>
+                                <td><?php echo htmlspecialchars($order['status']); ?></td>
+                                <td><?php echo htmlspecialchars($order['total_price']); ?></td>
+                                <td class="primary">
+                                    <a href="editorder.php?order_id=<?php echo urlencode($order['id']); ?>">Details</a>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
                     </tbody>
                 </table>
-                <a href="">Show All</a>
+                <a href="orderdash.php">Show All</a>
             </div>
+
         </main>
         <!-- end of main -->
 
@@ -130,88 +89,48 @@ include('../partials/dashboardsidebar.php');
                 </div>
                 <div class="profile">
                     <div class="info">
-                        <p>Hey, <b>Eslam</b> </p>
+                        <p>Hey, <b><?php echo htmlspecialchars($adminInfo['firstname']); ?></b></p>
                         <small class="text-muted">Admin</small>
+
                     </div>
                     <div class="profile-photo">
 
-<!-- 3lshan ahot profile pic ba3den -->
+                        <!-- 3lshan ahot profile pic ba3den -->
 
-                </div>
+                    </div>
                 </div>
             </div>
             <!-- end of top -->
 
 
-            <div class="recent-updates">
-                <h2>Recent Updates</h2>
-                <div class="updates">
-                    <div class="update">
-                        <div class="message">
-                            <p><b>Habiba</b> received the order</p>
-                            <small class="text-muted">2 Hours ago</small>
-                        </div>
-                    </div>
-                    <div class="update">
-                        <div class="message">
-                            <p><b>Omar</b> received the order</p>
-                            <small class="text-muted">4 Days ago</small>
-                        </div>
-                    </div>
-                    <div class="update">
-                        <div class="message">
-                            <p><b>Hajar</b> received the order</p>
-                            <small class="text-muted">3 Days ago</small>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-            <!-- end of recent updates -->
+
+            <div class="left">
+                <h2 class="customers-title">Total number of customers</h2>
+                <h1 class="total-customers"><?php echo htmlspecialchars($totalUsers); ?></h1>
+            </div>
 
 
             <div class="sales-analytics">
-                <h2>Sales Analytics</h2>
-                <div class="item online">
-                    <div class="icon"><span class="material-symbols-sharp">shopping_cart</span></div>
-                    <div class="right">
-                        <div class="info">
-                            <h3>ONLINE ORDERS</h3>
-                            <small class="text-muted">Last 24 Hours</small>
-                        </div>
-                        <h5 class="success">+40%</h5>
-                        <h3>215</h3>
-                    </div>
-                </div>
-
-                <!-- <div class="item offline">
-                    <div class="icon"><span class="material-symbols-sharp">local_mall</span></div>
-                    <div class="right">
-                        <div class="info">
-                            <h3>OFFLINE ORDERS</h3>
-                            <small class="text-muted">Last 24 Hours</small>
-                        </div>
-                        <h5 class="danger">-17%</h5>
-                        <h3>1100</h3>
-                    </div>
-                </div> -->
-
                 <div class="item customers">
                     <div class="icon"><span class="material-symbols-sharp">person</span></div>
                     <div class="right">
                         <div class="info">
-                            <h3>New CUSTOMERS</h3>
-                            <small class="text-muted">Last 24 Hours</small>
+                            <a href="custdash.php">
+                                <h3>Check New CUSTOMERS</h3>
+                            </a>
                         </div>
-                        <h5 class="success">+25%</h5>
-                        <h3>345</h3>
                     </div>
                 </div>
+
+
+
+
 
                 <div class="item add-product">
                     <div>
                         <span class="material-symbols-sharp">add</span>
-                       <a href="editproducts.html">Add Product</a>
+                        <a href="editproducts.html">Add Product</a>
                     </div>
                 </div>
 
@@ -222,12 +141,13 @@ include('../partials/dashboardsidebar.php');
     <script>
         const themeToggler = document.querySelector(".theme-toggler");
 
-//shaghal l darkmode
-themeToggler.addEventListener('click', () =>{
-    document.body.classList.toggle('dark-theme-variables');
-    themeToggler.querySelector('span:nth-child(1)').classList.toggle('active');
-    themeToggler.querySelector('span:nth-child(2)').classList.toggle('active');
-})
+        //shaghal l darkmode
+        themeToggler.addEventListener('click', () => {
+            document.body.classList.toggle('dark-theme-variables');
+            themeToggler.querySelector('span:nth-child(1)').classList.toggle('active');
+            themeToggler.querySelector('span:nth-child(2)').classList.toggle('active');
+        })
     </script>
 </body>
+
 </html>

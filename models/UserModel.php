@@ -221,7 +221,16 @@ public function getAdminInfo() {
     return $result->fetch_assoc();
 }
 
-
+public function getTotalUsers() {
+    $query = "SELECT COUNT(*) as total FROM users"; 
+    $result = $this->conn->query($query);
+    if ($result) {
+        $row = $result->fetch_assoc();
+        return $row['total'];
+    } else {
+        return 0; 
+    }
+}
 
 
 }
