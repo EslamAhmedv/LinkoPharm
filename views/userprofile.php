@@ -197,4 +197,7 @@ if (isset($_GET['alert']) && isset($_GET['message'])) {
     </div>
 </div>
 </div>
-</div>   </body>
+</div>     <?php
+  include('../partials/footer.php');
+  // include('../partials/chat.php'); 
+  ?>  </body>

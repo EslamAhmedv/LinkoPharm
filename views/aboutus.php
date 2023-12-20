@@ -39,5 +39,9 @@
     </div>
   </div>
 </div>
+<?php
+  include('../partials/footer.php');
+  // include('../partials/chat.php'); 
+  ?>
 </body>
 </html>
