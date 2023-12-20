@@ -74,11 +74,11 @@ include('../partials/navbar.php'); ?>
 			<input type="text" id="inputfname" name="firstname" placeholder="Firstname" size="15" />
 			<div id='fname' class='err'></div>
 			<!-- <label> <b>Middlename:</b> </label> -->
-			<input type="text" id="inputmname" name="lastname" placeholder="Middlename" size="15" />
+			<input type="text" id="inputmname" name="lastname" placeholder="Lastname" size="15" />
 			<div id='mname' class='err'></div>
 
 			<!-- <label> <b>Lastname</b>: </label> -->
-			<input type="text" id="inputlname" name="username" placeholder="Lastname" size="15" />
+			<input type="text" id="inputlname" name="username" placeholder="Username" size="15" />
 			<div id='lname' class='err'></div>
 
 

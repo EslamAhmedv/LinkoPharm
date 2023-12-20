@@ -7,11 +7,14 @@ require_once '../controllers/ordersController.php';
 require_once '../models/ordersmodel.php'; 
 
 // Set user ID in session and assign it to a variable
-$userid = $_SESSION['auth_user']['user_id'] ?? 0; 
+$userid = $_SESSION['auth_user']['user_id'] ?? null; 
 
-// create new order model
+$found=false;
+if ($userid != null) {
+// create new order object
 $OrdersModel = new OrdersController();
 
+// Get last order id
 $maxId = null;      
 $row=$OrdersModel->getOrder($userid);
 foreach ($row as $key) {
@@ -21,9 +24,11 @@ foreach ($row as $key) {
         $maxId = $orderId1;
     }
 }
+
+// Set last order id
 $orderid=$maxId;
 
-
+// Get last order data
 if ($row=$OrdersModel->getOrderID($orderid)) {
     $user_name=$row["user_name"];
     $city=$row["city"];
@@ -32,7 +37,8 @@ if ($row=$OrdersModel->getOrderID($orderid)) {
     $status=$row["status"];
     $total_price=$row["total_price"];
 }
-
+$found=true;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -47,12 +53,14 @@ if ($row=$OrdersModel->getOrderID($orderid)) {
 <div class="hero">
     <center>
     <div class="container">
+    <?php if ($found != false) {
+    echo '
         <div class="Left">
             <img class="check" src="../public/images/checked (1).png" alt="">
-            <p class="message">Thank you, <?php echo $user_name?> for your order!</p>
+            <p class="message">Thank you, '.$user_name.' for your order!</p>
             <p class="message1">Your order will be delivered within 1 day of your purchase</p>
             <p class="message3">Your order number is</p>
-            <p class="order_number">#<?php echo $orderid?></p>
+            <p class="order_number">#'.$orderid.'</p>
             <a href="index.php">
             <button>
                 <span>Continue Shopping</span>
@@ -68,34 +76,45 @@ if ($row=$OrdersModel->getOrderID($orderid)) {
             <table style="width:100%">
             <tr>
                 <td class="th">Name:</td>
-                <td><?php echo $user_name?></td>
+                <td>'.$user_name.'</td>
             </tr>
             <tr>
                 <td class="th">Order date:</td>
-                <td><?php echo $order_date?></td>
+                <td>'.$order_date.'</td>
             </tr>
             <tr>
                 <td class="th">City:</td>
-                <td><?php echo $city?></td>
+                <td>'.$city.'</td>
             </tr>
             <tr>
                 <td class="th">Address:</td>
-                <td><?php echo $address?></td>
+                <td>'.$address.'</td>
             </tr>
             <tr>
                 <td class="th">Status:</td>
-                <td><?php echo $status?></td>
+                <td>'.$status.'</td>
             </tr>
             <tr>
                 <td class="th">Total price:</td>
-                <td><?php echo $total_price?></td>
+                <td>'.$total_price.'</td>
             </tr>
             <tr>
                 <td class="th">Payment:</td>
                 <td>Visa</td>
             </tr>
         </table>
-        </div>
+        </div>';
+    }
+    else {
+        echo '<h1> No placed order for you... </h1><br>
+        <a href="index.php">
+        <button>
+            <span>Continue Shopping</span>
+        </button>
+        </a>
+        ';
+    }
+        ?>
     </div>
     </center>
     <br>

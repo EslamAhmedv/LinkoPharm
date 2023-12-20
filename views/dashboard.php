@@ -6,6 +6,34 @@ $totalUsers = $userModel->getTotalUsers();
 require_once("../models/ordersmodel.php");
 $orderModel = new ordersmodel();
 $recentOrders = $orderModel->getRecentOrders(3);
+
+
+
+
+require_once("../controllers/UserController.php");
+
+// Create an instance of UserController
+$userController = new UserController();
+$isUserLoggedIn = isset($_SESSION['authenticated']) && $_SESSION['authenticated'] === true;
+// Check if the user is logged in
+if (!$isUserLoggedIn) {
+    // If not logged in, redirect to the login page
+    header("Location: login.php");
+    exit();
+}
+
+// Get the user's ID
+$userId = $_SESSION['auth_user']['user_id'];
+
+// Get the user's role
+$userRole = $userController->getUserRole($userId);
+
+// Check if the user's role is not 1 (admin)
+if ($userRole !== 1) {
+    // If the user is not an admin, redirect to the homepage or another page
+    header("Location: index.php");
+    exit();
+}
 ?>
 
 
